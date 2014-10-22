@@ -10,16 +10,32 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    var topStories: NSArray? = nil;
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        retrieveTopStories();
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+
     }
 
+    func retrieveTopStories()
+    {
+        var topStoriesRef = Firebase(url:"https://hacker-news.firebaseio.com/v0/topstories")
+        
+        topStoriesRef.observeSingleEventOfType(.Value, withBlock: { snapshot in
+            
+            self.topStories = snapshot.value as? NSArray
+            println(self.topStories)
+            
+            }, withCancelBlock: { error in
+                println(error.description)
+        })
+    }
 
 }
 
