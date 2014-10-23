@@ -10,8 +10,18 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    var topStories: NSArray? = nil;
-    var detailedStories = [String: NSDictionary]();
+    var topStories: NSArray? = nil
+    var detailedStories = [String: NSDictionary]()
+    
+    var pendingDownloads: Int = 0 {
+        didSet {
+            if (pendingDownloads == 0){
+                println("All data is ready")
+                println("Total stories: \(self.detailedStories.count)")
+                println("Detailed stories: \(self.detailedStories)")
+            }
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,8 +65,7 @@ class ViewController: UIViewController {
             let key: AnyObject? = details["id"]
 
             self.detailedStories[("\(key)")] = details
-            
-            println("Total stories: \(self.detailedStories.count)")
+            self.pendingDownloads--
             
             }, withCancelBlock: { error in
                 println(error.description)
@@ -67,6 +76,7 @@ class ViewController: UIViewController {
     func retrieveStories(startingIndex from:Int, endingIndex to:Int)
     {
         assert(from <= to, "From should be less than To")
+        self.pendingDownloads = to-from
         if (self.topStories == nil)
         {
             return;
