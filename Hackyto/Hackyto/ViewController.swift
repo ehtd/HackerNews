@@ -11,6 +11,7 @@ import UIKit
 class ViewController: UIViewController {
 
     var topStories: NSArray? = nil;
+    var detailedStories = [String: NSDictionary]();
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,11 +31,44 @@ class ViewController: UIViewController {
         topStoriesRef.observeSingleEventOfType(.Value, withBlock: { snapshot in
             
             self.topStories = snapshot.value as? NSArray
-            println(self.topStories)
+            
+            if (self.topStories != nil && self.topStories?.count > 0){
+                
+                let firstObject: AnyObject = self.topStories!.objectAtIndex(0)
+                
+                let itemId = ("\(firstObject)")
+
+                self.retrieveStoryWithId(itemId)
+                
+            }
             
             }, withCancelBlock: { error in
                 println(error.description)
         })
+    }
+    
+    func retrieveStoryWithId(storyId: String!)
+    {
+        println(storyId)
+        
+        var itemURL = "https://hacker-news.firebaseio.com/v0/item/" + storyId
+        var storyRef = Firebase(url:itemURL)
+        
+        storyRef.observeSingleEventOfType(.Value, withBlock: { snapshot in
+            
+            var details = snapshot.value as NSDictionary
+            println(details)
+            
+            let key: AnyObject? = details["id"]
+
+            self.detailedStories[("\(key)")] = details
+            
+            println(self.detailedStories)
+            
+            }, withCancelBlock: { error in
+                println(error.description)
+        })
+        
     }
 
 }
