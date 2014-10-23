@@ -16,6 +16,7 @@ class ViewController: UIViewController {
     var pendingDownloads: Int = 0 {
         didSet {
             if (pendingDownloads == 0){
+                self.hud?.hide(true)
                 println("All data is ready")
                 println("Total stories: \(self.detailedStories.count)")
                 println("Detailed stories: \(self.detailedStories)")
@@ -23,8 +24,13 @@ class ViewController: UIViewController {
         }
     }
     
+    var hud: MBProgressHUD? = nil
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.hud = MBProgressHUD.showHUDAddedTo(self.view, animated: true)
+        self.hud?.mode = MBProgressHUDModeIndeterminate
         
         retrieveTopStories();
     }
@@ -49,6 +55,7 @@ class ViewController: UIViewController {
             }
             
             }, withCancelBlock: { error in
+                self.hud?.hide(true)
                 println(error.description)
         })
     }

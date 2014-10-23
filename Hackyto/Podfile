@@ -5,6 +5,7 @@ source 'https://github.com/CocoaPods/Specs.git'
 
 target 'Hackyto' do
     pod 'Firebase', '>= 1.2.2'
+    pod 'MBProgressHUD', '~> 0.9'
 end
 
 target 'HackytoTests' do
