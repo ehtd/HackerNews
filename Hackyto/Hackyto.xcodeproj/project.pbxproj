@@ -14,6 +14,7 @@
 		29D1E60E19F8254000B3E237 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 29D1E60C19F8254000B3E237 /* LaunchScreen.xib */; };
 		29D1E61A19F8254000B3E237 /* HackytoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29D1E61919F8254000B3E237 /* HackytoTests.swift */; };
 		29D37A4819FE97E500991577 /* StoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29D37A4719FE97E500991577 /* StoryCell.swift */; };
+		29D37A4C19FEF8E200991577 /* ETLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29D37A4B19FEF8E200991577 /* ETLabel.swift */; };
 		DCCB3C91BFF3E714EDADEBCE /* libPods-Hackyto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FAF6BDD14A66A1730DE9096 /* libPods-Hackyto.a */; };
 /* End PBXBuildFile section */
 
@@ -42,6 +43,7 @@
 		29D1E61919F8254000B3E237 /* HackytoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HackytoTests.swift; sourceTree = "<group>"; };
 		29D1E62319F8277200B3E237 /* Bridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bridge.h; sourceTree = "<group>"; };
 		29D37A4719FE97E500991577 /* StoryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StoryCell.swift; path = Views/StoryCell.swift; sourceTree = "<group>"; };
+		29D37A4B19FEF8E200991577 /* ETLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ETLabel.swift; path = Views/ETLabel.swift; sourceTree = "<group>"; };
 		6FAF6BDD14A66A1730DE9096 /* libPods-Hackyto.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Hackyto.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -128,6 +130,7 @@
 			isa = PBXGroup;
 			children = (
 				29D37A4719FE97E500991577 /* StoryCell.swift */,
+				29D37A4B19FEF8E200991577 /* ETLabel.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -285,6 +288,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				29D1E60619F8253F00B3E237 /* TableController.swift in Sources */,
+				29D37A4C19FEF8E200991577 /* ETLabel.swift in Sources */,
 				29D1E60419F8253F00B3E237 /* AppDelegate.swift in Sources */,
 				29D37A4819FE97E500991577 /* StoryCell.swift in Sources */,
 			);

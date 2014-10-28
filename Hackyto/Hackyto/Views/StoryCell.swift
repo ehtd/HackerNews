@@ -10,8 +10,8 @@ import UIKit
 
 class StoryCell: UITableViewCell {
 
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var authorLabel: UILabel!
+    @IBOutlet weak var titleLabel: ETLabel!
+    @IBOutlet weak var authorLabel: ETLabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
