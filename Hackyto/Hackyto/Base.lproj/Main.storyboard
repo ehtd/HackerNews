@@ -61,7 +61,7 @@
                                 <connections>
                                     <outlet property="authorLabel" destination="fYo-mK-uDG" id="92M-64-HRh"/>
                                     <outlet property="titleLabel" destination="wrM-0b-ies" id="DXU-1p-nV6"/>
-                                    <segue destination="Jop-L6-uKA" kind="show" id="BAT-Mf-aKA"/>
+                                    <segue destination="Jop-L6-uKA" kind="show" identifier="webSegue" id="BAT-Mf-aKA"/>
                                 </connections>
                             </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="6hR-r5-7sn">
@@ -83,10 +83,10 @@
             </objects>
             <point key="canvasLocation" x="423" y="630"/>
         </scene>
-        <!--View Controller-->
+        <!--Web View Controller-->
         <scene sceneID="f8A-8w-EuT">
             <objects>
-                <viewController id="Jop-L6-uKA" sceneMemberID="viewController">
+                <viewController id="Jop-L6-uKA" customClass="WebViewController" customModule="Hackyto" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="QEk-QE-acP"/>
                         <viewControllerLayoutGuide type="bottom" id="ifh-1T-wWy"/>
@@ -95,13 +95,22 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <webView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="exi-1h-CCS">
+                            <webView contentMode="scaleToFill" scalesPageToFit="YES" translatesAutoresizingMaskIntoConstraints="NO" id="exi-1h-CCS">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
                                 <color key="backgroundColor" red="0.086274512110000007" green="0.086274512110000007" blue="0.090196080509999998" alpha="1" colorSpace="deviceRGB"/>
                             </webView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="exi-1h-CCS" firstAttribute="leading" secondItem="viZ-TH-qPt" secondAttribute="leadingMargin" constant="-16" id="F8U-bx-CAC"/>
+                            <constraint firstItem="exi-1h-CCS" firstAttribute="top" secondItem="QEk-QE-acP" secondAttribute="bottom" id="I4x-zJ-W4H"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="exi-1h-CCS" secondAttribute="trailing" constant="-16" id="bid-LE-HbS"/>
+                            <constraint firstItem="ifh-1T-wWy" firstAttribute="top" secondItem="exi-1h-CCS" secondAttribute="bottom" id="kXg-N3-jxN"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="webView" destination="exi-1h-CCS" id="61D-7K-pb4"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yaK-x5-QCV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

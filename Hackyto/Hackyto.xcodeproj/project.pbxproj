@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		29578F281A014F1400601218 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29578F271A014F1400601218 /* WebViewController.swift */; };
 		29D1E60419F8253F00B3E237 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29D1E60319F8253F00B3E237 /* AppDelegate.swift */; };
 		29D1E60619F8253F00B3E237 /* TableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29D1E60519F8253F00B3E237 /* TableController.swift */; };
 		29D1E60919F8253F00B3E237 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 29D1E60719F8253F00B3E237 /* Main.storyboard */; };
@@ -31,6 +32,7 @@
 /* Begin PBXFileReference section */
 		00F6DA9EFDF55FF76BA41EB6 /* Pods-Hackyto.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hackyto.release.xcconfig"; path = "Pods/Target Support Files/Pods-Hackyto/Pods-Hackyto.release.xcconfig"; sourceTree = "<group>"; };
 		037D422834E69B146E3B85E3 /* Pods-Hackyto.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hackyto.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Hackyto/Pods-Hackyto.debug.xcconfig"; sourceTree = "<group>"; };
+		29578F271A014F1400601218 /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WebViewController.swift; path = Controllers/WebViewController.swift; sourceTree = "<group>"; };
 		29D1E5FE19F8253F00B3E237 /* Hackyto.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hackyto.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		29D1E60219F8253F00B3E237 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		29D1E60319F8253F00B3E237 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -66,6 +68,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		29578F261A014EEE00601218 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				29578F271A014F1400601218 /* WebViewController.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
 		29D1E5F519F8253F00B3E237 = {
 			isa = PBXGroup;
 			children = (
@@ -89,6 +99,7 @@
 		29D1E60019F8253F00B3E237 /* Hackyto */ = {
 			isa = PBXGroup;
 			children = (
+				29578F261A014EEE00601218 /* Controllers */,
 				29D37A4619FE97B400991577 /* Views */,
 				29D1E62319F8277200B3E237 /* Bridge.h */,
 				29D1E60319F8253F00B3E237 /* AppDelegate.swift */,
@@ -290,6 +301,7 @@
 				29D1E60619F8253F00B3E237 /* TableController.swift in Sources */,
 				29D37A4C19FEF8E200991577 /* ETLabel.swift in Sources */,
 				29D1E60419F8253F00B3E237 /* AppDelegate.swift in Sources */,
+				29578F281A014F1400601218 /* WebViewController.swift in Sources */,
 				29D37A4819FE97E500991577 /* StoryCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

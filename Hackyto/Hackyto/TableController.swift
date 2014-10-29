@@ -153,6 +153,26 @@ class TableController: UITableViewController, UITableViewDelegate, UITableViewDa
         
     }
     
+    // MARK: Segue
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        var indexPath = tableView.indexPathForSelectedRow()
+        var index: Int = indexPath!.row
+        var storyId: AnyObject = topStories!.objectAtIndex(index)
+        
+        let key = "\(storyId)"
+        var story = detailedStories[key]
+        
+        let url: String? = story?.objectForKey("url") as? String
+        println(url)
+        
+        if url != nil {
+            var controller = segue.destinationViewController as WebViewController
+            controller.url = url
+        }
 
+    }
+    
 }
 
