@@ -102,9 +102,9 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="exi-1h-CCS" firstAttribute="leading" secondItem="viZ-TH-qPt" secondAttribute="leadingMargin" constant="-16" id="F8U-bx-CAC"/>
+                            <constraint firstItem="exi-1h-CCS" firstAttribute="leading" secondItem="viZ-TH-qPt" secondAttribute="leading" id="F8U-bx-CAC"/>
                             <constraint firstItem="exi-1h-CCS" firstAttribute="top" secondItem="QEk-QE-acP" secondAttribute="bottom" id="I4x-zJ-W4H"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="exi-1h-CCS" secondAttribute="trailing" constant="-16" id="bid-LE-HbS"/>
+                            <constraint firstAttribute="trailing" secondItem="exi-1h-CCS" secondAttribute="trailing" id="bid-LE-HbS"/>
                             <constraint firstItem="ifh-1T-wWy" firstAttribute="top" secondItem="exi-1h-CCS" secondAttribute="bottom" id="kXg-N3-jxN"/>
                         </constraints>
                     </view>
