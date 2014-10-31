@@ -7,12 +7,14 @@
 //
 
 import UIKit
+import MessageUI
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
+    var globalMailComposer: MFMailComposeViewController? = nil
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
@@ -43,5 +45,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
 
+    func composer() -> MFMailComposeViewController?{
+        
+        if MFMailComposeViewController.canSendMail() {
+            globalMailComposer = nil
+            globalMailComposer = MFMailComposeViewController()
+            return globalMailComposer
+        }
+        
+        return nil
+
+    }
 }
 

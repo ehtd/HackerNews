@@ -163,14 +163,11 @@ class TableController: UITableViewController, UITableViewDelegate, UITableViewDa
         
         let key = "\(storyId)"
         var story = detailedStories[key]
-        
-        let url: String? = story?.objectForKey("url") as? String
-        println(url)
-        
-        if url != nil {
-            var controller = segue.destinationViewController as WebViewController
-            controller.url = url
-        }
+
+
+        var controller = segue.destinationViewController as WebViewController
+        controller.story = story
+
 
     }
     

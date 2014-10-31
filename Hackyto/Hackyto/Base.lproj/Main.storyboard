@@ -96,7 +96,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <webView contentMode="scaleToFill" scalesPageToFit="YES" translatesAutoresizingMaskIntoConstraints="NO" id="exi-1h-CCS">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="492"/>
                                 <color key="backgroundColor" red="0.086274512110000007" green="0.086274512110000007" blue="0.090196080509999998" alpha="1" colorSpace="deviceRGB"/>
                             </webView>
                         </subviews>
@@ -108,6 +108,15 @@
                             <constraint firstItem="ifh-1T-wWy" firstAttribute="top" secondItem="exi-1h-CCS" secondAttribute="bottom" id="kXg-N3-jxN"/>
                         </constraints>
                     </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="xPe-st-s8Z">
+                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="7e2-Wx-3gc">
+                            <connections>
+                                <action selector="openComposer" destination="Jop-L6-uKA" id="E6a-Bi-QKu"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="webView" destination="exi-1h-CCS" id="61D-7K-pb4"/>
                     </connections>

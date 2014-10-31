@@ -16,6 +16,7 @@
 		29D1E61A19F8254000B3E237 /* HackytoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29D1E61919F8254000B3E237 /* HackytoTests.swift */; };
 		29D37A4819FE97E500991577 /* StoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29D37A4719FE97E500991577 /* StoryCell.swift */; };
 		29D37A4C19FEF8E200991577 /* ETLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29D37A4B19FEF8E200991577 /* ETLabel.swift */; };
+		29DC679C1A02FCD2008391DD /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29DC679B1A02FCD2008391DD /* MessageUI.framework */; };
 		DCCB3C91BFF3E714EDADEBCE /* libPods-Hackyto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FAF6BDD14A66A1730DE9096 /* libPods-Hackyto.a */; };
 /* End PBXBuildFile section */
 
@@ -46,6 +47,7 @@
 		29D1E62319F8277200B3E237 /* Bridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bridge.h; sourceTree = "<group>"; };
 		29D37A4719FE97E500991577 /* StoryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StoryCell.swift; path = Views/StoryCell.swift; sourceTree = "<group>"; };
 		29D37A4B19FEF8E200991577 /* ETLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ETLabel.swift; path = Views/ETLabel.swift; sourceTree = "<group>"; };
+		29DC679B1A02FCD2008391DD /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		6FAF6BDD14A66A1730DE9096 /* libPods-Hackyto.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Hackyto.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -54,6 +56,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				29DC679C1A02FCD2008391DD /* MessageUI.framework in Frameworks */,
 				DCCB3C91BFF3E714EDADEBCE /* libPods-Hackyto.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -158,6 +161,7 @@
 		870B885F33B54FC509EE9D67 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				29DC679B1A02FCD2008391DD /* MessageUI.framework */,
 				6FAF6BDD14A66A1730DE9096 /* libPods-Hackyto.a */,
 			);
 			name = Frameworks;
@@ -214,6 +218,7 @@
 				TargetAttributes = {
 					29D1E5FD19F8253F00B3E237 = {
 						CreatedOnToolsVersion = 6.0.1;
+						DevelopmentTeam = X3M2VGZ3X9;
 					};
 					29D1E61219F8254000B3E237 = {
 						CreatedOnToolsVersion = 6.0.1;
@@ -428,8 +433,9 @@
 			baseConfigurationReference = 037D422834E69B146E3B85E3 /* Pods-Hackyto.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = Hackyto/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = Hackyto/Bridge.h;
@@ -442,8 +448,9 @@
 			baseConfigurationReference = 00F6DA9EFDF55FF76BA41EB6 /* Pods-Hackyto.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = Hackyto/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = Hackyto/Bridge.h;
