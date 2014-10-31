@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Refresher
 
 class TableController: UITableViewController, UITableViewDelegate, UITableViewDataSource {
 
@@ -14,21 +15,22 @@ class TableController: UITableViewController, UITableViewDelegate, UITableViewDa
     var detailedStories = [String: NSDictionary]()
     var offscreenCells: NSDictionary!
     var cellIdentifier = "StoryCell"
-    
+
     var pendingDownloads: Int = 0 {
         didSet {
-            println(pendingDownloads)
+//            println(pendingDownloads)
             if (pendingDownloads == 0){
-                self.hud?.hide(true)
+                NSOperationQueue.mainQueue().addOperationWithBlock {
+                    self.tableView.stopPullToRefresh()
+                }
                 println("All data is ready")
                 println("Total stories: \(self.detailedStories.count)")
 //                println("Detailed stories: \(self.detailedStories)")
                 self.tableView.reloadData()
+                
             }
         }
     }
-    
-    var hud: MBProgressHUD? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,13 +41,24 @@ class TableController: UITableViewController, UITableViewDelegate, UITableViewDa
         tableView.separatorColor = UIColor.clearColor()
         tableView.separatorStyle = UITableViewCellSeparatorStyle.None
         tableView.estimatedRowHeight = 89
+        tableView.rowHeight = UITableViewAutomaticDimension
         
-        self.hud = MBProgressHUD.showHUDAddedTo(self.view, animated: true)
-        self.hud?.mode = MBProgressHUDModeIndeterminate
+        tableView.addPullToRefreshWithAction({
+            NSOperationQueue().addOperationWithBlock {
+                
+                self.retrieveTopStories();
+
+            }
+            }, withAnimator: BeatAnimator())
         
-        retrieveTopStories();
+        
+        self.tableView.startPullToRefresh()
     }
 
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
 
@@ -53,6 +66,8 @@ class TableController: UITableViewController, UITableViewDelegate, UITableViewDa
 
     func retrieveTopStories()
     {
+
+        println("R")
         var topStoriesRef = Firebase(url:"https://hacker-news.firebaseio.com/v0/topstories")
         
         topStoriesRef.observeSingleEventOfType(.Value, withBlock: { snapshot in
@@ -66,7 +81,9 @@ class TableController: UITableViewController, UITableViewDelegate, UITableViewDa
             }
             
             }, withCancelBlock: { error in
-                self.hud?.hide(true)
+                NSOperationQueue.mainQueue().addOperationWithBlock {
+                    self.tableView.stopPullToRefresh()
+                }
                 println(error.description)
         })
     }
@@ -131,6 +148,9 @@ class TableController: UITableViewController, UITableViewDelegate, UITableViewDa
         var cell:StoryCell = self.tableView.dequeueReusableCellWithIdentifier(cellIdentifier) as StoryCell
         self.configureBasicCell(cell, indexPath: indexPath)
 
+        //Seems sometimes the cell didn't update its height. Use to layout again.
+        cell.layoutIfNeeded();
+        
         return cell
     }
     
@@ -171,5 +191,8 @@ class TableController: UITableViewController, UITableViewDelegate, UITableViewDa
 
     }
     
+    // MARK: Refresher
+    
+//    func 
 }
 

@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		29578F281A014F1400601218 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29578F271A014F1400601218 /* WebViewController.swift */; };
 		29D1E60419F8253F00B3E237 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29D1E60319F8253F00B3E237 /* AppDelegate.swift */; };
-		29D1E60619F8253F00B3E237 /* TableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29D1E60519F8253F00B3E237 /* TableController.swift */; };
 		29D1E60919F8253F00B3E237 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 29D1E60719F8253F00B3E237 /* Main.storyboard */; };
 		29D1E60B19F8253F00B3E237 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 29D1E60A19F8253F00B3E237 /* Images.xcassets */; };
 		29D1E60E19F8254000B3E237 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 29D1E60C19F8254000B3E237 /* LaunchScreen.xib */; };
@@ -17,6 +16,19 @@
 		29D37A4819FE97E500991577 /* StoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29D37A4719FE97E500991577 /* StoryCell.swift */; };
 		29D37A4C19FEF8E200991577 /* ETLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29D37A4B19FEF8E200991577 /* ETLabel.swift */; };
 		29DC679C1A02FCD2008391DD /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29DC679B1A02FCD2008391DD /* MessageUI.framework */; };
+		29DC679E1A03129C008391DD /* TableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29DC679D1A03129C008391DD /* TableController.swift */; };
+		29DC67B81A0313BC008391DD /* Refresher.h in Headers */ = {isa = PBXBuildFile; fileRef = 29DC67B71A0313BC008391DD /* Refresher.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		29DC67BE1A0313BD008391DD /* Refresher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29DC67B31A0313BC008391DD /* Refresher.framework */; };
+		29DC67C71A0313BD008391DD /* RefresherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29DC67C61A0313BD008391DD /* RefresherTests.swift */; };
+		29DC67CA1A0313BD008391DD /* Refresher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29DC67B31A0313BC008391DD /* Refresher.framework */; };
+		29DC67CB1A0313BD008391DD /* Refresher.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 29DC67B31A0313BC008391DD /* Refresher.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		29DC67E01A031FEF008391DD /* Animator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29DC67D81A031FEF008391DD /* Animator.swift */; };
+		29DC67E11A031FEF008391DD /* BeatAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29DC67D91A031FEF008391DD /* BeatAnimator.swift */; };
+		29DC67E21A031FEF008391DD /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 29DC67DA1A031FEF008391DD /* Info.plist */; };
+		29DC67E31A031FEF008391DD /* PacmanAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29DC67DB1A031FEF008391DD /* PacmanAnimator.swift */; };
+		29DC67E41A031FEF008391DD /* PullToRefreshExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29DC67DC1A031FEF008391DD /* PullToRefreshExtension.swift */; };
+		29DC67E51A031FEF008391DD /* PullToRefreshView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29DC67DD1A031FEF008391DD /* PullToRefreshView.swift */; };
+		29DC67E61A031FEF008391DD /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 29DC67DE1A031FEF008391DD /* README.md */; };
 		DCCB3C91BFF3E714EDADEBCE /* libPods-Hackyto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FAF6BDD14A66A1730DE9096 /* libPods-Hackyto.a */; };
 /* End PBXBuildFile section */
 
@@ -28,7 +40,42 @@
 			remoteGlobalIDString = 29D1E5FD19F8253F00B3E237;
 			remoteInfo = Hackyto;
 		};
+		29DC67BF1A0313BD008391DD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 29D1E5F619F8253F00B3E237 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 29DC67B21A0313BC008391DD;
+			remoteInfo = Refresher;
+		};
+		29DC67C11A0313BD008391DD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 29D1E5F619F8253F00B3E237 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 29D1E5FD19F8253F00B3E237;
+			remoteInfo = Hackyto;
+		};
+		29DC67C81A0313BD008391DD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 29D1E5F619F8253F00B3E237 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 29DC67B21A0313BC008391DD;
+			remoteInfo = Refresher;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		29DC67AD1A031389008391DD /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				29DC67CB1A0313BD008391DD /* Refresher.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		00F6DA9EFDF55FF76BA41EB6 /* Pods-Hackyto.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hackyto.release.xcconfig"; path = "Pods/Target Support Files/Pods-Hackyto/Pods-Hackyto.release.xcconfig"; sourceTree = "<group>"; };
@@ -37,7 +84,6 @@
 		29D1E5FE19F8253F00B3E237 /* Hackyto.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hackyto.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		29D1E60219F8253F00B3E237 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		29D1E60319F8253F00B3E237 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		29D1E60519F8253F00B3E237 /* TableController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableController.swift; sourceTree = "<group>"; };
 		29D1E60819F8253F00B3E237 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		29D1E60A19F8253F00B3E237 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		29D1E60D19F8254000B3E237 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -48,6 +94,21 @@
 		29D37A4719FE97E500991577 /* StoryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StoryCell.swift; path = Views/StoryCell.swift; sourceTree = "<group>"; };
 		29D37A4B19FEF8E200991577 /* ETLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ETLabel.swift; path = Views/ETLabel.swift; sourceTree = "<group>"; };
 		29DC679B1A02FCD2008391DD /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		29DC679D1A03129C008391DD /* TableController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TableController.swift; path = Controllers/TableController.swift; sourceTree = "<group>"; };
+		29DC67B31A0313BC008391DD /* Refresher.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Refresher.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		29DC67B61A0313BC008391DD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		29DC67B71A0313BC008391DD /* Refresher.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Refresher.h; sourceTree = "<group>"; };
+		29DC67BD1A0313BC008391DD /* RefresherTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RefresherTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		29DC67C51A0313BD008391DD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		29DC67C61A0313BD008391DD /* RefresherTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefresherTests.swift; sourceTree = "<group>"; };
+		29DC67D81A031FEF008391DD /* Animator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Animator.swift; sourceTree = "<group>"; };
+		29DC67D91A031FEF008391DD /* BeatAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeatAnimator.swift; sourceTree = "<group>"; };
+		29DC67DA1A031FEF008391DD /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		29DC67DB1A031FEF008391DD /* PacmanAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PacmanAnimator.swift; sourceTree = "<group>"; };
+		29DC67DC1A031FEF008391DD /* PullToRefreshExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PullToRefreshExtension.swift; sourceTree = "<group>"; };
+		29DC67DD1A031FEF008391DD /* PullToRefreshView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PullToRefreshView.swift; sourceTree = "<group>"; };
+		29DC67DE1A031FEF008391DD /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		29DC67DF1A031FEF008391DD /* Refresher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Refresher.h; sourceTree = "<group>"; };
 		6FAF6BDD14A66A1730DE9096 /* libPods-Hackyto.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Hackyto.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -57,6 +118,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				29DC679C1A02FCD2008391DD /* MessageUI.framework in Frameworks */,
+				29DC67CA1A0313BD008391DD /* Refresher.framework in Frameworks */,
 				DCCB3C91BFF3E714EDADEBCE /* libPods-Hackyto.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -68,6 +130,21 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		29DC67AF1A0313BC008391DD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		29DC67BA1A0313BC008391DD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				29DC67BE1A0313BD008391DD /* Refresher.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -75,6 +152,7 @@
 			isa = PBXGroup;
 			children = (
 				29578F271A014F1400601218 /* WebViewController.swift */,
+				29DC679D1A03129C008391DD /* TableController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -84,6 +162,8 @@
 			children = (
 				29D1E60019F8253F00B3E237 /* Hackyto */,
 				29D1E61619F8254000B3E237 /* HackytoTests */,
+				29DC67B41A0313BC008391DD /* Refresher */,
+				29DC67C31A0313BD008391DD /* RefresherTests */,
 				29D1E5FF19F8253F00B3E237 /* Products */,
 				53392EAF36CED040FFAACBE5 /* Pods */,
 				870B885F33B54FC509EE9D67 /* Frameworks */,
@@ -95,6 +175,8 @@
 			children = (
 				29D1E5FE19F8253F00B3E237 /* Hackyto.app */,
 				29D1E61319F8254000B3E237 /* HackytoTests.xctest */,
+				29DC67B31A0313BC008391DD /* Refresher.framework */,
+				29DC67BD1A0313BC008391DD /* RefresherTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -102,11 +184,11 @@
 		29D1E60019F8253F00B3E237 /* Hackyto */ = {
 			isa = PBXGroup;
 			children = (
+				29DC67D71A031FEF008391DD /* Refresher */,
 				29578F261A014EEE00601218 /* Controllers */,
 				29D37A4619FE97B400991577 /* Views */,
 				29D1E62319F8277200B3E237 /* Bridge.h */,
 				29D1E60319F8253F00B3E237 /* AppDelegate.swift */,
-				29D1E60519F8253F00B3E237 /* TableController.swift */,
 				29D1E60719F8253F00B3E237 /* Main.storyboard */,
 				29D1E60A19F8253F00B3E237 /* Images.xcassets */,
 				29D1E60C19F8254000B3E237 /* LaunchScreen.xib */,
@@ -149,6 +231,55 @@
 			name = Views;
 			sourceTree = "<group>";
 		};
+		29DC67B41A0313BC008391DD /* Refresher */ = {
+			isa = PBXGroup;
+			children = (
+				29DC67B71A0313BC008391DD /* Refresher.h */,
+				29DC67B51A0313BC008391DD /* Supporting Files */,
+			);
+			path = Refresher;
+			sourceTree = "<group>";
+		};
+		29DC67B51A0313BC008391DD /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				29DC67B61A0313BC008391DD /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		29DC67C31A0313BD008391DD /* RefresherTests */ = {
+			isa = PBXGroup;
+			children = (
+				29DC67C61A0313BD008391DD /* RefresherTests.swift */,
+				29DC67C41A0313BD008391DD /* Supporting Files */,
+			);
+			path = RefresherTests;
+			sourceTree = "<group>";
+		};
+		29DC67C41A0313BD008391DD /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				29DC67C51A0313BD008391DD /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		29DC67D71A031FEF008391DD /* Refresher */ = {
+			isa = PBXGroup;
+			children = (
+				29DC67D81A031FEF008391DD /* Animator.swift */,
+				29DC67D91A031FEF008391DD /* BeatAnimator.swift */,
+				29DC67DA1A031FEF008391DD /* Info.plist */,
+				29DC67DB1A031FEF008391DD /* PacmanAnimator.swift */,
+				29DC67DC1A031FEF008391DD /* PullToRefreshExtension.swift */,
+				29DC67DD1A031FEF008391DD /* PullToRefreshView.swift */,
+				29DC67DE1A031FEF008391DD /* README.md */,
+				29DC67DF1A031FEF008391DD /* Refresher.h */,
+			);
+			path = Refresher;
+			sourceTree = "<group>";
+		};
 		53392EAF36CED040FFAACBE5 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -169,6 +300,17 @@
 		};
 /* End PBXGroup section */
 
+/* Begin PBXHeadersBuildPhase section */
+		29DC67B01A0313BC008391DD /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				29DC67B81A0313BC008391DD /* Refresher.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
 /* Begin PBXNativeTarget section */
 		29D1E5FD19F8253F00B3E237 /* Hackyto */ = {
 			isa = PBXNativeTarget;
@@ -179,10 +321,12 @@
 				29D1E5FB19F8253F00B3E237 /* Frameworks */,
 				29D1E5FC19F8253F00B3E237 /* Resources */,
 				5FBB4918D8231C93BDBCCAC3 /* Copy Pods Resources */,
+				29DC67AD1A031389008391DD /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				29DC67C91A0313BD008391DD /* PBXTargetDependency */,
 			);
 			name = Hackyto;
 			productName = Hackyto;
@@ -207,6 +351,43 @@
 			productReference = 29D1E61319F8254000B3E237 /* HackytoTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		29DC67B21A0313BC008391DD /* Refresher */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 29DC67CC1A0313BD008391DD /* Build configuration list for PBXNativeTarget "Refresher" */;
+			buildPhases = (
+				29DC67AE1A0313BC008391DD /* Sources */,
+				29DC67AF1A0313BC008391DD /* Frameworks */,
+				29DC67B01A0313BC008391DD /* Headers */,
+				29DC67B11A0313BC008391DD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Refresher;
+			productName = Refresher;
+			productReference = 29DC67B31A0313BC008391DD /* Refresher.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		29DC67BC1A0313BC008391DD /* RefresherTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 29DC67CF1A0313BD008391DD /* Build configuration list for PBXNativeTarget "RefresherTests" */;
+			buildPhases = (
+				29DC67B91A0313BC008391DD /* Sources */,
+				29DC67BA1A0313BC008391DD /* Frameworks */,
+				29DC67BB1A0313BC008391DD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				29DC67C01A0313BD008391DD /* PBXTargetDependency */,
+				29DC67C21A0313BD008391DD /* PBXTargetDependency */,
+			);
+			name = RefresherTests;
+			productName = RefresherTests;
+			productReference = 29DC67BD1A0313BC008391DD /* RefresherTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -222,6 +403,14 @@
 					};
 					29D1E61219F8254000B3E237 = {
 						CreatedOnToolsVersion = 6.0.1;
+						TestTargetID = 29D1E5FD19F8253F00B3E237;
+					};
+					29DC67B21A0313BC008391DD = {
+						CreatedOnToolsVersion = 6.1;
+						DevelopmentTeam = X3M2VGZ3X9;
+					};
+					29DC67BC1A0313BC008391DD = {
+						CreatedOnToolsVersion = 6.1;
 						TestTargetID = 29D1E5FD19F8253F00B3E237;
 					};
 				};
@@ -241,6 +430,8 @@
 			targets = (
 				29D1E5FD19F8253F00B3E237 /* Hackyto */,
 				29D1E61219F8254000B3E237 /* HackytoTests */,
+				29DC67B21A0313BC008391DD /* Refresher */,
+				29DC67BC1A0313BC008391DD /* RefresherTests */,
 			);
 		};
 /* End PBXProject section */
@@ -250,6 +441,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				29DC67E21A031FEF008391DD /* Info.plist in Resources */,
 				29D1E60919F8253F00B3E237 /* Main.storyboard in Resources */,
 				29D1E60E19F8254000B3E237 /* LaunchScreen.xib in Resources */,
 				29D1E60B19F8253F00B3E237 /* Images.xcassets in Resources */,
@@ -257,6 +449,20 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		29D1E61119F8254000B3E237 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		29DC67B11A0313BC008391DD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		29DC67BB1A0313BC008391DD /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -303,11 +509,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				29D1E60619F8253F00B3E237 /* TableController.swift in Sources */,
+				29DC67E01A031FEF008391DD /* Animator.swift in Sources */,
 				29D37A4C19FEF8E200991577 /* ETLabel.swift in Sources */,
+				29DC67E31A031FEF008391DD /* PacmanAnimator.swift in Sources */,
 				29D1E60419F8253F00B3E237 /* AppDelegate.swift in Sources */,
+				29DC67E51A031FEF008391DD /* PullToRefreshView.swift in Sources */,
+				29DC67E11A031FEF008391DD /* BeatAnimator.swift in Sources */,
 				29578F281A014F1400601218 /* WebViewController.swift in Sources */,
+				29DC679E1A03129C008391DD /* TableController.swift in Sources */,
 				29D37A4819FE97E500991577 /* StoryCell.swift in Sources */,
+				29DC67E61A031FEF008391DD /* README.md in Sources */,
+				29DC67E41A031FEF008391DD /* PullToRefreshExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -319,6 +531,21 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		29DC67AE1A0313BC008391DD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		29DC67B91A0313BC008391DD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				29DC67C71A0313BD008391DD /* RefresherTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -326,6 +553,21 @@
 			isa = PBXTargetDependency;
 			target = 29D1E5FD19F8253F00B3E237 /* Hackyto */;
 			targetProxy = 29D1E61419F8254000B3E237 /* PBXContainerItemProxy */;
+		};
+		29DC67C01A0313BD008391DD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 29DC67B21A0313BC008391DD /* Refresher */;
+			targetProxy = 29DC67BF1A0313BD008391DD /* PBXContainerItemProxy */;
+		};
+		29DC67C21A0313BD008391DD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 29D1E5FD19F8253F00B3E237 /* Hackyto */;
+			targetProxy = 29DC67C11A0313BD008391DD /* PBXContainerItemProxy */;
+		};
+		29DC67C91A0313BD008391DD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 29DC67B21A0313BC008391DD /* Refresher */;
+			targetProxy = 29DC67C81A0313BD008391DD /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -492,6 +734,84 @@
 			};
 			name = Release;
 		};
+		29DC67CD1A0313BD008391DD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = Refresher/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		29DC67CE1A0313BD008391DD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = Refresher/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		29DC67D01A0313BD008391DD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = RefresherTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Hackyto.app/Hackyto";
+			};
+			name = Debug;
+		};
+		29DC67D11A0313BD008391DD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = RefresherTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Hackyto.app/Hackyto";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -518,6 +838,24 @@
 			buildConfigurations = (
 				29D1E62119F8254000B3E237 /* Debug */,
 				29D1E62219F8254000B3E237 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		29DC67CC1A0313BD008391DD /* Build configuration list for PBXNativeTarget "Refresher" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				29DC67CD1A0313BD008391DD /* Debug */,
+				29DC67CE1A0313BD008391DD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		29DC67CF1A0313BD008391DD /* Build configuration list for PBXNativeTarget "RefresherTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				29DC67D01A0313BD008391DD /* Debug */,
+				29DC67D11A0313BD008391DD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
