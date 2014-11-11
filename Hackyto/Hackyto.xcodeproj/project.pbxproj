@@ -81,7 +81,7 @@
 		00F6DA9EFDF55FF76BA41EB6 /* Pods-Hackyto.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hackyto.release.xcconfig"; path = "Pods/Target Support Files/Pods-Hackyto/Pods-Hackyto.release.xcconfig"; sourceTree = "<group>"; };
 		037D422834E69B146E3B85E3 /* Pods-Hackyto.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hackyto.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Hackyto/Pods-Hackyto.debug.xcconfig"; sourceTree = "<group>"; };
 		29578F271A014F1400601218 /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WebViewController.swift; path = Controllers/WebViewController.swift; sourceTree = "<group>"; };
-		29D1E5FE19F8253F00B3E237 /* Hackyto.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hackyto.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		29D1E5FE19F8253F00B3E237 /* hackyto.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = hackyto.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		29D1E60219F8253F00B3E237 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		29D1E60319F8253F00B3E237 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		29D1E60819F8253F00B3E237 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -173,7 +173,7 @@
 		29D1E5FF19F8253F00B3E237 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				29D1E5FE19F8253F00B3E237 /* Hackyto.app */,
+				29D1E5FE19F8253F00B3E237 /* hackyto.app */,
 				29D1E61319F8254000B3E237 /* HackytoTests.xctest */,
 				29DC67B31A0313BC008391DD /* Refresher.framework */,
 				29DC67BD1A0313BC008391DD /* RefresherTests.xctest */,
@@ -312,9 +312,9 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		29D1E5FD19F8253F00B3E237 /* Hackyto */ = {
+		29D1E5FD19F8253F00B3E237 /* hackyto */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 29D1E61D19F8254000B3E237 /* Build configuration list for PBXNativeTarget "Hackyto" */;
+			buildConfigurationList = 29D1E61D19F8254000B3E237 /* Build configuration list for PBXNativeTarget "hackyto" */;
 			buildPhases = (
 				896FE39328B2A4C5CE7BD08E /* Check Pods Manifest.lock */,
 				29D1E5FA19F8253F00B3E237 /* Sources */,
@@ -328,9 +328,9 @@
 			dependencies = (
 				29DC67C91A0313BD008391DD /* PBXTargetDependency */,
 			);
-			name = Hackyto;
+			name = hackyto;
 			productName = Hackyto;
-			productReference = 29D1E5FE19F8253F00B3E237 /* Hackyto.app */;
+			productReference = 29D1E5FE19F8253F00B3E237 /* hackyto.app */;
 			productType = "com.apple.product-type.application";
 		};
 		29D1E61219F8254000B3E237 /* HackytoTests */ = {
@@ -399,7 +399,7 @@
 				TargetAttributes = {
 					29D1E5FD19F8253F00B3E237 = {
 						CreatedOnToolsVersion = 6.0.1;
-						DevelopmentTeam = X3M2VGZ3X9;
+						DevelopmentTeam = 3N93GSL974;
 					};
 					29D1E61219F8254000B3E237 = {
 						CreatedOnToolsVersion = 6.0.1;
@@ -428,7 +428,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				29D1E5FD19F8253F00B3E237 /* Hackyto */,
+				29D1E5FD19F8253F00B3E237 /* hackyto */,
 				29D1E61219F8254000B3E237 /* HackytoTests */,
 				29DC67B21A0313BC008391DD /* Refresher */,
 				29DC67BC1A0313BC008391DD /* RefresherTests */,
@@ -551,7 +551,7 @@
 /* Begin PBXTargetDependency section */
 		29D1E61519F8254000B3E237 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 29D1E5FD19F8253F00B3E237 /* Hackyto */;
+			target = 29D1E5FD19F8253F00B3E237 /* hackyto */;
 			targetProxy = 29D1E61419F8254000B3E237 /* PBXContainerItemProxy */;
 		};
 		29DC67C01A0313BD008391DD /* PBXTargetDependency */ = {
@@ -561,7 +561,7 @@
 		};
 		29DC67C21A0313BD008391DD /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 29D1E5FD19F8253F00B3E237 /* Hackyto */;
+			target = 29D1E5FD19F8253F00B3E237 /* hackyto */;
 			targetProxy = 29DC67C11A0313BD008391DD /* PBXContainerItemProxy */;
 		};
 		29DC67C91A0313BD008391DD /* PBXTargetDependency */ = {
@@ -824,7 +824,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		29D1E61D19F8254000B3E237 /* Build configuration list for PBXNativeTarget "Hackyto" */ = {
+		29D1E61D19F8254000B3E237 /* Build configuration list for PBXNativeTarget "hackyto" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				29D1E61E19F8254000B3E237 /* Debug */,
