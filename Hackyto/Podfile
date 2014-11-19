@@ -3,9 +3,10 @@ platform :ios, '7.0'
 
 source 'https://github.com/CocoaPods/Specs.git'
 
-target 'Hackyto' do
+target 'hackyto' do
     pod 'Firebase', '>= 1.2.2'
     pod 'MBProgressHUD', '~> 0.9'
+    pod 'PureLayout'
 end
 
 target 'HackytoTests' do

@@ -1,5 +1,5 @@
 #import <Foundation/Foundation.h>
-@interface PodsDummy_Pods_Hackyto_MBProgressHUD : NSObject
+@interface PodsDummy_Pods_hackyto_MBProgressHUD : NSObject
 @end
-@implementation PodsDummy_Pods_Hackyto_MBProgressHUD
+@implementation PodsDummy_Pods_hackyto_MBProgressHUD
 @end
