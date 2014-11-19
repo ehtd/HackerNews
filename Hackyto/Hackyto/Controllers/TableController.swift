@@ -161,10 +161,15 @@ class TableController: UITableViewController, UITableViewDelegate, UITableViewDa
         let key = "\(storyId)"
         var story = detailedStories[key]
         
-        let titleObject: AnyObject? = story?.objectForKey("title")
-        let authorObject: AnyObject? = story?.objectForKey("by")
+        if let titleObject: AnyObject = story?.objectForKey("title") {
+            if let authorObject: AnyObject = story?.objectForKey("by") {
+                cell.configureCell(title: "\(indexPath.row+1). \(titleObject)", author: "\(authorObject)")
+            }
+            else {
+                cell.configureCell(title: "\(indexPath.row+1). \(titleObject)", author: "")
+            }
+        }
         
-        cell.configureCell(title: "\(indexPath.row+1). \(titleObject!)", author: "\(authorObject!)")
     }
     
     // MARK: TableView Delegate
