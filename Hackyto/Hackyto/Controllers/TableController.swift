@@ -73,6 +73,7 @@ class TableController: UITableViewController, UITableViewDelegate, UITableViewDa
         topStoriesRef.observeSingleEventOfType(.Value, withBlock: { snapshot in
             
             self.topStories = snapshot.value as? NSMutableArray
+            self.detailedStories = [String: NSDictionary]()
 
             if (self.topStories != nil && self.topStories?.count > 0){
                 
