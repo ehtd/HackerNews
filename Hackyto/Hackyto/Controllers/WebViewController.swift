@@ -29,6 +29,7 @@ class WebViewController: UIViewController, UIWebViewDelegate, MFMailComposeViewC
             var request = NSURLRequest(URL: NSURL(string: urlToLoad)!)
             webView.loadRequest(request)
             webView.delegate = self
+            
         }
         
     }
@@ -48,31 +49,16 @@ class WebViewController: UIViewController, UIWebViewDelegate, MFMailComposeViewC
     
     @IBAction func openComposer(){
 
-        var appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
-        
-        var composer = appDelegate.composer()
-        
-        if MFMailComposeViewController.canSendMail() && composer != nil{
-            
-            composer!.mailComposeDelegate = self
-            
-            let storyTitle: String? = story?.objectForKey("title") as? String
-            if let title = storyTitle {
-                composer!.setSubject(title)
-            }
-            
+        let storyTitle: String? = story?.objectForKey("title") as? String
+        if let title = storyTitle {
             let storyURL: String? = story?.objectForKey("url") as? String
             if let url = storyURL {
-                var message = url+"\n\n (via Hackyto)"
-                composer!.setMessageBody(message, isHTML: false)
+                let info = ShareInfo(news: title, url: url)
+                let vc = UIActivityViewController(activityItems: [info], applicationActivities: nil)
+                self.presentViewController(vc, animated: true, completion: nil)
             }
-            
-            self.navigationController?.presentViewController(composer!, animated: true, completion: nil)
-            
-        } else {
-            var alert = UIAlertView(title: "Error", message: "Mail Account not configured", delegate: self, cancelButtonTitle: "Ok")
-            alert.show()
         }
+
     }
 
     func alertView(alertView: UIAlertView, clickedButtonAtIndex buttonIndex: Int) {
