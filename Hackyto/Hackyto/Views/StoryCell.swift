@@ -28,10 +28,10 @@ class StoryCell: UITableViewCell {
     func configureCell(#title:String, author:String){
         titleLabel.text = title
         authorLabel.text = author
-        commentsButton.setTitle("", forState: UIControlState.Normal)
+        commentsButton.setTitle("0", forState: UIControlState.Normal)
     }
 
-    func configureComments(#numberOfComments:String){
-        commentsButton.setTitle(numberOfComments, forState: UIControlState.Normal)
+    func configureComments(#comments:NSArray){
+        commentsButton.setTitle("\(comments.count)", forState: UIControlState.Normal)
     }
 }
