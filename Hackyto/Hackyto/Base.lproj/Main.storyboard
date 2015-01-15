@@ -28,37 +28,62 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" ambiguous="YES" misplaced="YES" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wrM-0b-ies" userLabel="TitleLabel" customClass="ETLabel" customModule="hackyto" customModuleProvider="target">
-                                            <rect key="frame" x="18" y="19" width="564" height="99"/>
-                                            <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="24"/>
-                                            <color key="textColor" red="0.20392158627510071" green="0.59607845544815063" blue="0.85882359743118286" alpha="1" colorSpace="deviceRGB"/>
+                                            <rect key="frame" x="18" y="23" width="439" height="99"/>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="22"/>
+                                            <color key="textColor" red="0.92549026012420654" green="0.94117653369903564" blue="0.94509810209274292" alpha="1" colorSpace="deviceRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" ambiguous="YES" misplaced="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fYo-mK-uDG" userLabel="AuthorLabel" customClass="ETLabel" customModule="hackyto" customModuleProvider="target">
-                                            <rect key="frame" x="23" y="126" width="564" height="21"/>
+                                            <rect key="frame" x="23" y="130" width="564" height="21"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="14"/>
-                                            <color key="textColor" red="0.49803924560546875" green="0.54901963472366333" blue="0.55294120311737061" alpha="1" colorSpace="deviceRGB"/>
+                                            <color key="textColor" red="0.32549020648002625" green="0.35294118523597717" blue="0.35294118523597717" alpha="1" colorSpace="deviceRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b0S-l2-N9v">
+                                            <rect key="frame" x="507" y="64" width="80" height="55"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="55" id="6Fx-tO-J4V"/>
+                                                <constraint firstAttribute="width" constant="80" id="H7l-uF-bXi"/>
+                                                <constraint firstAttribute="width" constant="60" id="JJh-da-zVl"/>
+                                                <constraint firstAttribute="height" constant="42" id="NLU-m8-l90"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="18"/>
+                                            <state key="normal" backgroundImage="dialog.png">
+                                                <color key="titleColor" red="0.49803924560546875" green="0.54901963472366333" blue="0.55294120311737061" alpha="1" colorSpace="deviceRGB"/>
+                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <variation key="default">
+                                                <mask key="constraints">
+                                                    <exclude reference="JJh-da-zVl"/>
+                                                    <exclude reference="NLU-m8-l90"/>
+                                                </mask>
+                                            </variation>
+                                        </button>
                                     </subviews>
                                     <color key="backgroundColor" red="0.086274512112140656" green="0.086274512112140656" blue="0.090196080505847931" alpha="1" colorSpace="deviceRGB"/>
                                     <constraints>
                                         <constraint firstAttribute="trailingMargin" secondItem="wrM-0b-ies" secondAttribute="trailing" constant="10" id="0ng-mT-18E"/>
+                                        <constraint firstItem="b0S-l2-N9v" firstAttribute="leading" secondItem="wrM-0b-ies" secondAttribute="trailing" constant="5" id="4lj-IP-AK0"/>
                                         <constraint firstItem="wrM-0b-ies" firstAttribute="leading" secondItem="sRj-EL-bHe" secondAttribute="leadingMargin" constant="10" id="AMD-YM-DuP"/>
                                         <constraint firstItem="fYo-mK-uDG" firstAttribute="leading" secondItem="sRj-EL-bHe" secondAttribute="leadingMargin" constant="10" id="E3L-hv-Cba"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="wrM-0b-ies" secondAttribute="bottom" constant="10" id="GIa-fu-LGE"/>
                                         <constraint firstItem="wrM-0b-ies" firstAttribute="top" secondItem="sRj-EL-bHe" secondAttribute="topMargin" constant="10" id="TIc-j4-r31"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="b0S-l2-N9v" secondAttribute="trailing" constant="5" id="b1d-0e-Ojh"/>
+                                        <constraint firstAttribute="centerY" secondItem="b0S-l2-N9v" secondAttribute="centerY" id="coG-8c-h1J"/>
                                         <constraint firstItem="fYo-mK-uDG" firstAttribute="top" secondItem="wrM-0b-ies" secondAttribute="bottom" constant="5" id="i6P-bF-Eko"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="fYo-mK-uDG" secondAttribute="trailing" constant="5" id="nBP-hf-xr6"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="fYo-mK-uDG" secondAttribute="bottom" constant="5" id="xGC-vm-ERG"/>
                                     </constraints>
                                     <variation key="default">
                                         <mask key="constraints">
+                                            <exclude reference="0ng-mT-18E"/>
                                             <exclude reference="GIa-fu-LGE"/>
                                         </mask>
                                     </variation>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="authorLabel" destination="fYo-mK-uDG" id="92M-64-HRh"/>
+                                    <outlet property="commentsButton" destination="b0S-l2-N9v" id="DpS-hN-Naa"/>
                                     <outlet property="titleLabel" destination="wrM-0b-ies" id="DXU-1p-nV6"/>
                                     <segue destination="Jop-L6-uKA" kind="show" identifier="webSegue" id="BAT-Mf-aKA"/>
                                 </connections>
@@ -80,7 +105,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8Eo-nn-ffw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="423" y="630"/>
+            <point key="canvasLocation" x="423" y="625"/>
         </scene>
         <!--Web View Controller-->
         <scene sceneID="f8A-8w-EuT">
@@ -147,4 +172,7 @@
             <point key="canvasLocation" x="-404" y="641"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="dialog.png" width="80" height="55"/>
+    </resources>
 </document>

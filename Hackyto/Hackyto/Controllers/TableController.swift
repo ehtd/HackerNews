@@ -170,6 +170,11 @@ class TableController: UITableViewController, UITableViewDelegate, UITableViewDa
             }
         }
         
+        if let kids: NSArray = story?.objectForKey("kids") as NSArray? {
+            println(kids.count)
+            cell.configureComments(numberOfComments: "\(kids.count)")
+        }
+        
     }
     
     // MARK: TableView Delegate

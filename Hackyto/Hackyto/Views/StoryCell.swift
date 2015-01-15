@@ -12,6 +12,7 @@ class StoryCell: UITableViewCell {
 
     @IBOutlet weak var titleLabel: ETLabel!
     @IBOutlet weak var authorLabel: ETLabel!
+    @IBOutlet weak var commentsButton: UIButton!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -27,6 +28,10 @@ class StoryCell: UITableViewCell {
     func configureCell(#title:String, author:String){
         titleLabel.text = title
         authorLabel.text = author
+        commentsButton.setTitle("", forState: UIControlState.Normal)
     }
 
+    func configureComments(#numberOfComments:String){
+        commentsButton.setTitle(numberOfComments, forState: UIControlState.Normal)
+    }
 }
