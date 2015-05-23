@@ -96,7 +96,7 @@ class TableController: UITableViewController, UITableViewDelegate, UITableViewDa
         
         storyRef.observeSingleEventOfType(.Value, withBlock: { snapshot in
             
-            var details = snapshot.value as [NSString: AnyObject]
+            var details = snapshot.value as! [NSString: AnyObject]
 
             let key: AnyObject? = details["id"]
 
@@ -146,7 +146,7 @@ class TableController: UITableViewController, UITableViewDelegate, UITableViewDa
     }
     
     func basicCellAtIndexPath(indexPath: NSIndexPath) -> StoryCell {
-        var cell:StoryCell = self.tableView.dequeueReusableCellWithIdentifier(cellIdentifier) as StoryCell
+        var cell:StoryCell = self.tableView.dequeueReusableCellWithIdentifier(cellIdentifier) as! StoryCell
         self.configureBasicCell(cell, indexPath: indexPath)
 
         //Seems sometimes the cell didn't update its height. Use to layout again.
@@ -170,7 +170,7 @@ class TableController: UITableViewController, UITableViewDelegate, UITableViewDa
             }
         }
         
-        if let kids: NSArray = story?.objectForKey("kids") as NSArray? {
+        if let kids: NSArray = story?.objectForKey("kids") as! NSArray? {
             println(kids.count)
             cell.configureComments(comments: kids)
         }
@@ -196,7 +196,7 @@ class TableController: UITableViewController, UITableViewDelegate, UITableViewDa
         var story = detailedStories[key]
 
 
-        var controller = segue.destinationViewController as WebViewController
+        var controller = segue.destinationViewController as! WebViewController
         controller.story = story
 
 
