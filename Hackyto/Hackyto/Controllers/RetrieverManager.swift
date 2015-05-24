@@ -16,6 +16,8 @@ class RetrieverManager {
     let firebaseAPIString = "https://hacker-news.firebaseio.com/v0/topstories"
     let retrieveItemAPIString = "https://hacker-news.firebaseio.com/v0/item/"
     
+    let hackerNewsBaseURLString = "https://news.ycombinator.com/item?id="
+    
     var didFinishLoadingTopStories: ((storyIDs: NSMutableArray?, stories: [String: NSDictionary]) ->())?
     var didFailedLoadingTopStories: (() ->())?
     
@@ -84,6 +86,12 @@ class RetrieverManager {
             let key: AnyObject? = details["id"]
             
             if key != nil {
+                let url = details["url"] as! String
+                
+                if count(url) == 0 { // Ask HN does not provide base URL, use id to generate URL
+                    details["url"] = self.hackerNewsBaseURLString+"\(key!)"
+                }
+                
                 self.detailedStories[("\(key!)")] = details
                 self.pendingDownloads--
             }
