@@ -81,9 +81,9 @@ public class PullToRefreshView: UIView {
         labelTitle.frame = bounds
         labelTitle.textAlignment = .Center
         labelTitle.autoresizingMask = .FlexibleLeftMargin | .FlexibleRightMargin
-        labelTitle.textColor = UIColor(red: 52/255, green: 152/255, blue: 219/255, alpha: 1)
-        labelTitle.font = UIFont(name: "HelveticaNeue-Light", size: 12.0)
-        labelTitle.text = "Pull to refresh"
+        labelTitle.textColor = UIColor(red: 41/255, green: 128/255, blue: 185/255, alpha: 1)
+        labelTitle.font = UIFont(name: "HelveticaNeue-Bold", size: 12.0)
+        labelTitle.text = ""
         addSubview(labelTitle)
     }
     
@@ -137,13 +137,13 @@ public class PullToRefreshView: UIView {
                         } else if (loading == true) {
                             labelTitle.text = "Loading ..."
                         } else {
-                            labelTitle.text = "Release to refresh"
+                            labelTitle.text = ""
                             animator.changeProgress(-offsetWithoutInsets / self.frame.size.height)
                         }
                     } else if (loading == true) {
                         labelTitle.text = "Loading ..."
                     } else if (offsetWithoutInsets < 0) {
-                        labelTitle.text = "Pull to refresh"
+                        labelTitle.text = ""
                         animator.changeProgress(-offsetWithoutInsets / self.frame.size.height)
                     }
                     previousOffset = scrollView!.contentOffset.y
