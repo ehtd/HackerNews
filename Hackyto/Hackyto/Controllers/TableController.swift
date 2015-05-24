@@ -13,9 +13,10 @@ class TableController: UITableViewController, UITableViewDelegate, UITableViewDa
 
     var topStories: NSMutableArray? = nil
     var detailedStories = [String: NSDictionary]()
-    var offscreenCells: NSDictionary!
-    var cellIdentifier = "StoryCell"
 
+    let cellIdentifier = "StoryCell"
+    let firebaseAPIString = "https://hacker-news.firebaseio.com/v0/topstories"
+    
     var pendingDownloads: Int = 0 {
         didSet {
 //            println(pendingDownloads)
@@ -40,13 +41,11 @@ class TableController: UITableViewController, UITableViewDelegate, UITableViewDa
         super.viewDidLoad()
 
         NSNotificationCenter.defaultCenter().addObserver(self,
-            selector: "onContentSizeChange:",
-            name: UIContentSizeCategoryDidChangeNotification,
-            object: nil)
+                                                        selector: "onContentSizeChange:",
+                                                        name: UIContentSizeCategoryDidChangeNotification,
+                                                        object: nil)
         
-        offscreenCells = NSDictionary()
         self.setNeedsStatusBarAppearanceUpdate()
-        
         tableView.separatorColor = UIColor.clearColor()
         tableView.separatorStyle = UITableViewCellSeparatorStyle.None
         tableView.estimatedRowHeight = 130.0
@@ -54,12 +53,10 @@ class TableController: UITableViewController, UITableViewDelegate, UITableViewDa
         
         tableView.addPullToRefreshWithAction({
             NSOperationQueue().addOperationWithBlock {
-                
                 self.retrieveTopStories();
 
             }
             }, withAnimator: BeatAnimator())
-        
         
         self.tableView.startPullToRefresh()
     }
@@ -68,15 +65,6 @@ class TableController: UITableViewController, UITableViewDelegate, UITableViewDa
         super.viewDidDisappear(animated)
         NSNotificationCenter.defaultCenter().removeObserver(self)
     }
-    
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-
-    }
 
     func onContentSizeChange(notification: NSNotification) {
         self.tableView.reloadData()
@@ -84,19 +72,14 @@ class TableController: UITableViewController, UITableViewDelegate, UITableViewDa
     
     func retrieveTopStories()
     {
-
-        println("R")
-        var topStoriesRef = Firebase(url:"https://hacker-news.firebaseio.com/v0/topstories")
-        
+        var topStoriesRef = Firebase(url:firebaseAPIString)
         topStoriesRef.observeSingleEventOfType(.Value, withBlock: { snapshot in
             
             self.topStories = snapshot.value as? NSMutableArray
             self.detailedStories = [String: NSDictionary]()
 
             if (self.topStories != nil && self.topStories?.count > 0){
-                
                 self.retrieveStories(startingIndex: 0, endingIndex: 100)
-
             }
             
             }, withCancelBlock: { error in
@@ -126,11 +109,9 @@ class TableController: UITableViewController, UITableViewDelegate, UITableViewDa
             }, withCancelBlock: { error in
                 println(error.description)
                 var item = "\(storyId)".toInt()
-
                 self.topStories!.removeObject(item!)
                 self.pendingDownloads--
         })
-        
     }
     
     func retrieveStories(startingIndex from:Int, endingIndex to:Int)
@@ -145,12 +126,9 @@ class TableController: UITableViewController, UITableViewDelegate, UITableViewDa
         for (var i = from; i < to; i++)
         {
             let item: AnyObject = self.topStories!.objectAtIndex(i)
-            
             let itemId = ("\(item)")
-            
             self.retrieveStoryWithId(itemId)
         }
-        
     }
 
     // MARK: TableView Controller data source
@@ -167,7 +145,7 @@ class TableController: UITableViewController, UITableViewDelegate, UITableViewDa
         var cell:StoryCell = self.tableView.dequeueReusableCellWithIdentifier(cellIdentifier) as! StoryCell
         self.configureBasicCell(cell, indexPath: indexPath)
 
-        //Seems sometimes the cell didn't update its height. Use to layout again.
+        // Seems sometimes the cell didn't update its height. Use to layout again.
         cell.layoutIfNeeded();
         
         return cell
@@ -196,7 +174,6 @@ class TableController: UITableViewController, UITableViewDelegate, UITableViewDa
     }
     
     // MARK: TableView Delegate
-    
 
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
@@ -213,15 +190,9 @@ class TableController: UITableViewController, UITableViewDelegate, UITableViewDa
         let key = "\(storyId)"
         var story = detailedStories[key]
 
-
         var controller = segue.destinationViewController as! WebViewController
         controller.story = story
-
-
     }
-    
-    // MARK: Refresher
-    
-//    func 
+
 }
 
