@@ -22,25 +22,34 @@ class TableController: UITableViewController, UITableViewDelegate, UITableViewDa
             if (pendingDownloads == 0){
                 NSOperationQueue.mainQueue().addOperationWithBlock {
                     self.tableView.stopPullToRefresh()
+                    println("All data is ready")
+                    println("Total stories: \(self.detailedStories.count)")
+                    //                println("Detailed stories: \(self.detailedStories)")
+                    self.tableView.reloadData()
+                    
+                    // For some reason, the first displayed rows may not have
+                    // the correct sizing. Reload them.
+                    self.tableView.reloadSections(NSIndexSet(indexesInRange: NSMakeRange(0, self.tableView.numberOfSections())), withRowAnimation: .None)
                 }
-                println("All data is ready")
-                println("Total stories: \(self.detailedStories.count)")
-//                println("Detailed stories: \(self.detailedStories)")
-                self.tableView.reloadData()
-                
+
             }
         }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        NSNotificationCenter.defaultCenter().addObserver(self,
+            selector: "onContentSizeChange:",
+            name: UIContentSizeCategoryDidChangeNotification,
+            object: nil)
         
         offscreenCells = NSDictionary()
         self.setNeedsStatusBarAppearanceUpdate()
         
         tableView.separatorColor = UIColor.clearColor()
         tableView.separatorStyle = UITableViewCellSeparatorStyle.None
-        tableView.estimatedRowHeight = 89
+        tableView.estimatedRowHeight = 130.0
         tableView.rowHeight = UITableViewAutomaticDimension
         
         tableView.addPullToRefreshWithAction({
@@ -55,6 +64,11 @@ class TableController: UITableViewController, UITableViewDelegate, UITableViewDa
         self.tableView.startPullToRefresh()
     }
 
+    override func viewDidDisappear(animated: Bool) {
+        super.viewDidDisappear(animated)
+        NSNotificationCenter.defaultCenter().removeObserver(self)
+    }
+    
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
     }
@@ -64,6 +78,10 @@ class TableController: UITableViewController, UITableViewDelegate, UITableViewDa
 
     }
 
+    func onContentSizeChange(notification: NSNotification) {
+        self.tableView.reloadData()
+    }
+    
     func retrieveTopStories()
     {
 

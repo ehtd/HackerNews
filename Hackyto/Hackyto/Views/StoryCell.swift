@@ -26,6 +26,10 @@ class StoryCell: UITableViewCell {
     }
     
     func configureCell(#title:String, author:String){
+        
+        titleLabel.font = UIFont.preferredFontForTextStyle(UIFontTextStyleHeadline)
+        authorLabel.font = UIFont.preferredFontForTextStyle(UIFontTextStyleSubheadline)
+        
         titleLabel.text = title
         authorLabel.text = author
         commentsButton.setTitle("0", forState: UIControlState.Normal)
