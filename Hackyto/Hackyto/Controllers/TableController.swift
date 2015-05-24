@@ -15,28 +15,9 @@ class TableController: UITableViewController, UITableViewDelegate, UITableViewDa
     var detailedStories = [String: NSDictionary]()
 
     let cellIdentifier = "StoryCell"
-    let firebaseAPIString = "https://hacker-news.firebaseio.com/v0/topstories"
-    
-    var pendingDownloads: Int = 0 {
-        didSet {
-//            println(pendingDownloads)
-            if (pendingDownloads == 0){
-                NSOperationQueue.mainQueue().addOperationWithBlock {
-                    self.tableView.stopPullToRefresh()
-                    println("All data is ready")
-                    println("Total stories: \(self.detailedStories.count)")
-                    //                println("Detailed stories: \(self.detailedStories)")
-                    self.tableView.reloadData()
-                    
-                    // For some reason, the first displayed rows may not have
-                    // the correct sizing. Reload them.
-                    self.tableView.reloadSections(NSIndexSet(indexesInRange: NSMakeRange(0, self.tableView.numberOfSections())), withRowAnimation: .None)
-                }
 
-            }
-        }
-    }
-    
+    var retriever: RetrieverManager!
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -51,10 +32,14 @@ class TableController: UITableViewController, UITableViewDelegate, UITableViewDa
         tableView.estimatedRowHeight = 130.0
         tableView.rowHeight = UITableViewAutomaticDimension
         
+        retriever = RetrieverManager()
+        retriever.didFinishLoadingTopStories = didFinishLoadingTopStories
+        retriever.didFailedLoadingTopStories = didFailedLoading
+        
         tableView.addPullToRefreshWithAction({
             NSOperationQueue().addOperationWithBlock {
-                self.retrieveTopStories();
 
+                self.retriever.retrieveTopStories();
             }
             }, withAnimator: BeatAnimator())
         
@@ -70,67 +55,6 @@ class TableController: UITableViewController, UITableViewDelegate, UITableViewDa
         self.tableView.reloadData()
     }
     
-    func retrieveTopStories()
-    {
-        var topStoriesRef = Firebase(url:firebaseAPIString)
-        topStoriesRef.observeSingleEventOfType(.Value, withBlock: { snapshot in
-            
-            self.topStories = snapshot.value as? NSMutableArray
-            self.detailedStories = [String: NSDictionary]()
-
-            if (self.topStories != nil && self.topStories?.count > 0){
-                self.retrieveStories(startingIndex: 0, endingIndex: 100)
-            }
-            
-            }, withCancelBlock: { error in
-                NSOperationQueue.mainQueue().addOperationWithBlock {
-                    self.tableView.stopPullToRefresh()
-                }
-                println(error.description)
-        })
-    }
-    
-    func retrieveStoryWithId(storyId: String!)
-    {
-        var itemURL = "https://hacker-news.firebaseio.com/v0/item/" + storyId
-        var storyRef = Firebase(url:itemURL)
-        
-        storyRef.observeSingleEventOfType(.Value, withBlock: { snapshot in
-            
-            var details = snapshot.value as! [NSString: AnyObject]
-
-            let key: AnyObject? = details["id"]
-
-            if key != nil {
-                self.detailedStories[("\(key!)")] = details
-                self.pendingDownloads--
-            }
-
-            }, withCancelBlock: { error in
-                println(error.description)
-                var item = "\(storyId)".toInt()
-                self.topStories!.removeObject(item!)
-                self.pendingDownloads--
-        })
-    }
-    
-    func retrieveStories(startingIndex from:Int, endingIndex to:Int)
-    {
-        assert(from <= to, "From should be less than To")
-        self.pendingDownloads = to-from
-        if (self.topStories == nil)
-        {
-            return;
-        }
-        
-        for (var i = from; i < to; i++)
-        {
-            let item: AnyObject = self.topStories!.objectAtIndex(i)
-            let itemId = ("\(item)")
-            self.retrieveStoryWithId(itemId)
-        }
-    }
-
     // MARK: TableView Controller data source
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -193,6 +117,41 @@ class TableController: UITableViewController, UITableViewDelegate, UITableViewDa
         var controller = segue.destinationViewController as! WebViewController
         controller.story = story
     }
+
+    
+    // MARK: Retrieved data Closures
+    
+    var didFinishLoadingTopStories: ((storyIDs: NSMutableArray?, stories: [String: NSDictionary]) ->()) {
+        get {
+            return { [weak self] (storyIDs: NSMutableArray?, stories: [String: NSDictionary]) ->() in
+                if let strongSelf = self {
+                    strongSelf.topStories = storyIDs
+                    strongSelf.detailedStories = stories
+                    strongSelf.tableView.stopPullToRefresh()
+                    println("All data is ready")
+                    println("Total stories: \(strongSelf.detailedStories.count)")
+                    //                println("Detailed stories: \(self.detailedStories)")
+                    strongSelf.tableView.reloadData()
+                    
+                    // For some reason, the first displayed rows may not have
+                    // the correct sizing. Reload them.
+                    strongSelf.tableView.reloadSections(NSIndexSet(indexesInRange: NSMakeRange(0, strongSelf.tableView.numberOfSections())), withRowAnimation: .None)
+                }
+            }
+        }
+    }
+    
+    var didFailedLoading: (() ->()) {
+        get {
+            return { [weak self] in
+                if let strongSelf = self {
+                    strongSelf.tableView.stopPullToRefresh()
+                    println("Failed to download data")
+                }
+            }
+        }
+    }
+    
 
 }
 
