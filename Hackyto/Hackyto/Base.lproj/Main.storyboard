@@ -146,6 +146,7 @@
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="shareButton" destination="7e2-Wx-3gc" id="3yT-vF-yQI"/>
                         <outlet property="webView" destination="exi-1h-CCS" id="61D-7K-pb4"/>
                     </connections>
                 </viewController>

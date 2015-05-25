@@ -9,13 +9,17 @@
 import UIKit
 import MessageUI
 
-class WebViewController: UIViewController, UIWebViewDelegate, MFMailComposeViewControllerDelegate, UIAlertViewDelegate {
+class WebViewController: UIViewController, UIWebViewDelegate, MFMailComposeViewControllerDelegate, UIAlertViewDelegate, UIPopoverControllerDelegate {
 
     @IBOutlet weak var webView: UIWebView!
+    @IBOutlet weak var shareButton: UIBarButtonItem!
+    
     var story: NSDictionary?
     var hnCommentsURL: String?
     
     var hud: MBProgressHUD? = nil
+    
+    var popOverController: UIPopoverController? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,7 +65,16 @@ class WebViewController: UIViewController, UIWebViewDelegate, MFMailComposeViewC
             if let url = storyURL {
                 let info = ShareInfo(news: title, url: url)
                 let vc = UIActivityViewController(activityItems: [info], applicationActivities: nil)
-                self.presentViewController(vc, animated: true, completion: nil)
+                
+                if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiom.Pad) {
+                    popOverController = UIPopoverController(contentViewController: vc)
+                    popOverController!.delegate = self
+                    popOverController?.presentPopoverFromBarButtonItem(shareButton, permittedArrowDirections: UIPopoverArrowDirection.Any, animated: true)
+                    
+                } else {
+                    self.presentViewController(vc, animated: true, completion: nil)
+                }
+                
             }
         }
 
@@ -73,5 +86,11 @@ class WebViewController: UIViewController, UIWebViewDelegate, MFMailComposeViewC
     
     func mailComposeController(controller: MFMailComposeViewController!, didFinishWithResult result: MFMailComposeResult, error: NSError!) {
         self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    // MARK: PopOverViewController Delegate Methods
+    
+    func popoverControllerDidDismissPopover(popoverController: UIPopoverController) {
+        popOverController = nil
     }
 }
