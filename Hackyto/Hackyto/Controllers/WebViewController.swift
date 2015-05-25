@@ -13,6 +13,7 @@ class WebViewController: UIViewController, UIWebViewDelegate, MFMailComposeViewC
 
     @IBOutlet weak var webView: UIWebView!
     var story: NSDictionary?
+    var hnCommentsURL: String?
     
     var hud: MBProgressHUD? = nil
     
@@ -22,8 +23,13 @@ class WebViewController: UIViewController, UIWebViewDelegate, MFMailComposeViewC
         self.hud = MBProgressHUD.showHUDAddedTo(self.view, animated: true)
         self.hud?.mode = MBProgressHUDModeIndeterminate
         
-        let url: String? = story?.objectForKey("url") as? String
-        println(story)
+        var url: String? = nil
+        if hnCommentsURL != nil {
+            url = hnCommentsURL
+        } else {
+            url = story?.objectForKey("url") as? String
+        }
+//        println(story)
 
         if let urlToLoad = url {
             var request = NSURLRequest(URL: NSURL(string: urlToLoad)!)

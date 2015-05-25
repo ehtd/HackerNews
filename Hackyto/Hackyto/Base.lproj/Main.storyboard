@@ -59,6 +59,9 @@
                                                     <exclude reference="NLU-m8-l90"/>
                                                 </mask>
                                             </variation>
+                                            <connections>
+                                                <action selector="openComments" destination="d3d-U6-8Bm" eventType="touchUpInside" id="z2E-zB-TIc"/>
+                                            </connections>
                                         </button>
                                     </subviews>
                                     <color key="backgroundColor" red="0.086274512112140656" green="0.086274512112140656" blue="0.090196080505847931" alpha="1" colorSpace="deviceRGB"/>
@@ -111,7 +114,7 @@
         <!--Web View Controller-->
         <scene sceneID="f8A-8w-EuT">
             <objects>
-                <viewController id="Jop-L6-uKA" customClass="WebViewController" customModule="hackyto" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="WebViewController" id="Jop-L6-uKA" customClass="WebViewController" customModule="hackyto" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="QEk-QE-acP"/>
                         <viewControllerLayoutGuide type="bottom" id="ifh-1T-wWy"/>

@@ -11,12 +11,15 @@ import Refresher
 
 class TableController: UITableViewController, UITableViewDelegate, UITableViewDataSource {
 
+    let objectsFactory = ObjectsFactory()
+    let retriever = RetrieverManager()
+    
     var topStories: NSMutableArray? = nil
     var detailedStories = [String: NSDictionary]()
 
     let cellIdentifier = "StoryCell"
 
-    var retriever: RetrieverManager!
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,7 +35,6 @@ class TableController: UITableViewController, UITableViewDelegate, UITableViewDa
         tableView.estimatedRowHeight = 130.0
         tableView.rowHeight = UITableViewAutomaticDimension
         
-        retriever = RetrieverManager()
         retriever.didFinishLoadingTopStories = didFinishLoadingTopStories
         retriever.didFailedLoadingTopStories = didFailedLoading
         
@@ -83,10 +85,10 @@ class TableController: UITableViewController, UITableViewDelegate, UITableViewDa
         
         if let titleObject: AnyObject = story?.objectForKey("title") {
             if let authorObject: AnyObject = story?.objectForKey("by") {
-                cell.configureCell(title: "\(indexPath.row+1). \(titleObject)", author: "\(authorObject)")
+                cell.configureCell(title: "\(indexPath.row+1). \(titleObject)", author: "\(authorObject)", storyKey: key)
             }
             else {
-                cell.configureCell(title: "\(indexPath.row+1). \(titleObject)", author: "")
+                cell.configureCell(title: "\(indexPath.row+1). \(titleObject)", author: "", storyKey: key)
             }
         }
         
@@ -95,6 +97,7 @@ class TableController: UITableViewController, UITableViewDelegate, UITableViewDa
             cell.configureComments(comments: kids)
         }
         
+        cell.launchComments = openStoryComments
     }
     
     // MARK: TableView Delegate
@@ -118,6 +121,23 @@ class TableController: UITableViewController, UITableViewDelegate, UITableViewDa
         controller.story = story
     }
 
+    // MARK: Open Comments Closure
+    
+    var openStoryComments: ((key: String) -> ()) {
+        get {
+            return { [weak self] (key: String) ->() in
+                if let strongSelf = self {
+                    
+                    var story = strongSelf.detailedStories[key]
+
+                    let webViewController = strongSelf.objectsFactory.webViewController
+                    webViewController.story = story
+                    webViewController.hnCommentsURL = Constants.hackerNewsBaseURLString+"\(key)"
+                    strongSelf.navigationController?.pushViewController(webViewController, animated: true)
+                }
+            }
+        }
+    }
     
     // MARK: Retrieved data Closures
     

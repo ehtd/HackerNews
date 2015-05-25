@@ -11,6 +11,8 @@
 		297B5A4C1A680854006D5BED /* dialog@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 297B5A4A1A680854006D5BED /* dialog@2x.png */; };
 		297B5A4D1A680854006D5BED /* dialog@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 297B5A4B1A680854006D5BED /* dialog@3x.png */; };
 		297B5A4F1A680C68006D5BED /* dialog@1x.png in Resources */ = {isa = PBXBuildFile; fileRef = 297B5A4E1A680C68006D5BED /* dialog@1x.png */; };
+		2980453A1B12987A00728510 /* ObjectsFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298045391B12987A00728510 /* ObjectsFactory.swift */; };
+		2980453C1B129C6000728510 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2980453B1B129C6000728510 /* Constants.swift */; };
 		29BEDF1E1A52278C00822EB7 /* ShareInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29BEDF1D1A52278C00822EB7 /* ShareInfo.swift */; };
 		29D1E60419F8253F00B3E237 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29D1E60319F8253F00B3E237 /* AppDelegate.swift */; };
 		29D1E60919F8253F00B3E237 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 29D1E60719F8253F00B3E237 /* Main.storyboard */; };
@@ -88,6 +90,8 @@
 		297B5A4A1A680854006D5BED /* dialog@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dialog@2x.png"; sourceTree = "<group>"; };
 		297B5A4B1A680854006D5BED /* dialog@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dialog@3x.png"; sourceTree = "<group>"; };
 		297B5A4E1A680C68006D5BED /* dialog@1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dialog@1x.png"; sourceTree = "<group>"; };
+		298045391B12987A00728510 /* ObjectsFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ObjectsFactory.swift; path = Source/Application/ObjectsFactory.swift; sourceTree = "<group>"; };
+		2980453B1B129C6000728510 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = Source/Application/Constants.swift; sourceTree = "<group>"; };
 		29BEDF1D1A52278C00822EB7 /* ShareInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareInfo.swift; sourceTree = "<group>"; };
 		29D1E5FE19F8253F00B3E237 /* hackyto.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = hackyto.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		29D1E60219F8253F00B3E237 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -179,6 +183,16 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		298045381B12984700728510 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				29D1E60319F8253F00B3E237 /* AppDelegate.swift */,
+				298045391B12987A00728510 /* ObjectsFactory.swift */,
+				2980453B1B129C6000728510 /* Constants.swift */,
+			);
+			name = Application;
+			sourceTree = "<group>";
+		};
 		29BEDF1C1A52278C00822EB7 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -214,13 +228,13 @@
 		29D1E60019F8253F00B3E237 /* Hackyto */ = {
 			isa = PBXGroup;
 			children = (
+				298045381B12984700728510 /* Application */,
 				297B5A491A680854006D5BED /* Resources */,
 				29BEDF1C1A52278C00822EB7 /* Model */,
 				29DC67D71A031FEF008391DD /* Refresher */,
 				29578F261A014EEE00601218 /* Controllers */,
 				29D37A4619FE97B400991577 /* Views */,
 				29D1E62319F8277200B3E237 /* Bridge.h */,
-				29D1E60319F8253F00B3E237 /* AppDelegate.swift */,
 				29D1E60719F8253F00B3E237 /* Main.storyboard */,
 				29D1E60A19F8253F00B3E237 /* Images.xcassets */,
 				29D1E60C19F8254000B3E237 /* LaunchScreen.xib */,
@@ -548,6 +562,7 @@
 			files = (
 				29DC67E01A031FEF008391DD /* Animator.swift in Sources */,
 				29DC67E31A031FEF008391DD /* PacmanAnimator.swift in Sources */,
+				2980453A1B12987A00728510 /* ObjectsFactory.swift in Sources */,
 				29D1E60419F8253F00B3E237 /* AppDelegate.swift in Sources */,
 				29DC67E51A031FEF008391DD /* PullToRefreshView.swift in Sources */,
 				29EF21981B1277B00093EE8D /* RetrieverManager.swift in Sources */,
@@ -556,6 +571,7 @@
 				29DC679E1A03129C008391DD /* TableController.swift in Sources */,
 				29D37A4819FE97E500991577 /* StoryCell.swift in Sources */,
 				29BEDF1E1A52278C00822EB7 /* ShareInfo.swift in Sources */,
+				2980453C1B129C6000728510 /* Constants.swift in Sources */,
 				29DC67E61A031FEF008391DD /* README.md in Sources */,
 				29DC67E41A031FEF008391DD /* PullToRefreshExtension.swift in Sources */,
 			);

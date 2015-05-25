@@ -14,6 +14,10 @@ class StoryCell: UITableViewCell {
     @IBOutlet weak var authorLabel: UILabel!
     @IBOutlet weak var commentsButton: UIButton!
     
+    var launchComments: ((key: String) -> ())?
+    
+    var key: String!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -25,7 +29,7 @@ class StoryCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func configureCell(#title:String, author:String){
+    func configureCell(#title:String, author:String, storyKey: String){
         
         titleLabel.font = UIFont.preferredFontForTextStyle(UIFontTextStyleHeadline)
         authorLabel.font = UIFont.preferredFontForTextStyle(UIFontTextStyleSubheadline)
@@ -33,9 +37,17 @@ class StoryCell: UITableViewCell {
         titleLabel.text = title
         authorLabel.text = author
         commentsButton.setTitle("0", forState: UIControlState.Normal)
+        
+        key = storyKey
     }
 
     func configureComments(#comments:NSArray){
         commentsButton.setTitle("\(comments.count)", forState: UIControlState.Normal)
+    }
+    
+    // MARK: Actions
+    
+    @IBAction func openComments() {
+        launchComments?(key: key)
     }
 }
