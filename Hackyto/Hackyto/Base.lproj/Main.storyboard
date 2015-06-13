@@ -89,7 +89,6 @@
                                     <outlet property="authorLabel" destination="fYo-mK-uDG" id="92M-64-HRh"/>
                                     <outlet property="commentsButton" destination="b0S-l2-N9v" id="DpS-hN-Naa"/>
                                     <outlet property="titleLabel" destination="wrM-0b-ies" id="DXU-1p-nV6"/>
-                                    <segue destination="Jop-L6-uKA" kind="show" identifier="webSegue" id="BAT-Mf-aKA"/>
                                 </connections>
                             </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="6hR-r5-7sn">
@@ -120,10 +119,10 @@
                         <viewControllerLayoutGuide type="bottom" id="ifh-1T-wWy"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="viZ-TH-qPt">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
+                        <rect key="frame" x="0.0" y="64" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <webView contentMode="scaleToFill" scalesPageToFit="YES" translatesAutoresizingMaskIntoConstraints="NO" id="exi-1h-CCS">
+                            <webView contentMode="scaleToFill" misplaced="YES" scalesPageToFit="YES" translatesAutoresizingMaskIntoConstraints="NO" id="exi-1h-CCS">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="492"/>
                                 <color key="backgroundColor" red="0.086274512110000007" green="0.086274512110000007" blue="0.090196080509999998" alpha="1" colorSpace="deviceRGB"/>
                             </webView>

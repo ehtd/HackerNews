@@ -104,21 +104,21 @@ class TableController: UITableViewController, UITableViewDelegate, UITableViewDa
 
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
-    }
-    
-    // MARK: Segue
-    
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        
-        var indexPath = tableView.indexPathForSelectedRow()
-        var index: Int = indexPath!.row
+        var index: Int = indexPath.row
         var storyId: AnyObject = topStories!.objectAtIndex(index)
         
         let key = "\(storyId)"
         var story = detailedStories[key]
-
-        var controller = segue.destinationViewController as! WebViewController
-        controller.story = story
+        var url = story?.objectForKey("url") as? String
+        var title = story?.objectForKey("title") as? String
+        
+        if let url = url {
+            if let title = title {
+                self.openWebBrowser(title: title, url: url)
+            } else {
+                self.openWebBrowser(title: "", url: url)
+            }
+        }
     }
 
     // MARK: Open Comments Closure
@@ -130,10 +130,17 @@ class TableController: UITableViewController, UITableViewDelegate, UITableViewDa
                     
                     var story = strongSelf.detailedStories[key]
 
-                    let webViewController = strongSelf.objectsFactory.webViewController
-                    webViewController.story = story
-                    webViewController.hnCommentsURL = Constants.hackerNewsBaseURLString+"\(key)"
-                    strongSelf.navigationController?.pushViewController(webViewController, animated: true)
+                    let url = Constants.hackerNewsBaseURLString+"\(key)"
+                    var title = story?.objectForKey("title") as? String
+                    var hnComments = "HN comments"
+                    
+                    if let title = title {
+                        strongSelf.openWebBrowser(title: title + " - " + hnComments, url: url)
+                    } else {
+                        strongSelf.openWebBrowser(title: hnComments, url: url)
+                    }
+                    
+
                 }
             }
         }
@@ -172,6 +179,12 @@ class TableController: UITableViewController, UITableViewDelegate, UITableViewDa
         }
     }
     
-
+    // MARK: Helper Methods
+    
+    func openWebBrowser(#title: String, #url: String) {
+        var request:NSURLRequest = NSURLRequest(URL: NSURL(string: url)!)
+        var webViewController = SVWebViewController(URLRequest: request, title: title)
+        self.navigationController?.pushViewController(webViewController, animated: true)
+    }
 }
 
