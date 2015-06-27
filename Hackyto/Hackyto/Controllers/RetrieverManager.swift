@@ -21,7 +21,7 @@ class RetrieverManager {
     
     var pendingDownloads: Int = 0 {
         didSet {
-            //            println(pendingDownloads)
+//            println(pendingDownloads)
             if (pendingDownloads == 0){
                 NSOperationQueue.mainQueue().addOperationWithBlock {
                     self.didFinishLoadingTopStories?(storyIDs: topStories, stories: detailedStories)
@@ -77,31 +77,34 @@ class RetrieverManager {
         var itemURL = retrieveItemAPIString + storyId
         var storyRef = Firebase(url:itemURL)
         
-        storyRef.observeSingleEventOfType(.Value, withBlock: { snapshot in
-            
-            var details = snapshot.value as! [NSString: AnyObject]
-            
-            let key: AnyObject? = details["id"]
-            
-            if key != nil {
-                let url = details["url"] as! String
-                
-                if count(url) == 0 { // Ask HN does not provide base URL, use id to generate URL
-                    details["url"] = Constants.hackerNewsBaseURLString+"\(key!)"
+        storyRef.observeSingleEventOfType(.Value,
+            withBlock: { snapshot in
+                if snapshot.exists() == true {
+                    var details = snapshot.value as! [NSString: AnyObject]
+                    let key: AnyObject? = details["id"]
+                    if key != nil {
+                        let url = details["url"] as! String
+                        if count(url) == 0 { // Ask HN does not provide base URL, use id to generate URL
+                            details["url"] = Constants.hackerNewsBaseURLString+"\(key!)"
+                        }
+                        self.detailedStories[("\(key!)")] = details
+                        self.pendingDownloads--
+                    }
+                } else {
+                    println("FIREBASE FAILED TO RETRIEVE SNAPSHOT")
+                    self.cleanStoryIdFromPendingDownloads(storyId)
                 }
-                
-                self.detailedStories[("\(key!)")] = details
-                self.pendingDownloads--
-            }
-            
-            }, withCancelBlock: { error in
+            },
+            withCancelBlock: { error in
                 println(error.description)
-                var item = "\(storyId)".toInt()
-                self.topStories!.removeObject(item!)
-                self.pendingDownloads--
+                self.cleanStoryIdFromPendingDownloads(storyId)
         })
     }
     
-
+    func cleanStoryIdFromPendingDownloads(storyId: String){
+        var item = "\(storyId)".toInt()
+        self.topStories!.removeObject(item!)
+        self.pendingDownloads--
+    }
 }
 
