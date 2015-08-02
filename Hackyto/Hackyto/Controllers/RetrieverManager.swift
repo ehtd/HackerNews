@@ -42,7 +42,7 @@ class RetrieverManager {
             self.detailedStories = [String: NSDictionary]()
             
             if (self.topStories != nil && self.topStories?.count > 0){
-                self.retrieveStories(startingIndex: 0, endingIndex: 100)
+                self.retrieveStories(startingIndex: 0, endingIndex: 500)
             }
             
             }, withCancelBlock: { error in
@@ -83,10 +83,13 @@ class RetrieverManager {
                     var details = snapshot.value as! [NSString: AnyObject]
                     let key: AnyObject? = details["id"]
                     if key != nil {
-                        let url = details["url"] as! String
-                        if count(url) == 0 { // Ask HN does not provide base URL, use id to generate URL
+                        let url = details["url"] as? String
+                        
+                        if (url == nil) // Ask HN does not provide base URL, use id to generate URL
+                        {
                             details["url"] = Constants.hackerNewsBaseURLString+"\(key!)"
                         }
+
                         self.detailedStories[("\(key!)")] = details
                         self.pendingDownloads--
                     }
