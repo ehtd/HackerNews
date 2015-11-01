@@ -68,7 +68,7 @@ class TableController: UITableViewController {
     }
     
     func basicCellAtIndexPath(indexPath: NSIndexPath) -> StoryCell {
-        var cell:StoryCell = self.tableView.dequeueReusableCellWithIdentifier(cellIdentifier) as! StoryCell
+        let cell:StoryCell = self.tableView.dequeueReusableCellWithIdentifier(cellIdentifier) as! StoryCell
         self.configureBasicCell(cell, indexPath: indexPath)
 
         // Seems sometimes the cell didn't update its height. Use to layout again.
@@ -78,10 +78,10 @@ class TableController: UITableViewController {
     }
     
     func configureBasicCell(cell: StoryCell, indexPath: NSIndexPath){
-        var storyId: AnyObject = topStories!.objectAtIndex(indexPath.row)
+        let storyId: AnyObject = topStories!.objectAtIndex(indexPath.row)
         
         let key = "\(storyId)"
-        var story = detailedStories[key]
+        let story = detailedStories[key]
         
         if let titleObject: AnyObject = story?.objectForKey("title") {
             if let authorObject: AnyObject = story?.objectForKey("by") {
@@ -104,13 +104,13 @@ class TableController: UITableViewController {
 
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
-        var index: Int = indexPath.row
-        var storyId: AnyObject = topStories!.objectAtIndex(index)
+        let index: Int = indexPath.row
+        let storyId: AnyObject = topStories!.objectAtIndex(index)
         
         let key = "\(storyId)"
-        var story = detailedStories[key]
-        var url = story?.objectForKey("url") as? String
-        var title = story?.objectForKey("title") as? String
+        let story = detailedStories[key]
+        let url = story?.objectForKey("url") as? String
+        let title = story?.objectForKey("title") as? String
         
         if let url = url {
             if let title = title {
@@ -128,11 +128,11 @@ class TableController: UITableViewController {
             return { [weak self] (key: String) ->() in
                 if let strongSelf = self {
                     
-                    var story = strongSelf.detailedStories[key]
+                    let story = strongSelf.detailedStories[key]
 
                     let url = Constants.hackerNewsBaseURLString+"\(key)"
-                    var title = story?.objectForKey("title") as? String
-                    var hnComments = "HN comments"
+                    let title = story?.objectForKey("title") as? String
+                    let hnComments = "HN comments"
                     
                     if let title = title {
                         strongSelf.openWebBrowser(title: title + " - " + hnComments, url: url)
@@ -155,8 +155,8 @@ class TableController: UITableViewController {
                     strongSelf.topStories = storyIDs
                     strongSelf.detailedStories = stories
                     strongSelf.tableView.stopPullToRefresh()
-                    print("All data is ready")
-                    print("Total stories: \(strongSelf.detailedStories.count)")
+                    print("All data is ready", terminator: "")
+                    print("Total stories: \(strongSelf.detailedStories.count)", terminator: "")
                     //                println("Detailed stories: \(self.detailedStories)")
                     strongSelf.tableView.reloadData()
                     
@@ -173,7 +173,7 @@ class TableController: UITableViewController {
             return { [weak self] in
                 if let strongSelf = self {
                     strongSelf.tableView.stopPullToRefresh()
-                    print("Failed to download data")
+                    print("Failed to download data", terminator: "")
                 }
             }
         }
@@ -182,8 +182,8 @@ class TableController: UITableViewController {
     // MARK: Helper Methods
     
     func openWebBrowser(title title: String, url: String) {
-        var request:NSURLRequest = NSURLRequest(URL: NSURL(string: url)!)
-        var webViewController = SVWebViewController(URLRequest: request, title: title)
+        let request:NSURLRequest = NSURLRequest(URL: NSURL(string: url)!)
+        let webViewController = SVWebViewController(URLRequest: request, title: title)
         self.navigationController?.pushViewController(webViewController, animated: true)
     }
 }

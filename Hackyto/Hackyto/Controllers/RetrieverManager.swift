@@ -35,7 +35,7 @@ class RetrieverManager {
     
     func retrieveTopStories()
     {
-        var topStoriesRef = Firebase(url:firebaseAPIString)
+        let topStoriesRef = Firebase(url:firebaseAPIString)
         topStoriesRef.observeSingleEventOfType(.Value, withBlock: { snapshot in
             
             self.topStories = snapshot.value as? NSMutableArray
@@ -49,7 +49,7 @@ class RetrieverManager {
                 NSOperationQueue.mainQueue().addOperationWithBlock {
                     self.didFailedLoadingTopStories
                 }
-                print(error.description)
+                print(error.description, terminator: "")
         })
     }
     
@@ -74,8 +74,8 @@ class RetrieverManager {
     func retrieveStoryWithId(storyId: Int)
     {
         // 10483024
-        var itemURL = retrieveItemAPIString + "\(storyId)"
-        var storyRef = Firebase(url:itemURL)
+        let itemURL = retrieveItemAPIString + "\(storyId)"
+        let storyRef = Firebase(url:itemURL)
         
         storyRef.observeSingleEventOfType(.Value,
             withBlock: { snapshot in
@@ -94,12 +94,12 @@ class RetrieverManager {
                         self.pendingDownloads--
                     }
                 } else {
-                    print("FIREBASE FAILED TO RETRIEVE SNAPSHOT")
+                    print("FIREBASE FAILED TO RETRIEVE SNAPSHOT", terminator: "")
                     self.cleanStoryIdFromPendingDownloads(storyId)
                 }
             },
             withCancelBlock: { error in
-                print(error.description)
+                print(error.description, terminator: "")
                 self.cleanStoryIdFromPendingDownloads(storyId)
         })
     }

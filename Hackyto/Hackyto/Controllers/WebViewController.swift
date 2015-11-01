@@ -36,7 +36,7 @@ class WebViewController: UIViewController, UIWebViewDelegate, MFMailComposeViewC
 //        println(story)
 
         if let urlToLoad = url {
-            var request = NSURLRequest(URL: NSURL(string: urlToLoad)!)
+            let request = NSURLRequest(URL: NSURL(string: urlToLoad)!)
             webView.loadRequest(request)
             webView.delegate = self
             
@@ -84,7 +84,7 @@ class WebViewController: UIViewController, UIWebViewDelegate, MFMailComposeViewC
         
     }
     
-    func mailComposeController(controller: MFMailComposeViewController!, didFinishWithResult result: MFMailComposeResult, error: NSError!) {
+    func mailComposeController(controller: MFMailComposeViewController, didFinishWithResult result: MFMailComposeResult, error: NSError?) {
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     

@@ -87,7 +87,7 @@ public class PullToRefreshView: UIView {
         addSubview(labelTitle)
     }
     
-    public required init(coder aDecoder: NSCoder) {
+    public required init?(coder aDecoder: NSCoder) {
         
         super.init(coder: aDecoder)!
         // Currently it is not supported to load view from nib
@@ -95,7 +95,7 @@ public class PullToRefreshView: UIView {
     
     deinit {
         
-        var scrollView = superview as? UIScrollView
+        let scrollView = superview as? UIScrollView
         scrollView?.removeObserver(self, forKeyPath: contentOffsetKeyPath, context: &KVOContext)
     }
     
@@ -124,13 +124,13 @@ public class PullToRefreshView: UIView {
     public override func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<(Void)>) {
         
         if (context == &KVOContext) {
-            var scrollView = superview as? UIScrollView
+            let scrollView = superview as? UIScrollView
             if (keyPath == contentOffsetKeyPath && object as? UIScrollView == scrollView) {
-                var scrollView = object as? UIScrollView
+                let scrollView = object as? UIScrollView
                 if (scrollView != nil) {
 //                    println(scrollView?.contentOffset.y)
                     
-                    var offsetWithoutInsets = previousOffset + scrollViewInsetsDefaultValue.top
+                    let offsetWithoutInsets = previousOffset + scrollViewInsetsDefaultValue.top
                     if (offsetWithoutInsets < -self.frame.size.height) {
                         if (scrollView?.dragging == false && loading == false) {
                             loading = true
@@ -159,7 +159,7 @@ public class PullToRefreshView: UIView {
 
     private func startAnimating() {
         
-        var scrollView = superview as! UIScrollView
+        let scrollView = superview as! UIScrollView
         var insets = scrollView.contentInset
         insets.top += self.frame.size.height
         
@@ -178,7 +178,7 @@ public class PullToRefreshView: UIView {
     private func stopAnimating() {
         
         self.animator.stopAnimation()
-        var scrollView = superview as! UIScrollView
+        let scrollView = superview as! UIScrollView
         scrollView.bounces = self.scrollViewBouncesDefaultValue
         UIView.animateWithDuration(0.3, animations: { () -> Void in
             scrollView.contentInset = self.scrollViewInsetsDefaultValue
