@@ -29,7 +29,7 @@ class StoryCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func configureCell(#title:String, author:String, storyKey: String){
+    func configureCell(title title:String, author:String, storyKey: String){
         
         titleLabel.font = UIFont.preferredFontForTextStyle(UIFontTextStyleHeadline)
         authorLabel.font = UIFont.preferredFontForTextStyle(UIFontTextStyleSubheadline)
@@ -41,7 +41,7 @@ class StoryCell: UITableViewCell {
         key = storyKey
     }
 
-    func configureComments(#comments:NSArray){
+    func configureComments(comments comments:NSArray){
         commentsButton.setTitle("\(comments.count)", forState: UIControlState.Normal)
     }
     

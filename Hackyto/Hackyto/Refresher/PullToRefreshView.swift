@@ -80,7 +80,7 @@ public class PullToRefreshView: UIView {
         self.autoresizingMask = .FlexibleWidth
         labelTitle.frame = bounds
         labelTitle.textAlignment = .Center
-        labelTitle.autoresizingMask = .FlexibleLeftMargin | .FlexibleRightMargin
+        labelTitle.autoresizingMask = [.FlexibleLeftMargin, .FlexibleRightMargin]
         labelTitle.textColor = UIColor(red: 41/255, green: 128/255, blue: 185/255, alpha: 1)
         labelTitle.font = UIFont(name: "HelveticaNeue-Bold", size: 12.0)
         labelTitle.text = ""
@@ -89,7 +89,7 @@ public class PullToRefreshView: UIView {
     
     public required init(coder aDecoder: NSCoder) {
         
-        super.init(coder: aDecoder)
+        super.init(coder: aDecoder)!
         // Currently it is not supported to load view from nib
     }
     
@@ -120,8 +120,8 @@ public class PullToRefreshView: UIView {
     
     
     //MARK: KVO methods
-
-    public override func observeValueForKeyPath(keyPath: String, ofObject object: AnyObject, change: [NSObject : AnyObject], context: UnsafeMutablePointer<()>) {
+    
+    public override func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<(Void)>) {
         
         if (context == &KVOContext) {
             var scrollView = superview as? UIScrollView
@@ -166,7 +166,7 @@ public class PullToRefreshView: UIView {
         // we need to restore previous offset because we will animate scroll view insets and regular scroll view animating is not applied then
         scrollView.contentOffset.y = previousOffset
         scrollView.bounces = false
-        UIView.animateWithDuration(0.3, delay: 0, options:nil, animations: {
+        UIView.animateWithDuration(0.3, delay: 0, options:[], animations: {
             scrollView.contentInset = insets
             scrollView.contentOffset = CGPointMake(scrollView.contentOffset.x, -insets.top)
         }, completion: {finished in

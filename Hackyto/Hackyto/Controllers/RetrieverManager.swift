@@ -24,7 +24,7 @@ class RetrieverManager {
 //            println(pendingDownloads)
             if (pendingDownloads == 0){
                 NSOperationQueue.mainQueue().addOperationWithBlock {
-                    self.didFinishLoadingTopStories?(storyIDs: topStories, stories: detailedStories)
+                    self.didFinishLoadingTopStories?(storyIDs: self.topStories, stories: self.detailedStories)
                 }
                 
             }
@@ -42,14 +42,14 @@ class RetrieverManager {
             self.detailedStories = [String: NSDictionary]()
             
             if (self.topStories != nil && self.topStories?.count > 0){
-                self.retrieveStories(startingIndex: 0, endingIndex: 500)
+                self.retrieveStories(startingIndex: 0, endingIndex: (self.topStories?.count)!)
             }
             
             }, withCancelBlock: { error in
                 NSOperationQueue.mainQueue().addOperationWithBlock {
                     self.didFailedLoadingTopStories
                 }
-                println(error.description)
+                print(error.description)
         })
     }
     
@@ -64,17 +64,17 @@ class RetrieverManager {
         
         for (var i = from; i < to; i++)
         {
-            let item: AnyObject = self.topStories!.objectAtIndex(i)
-            let itemId = ("\(item)")
-            self.retrieveStoryWithId(itemId)
+            let item: Int = self.topStories!.objectAtIndex(i) as! Int
+            self.retrieveStoryWithId(item)
         }
     }
     
     // MARK: Retrieve single story methods
     
-    func retrieveStoryWithId(storyId: String!)
+    func retrieveStoryWithId(storyId: Int)
     {
-        var itemURL = retrieveItemAPIString + storyId
+        // 10483024
+        var itemURL = retrieveItemAPIString + "\(storyId)"
         var storyRef = Firebase(url:itemURL)
         
         storyRef.observeSingleEventOfType(.Value,
@@ -94,19 +94,18 @@ class RetrieverManager {
                         self.pendingDownloads--
                     }
                 } else {
-                    println("FIREBASE FAILED TO RETRIEVE SNAPSHOT")
+                    print("FIREBASE FAILED TO RETRIEVE SNAPSHOT")
                     self.cleanStoryIdFromPendingDownloads(storyId)
                 }
             },
             withCancelBlock: { error in
-                println(error.description)
+                print(error.description)
                 self.cleanStoryIdFromPendingDownloads(storyId)
         })
     }
     
-    func cleanStoryIdFromPendingDownloads(storyId: String){
-        var item = "\(storyId)".toInt()
-        self.topStories!.removeObject(item!)
+    func cleanStoryIdFromPendingDownloads(storyId: Int) {
+        self.topStories!.removeObject(storyId)
         self.pendingDownloads--
     }
 }

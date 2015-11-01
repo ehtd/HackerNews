@@ -49,7 +49,7 @@ class WebViewController: UIViewController, UIWebViewDelegate, MFMailComposeViewC
         // Dispose of any resources that can be recreated.
     }
     
-    func webView(webView: UIWebView, didFailLoadWithError error: NSError) {
+    func webView(webView: UIWebView, didFailLoadWithError error: NSError?) {
         self.hud?.hide(true)
     }
     

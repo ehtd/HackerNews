@@ -9,7 +9,7 @@
 import UIKit
 import Refresher
 
-class TableController: UITableViewController, UITableViewDelegate, UITableViewDataSource {
+class TableController: UITableViewController {
 
     let objectsFactory = ObjectsFactory()
     let retriever = RetrieverManager()
@@ -155,14 +155,14 @@ class TableController: UITableViewController, UITableViewDelegate, UITableViewDa
                     strongSelf.topStories = storyIDs
                     strongSelf.detailedStories = stories
                     strongSelf.tableView.stopPullToRefresh()
-                    println("All data is ready")
-                    println("Total stories: \(strongSelf.detailedStories.count)")
+                    print("All data is ready")
+                    print("Total stories: \(strongSelf.detailedStories.count)")
                     //                println("Detailed stories: \(self.detailedStories)")
                     strongSelf.tableView.reloadData()
                     
                     // For some reason, the first displayed rows may not have
                     // the correct sizing. Reload them.
-                    strongSelf.tableView.reloadSections(NSIndexSet(indexesInRange: NSMakeRange(0, strongSelf.tableView.numberOfSections())), withRowAnimation: .None)
+                    strongSelf.tableView.reloadSections(NSIndexSet(indexesInRange: NSMakeRange(0, strongSelf.tableView.numberOfSections)), withRowAnimation: .None)
                 }
             }
         }
@@ -173,7 +173,7 @@ class TableController: UITableViewController, UITableViewDelegate, UITableViewDa
             return { [weak self] in
                 if let strongSelf = self {
                     strongSelf.tableView.stopPullToRefresh()
-                    println("Failed to download data")
+                    print("Failed to download data")
                 }
             }
         }
@@ -181,7 +181,7 @@ class TableController: UITableViewController, UITableViewDelegate, UITableViewDa
     
     // MARK: Helper Methods
     
-    func openWebBrowser(#title: String, #url: String) {
+    func openWebBrowser(title title: String, url: String) {
         var request:NSURLRequest = NSURLRequest(URL: NSURL(string: url)!)
         var webViewController = SVWebViewController(URLRequest: request, title: title)
         self.navigationController?.pushViewController(webViewController, animated: true)
