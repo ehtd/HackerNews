@@ -468,6 +468,7 @@
 				29D1E5FC19F8253F00B3E237 /* Resources */,
 				5FBB4918D8231C93BDBCCAC3 /* Copy Pods Resources */,
 				29DC67AD1A031389008391DD /* Embed Frameworks */,
+				66ED2729E0F80D2897EC19BD /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -653,6 +654,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-hackyto/Pods-hackyto-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		66ED2729E0F80D2897EC19BD /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-hackyto/Pods-hackyto-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		896FE39328B2A4C5CE7BD08E /* Check Pods Manifest.lock */ = {

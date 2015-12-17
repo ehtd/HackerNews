@@ -1,16 +1,13 @@
 PODS:
   - Firebase (2.3.2)
   - MBProgressHUD (0.9)
-  - PureLayout (2.0.3)
 
 DEPENDENCIES:
   - Firebase (>= 2.3.2)
   - MBProgressHUD (~> 0.9)
-  - PureLayout
 
 SPEC CHECKSUMS:
   Firebase: 02fbeacfe19970856c872321788194524f21ffed
   MBProgressHUD: d8e7ea388dc1549a42e0d219067cf5f2c898fb66
-  PureLayout: 745436d6f5bb2e14cce860b12257fc868c71de41
 
-COCOAPODS: 0.35.0
+COCOAPODS: 0.39.0
