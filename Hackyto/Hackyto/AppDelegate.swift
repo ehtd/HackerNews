@@ -23,7 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
         self.window?.backgroundColor = ColorFactory.darkColor()
 
-        let navigationController = UINavigationController(rootViewController: TableController())
+        let navigationController = UINavigationController(rootViewController: TableController(type: RetrieverManager.NewsType.Ask))
         navigationController.navigationBar.translucent = false
 
         UINavigationBar.appearance().barTintColor = ColorFactory.darkColor()

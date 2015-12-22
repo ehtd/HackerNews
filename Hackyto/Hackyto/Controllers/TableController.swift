@@ -11,12 +11,20 @@ import Refresher
 
 class TableController: UITableViewController {
 
-    let retriever = RetrieverManager()
-    
-    var topStories: NSMutableArray? = nil
+    var retriever: RetrieverManager?
+    var topStories: NSMutableArray?
     var detailedStories = [String: NSDictionary]()
 
     let cellIdentifier = "StoryCell"
+
+    // MARK: Init
+
+    convenience init(type: RetrieverManager.NewsType) {
+        self.init()
+        self.retriever = RetrieverManager(type: type)
+    }
+
+    // MARK: View Controller Life Cycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,13 +47,15 @@ class TableController: UITableViewController {
 
         self.tableView.registerNib(UINib(nibName: "StoryCell", bundle: nil), forCellReuseIdentifier: cellIdentifier)
 
-        retriever.didFinishLoadingTopStories = didFinishLoadingTopStories
-        retriever.didFailedLoadingTopStories = didFailedLoading
+        assert(self.retriever != nil, "self.retriever should not be nil, call convenience init")
+
+        retriever!.didFinishLoadingTopStories = didFinishLoadingTopStories
+        retriever!.didFailedLoadingTopStories = didFailedLoading
         
         tableView.addPullToRefreshWithAction({
             NSOperationQueue().addOperationWithBlock {
 
-                self.retriever.retrieveTopStories();
+                self.retriever!.retrieveTopStories();
             }
             }, withAnimator: BeatAnimator())
         

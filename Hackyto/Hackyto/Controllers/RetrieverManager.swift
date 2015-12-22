@@ -9,11 +9,16 @@
 import Foundation
 
 class RetrieverManager {
-    
+
+    enum NewsType {
+        case Top, News, Ask, Show, Jobs
+    }
+
     var topStories: NSMutableArray? = nil
     var detailedStories = [String: NSDictionary]()
     
-    let firebaseAPIString = "https://hacker-news.firebaseio.com/v0/topstories"
+    var firebaseAPIString: String?
+
     let retrieveItemAPIString = "https://hacker-news.firebaseio.com/v0/item/"
     
     var didFinishLoadingTopStories: ((storyIDs: NSMutableArray?, stories: [String: NSDictionary]) ->())?
@@ -30,7 +35,29 @@ class RetrieverManager {
             }
         }
     }
-    
+
+    // MARK: Init
+
+    init(type: NewsType)
+    {
+        switch type {
+        case .Top:
+            firebaseAPIString = "https://hacker-news.firebaseio.com/v0/topstories"
+
+        case .News:
+            firebaseAPIString = "https://hacker-news.firebaseio.com/v0/newstories"
+
+        case .Ask:
+            firebaseAPIString = "https://hacker-news.firebaseio.com/v0/askstories"
+
+        case .Show:
+            firebaseAPIString = "https://hacker-news.firebaseio.com/v0/showstories"
+
+        case .Jobs:
+            firebaseAPIString = "https://hacker-news.firebaseio.com/v0/jobstories"
+        }
+    }
+
     // MARK: Retrieve Top Stories Methods
     
     func retrieveTopStories()
