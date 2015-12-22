@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		16C214E91C28D08600CF2C90 /* StoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 16C214E81C28D08600CF2C90 /* StoryCell.xib */; };
+		16C214EF1C28E52300CF2C90 /* ColorFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C214EE1C28E52300CF2C90 /* ColorFactory.swift */; };
 		2917DA311B2BB5F900976A6F /* SVWebViewController.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2917DA121B2BB5F900976A6F /* SVWebViewController.strings */; };
 		2917DA321B2BB5F900976A6F /* SVModalWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2917DA1C1B2BB5F900976A6F /* SVModalWebViewController.m */; };
 		2917DA331B2BB5F900976A6F /* SVWebViewController.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 2917DA1D1B2BB5F900976A6F /* SVWebViewController.bundle */; };
@@ -28,7 +30,6 @@
 		2980453C1B129C6000728510 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2980453B1B129C6000728510 /* Constants.swift */; };
 		29BEDF1E1A52278C00822EB7 /* ShareInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29BEDF1D1A52278C00822EB7 /* ShareInfo.swift */; };
 		29D1E60419F8253F00B3E237 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29D1E60319F8253F00B3E237 /* AppDelegate.swift */; };
-		29D1E60919F8253F00B3E237 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 29D1E60719F8253F00B3E237 /* Main.storyboard */; };
 		29D1E60B19F8253F00B3E237 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 29D1E60A19F8253F00B3E237 /* Images.xcassets */; };
 		29D1E60E19F8254000B3E237 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 29D1E60C19F8254000B3E237 /* LaunchScreen.xib */; };
 		29D1E61A19F8254000B3E237 /* HackytoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29D1E61919F8254000B3E237 /* HackytoTests.swift */; };
@@ -99,6 +100,8 @@
 /* Begin PBXFileReference section */
 		00F6DA9EFDF55FF76BA41EB6 /* Pods-Hackyto.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hackyto.release.xcconfig"; path = "Pods/Target Support Files/Pods-Hackyto/Pods-Hackyto.release.xcconfig"; sourceTree = "<group>"; };
 		037D422834E69B146E3B85E3 /* Pods-Hackyto.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hackyto.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Hackyto/Pods-Hackyto.debug.xcconfig"; sourceTree = "<group>"; };
+		16C214E81C28D08600CF2C90 /* StoryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = StoryCell.xib; path = Views/StoryCell.xib; sourceTree = "<group>"; };
+		16C214EE1C28E52300CF2C90 /* ColorFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ColorFactory.swift; path = Helpers/ColorFactory.swift; sourceTree = "<group>"; };
 		2917DA131B2BB5F900976A6F /* da */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = da; path = da.lproj/SVWebViewController.strings; sourceTree = "<group>"; };
 		2917DA141B2BB5F900976A6F /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/SVWebViewController.strings; sourceTree = "<group>"; };
 		2917DA151B2BB5F900976A6F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/SVWebViewController.strings; sourceTree = "<group>"; };
@@ -136,7 +139,6 @@
 		29D1E5FE19F8253F00B3E237 /* hackyto.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = hackyto.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		29D1E60219F8253F00B3E237 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		29D1E60319F8253F00B3E237 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		29D1E60819F8253F00B3E237 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		29D1E60A19F8253F00B3E237 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		29D1E60D19F8254000B3E237 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		29D1E61319F8254000B3E237 /* HackytoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HackytoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -203,6 +205,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		16C214EA1C28E4D600CF2C90 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				16C214EE1C28E52300CF2C90 /* ColorFactory.swift */,
+			);
+			name = Helpers;
+			sourceTree = "<group>";
+		};
 		29171CE31B2BB26100239162 /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
@@ -325,6 +335,7 @@
 		29D1E60019F8253F00B3E237 /* Hackyto */ = {
 			isa = PBXGroup;
 			children = (
+				16C214EA1C28E4D600CF2C90 /* Helpers */,
 				2917DA111B2BB5F900976A6F /* SVWebViewController */,
 				298045381B12984700728510 /* Application */,
 				297B5A491A680854006D5BED /* Resources */,
@@ -333,7 +344,6 @@
 				29578F261A014EEE00601218 /* Controllers */,
 				29D37A4619FE97B400991577 /* Views */,
 				29D1E62319F8277200B3E237 /* Bridge.h */,
-				29D1E60719F8253F00B3E237 /* Main.storyboard */,
 				29D1E60A19F8253F00B3E237 /* Images.xcassets */,
 				29D1E60C19F8254000B3E237 /* LaunchScreen.xib */,
 				29D1E60119F8253F00B3E237 /* Supporting Files */,
@@ -370,6 +380,7 @@
 			isa = PBXGroup;
 			children = (
 				29D37A4719FE97E500991577 /* StoryCell.swift */,
+				16C214E81C28D08600CF2C90 /* StoryCell.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -604,7 +615,6 @@
 				2917DA3A1B2BB5F900976A6F /* SVWebViewControllerActivitySafari-iPad@2x.png in Resources */,
 				2917DA331B2BB5F900976A6F /* SVWebViewController.bundle in Resources */,
 				297B5A4F1A680C68006D5BED /* dialog@1x.png in Resources */,
-				29D1E60919F8253F00B3E237 /* Main.storyboard in Resources */,
 				29D1E60E19F8254000B3E237 /* LaunchScreen.xib in Resources */,
 				2917DA361B2BB5F900976A6F /* SVWebViewControllerActivityChrome-iPad@2x.png in Resources */,
 				297B5A4D1A680854006D5BED /* dialog@3x.png in Resources */,
@@ -614,6 +624,7 @@
 				2917DA351B2BB5F900976A6F /* SVWebViewControllerActivityChrome-iPad.png in Resources */,
 				2917DA391B2BB5F900976A6F /* SVWebViewControllerActivitySafari-iPad.png in Resources */,
 				2917DA3C1B2BB5F900976A6F /* SVWebViewControllerActivitySafari@2x.png in Resources */,
+				16C214E91C28D08600CF2C90 /* StoryCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -693,6 +704,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				16C214EF1C28E52300CF2C90 /* ColorFactory.swift in Sources */,
 				29DC67E01A031FEF008391DD /* Animator.swift in Sources */,
 				29DC67E31A031FEF008391DD /* PacmanAnimator.swift in Sources */,
 				2980453A1B12987A00728510 /* ObjectsFactory.swift in Sources */,
@@ -779,14 +791,6 @@
 				2917DA301B2BB5F900976A6F /* zh-Hant */,
 			);
 			name = SVWebViewController.strings;
-			sourceTree = "<group>";
-		};
-		29D1E60719F8253F00B3E237 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				29D1E60819F8253F00B3E237 /* Base */,
-			);
-			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 		29D1E60C19F8254000B3E237 /* LaunchScreen.xib */ = {

@@ -11,7 +11,6 @@ import Refresher
 
 class TableController: UITableViewController {
 
-    let objectsFactory = ObjectsFactory()
     let retriever = RetrieverManager()
     
     var topStories: NSMutableArray? = nil
@@ -19,10 +18,13 @@ class TableController: UITableViewController {
 
     let cellIdentifier = "StoryCell"
 
-    
-
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        self.title = "Hack-Y-to"
+        self.view.backgroundColor = ColorFactory.darkColor()
+        self.tableView.backgroundView = nil
+        self.tableView.backgroundColor = ColorFactory.darkColor()
 
         NSNotificationCenter.defaultCenter().addObserver(self,
                                                         selector: "onContentSizeChange:",
@@ -30,11 +32,13 @@ class TableController: UITableViewController {
                                                         object: nil)
         
         self.setNeedsStatusBarAppearanceUpdate()
-        tableView.separatorColor = UIColor.clearColor()
-        tableView.separatorStyle = UITableViewCellSeparatorStyle.None
-        tableView.estimatedRowHeight = 130.0
-        tableView.rowHeight = UITableViewAutomaticDimension
-        
+        self.tableView.separatorColor = UIColor.clearColor()
+        self.tableView.separatorStyle = UITableViewCellSeparatorStyle.None
+        self.tableView.estimatedRowHeight = 136.0
+        self.tableView.rowHeight = UITableViewAutomaticDimension
+
+        self.tableView.registerNib(UINib(nibName: "StoryCell", bundle: nil), forCellReuseIdentifier: cellIdentifier)
+
         retriever.didFinishLoadingTopStories = didFinishLoadingTopStories
         retriever.didFailedLoadingTopStories = didFailedLoading
         
@@ -62,18 +66,19 @@ class TableController: UITableViewController {
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return detailedStories.count
     }
-    
+
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         return self.basicCellAtIndexPath(indexPath)
     }
     
     func basicCellAtIndexPath(indexPath: NSIndexPath) -> StoryCell {
-        let cell:StoryCell = self.tableView.dequeueReusableCellWithIdentifier(cellIdentifier) as! StoryCell
+        let cell: StoryCell = self.tableView.dequeueReusableCellWithIdentifier(cellIdentifier) as! StoryCell
+        
         self.configureBasicCell(cell, indexPath: indexPath)
 
         // Seems sometimes the cell didn't update its height. Use to layout again.
         cell.layoutIfNeeded();
-        
+
         return cell
     }
     

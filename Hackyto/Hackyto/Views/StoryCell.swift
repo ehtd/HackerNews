@@ -20,15 +20,10 @@ class StoryCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        self.backgroundColor = ColorFactory.darkColor()
+        self.backgroundView?.backgroundColor = ColorFactory.darkColor()
     }
 
-    override func setSelected(selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-    
     func configureCell(title title:String, author:String, storyKey: String){
         
         titleLabel.font = UIFont.preferredFontForTextStyle(UIFontTextStyleHeadline)
