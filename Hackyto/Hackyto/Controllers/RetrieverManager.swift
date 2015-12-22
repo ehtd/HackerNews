@@ -123,7 +123,7 @@ class RetrieverManager {
                         self.pendingDownloads--
                     }
                 } else {
-                    print("FIREBASE FAILED TO RETRIEVE SNAPSHOT", terminator: "")
+                    print("FIREBASE FAILED TO RETRIEVE SNAPSHOT")
                     self.cleanStoryIdFromPendingDownloads(storyId)
                 }
             },

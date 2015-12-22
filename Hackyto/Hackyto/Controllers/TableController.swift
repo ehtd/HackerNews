@@ -186,8 +186,12 @@ class TableController: UITableViewController {
                     strongSelf.topStories = storyIDs
                     strongSelf.detailedStories = stories
                     strongSelf.tableView.stopPullToRefresh()
-                    print("All data is ready", terminator: "")
-                    print("Total stories: \(strongSelf.detailedStories.count)", terminator: "")
+
+                    if let title = strongSelf.title {
+                        print("All data is ready (" + title + ")")
+                    }
+
+                    print("Total stories: \(strongSelf.detailedStories.count)")
                     //                println("Detailed stories: \(self.detailedStories)")
                     strongSelf.tableView.reloadData()
                     
