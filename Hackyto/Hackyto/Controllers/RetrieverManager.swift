@@ -10,9 +10,11 @@ import Foundation
 
 class RetrieverManager {
 
-    enum NewsType {
-        case Top, News, Ask, Show, Jobs
+    enum NewsType: Int {
+        case Top = 0, News, Ask, Show, Jobs
     }
+
+    static let supportedNewsType: Int = 5
 
     var topStories: NSMutableArray? = nil
     var detailedStories = [String: NSDictionary]()

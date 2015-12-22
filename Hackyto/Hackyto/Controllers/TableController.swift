@@ -22,6 +22,23 @@ class TableController: UITableViewController {
     convenience init(type: RetrieverManager.NewsType) {
         self.init()
         self.retriever = RetrieverManager(type: type)
+
+        switch type {
+        case .Top:
+            self.title = "Top"
+
+        case .News:
+            self.title = "News"
+
+        case .Ask:
+            self.title = "Ask"
+
+        case .Show:
+            self.title = "Show"
+
+        case .Jobs:
+            self.title = "Jobs"
+        }
     }
 
     // MARK: View Controller Life Cycle
@@ -29,7 +46,6 @@ class TableController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.title = "Hack-Y-to"
         self.view.backgroundColor = ColorFactory.darkColor()
         self.tableView.backgroundView = nil
         self.tableView.backgroundColor = ColorFactory.darkColor()

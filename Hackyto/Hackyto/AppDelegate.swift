@@ -23,16 +23,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
         self.window?.backgroundColor = ColorFactory.darkColor()
 
-        let navigationController = UINavigationController(rootViewController: TableController(type: RetrieverManager.NewsType.Ask))
-        navigationController.navigationBar.translucent = false
+        let tabbar: UITabBarController = UITabBarController()
+
+        var viewControllers: [UIViewController] = []
+
+        for i in 0..<RetrieverManager.supportedNewsType {
+            let type: RetrieverManager.NewsType = RetrieverManager.NewsType(rawValue: i)!
+            let navigationController = UINavigationController(rootViewController: TableController(type: type))
+            let textAttributes = [NSForegroundColorAttributeName: ColorFactory.lightColor()]
+            navigationController.navigationBar.titleTextAttributes = textAttributes
+            viewControllers.append(navigationController)
+        }
+
+        tabbar.viewControllers = viewControllers
 
         UINavigationBar.appearance().barTintColor = ColorFactory.darkColor()
         UINavigationBar.appearance().tintColor = ColorFactory.blueColor()
+        UINavigationBar.appearance().translucent = false
 
-        let textAttributes = [NSForegroundColorAttributeName: ColorFactory.lightColor()]
-        navigationController.navigationBar.titleTextAttributes = textAttributes
+        UITabBar.appearance().tintColor = ColorFactory.blueColor()
+        UITabBar.appearance().barTintColor = ColorFactory.darkColor()
+        UITabBar.appearance().translucent = false
 
-        self.window?.rootViewController = navigationController
+        self.window?.rootViewController = tabbar
         self.window?.makeKeyAndVisible()
 
         return true
