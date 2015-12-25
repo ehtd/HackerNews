@@ -46,15 +46,21 @@ class TableController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        guard let retriever = self.retriever
+        else {
+            print("self.retriever should not be nil, call convenience init")
+            return
+        }
+
+        NSNotificationCenter.defaultCenter().addObserver(self,
+            selector: "onContentSizeChange:",
+            name: UIContentSizeCategoryDidChangeNotification,
+            object: nil)
+
         self.view.backgroundColor = ColorFactory.darkColor()
         self.tableView.backgroundView = nil
         self.tableView.backgroundColor = ColorFactory.darkColor()
 
-        NSNotificationCenter.defaultCenter().addObserver(self,
-                                                        selector: "onContentSizeChange:",
-                                                        name: UIContentSizeCategoryDidChangeNotification,
-                                                        object: nil)
-        
         self.setNeedsStatusBarAppearanceUpdate()
         self.tableView.separatorColor = UIColor.clearColor()
         self.tableView.separatorStyle = UITableViewCellSeparatorStyle.None
@@ -62,11 +68,6 @@ class TableController: UITableViewController {
         self.tableView.rowHeight = UITableViewAutomaticDimension
 
         self.tableView.registerNib(UINib(nibName: "StoryCell", bundle: nil), forCellReuseIdentifier: cellIdentifier)
-
-        guard let retriever = self.retriever else {
-            print("self.retriever should not be nil, call convenience init")
-            return
-        }
 
         retriever.didFinishLoadingTopStories = didFinishLoadingTopStories
         retriever.didFailedLoadingTopStories = didFailedLoading
@@ -81,8 +82,7 @@ class TableController: UITableViewController {
         self.tableView.startPullToRefresh()
     }
 
-    override func viewDidDisappear(animated: Bool) {
-        super.viewDidDisappear(animated)
+    deinit {
         NSNotificationCenter.defaultCenter().removeObserver(self)
     }
 
@@ -97,12 +97,8 @@ class TableController: UITableViewController {
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        return self.basicCellAtIndexPath(indexPath)
-    }
-    
-    func basicCellAtIndexPath(indexPath: NSIndexPath) -> StoryCell {
         let cell: StoryCell = self.tableView.dequeueReusableCellWithIdentifier(cellIdentifier) as! StoryCell
-        
+
         self.configureBasicCell(cell, indexPath: indexPath)
 
         // Seems sometimes the cell didn't update its height. Use to layout again.
@@ -110,12 +106,9 @@ class TableController: UITableViewController {
 
         return cell
     }
-    
+
     func configureBasicCell(cell: StoryCell, indexPath: NSIndexPath){
-        guard let topStories = topStories else {
-            print("topStories is not available")
-            return
-        }
+        guard let topStories = topStories else { return }
 
         let storyId = topStories[indexPath.row] as? Int
 
@@ -131,7 +124,7 @@ class TableController: UITableViewController {
                 }
             }
 
-            if let kids: NSArray = story?.objectForKey("kids") as! NSArray? {
+            if let kids = story?.objectForKey("kids") as? NSArray {
                 cell.configureComments(comments: kids)
             }
         }
@@ -142,10 +135,7 @@ class TableController: UITableViewController {
     // MARK: TableView Delegate
 
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        guard let topStories = topStories else {
-            print("topStories is not available")
-            return
-        }
+        guard let topStories = topStories else { return }
 
         let storyId = topStories[indexPath.row] as? Int
 

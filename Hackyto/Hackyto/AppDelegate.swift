@@ -37,13 +37,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         tabbar.viewControllers = viewControllers
 
-        UINavigationBar.appearance().barTintColor = ColorFactory.darkColor()
-        UINavigationBar.appearance().tintColor = ColorFactory.blueColor()
-        UINavigationBar.appearance().translucent = false
-
-        UITabBar.appearance().tintColor = ColorFactory.blueColor()
-        UITabBar.appearance().barTintColor = ColorFactory.darkColor()
-        UITabBar.appearance().translucent = false
+        configureAppearance()
 
         self.window?.rootViewController = tabbar
         self.window?.makeKeyAndVisible()
@@ -60,7 +54,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         
         return nil
+    }
 
+    // MARK: Apperance configuration
+
+    func configureAppearance() {
+        UINavigationBar.appearance().barTintColor = ColorFactory.darkColor()
+        UINavigationBar.appearance().tintColor = ColorFactory.blueColor()
+        UINavigationBar.appearance().translucent = false
+
+        UITabBar.appearance().tintColor = ColorFactory.blueColor()
+        UITabBar.appearance().barTintColor = ColorFactory.darkColor()
+        UITabBar.appearance().translucent = false
     }
 }
 

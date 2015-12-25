@@ -16,12 +16,13 @@ class StoryCell: UITableViewCell {
     
     var launchComments: ((key: Int) -> ())?
     
-    var key: Int!
+    var key: Int?
     
     override func awakeFromNib() {
         super.awakeFromNib()
         self.backgroundColor = ColorFactory.darkColor()
         self.backgroundView?.backgroundColor = ColorFactory.darkColor()
+        self.contentView.backgroundColor = ColorFactory.darkColor()
     }
 
     func configureCell(title title:String, author:String, storyKey: Int){
@@ -43,6 +44,7 @@ class StoryCell: UITableViewCell {
     // MARK: Actions
     
     @IBAction func openComments() {
+        guard let key = key else { return }
         launchComments?(key: key)
     }
 }
