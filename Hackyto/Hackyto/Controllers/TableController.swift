@@ -13,7 +13,7 @@ class TableController: UITableViewController {
 
     var retriever: RetrieverManager?
     var topStories: NSMutableArray?
-    var detailedStories = [String: NSDictionary]()
+    var detailedStories = [Int: NSDictionary]()
 
     let cellIdentifier = "StoryCell"
 
@@ -63,15 +63,18 @@ class TableController: UITableViewController {
 
         self.tableView.registerNib(UINib(nibName: "StoryCell", bundle: nil), forCellReuseIdentifier: cellIdentifier)
 
-        assert(self.retriever != nil, "self.retriever should not be nil, call convenience init")
+        guard let retriever = self.retriever else {
+            print("self.retriever should not be nil, call convenience init")
+            return
+        }
 
-        retriever!.didFinishLoadingTopStories = didFinishLoadingTopStories
-        retriever!.didFailedLoadingTopStories = didFailedLoading
+        retriever.didFinishLoadingTopStories = didFinishLoadingTopStories
+        retriever.didFailedLoadingTopStories = didFailedLoading
         
         tableView.addPullToRefreshWithAction({
             NSOperationQueue().addOperationWithBlock {
 
-                self.retriever!.retrieveTopStories();
+                retriever.retrieveTopStories();
             }
             }, withAnimator: BeatAnimator())
         
@@ -109,69 +112,78 @@ class TableController: UITableViewController {
     }
     
     func configureBasicCell(cell: StoryCell, indexPath: NSIndexPath){
-        let storyId: AnyObject = topStories!.objectAtIndex(indexPath.row)
-        
-        let key = "\(storyId)"
-        let story = detailedStories[key]
-        
-        if let titleObject: AnyObject = story?.objectForKey("title") {
-            if let authorObject: AnyObject = story?.objectForKey("by") {
-                cell.configureCell(title: "\(indexPath.row+1). \(titleObject)", author: "\(authorObject)", storyKey: key)
+        guard let topStories = topStories else {
+            print("topStories is not available")
+            return
+        }
+
+        let storyId = topStories[indexPath.row] as? Int
+
+        if let storyId = storyId {
+            let story = detailedStories[storyId]
+
+            if let titleObject: AnyObject = story?.objectForKey("title") {
+                if let authorObject: AnyObject = story?.objectForKey("by") {
+                    cell.configureCell(title: "\(indexPath.row+1). \(titleObject)", author: "\(authorObject)", storyKey: storyId)
+                }
+                else {
+                    cell.configureCell(title: "\(indexPath.row+1). \(titleObject)", author: "", storyKey: storyId)
+                }
             }
-            else {
-                cell.configureCell(title: "\(indexPath.row+1). \(titleObject)", author: "", storyKey: key)
+
+            if let kids: NSArray = story?.objectForKey("kids") as! NSArray? {
+                cell.configureComments(comments: kids)
             }
         }
-        
-        if let kids: NSArray = story?.objectForKey("kids") as! NSArray? {
-//            println(kids.count)
-            cell.configureComments(comments: kids)
-        }
-        
+
         cell.launchComments = openStoryComments
     }
     
     // MARK: TableView Delegate
 
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        
-        let index: Int = indexPath.row
-        let storyId: AnyObject = topStories!.objectAtIndex(index)
-        
-        let key = "\(storyId)"
-        let story = detailedStories[key]
-        let url = story?.objectForKey("url") as? String
-        let title = story?.objectForKey("title") as? String
-        
-        if let url = url {
-            if let title = title {
-                self.openWebBrowser(title: title, url: url)
-            } else {
-                self.openWebBrowser(title: "", url: url)
+        guard let topStories = topStories else {
+            print("topStories is not available")
+            return
+        }
+
+        let storyId = topStories[indexPath.row] as? Int
+
+        if let storyId = storyId {
+            let story = detailedStories[storyId]
+
+            var url = story?.objectForKey("url") as? String
+            let title = story?.objectForKey("title") as? String
+            let keyNumber = story?.objectForKey("id") as? NSNumber
+
+            if url == nil { // Ask HN stories have this field empty
+                if let key = keyNumber?.integerValue {
+                    url = Constants.hackerNewsBaseURLString + String(key)
+                }
             }
+
+            self.openWebBrowser(title: title, urlString: url)
         }
     }
 
     // MARK: Open Comments Closure
     
-    var openStoryComments: ((key: String) -> ()) {
+    var openStoryComments: ((key: Int) -> ()) {
         get {
-            return { [weak self] (key: String) ->() in
+            return { [weak self] (key: Int) ->() in
                 if let strongSelf = self {
                     
                     let story = strongSelf.detailedStories[key]
 
-                    let url = Constants.hackerNewsBaseURLString+"\(key)"
+                    let url = Constants.hackerNewsBaseURLString + String(key)
                     let title = story?.objectForKey("title") as? String
                     let hnComments = "HN comments"
                     
                     if let title = title {
-                        strongSelf.openWebBrowser(title: title + " - " + hnComments, url: url)
+                        strongSelf.openWebBrowser(title: title + " - " + hnComments, urlString: url)
                     } else {
-                        strongSelf.openWebBrowser(title: hnComments, url: url)
+                        strongSelf.openWebBrowser(title: hnComments, urlString: url)
                     }
-                    
-
                 }
             }
         }
@@ -179,9 +191,9 @@ class TableController: UITableViewController {
     
     // MARK: Retrieved data Closures
     
-    var didFinishLoadingTopStories: ((storyIDs: NSMutableArray?, stories: [String: NSDictionary]) ->()) {
+    var didFinishLoadingTopStories: ((storyIDs: NSMutableArray?, stories: [Int: NSDictionary]) ->()) {
         get {
-            return { [weak self] (storyIDs: NSMutableArray?, stories: [String: NSDictionary]) ->() in
+            return { [weak self] (storyIDs: NSMutableArray?, stories: [Int: NSDictionary]) ->() in
                 if let strongSelf = self {
                     strongSelf.topStories = storyIDs
                     strongSelf.detailedStories = stories
@@ -216,10 +228,16 @@ class TableController: UITableViewController {
     
     // MARK: Helper Methods
     
-    func openWebBrowser(title title: String, url: String) {
-        let request:NSURLRequest = NSURLRequest(URL: NSURL(string: url)!)
-        let webViewController = SVWebViewController(URLRequest: request, title: title)
-        self.navigationController?.pushViewController(webViewController, animated: true)
+    func openWebBrowser(title title: String?, urlString: String?) {
+        if let urlString = urlString {
+            let url = NSURL(string: urlString)
+
+            if let url = url {
+                let request:NSURLRequest = NSURLRequest(URL: url)
+                let webViewController = SVWebViewController(URLRequest: request, title: title)
+                self.navigationController?.pushViewController(webViewController, animated: true)
+            }
+        }
     }
 }
 

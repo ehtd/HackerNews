@@ -14,9 +14,9 @@ class StoryCell: UITableViewCell {
     @IBOutlet weak var authorLabel: UILabel!
     @IBOutlet weak var commentsButton: UIButton!
     
-    var launchComments: ((key: String) -> ())?
+    var launchComments: ((key: Int) -> ())?
     
-    var key: String!
+    var key: Int!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -24,7 +24,7 @@ class StoryCell: UITableViewCell {
         self.backgroundView?.backgroundColor = ColorFactory.darkColor()
     }
 
-    func configureCell(title title:String, author:String, storyKey: String){
+    func configureCell(title title:String, author:String, storyKey: Int){
         
         titleLabel.font = UIFont.preferredFontForTextStyle(UIFontTextStyleHeadline)
         authorLabel.font = UIFont.preferredFontForTextStyle(UIFontTextStyleSubheadline)
