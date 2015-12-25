@@ -117,20 +117,7 @@ class RetrieverManager {
                             self.pendingDownloads--
                             self.detailedStories[key] = details
                         }
-                        // TODO: ask hn
-
                     }
-
-
-//
-//                    if let key = keyNumber?.integerValue {
-//                        let url = details["url"] as? String
-//
-//                        if (url == nil) // Ask HN does not provide base URL, use id to generate URL
-//                        {
-//                            details["url"] = Constants.hackerNewsBaseURLString + String(key)
-//                        }
-//                    }
                 } else {
                     print("FIREBASE FAILED TO RETRIEVE SNAPSHOT")
                     self.cleanStoryIdFromPendingDownloads(storyId)
