@@ -37,6 +37,31 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         tabbar.viewControllers = viewControllers
 
+        if let topTab = tabbar.tabBar.items?[0] {
+            topTab.image = UIImage(named: "top")
+            topTab.title = "Top"
+        }
+
+        if let topTab = tabbar.tabBar.items?[1] {
+            topTab.image = UIImage(named: "news")
+            topTab.title = "News"
+        }
+
+        if let topTab = tabbar.tabBar.items?[2] {
+            topTab.image = UIImage(named: "ask")
+            topTab.title = "Ask"
+        }
+
+        if let topTab = tabbar.tabBar.items?[3] {
+            topTab.image = UIImage(named: "show")
+            topTab.title = "Show"
+        }
+
+        if let topTab = tabbar.tabBar.items?[4] {
+            topTab.image = UIImage(named: "jobs")
+            topTab.title = "Jobs"
+        }
+
         configureAppearance()
 
         self.window?.rootViewController = tabbar

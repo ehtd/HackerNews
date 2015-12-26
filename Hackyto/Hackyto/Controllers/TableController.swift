@@ -23,22 +23,7 @@ class TableController: UITableViewController {
         self.init()
         self.retriever = RetrieverManager(type: type)
 
-        switch type {
-        case .Top:
-            self.title = "Top"
-
-        case .News:
-            self.title = "News"
-
-        case .Ask:
-            self.title = "Ask"
-
-        case .Show:
-            self.title = "Show"
-
-        case .Jobs:
-            self.title = "Jobs"
-        }
+        self.title = "Hackyto"
     }
 
     // MARK: View Controller Life Cycle
@@ -190,7 +175,7 @@ class TableController: UITableViewController {
                     strongSelf.tableView.stopPullToRefresh()
 
                     if let title = strongSelf.title {
-                        print("All data is ready (" + title + ")")
+                        print("All data is ready")
                     }
 
                     print("Total stories: \(strongSelf.detailedStories.count)")
