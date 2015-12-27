@@ -3,7 +3,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
@@ -17,10 +16,10 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nlb-70-0SW" userLabel="pillView">
-                        <rect key="frame" x="8" y="8" width="584" height="119.5"/>
+                        <rect key="frame" x="6" y="4" width="588" height="127.5"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8zy-vn-mTk">
-                                <rect key="frame" x="494" y="33" width="80" height="55"/>
+                                <rect key="frame" x="498" y="37" width="80" height="55"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="80" id="ita-LB-zZQ"/>
                                     <constraint firstAttribute="height" constant="55" id="osM-SA-keN"/>
@@ -36,17 +35,17 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="999" verticalHuggingPriority="999" horizontalCompressionResistancePriority="999" verticalCompressionResistancePriority="999" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PcK-lq-RHe" userLabel="TitleLabel">
-                                <rect key="frame" x="107.5" y="30" width="381.5" height="37.5"/>
+                                <rect key="frame" x="108" y="30" width="385" height="45.5"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lUM-rq-HqP" userLabel="AuthorLabel">
-                                <rect key="frame" x="107.5" y="72.5" width="376.5" height="17"/>
+                                <rect key="frame" x="108" y="80.5" width="380" height="17"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="500" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="fEm-Q0-afZ" userLabel="numberLabel">
-                                <rect key="frame" x="10" y="36" width="87.5" height="48"/>
+                                <rect key="frame" x="10" y="40" width="88" height="48"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="100" id="UkZ-8a-Uy9"/>
                                 </constraints>
@@ -95,15 +94,16 @@
                 </subviews>
                 <color key="backgroundColor" red="0.086274512110000007" green="0.086274512110000007" blue="0.090196080509999998" alpha="1" colorSpace="deviceRGB"/>
                 <constraints>
-                    <constraint firstAttribute="trailingMargin" secondItem="Nlb-70-0SW" secondAttribute="trailing" id="9Do-8M-Xzu"/>
-                    <constraint firstItem="Nlb-70-0SW" firstAttribute="top" secondItem="xi4-QR-Fus" secondAttribute="topMargin" id="HJw-1D-dXq"/>
-                    <constraint firstItem="Nlb-70-0SW" firstAttribute="leading" secondItem="xi4-QR-Fus" secondAttribute="leadingMargin" id="QUu-OB-Dad"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="Nlb-70-0SW" secondAttribute="bottom" id="Zlp-No-0Bf"/>
+                    <constraint firstAttribute="trailing" secondItem="Nlb-70-0SW" secondAttribute="trailing" constant="6" id="9Do-8M-Xzu"/>
+                    <constraint firstItem="Nlb-70-0SW" firstAttribute="top" secondItem="xi4-QR-Fus" secondAttribute="top" constant="4" id="HJw-1D-dXq"/>
+                    <constraint firstItem="Nlb-70-0SW" firstAttribute="leading" secondItem="xi4-QR-Fus" secondAttribute="leading" constant="6" id="QUu-OB-Dad"/>
+                    <constraint firstAttribute="bottom" secondItem="Nlb-70-0SW" secondAttribute="bottom" constant="4" id="Zlp-No-0Bf"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="authorLabel" destination="lUM-rq-HqP" id="x0X-U4-s1z"/>
                 <outlet property="commentsButton" destination="8zy-vn-mTk" id="R2a-kC-mb9"/>
+                <outlet property="numberLabel" destination="fEm-Q0-afZ" id="UbM-tA-KSU"/>
                 <outlet property="pillView" destination="Nlb-70-0SW" id="Rh5-94-lXX"/>
                 <outlet property="titleLabel" destination="PcK-lq-RHe" id="yx9-AI-DNg"/>
             </connections>

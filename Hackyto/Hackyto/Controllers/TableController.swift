@@ -106,10 +106,10 @@ class TableController: UITableViewController {
 
             if let titleObject: AnyObject = story?.objectForKey("title") {
                 if let authorObject: AnyObject = story?.objectForKey("by") {
-                    cell.configureCell(title: "\(indexPath.row+1). \(titleObject)", author: "\(authorObject)", storyKey: storyId)
+                    cell.configureCell(title: String(titleObject), author: String(authorObject), storyKey: storyId, number: indexPath.row + 1)
                 }
                 else {
-                    cell.configureCell(title: "\(indexPath.row+1). \(titleObject)", author: "", storyKey: storyId)
+                    cell.configureCell(title: String(titleObject), author: "", storyKey: storyId, number: indexPath.row + 1)
                 }
             }
 
@@ -178,12 +178,8 @@ class TableController: UITableViewController {
                     strongSelf.detailedStories = stories
                     strongSelf.tableView.stopPullToRefresh()
 
-                    if let title = strongSelf.title {
-                        print("All data is ready")
-                    }
-
+                    print("All data is ready")
                     print("Total stories: \(strongSelf.detailedStories.count)")
-                    //                println("Detailed stories: \(self.detailedStories)")
                     strongSelf.tableView.reloadData()
                     
                     // For some reason, the first displayed rows may not have
