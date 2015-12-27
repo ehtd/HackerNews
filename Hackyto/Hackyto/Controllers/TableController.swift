@@ -22,11 +22,14 @@ class TableController: UITableViewController {
     convenience init(type: RetrieverManager.NewsType) {
         self.init()
         self.retriever = RetrieverManager(type: type)
-
-        self.title = "Hackyto"
     }
 
     // MARK: View Controller Life Cycle
+
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        self.title = "Hackyto"
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -210,6 +213,8 @@ class TableController: UITableViewController {
             if let url = url {
                 let request:NSURLRequest = NSURLRequest(URL: url)
                 let webViewController = SVWebViewController(URLRequest: request, title: title)
+                webViewController.hidesBottomBarWhenPushed = true
+                self.title = ""
                 self.navigationController?.pushViewController(webViewController, animated: true)
             }
         }

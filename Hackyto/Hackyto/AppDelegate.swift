@@ -23,7 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
         self.window?.backgroundColor = ColorFactory.darkColor()
 
-        let tabbar: UITabBarController = UITabBarController()
+        let tabBarController: UITabBarController = UITabBarController()
 
         var viewControllers: [UIViewController] = []
 
@@ -35,36 +35,36 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             viewControllers.append(navigationController)
         }
 
-        tabbar.viewControllers = viewControllers
+        tabBarController.viewControllers = viewControllers
 
-        if let topTab = tabbar.tabBar.items?[0] {
+        if let topTab = tabBarController.tabBar.items?[0] {
             topTab.image = UIImage(named: "top")
             topTab.title = "Top"
         }
 
-        if let topTab = tabbar.tabBar.items?[1] {
+        if let topTab = tabBarController.tabBar.items?[1] {
             topTab.image = UIImage(named: "news")
             topTab.title = "News"
         }
 
-        if let topTab = tabbar.tabBar.items?[2] {
+        if let topTab = tabBarController.tabBar.items?[2] {
             topTab.image = UIImage(named: "ask")
             topTab.title = "Ask"
         }
 
-        if let topTab = tabbar.tabBar.items?[3] {
+        if let topTab = tabBarController.tabBar.items?[3] {
             topTab.image = UIImage(named: "show")
             topTab.title = "Show"
         }
 
-        if let topTab = tabbar.tabBar.items?[4] {
+        if let topTab = tabBarController.tabBar.items?[4] {
             topTab.image = UIImage(named: "jobs")
             topTab.title = "Jobs"
         }
 
         configureAppearance()
 
-        self.window?.rootViewController = tabbar
+        self.window?.rootViewController = tabBarController
         self.window?.makeKeyAndVisible()
 
         return true
