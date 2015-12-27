@@ -13,6 +13,7 @@ class StoryCell: UITableViewCell {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var authorLabel: UILabel!
     @IBOutlet weak var commentsButton: UIButton!
+    @IBOutlet weak var pillView: UIView!
     
     var launchComments: ((key: Int) -> ())?
     
@@ -20,15 +21,17 @@ class StoryCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        self.backgroundColor = ColorFactory.darkColor()
-        self.backgroundView?.backgroundColor = ColorFactory.darkColor()
-        self.contentView.backgroundColor = ColorFactory.darkColor()
+        self.pillView.layer.cornerRadius = 5.0
+
+        self.backgroundColor = ColorFactory.darkGrayColor()
+        self.backgroundView?.backgroundColor = ColorFactory.darkGrayColor()
+        self.contentView.backgroundColor = ColorFactory.darkGrayColor()
     }
 
     func configureCell(title title:String, author:String, storyKey: Int){
         
         titleLabel.font = UIFont.preferredFontForTextStyle(UIFontTextStyleHeadline)
-        authorLabel.font = UIFont.preferredFontForTextStyle(UIFontTextStyleSubheadline)
+        authorLabel.font = UIFont.preferredFontForTextStyle(UIFontTextStyleCaption1)
         
         titleLabel.text = title
         authorLabel.text = author

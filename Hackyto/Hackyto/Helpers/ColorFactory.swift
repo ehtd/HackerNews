@@ -14,6 +14,10 @@ class ColorFactory: NSObject {
         return UIColor(red: 22/255.0, green: 22/255.0, blue: 23/255.0, alpha: 1.0)
     }
 
+    class func darkGrayColor() -> UIColor {
+        return UIColor(red: 60/255.0, green: 60/255.0, blue: 60/255.0, alpha: 1.0)
+    }
+
     class func lightColor() -> UIColor {
         return UIColor.whiteColor()
     }

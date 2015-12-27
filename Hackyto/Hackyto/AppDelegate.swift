@@ -21,7 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UIApplication.sharedApplication().statusBarStyle = UIStatusBarStyle.LightContent
 
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
-        self.window?.backgroundColor = ColorFactory.darkColor()
+        self.window?.backgroundColor = ColorFactory.darkGrayColor()
 
         let tabBarController: UITabBarController = UITabBarController()
 
@@ -84,12 +84,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // MARK: Apperance configuration
 
     func configureAppearance() {
-        UINavigationBar.appearance().barTintColor = ColorFactory.darkColor()
+        UINavigationBar.appearance().barTintColor = ColorFactory.darkGrayColor()
         UINavigationBar.appearance().tintColor = ColorFactory.blueColor()
         UINavigationBar.appearance().translucent = false
 
-        UITabBar.appearance().tintColor = ColorFactory.blueColor()
-        UITabBar.appearance().barTintColor = ColorFactory.darkColor()
+        UITabBar.appearance().tintColor = ColorFactory.darkGrayColor()
+        UITabBar.appearance().barTintColor = ColorFactory.lightColor()
         UITabBar.appearance().translucent = false
     }
 }

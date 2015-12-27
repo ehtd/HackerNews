@@ -29,6 +29,7 @@ class TableController: UITableViewController {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         self.title = "Hackyto"
+//        self.navigationController?.navigationBarHidden = true
     }
 
     override func viewDidLoad() {
@@ -45,14 +46,14 @@ class TableController: UITableViewController {
             name: UIContentSizeCategoryDidChangeNotification,
             object: nil)
 
-        self.view.backgroundColor = ColorFactory.darkColor()
+        self.view.backgroundColor = ColorFactory.darkGrayColor()
         self.tableView.backgroundView = nil
-        self.tableView.backgroundColor = ColorFactory.darkColor()
+        self.tableView.backgroundColor = ColorFactory.darkGrayColor()
 
         self.setNeedsStatusBarAppearanceUpdate()
         self.tableView.separatorColor = UIColor.clearColor()
         self.tableView.separatorStyle = UITableViewCellSeparatorStyle.None
-        self.tableView.estimatedRowHeight = 136.0
+        self.tableView.estimatedRowHeight = 130.0
         self.tableView.rowHeight = UITableViewAutomaticDimension
 
         self.tableView.registerNib(UINib(nibName: "StoryCell", bundle: nil), forCellReuseIdentifier: cellIdentifier)
@@ -215,6 +216,7 @@ class TableController: UITableViewController {
                 let webViewController = SVWebViewController(URLRequest: request, title: title)
                 webViewController.hidesBottomBarWhenPushed = true
                 self.title = ""
+//                self.navigationController?.navigationBarHidden = false
                 self.navigationController?.pushViewController(webViewController, animated: true)
             }
         }

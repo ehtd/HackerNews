@@ -71,7 +71,7 @@ class RetrieverManager {
             self.detailedStories = [Int: NSDictionary]()
 
             if let topStories = self.topStories {
-                self.retrieveStories(startingIndex: 0, endingIndex: topStories.count)
+                self.retrieveStories(startingIndex: 0, endingIndex: 10)
             }
 
             }, withCancelBlock: { error in
