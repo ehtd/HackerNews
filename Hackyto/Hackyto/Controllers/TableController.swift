@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Refresher
 
 class TableController: UITableViewController {
 
@@ -15,7 +14,11 @@ class TableController: UITableViewController {
     var topStories: NSMutableArray?
     var detailedStories = [Int: NSDictionary]()
 
+    let pullToRefresh = UIRefreshControl()
+
     let cellIdentifier = "StoryCell"
+
+    static var colorIndex = 0
 
     // MARK: Init
 
@@ -29,7 +32,7 @@ class TableController: UITableViewController {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         self.title = "Hackyto"
-//        self.navigationController?.navigationBarHidden = true
+        self.navigationController?.navigationBarHidden = true
     }
 
     override func viewDidLoad() {
@@ -41,11 +44,20 @@ class TableController: UITableViewController {
             return
         }
 
-        NSNotificationCenter.defaultCenter().addObserver(self,
-            selector: "onContentSizeChange:",
-            name: UIContentSizeCategoryDidChangeNotification,
-            object: nil)
+        self.tableView.registerNib(UINib(nibName: "StoryCell", bundle: nil), forCellReuseIdentifier: cellIdentifier)
 
+        retriever.didFinishLoadingTopStories = didFinishLoadingTopStories
+        retriever.didFailedLoadingTopStories = didFailedLoading
+
+        addStylesToTableView()
+        addPullToRefresh()
+
+        self.retrieveStories()
+    }
+
+    // MARK: Styles Configuration
+
+    func addStylesToTableView() {
         self.view.backgroundColor = ColorFactory.darkGrayColor()
         self.tableView.backgroundView = nil
         self.tableView.backgroundColor = ColorFactory.darkGrayColor()
@@ -55,30 +67,44 @@ class TableController: UITableViewController {
         self.tableView.separatorStyle = UITableViewCellSeparatorStyle.None
         self.tableView.estimatedRowHeight = 130.0
         self.tableView.rowHeight = UITableViewAutomaticDimension
+    }
 
-        self.tableView.registerNib(UINib(nibName: "StoryCell", bundle: nil), forCellReuseIdentifier: cellIdentifier)
+    // MARK: Pull to Refresh
 
-        retriever.didFinishLoadingTopStories = didFinishLoadingTopStories
-        retriever.didFailedLoadingTopStories = didFailedLoading
-        
-        tableView.addPullToRefreshWithAction({
-            NSOperationQueue().addOperationWithBlock {
+    func addPullToRefresh() {
+        self.pullToRefresh.backgroundColor = ColorFactory.colorFromNumber(TableController.colorIndex)
+        self.pullToRefresh.tintColor = UIColor.whiteColor()
+        self.pullToRefresh.addTarget(self, action: "retrieveStories", forControlEvents: UIControlEvents.ValueChanged)
 
-                retriever.retrieveTopStories();
+        self.tableView.addSubview(pullToRefresh)
+        self.tableView.contentOffset = CGPointMake(0, -self.pullToRefresh.frame.size.height)
+        self.pullToRefresh.beginRefreshing()
+    }
+
+    func stopPullToRefresh() {
+        let delayTime = dispatch_time(DISPATCH_TIME_NOW, Int64(0.05 * Double(NSEC_PER_SEC)))
+        dispatch_after(delayTime, dispatch_get_main_queue()) { [weak self] in
+            if let strongSelf = self {
+                strongSelf.pullToRefresh.endRefreshing()
+                strongSelf.updatePullToRefreshColor()
             }
-            }, withAnimator: BeatAnimator())
-        
-        self.tableView.startPullToRefresh()
+        }
     }
 
-    deinit {
-        NSNotificationCenter.defaultCenter().removeObserver(self)
+    func updatePullToRefreshColor() {
+        let delayTime = dispatch_time(DISPATCH_TIME_NOW, Int64(0.5 * Double(NSEC_PER_SEC)))
+        dispatch_after(delayTime, dispatch_get_main_queue()) { [weak self] in
+            if let strongSelf = self {
+                TableController.colorIndex++
+                strongSelf.pullToRefresh.backgroundColor = ColorFactory.colorFromNumber(TableController.colorIndex)
+            }
+        }
     }
 
-    func onContentSizeChange(notification: NSNotification) {
-        self.tableView.reloadData()
+    func retrieveStories() {
+        self.retriever?.retrieveTopStories()
     }
-    
+
     // MARK: TableView Controller data source
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -176,7 +202,7 @@ class TableController: UITableViewController {
                 if let strongSelf = self {
                     strongSelf.topStories = storyIDs
                     strongSelf.detailedStories = stories
-                    strongSelf.tableView.stopPullToRefresh()
+                    strongSelf.stopPullToRefresh()
 
                     print("All data is ready")
                     print("Total stories: \(strongSelf.detailedStories.count)")
@@ -194,7 +220,7 @@ class TableController: UITableViewController {
         get {
             return { [weak self] in
                 if let strongSelf = self {
-                    strongSelf.tableView.stopPullToRefresh()
+                    strongSelf.stopPullToRefresh()
                     print("Failed to download data", terminator: "")
                 }
             }
@@ -212,7 +238,6 @@ class TableController: UITableViewController {
                 let webViewController = SVWebViewController(URLRequest: request, title: title)
                 webViewController.hidesBottomBarWhenPushed = true
                 self.title = ""
-//                self.navigationController?.navigationBarHidden = false
                 self.navigationController?.pushViewController(webViewController, animated: true)
             }
         }

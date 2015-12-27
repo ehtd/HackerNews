@@ -94,7 +94,9 @@
     NSAssert(self.navigationController, @"SVWebViewController needs to be contained in a UINavigationController. If you are presenting SVWebViewController modally, use SVModalWebViewController instead.");
     
     [super viewWillAppear:animated];
-    
+
+    self.navigationController.navigationBarHidden = NO;
+
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
         [self.navigationController setToolbarHidden:NO animated:animated];
     }
