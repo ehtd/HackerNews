@@ -17,7 +17,11 @@ class CircledNumberView: UIView {
         }
     }
     
-    @IBInspectable var colorNumber: Int = 0
+    @IBInspectable var colorNumber: Int = 0 {
+        didSet {
+            self.circleView?.backgroundColor = ColorFactory.colorFromNumber(colorNumber)
+        }
+    }
 
     var circleView: UIView?
     var numberLabel: UILabel?

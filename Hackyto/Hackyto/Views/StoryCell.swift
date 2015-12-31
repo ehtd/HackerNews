@@ -13,8 +13,8 @@ class StoryCell: UITableViewCell {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var authorLabel: UILabel!
     @IBOutlet weak var numberLabel: UILabel!
-    @IBOutlet weak var commentsButton: UIButton!
     @IBOutlet weak var pillView: UIView!
+    @IBOutlet weak var circledNumberView: CircledNumberView!
     
     var launchComments: ((key: Int) -> ())?
     
@@ -34,24 +34,24 @@ class StoryCell: UITableViewCell {
         let headlineFontDescriptor = UIFontDescriptor.preferredFontDescriptorWithTextStyle(UIFontTextStyleHeadline)
         let captionFontDescriptor = UIFontDescriptor.preferredFontDescriptorWithTextStyle(UIFontTextStyleCaption1)
 
-        titleLabel.font = UIFont(name: "HelveticaNeue-Thin", size: headlineFontDescriptor.pointSize + 6)
-        authorLabel.font = UIFont(name: "HelveticaNeue", size: captionFontDescriptor.pointSize)
+        self.titleLabel.font = UIFont(name: "HelveticaNeue-Thin", size: headlineFontDescriptor.pointSize + 6)
+        self.authorLabel.font = UIFont(name: "HelveticaNeue", size: captionFontDescriptor.pointSize)
         
-        titleLabel.text = title
+        self.titleLabel.text = title
         
-        authorLabel.textColor = ColorFactory.colorFromNumber(number)
-        authorLabel.text = author
+        self.authorLabel.textColor = ColorFactory.colorFromNumber(number)
+        self.authorLabel.text = author
 
-        numberLabel.textColor = ColorFactory.colorFromNumber(number)
-        numberLabel.text = String(number)
+        self.numberLabel.textColor = ColorFactory.colorFromNumber(number)
+        self.numberLabel.text = String(number)
 
-        commentsButton.setTitle("0", forState: UIControlState.Normal)
-        
+        self.circledNumberView.colorNumber = number
+
         key = storyKey
     }
 
     func configureComments(comments comments:NSArray){
-        commentsButton.setTitle("\(comments.count)", forState: UIControlState.Normal)
+        self.circledNumberView.number = String(comments.count)
     }
 
     override func prepareForReuse() {

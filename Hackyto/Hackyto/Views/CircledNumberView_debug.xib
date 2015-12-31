@@ -12,7 +12,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="42k-Ta-DOj" customClass="CircledNumberView" customModule="hackyto" customModuleProvider="target">
-                    <rect key="frame" x="115" y="30" width="400" height="327"/>
+                    <rect key="frame" x="115" y="67" width="386" height="290"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="string" keyPath="number" value="501"/>
