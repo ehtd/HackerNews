@@ -19,6 +19,8 @@ class StoryCell: UITableViewCell {
     var launchComments: ((key: Int) -> ())?
     
     var key: Int?
+
+    var number: Int?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -47,7 +49,11 @@ class StoryCell: UITableViewCell {
 
         self.circledNumberView.colorNumber = number
 
-        key = storyKey
+        let tapGesture = UITapGestureRecognizer(target: self, action: "openComments")
+        self.circledNumberView.addGestureRecognizer(tapGesture)
+
+        self.number = number
+        self.key = storyKey
     }
 
     func configureComments(comments comments:NSArray){
@@ -57,10 +63,14 @@ class StoryCell: UITableViewCell {
     override func prepareForReuse() {
         super.prepareForReuse()
 
-        titleLabel.text = ""
-        authorLabel.text = ""
-        numberLabel.text = ""
-        key = 0
+        self.titleLabel.text = ""
+        self.authorLabel.text = ""
+        self.numberLabel.text = ""
+        self.key = 0
+
+        for gesture in (self.circledNumberView?.gestureRecognizers)! {
+            self.circledNumberView.removeGestureRecognizer(gesture)
+        }
     }
 
     // MARK: Actions

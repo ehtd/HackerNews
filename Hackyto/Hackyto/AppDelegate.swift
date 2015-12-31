@@ -85,7 +85,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func configureAppearance() {
         UINavigationBar.appearance().barTintColor = ColorFactory.darkGrayColor()
-        UINavigationBar.appearance().tintColor = ColorFactory.blueColor()
+        UINavigationBar.appearance().tintColor = ColorFactory.belizeHoleColor()
         UINavigationBar.appearance().translucent = false
 
         UITabBar.appearance().tintColor = ColorFactory.darkGrayColor()
