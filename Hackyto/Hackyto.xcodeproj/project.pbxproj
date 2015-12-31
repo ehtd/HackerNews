@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		16C214E91C28D08600CF2C90 /* StoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 16C214E81C28D08600CF2C90 /* StoryCell.xib */; };
 		16C214EF1C28E52300CF2C90 /* ColorFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C214EE1C28E52300CF2C90 /* ColorFactory.swift */; };
+		16F542671C349C8900A5B10E /* CircledNumberView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16F542661C349C8900A5B10E /* CircledNumberView.swift */; };
+		16F542691C349C9E00A5B10E /* CircledNumberView_debug.xib in Resources */ = {isa = PBXBuildFile; fileRef = 16F542681C349C9E00A5B10E /* CircledNumberView_debug.xib */; };
 		2917DA311B2BB5F900976A6F /* SVWebViewController.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2917DA121B2BB5F900976A6F /* SVWebViewController.strings */; };
 		2917DA321B2BB5F900976A6F /* SVModalWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2917DA1C1B2BB5F900976A6F /* SVModalWebViewController.m */; };
 		2917DA331B2BB5F900976A6F /* SVWebViewController.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 2917DA1D1B2BB5F900976A6F /* SVWebViewController.bundle */; };
@@ -68,6 +70,8 @@
 		037D422834E69B146E3B85E3 /* Pods-Hackyto.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hackyto.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Hackyto/Pods-Hackyto.debug.xcconfig"; sourceTree = "<group>"; };
 		16C214E81C28D08600CF2C90 /* StoryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = StoryCell.xib; path = Views/StoryCell.xib; sourceTree = "<group>"; };
 		16C214EE1C28E52300CF2C90 /* ColorFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ColorFactory.swift; path = Helpers/ColorFactory.swift; sourceTree = "<group>"; };
+		16F542661C349C8900A5B10E /* CircledNumberView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CircledNumberView.swift; path = Views/CircledNumberView.swift; sourceTree = "<group>"; };
+		16F542681C349C9E00A5B10E /* CircledNumberView_debug.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CircledNumberView_debug.xib; path = Views/CircledNumberView_debug.xib; sourceTree = "<group>"; };
 		2917DA131B2BB5F900976A6F /* da */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = da; path = da.lproj/SVWebViewController.strings; sourceTree = "<group>"; };
 		2917DA141B2BB5F900976A6F /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/SVWebViewController.strings; sourceTree = "<group>"; };
 		2917DA151B2BB5F900976A6F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/SVWebViewController.strings; sourceTree = "<group>"; };
@@ -318,6 +322,8 @@
 			children = (
 				29D37A4719FE97E500991577 /* StoryCell.swift */,
 				16C214E81C28D08600CF2C90 /* StoryCell.xib */,
+				16F542661C349C8900A5B10E /* CircledNumberView.swift */,
+				16F542681C349C9E00A5B10E /* CircledNumberView_debug.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -484,6 +490,7 @@
 				297B5A4C1A680854006D5BED /* dialog@2x.png in Resources */,
 				2917DA381B2BB5F900976A6F /* SVWebViewControllerActivityChrome@2x.png in Resources */,
 				2917DA351B2BB5F900976A6F /* SVWebViewControllerActivityChrome-iPad.png in Resources */,
+				16F542691C349C9E00A5B10E /* CircledNumberView_debug.xib in Resources */,
 				2917DA391B2BB5F900976A6F /* SVWebViewControllerActivitySafari-iPad.png in Resources */,
 				2917DA3C1B2BB5F900976A6F /* SVWebViewControllerActivitySafari@2x.png in Resources */,
 				16C214E91C28D08600CF2C90 /* StoryCell.xib in Resources */,
@@ -558,6 +565,7 @@
 				29D1E60419F8253F00B3E237 /* AppDelegate.swift in Sources */,
 				29EF21981B1277B00093EE8D /* RetrieverManager.swift in Sources */,
 				2917DA3D1B2BB5F900976A6F /* SVWebViewControllerActivity.m in Sources */,
+				16F542671C349C8900A5B10E /* CircledNumberView.swift in Sources */,
 				2917DA341B2BB5F900976A6F /* SVWebViewController.m in Sources */,
 				29578F281A014F1400601218 /* WebViewController.swift in Sources */,
 				29DC679E1A03129C008391DD /* TableController.swift in Sources */,
