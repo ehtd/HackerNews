@@ -84,13 +84,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // MARK: Apperance configuration
 
     func configureAppearance() {
-        UINavigationBar.appearance().barTintColor = ColorFactory.darkGrayColor()
-        UINavigationBar.appearance().tintColor = ColorFactory.belizeHoleColor()
+        UINavigationBar.appearance().barTintColor = ColorFactory.lightColor()
+        UINavigationBar.appearance().tintColor = ColorFactory.darkGrayColor()
         UINavigationBar.appearance().translucent = false
 
         UITabBar.appearance().tintColor = ColorFactory.darkGrayColor()
         UITabBar.appearance().barTintColor = ColorFactory.lightColor()
         UITabBar.appearance().translucent = false
+
+        UIToolbar.appearance().barTintColor = ColorFactory.lightColor()
+        UIToolbar.appearance().tintColor = ColorFactory.darkGrayColor()
     }
 }
 

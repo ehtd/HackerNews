@@ -235,12 +235,17 @@ class TableController: UITableViewController {
 
             if let url = url {
                 let request:NSURLRequest = NSURLRequest(URL: url)
-                let webViewController = SVWebViewController(URLRequest: request, title: title)
-                webViewController.hidesBottomBarWhenPushed = true
+
+                let webViewController = SVModalWebViewController(URLRequest: request)
+                webViewController.barsTintColor = ColorFactory.darkGrayColor()
                 self.title = ""
-                self.navigationController?.pushViewController(webViewController, animated: true)
+                self.presentViewController(webViewController, animated: true, completion: nil)
             }
         }
+    }
+
+    override func preferredStatusBarStyle() -> UIStatusBarStyle {
+        return UIStatusBarStyle.LightContent
     }
 }
 

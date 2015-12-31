@@ -30,6 +30,7 @@ class StoryCell: UITableViewCell {
         self.backgroundView?.backgroundColor = ColorFactory.darkGrayColor()
         self.contentView.backgroundColor = ColorFactory.darkGrayColor()
         self.numberLabel.textAlignment = .Center
+        self.pillView.backgroundColor = ColorFactory.lightColor()
     }
 
     func configureCell(title title:String, author:String, storyKey: Int, number: Int) {
