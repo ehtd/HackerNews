@@ -31,7 +31,6 @@ class TableController: UITableViewController {
 
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        self.title = "Hackyto"
         self.navigationController?.navigationBarHidden = true
     }
 

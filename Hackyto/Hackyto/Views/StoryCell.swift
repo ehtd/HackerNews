@@ -37,7 +37,7 @@ class StoryCell: UITableViewCell {
         let headlineFontDescriptor = UIFontDescriptor.preferredFontDescriptorWithTextStyle(UIFontTextStyleHeadline)
         let captionFontDescriptor = UIFontDescriptor.preferredFontDescriptorWithTextStyle(UIFontTextStyleCaption1)
 
-        self.titleLabel.font = UIFont(name: "HelveticaNeue-Thin", size: headlineFontDescriptor.pointSize + 6)
+        self.titleLabel.font = UIFont(name: "HelveticaNeue-Thin", size: headlineFontDescriptor.pointSize)
         self.authorLabel.font = UIFont(name: "HelveticaNeue", size: captionFontDescriptor.pointSize)
         
         self.titleLabel.text = title
