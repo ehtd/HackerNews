@@ -26,7 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let tabBarController: UITabBarController = UITabBarController()
 
         var viewControllers: [UIViewController] = []
-
+        
         for i in 0..<RetrieverManager.supportedNewsType {
             let type: RetrieverManager.NewsType = RetrieverManager.NewsType(rawValue: i)!
             let navigationController = UINavigationController(rootViewController: TableController(type: type))
@@ -37,31 +37,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         tabBarController.viewControllers = viewControllers
 
-        if let topTab = tabBarController.tabBar.items?[0] {
-            topTab.image = UIImage(named: "top")
-            topTab.title = "Top"
+        let tabBarImageNames = ["top", "news", "ask", "show", "jobs"]
+        let tabBarTitles = tabBarImageNames.map { $0.capitalizedString }
+        
+        for i in 0..<viewControllers.count {
+            if let tab = tabBarController.tabBar.items?[i] {
+                tab.image = UIImage(named: tabBarImageNames[i])
+                tab.title = tabBarTitles[i]
+            }
         }
-
-        if let topTab = tabBarController.tabBar.items?[1] {
-            topTab.image = UIImage(named: "news")
-            topTab.title = "News"
-        }
-
-        if let topTab = tabBarController.tabBar.items?[2] {
-            topTab.image = UIImage(named: "ask")
-            topTab.title = "Ask"
-        }
-
-        if let topTab = tabBarController.tabBar.items?[3] {
-            topTab.image = UIImage(named: "show")
-            topTab.title = "Show"
-        }
-
-        if let topTab = tabBarController.tabBar.items?[4] {
-            topTab.image = UIImage(named: "jobs")
-            topTab.title = "Jobs"
-        }
-
+        
         configureAppearance()
 
         self.window?.rootViewController = tabBarController

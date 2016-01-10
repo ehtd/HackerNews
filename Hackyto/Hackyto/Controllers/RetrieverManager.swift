@@ -14,6 +14,8 @@ class RetrieverManager {
         case Top = 0, News, Ask, Show, Jobs
     }
 
+    let MaximumStoriesToDownload = 200
+    
     static let supportedNewsType: Int = 5
 
     var topStories: NSMutableArray? = nil
@@ -71,7 +73,8 @@ class RetrieverManager {
             self.detailedStories = [Int: NSDictionary]()
 
             if let topStories = self.topStories {
-                self.retrieveStories(startingIndex: 0, endingIndex: topStories.count)
+                let storiesToDownload = min(self.MaximumStoriesToDownload, topStories.count)
+                self.retrieveStories(startingIndex: 0, endingIndex: storiesToDownload)
             }
 
             }, withCancelBlock: { error in

@@ -10,7 +10,7 @@ import UIKit
 
 class TableController: UITableViewController {
 
-    var retriever: RetrieverManager?
+    let retriever: RetrieverManager
     var topStories: NSMutableArray?
     var detailedStories = [Int: NSDictionary]()
 
@@ -20,13 +20,22 @@ class TableController: UITableViewController {
 
     static var colorIndex = 0
 
+    let contentType: RetrieverManager.NewsType
+    
     // MARK: Init
 
-    convenience init(type: RetrieverManager.NewsType) {
-        self.init()
+    init(type: RetrieverManager.NewsType) {
         self.retriever = RetrieverManager(type: type)
+        self.contentType = type
+        super.init(nibName: nil, bundle: nil)
     }
 
+    required init?(coder aDecoder: NSCoder) {
+        self.retriever = RetrieverManager(type: RetrieverManager.NewsType.Top)
+        self.contentType = RetrieverManager.NewsType.Top
+        super.init(coder: aDecoder)
+    }
+    
     // MARK: View Controller Life Cycle
 
     override func viewWillAppear(animated: Bool) {
@@ -37,23 +46,17 @@ class TableController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        guard let retriever = self.retriever
-        else {
-            print("self.retriever should not be nil, call convenience init")
-            return
-        }
-
         self.tableView.registerNib(UINib(nibName: "StoryCell", bundle: nil), forCellReuseIdentifier: cellIdentifier)
 
-        retriever.didFinishLoadingTopStories = didFinishLoadingTopStories
-        retriever.didFailedLoadingTopStories = didFailedLoading
+        self.retriever.didFinishLoadingTopStories = didFinishLoadingTopStories
+        self.retriever.didFailedLoadingTopStories = didFailedLoading
 
         addStylesToTableView()
         addPullToRefresh()
 
         self.retrieveStories()
     }
-
+    
     // MARK: Styles Configuration
 
     func addStylesToTableView() {
@@ -101,7 +104,7 @@ class TableController: UITableViewController {
     }
 
     func retrieveStories() {
-        self.retriever?.retrieveTopStories()
+        self.retriever.retrieveTopStories()
     }
 
     // MARK: TableView Controller data source
@@ -237,8 +240,12 @@ class TableController: UITableViewController {
 
                 let webViewController = SVModalWebViewController(URLRequest: request)
                 webViewController.barsTintColor = ColorFactory.darkGrayColor()
-                self.title = ""
-                self.presentViewController(webViewController, animated: true, completion: nil)
+                
+                dispatch_async(dispatch_get_main_queue(), { [weak self] in
+                    if let strongSelf = self {
+                        strongSelf.presentViewController(webViewController, animated: true, completion: nil)
+                    }
+                })
             }
         }
     }
