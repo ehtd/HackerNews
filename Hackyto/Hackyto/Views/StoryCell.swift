@@ -12,42 +12,72 @@ class StoryCell: UITableViewCell {
 
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var authorLabel: UILabel!
-    @IBOutlet weak var commentsButton: UIButton!
+    @IBOutlet weak var numberLabel: UILabel!
+    @IBOutlet weak var pillView: UIView!
+    @IBOutlet weak var circledNumberView: CircledNumberView!
     
-    var launchComments: ((key: String) -> ())?
+    var launchComments: ((key: Int) -> ())?
     
-    var key: String!
+    var key: Int?
+
+    var number: Int?
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        self.pillView.layer.cornerRadius = 30.0
+
+        self.backgroundColor = ColorFactory.darkGrayColor()
+        self.backgroundView?.backgroundColor = ColorFactory.darkGrayColor()
+        self.contentView.backgroundColor = ColorFactory.darkGrayColor()
+        self.numberLabel.textAlignment = .Center
+        self.pillView.backgroundColor = ColorFactory.lightColor()
     }
 
-    override func setSelected(selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
+    func configureCell(title title:String, author:String, storyKey: Int, number: Int) {
+        let headlineFontDescriptor = UIFontDescriptor.preferredFontDescriptorWithTextStyle(UIFontTextStyleHeadline)
+        let captionFontDescriptor = UIFontDescriptor.preferredFontDescriptorWithTextStyle(UIFontTextStyleCaption1)
 
-        // Configure the view for the selected state
-    }
-    
-    func configureCell(title title:String, author:String, storyKey: String){
+        self.titleLabel.font = UIFont(name: "HelveticaNeue-Thin", size: headlineFontDescriptor.pointSize)
+        self.authorLabel.font = UIFont(name: "HelveticaNeue", size: captionFontDescriptor.pointSize)
         
-        titleLabel.font = UIFont.preferredFontForTextStyle(UIFontTextStyleHeadline)
-        authorLabel.font = UIFont.preferredFontForTextStyle(UIFontTextStyleSubheadline)
+        self.titleLabel.text = title
         
-        titleLabel.text = title
-        authorLabel.text = author
-        commentsButton.setTitle("0", forState: UIControlState.Normal)
-        
-        key = storyKey
+        self.authorLabel.textColor = ColorFactory.colorFromNumber(number)
+        self.authorLabel.text = author
+
+        self.numberLabel.textColor = ColorFactory.colorFromNumber(number)
+        self.numberLabel.text = String(number)
+
+        self.circledNumberView.colorNumber = number
+
+        let tapGesture = UITapGestureRecognizer(target: self, action: "openComments")
+        self.circledNumberView.addGestureRecognizer(tapGesture)
+
+        self.number = number
+        self.key = storyKey
     }
 
     func configureComments(comments comments:NSArray){
-        commentsButton.setTitle("\(comments.count)", forState: UIControlState.Normal)
+        self.circledNumberView.number = String(comments.count)
     }
-    
+
+    override func prepareForReuse() {
+        super.prepareForReuse()
+
+        self.titleLabel.text = ""
+        self.authorLabel.text = ""
+        self.numberLabel.text = ""
+        self.key = 0
+
+        for gesture in (self.circledNumberView?.gestureRecognizers)! {
+            self.circledNumberView.removeGestureRecognizer(gesture)
+        }
+    }
+
     // MARK: Actions
     
     @IBAction func openComments() {
+        guard let key = key else { return }
         launchComments?(key: key)
     }
 }

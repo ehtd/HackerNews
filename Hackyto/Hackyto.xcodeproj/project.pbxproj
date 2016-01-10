@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		16C214E91C28D08600CF2C90 /* StoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 16C214E81C28D08600CF2C90 /* StoryCell.xib */; };
+		16C214EF1C28E52300CF2C90 /* ColorFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C214EE1C28E52300CF2C90 /* ColorFactory.swift */; };
+		16F542671C349C8900A5B10E /* CircledNumberView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16F542661C349C8900A5B10E /* CircledNumberView.swift */; };
+		16F542691C349C9E00A5B10E /* CircledNumberView_debug.xib in Resources */ = {isa = PBXBuildFile; fileRef = 16F542681C349C9E00A5B10E /* CircledNumberView_debug.xib */; };
 		2917DA311B2BB5F900976A6F /* SVWebViewController.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2917DA121B2BB5F900976A6F /* SVWebViewController.strings */; };
 		2917DA321B2BB5F900976A6F /* SVModalWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2917DA1C1B2BB5F900976A6F /* SVModalWebViewController.m */; };
 		2917DA331B2BB5F900976A6F /* SVWebViewController.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 2917DA1D1B2BB5F900976A6F /* SVWebViewController.bundle */; };
@@ -28,25 +32,12 @@
 		2980453C1B129C6000728510 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2980453B1B129C6000728510 /* Constants.swift */; };
 		29BEDF1E1A52278C00822EB7 /* ShareInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29BEDF1D1A52278C00822EB7 /* ShareInfo.swift */; };
 		29D1E60419F8253F00B3E237 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29D1E60319F8253F00B3E237 /* AppDelegate.swift */; };
-		29D1E60919F8253F00B3E237 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 29D1E60719F8253F00B3E237 /* Main.storyboard */; };
 		29D1E60B19F8253F00B3E237 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 29D1E60A19F8253F00B3E237 /* Images.xcassets */; };
 		29D1E60E19F8254000B3E237 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 29D1E60C19F8254000B3E237 /* LaunchScreen.xib */; };
 		29D1E61A19F8254000B3E237 /* HackytoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29D1E61919F8254000B3E237 /* HackytoTests.swift */; };
 		29D37A4819FE97E500991577 /* StoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29D37A4719FE97E500991577 /* StoryCell.swift */; };
 		29DC679C1A02FCD2008391DD /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29DC679B1A02FCD2008391DD /* MessageUI.framework */; };
 		29DC679E1A03129C008391DD /* TableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29DC679D1A03129C008391DD /* TableController.swift */; };
-		29DC67B81A0313BC008391DD /* Refresher.h in Headers */ = {isa = PBXBuildFile; fileRef = 29DC67B71A0313BC008391DD /* Refresher.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		29DC67BE1A0313BD008391DD /* Refresher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29DC67B31A0313BC008391DD /* Refresher.framework */; };
-		29DC67C71A0313BD008391DD /* RefresherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29DC67C61A0313BD008391DD /* RefresherTests.swift */; };
-		29DC67CA1A0313BD008391DD /* Refresher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29DC67B31A0313BC008391DD /* Refresher.framework */; };
-		29DC67CB1A0313BD008391DD /* Refresher.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 29DC67B31A0313BC008391DD /* Refresher.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		29DC67E01A031FEF008391DD /* Animator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29DC67D81A031FEF008391DD /* Animator.swift */; };
-		29DC67E11A031FEF008391DD /* BeatAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29DC67D91A031FEF008391DD /* BeatAnimator.swift */; };
-		29DC67E21A031FEF008391DD /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 29DC67DA1A031FEF008391DD /* Info.plist */; };
-		29DC67E31A031FEF008391DD /* PacmanAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29DC67DB1A031FEF008391DD /* PacmanAnimator.swift */; };
-		29DC67E41A031FEF008391DD /* PullToRefreshExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29DC67DC1A031FEF008391DD /* PullToRefreshExtension.swift */; };
-		29DC67E51A031FEF008391DD /* PullToRefreshView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29DC67DD1A031FEF008391DD /* PullToRefreshView.swift */; };
-		29DC67E61A031FEF008391DD /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 29DC67DE1A031FEF008391DD /* README.md */; };
 		29EF21981B1277B00093EE8D /* RetrieverManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29EF21971B1277B00093EE8D /* RetrieverManager.swift */; };
 		5295D5935243B54D79F089CE /* libPods-hackyto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D5765A447B8D79E53088F02 /* libPods-hackyto.a */; };
 /* End PBXBuildFile section */
@@ -59,27 +50,6 @@
 			remoteGlobalIDString = 29D1E5FD19F8253F00B3E237;
 			remoteInfo = Hackyto;
 		};
-		29DC67BF1A0313BD008391DD /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 29D1E5F619F8253F00B3E237 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 29DC67B21A0313BC008391DD;
-			remoteInfo = Refresher;
-		};
-		29DC67C11A0313BD008391DD /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 29D1E5F619F8253F00B3E237 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 29D1E5FD19F8253F00B3E237;
-			remoteInfo = Hackyto;
-		};
-		29DC67C81A0313BD008391DD /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 29D1E5F619F8253F00B3E237 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 29DC67B21A0313BC008391DD;
-			remoteInfo = Refresher;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -89,7 +59,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				29DC67CB1A0313BD008391DD /* Refresher.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -99,6 +68,10 @@
 /* Begin PBXFileReference section */
 		00F6DA9EFDF55FF76BA41EB6 /* Pods-Hackyto.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hackyto.release.xcconfig"; path = "Pods/Target Support Files/Pods-Hackyto/Pods-Hackyto.release.xcconfig"; sourceTree = "<group>"; };
 		037D422834E69B146E3B85E3 /* Pods-Hackyto.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hackyto.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Hackyto/Pods-Hackyto.debug.xcconfig"; sourceTree = "<group>"; };
+		16C214E81C28D08600CF2C90 /* StoryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = StoryCell.xib; path = Views/StoryCell.xib; sourceTree = "<group>"; };
+		16C214EE1C28E52300CF2C90 /* ColorFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ColorFactory.swift; path = Helpers/ColorFactory.swift; sourceTree = "<group>"; };
+		16F542661C349C8900A5B10E /* CircledNumberView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CircledNumberView.swift; path = Views/CircledNumberView.swift; sourceTree = "<group>"; };
+		16F542681C349C9E00A5B10E /* CircledNumberView_debug.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CircledNumberView_debug.xib; path = Views/CircledNumberView_debug.xib; sourceTree = "<group>"; };
 		2917DA131B2BB5F900976A6F /* da */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = da; path = da.lproj/SVWebViewController.strings; sourceTree = "<group>"; };
 		2917DA141B2BB5F900976A6F /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/SVWebViewController.strings; sourceTree = "<group>"; };
 		2917DA151B2BB5F900976A6F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/SVWebViewController.strings; sourceTree = "<group>"; };
@@ -136,7 +109,6 @@
 		29D1E5FE19F8253F00B3E237 /* hackyto.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = hackyto.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		29D1E60219F8253F00B3E237 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		29D1E60319F8253F00B3E237 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		29D1E60819F8253F00B3E237 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		29D1E60A19F8253F00B3E237 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		29D1E60D19F8254000B3E237 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		29D1E61319F8254000B3E237 /* HackytoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HackytoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -146,20 +118,10 @@
 		29D37A4719FE97E500991577 /* StoryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StoryCell.swift; path = Views/StoryCell.swift; sourceTree = "<group>"; };
 		29DC679B1A02FCD2008391DD /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		29DC679D1A03129C008391DD /* TableController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TableController.swift; path = Controllers/TableController.swift; sourceTree = "<group>"; };
-		29DC67B31A0313BC008391DD /* Refresher.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Refresher.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		29DC67B61A0313BC008391DD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		29DC67B71A0313BC008391DD /* Refresher.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Refresher.h; sourceTree = "<group>"; };
-		29DC67BD1A0313BC008391DD /* RefresherTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RefresherTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		29DC67C51A0313BD008391DD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		29DC67C61A0313BD008391DD /* RefresherTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefresherTests.swift; sourceTree = "<group>"; };
-		29DC67D81A031FEF008391DD /* Animator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Animator.swift; sourceTree = "<group>"; };
-		29DC67D91A031FEF008391DD /* BeatAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeatAnimator.swift; sourceTree = "<group>"; };
-		29DC67DA1A031FEF008391DD /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		29DC67DB1A031FEF008391DD /* PacmanAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PacmanAnimator.swift; sourceTree = "<group>"; };
-		29DC67DC1A031FEF008391DD /* PullToRefreshExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PullToRefreshExtension.swift; sourceTree = "<group>"; };
-		29DC67DD1A031FEF008391DD /* PullToRefreshView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PullToRefreshView.swift; sourceTree = "<group>"; };
-		29DC67DE1A031FEF008391DD /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		29DC67DF1A031FEF008391DD /* Refresher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Refresher.h; sourceTree = "<group>"; };
 		29EF21971B1277B00093EE8D /* RetrieverManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RetrieverManager.swift; path = Controllers/RetrieverManager.swift; sourceTree = "<group>"; };
 		41D6D381611A115B3CF617EF /* Pods-hackyto.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-hackyto.debug.xcconfig"; path = "Pods/Target Support Files/Pods-hackyto/Pods-hackyto.debug.xcconfig"; sourceTree = "<group>"; };
 		611A28E69BEEAF7B66E26090 /* Pods-hackyto.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-hackyto.release.xcconfig"; path = "Pods/Target Support Files/Pods-hackyto/Pods-hackyto.release.xcconfig"; sourceTree = "<group>"; };
@@ -173,7 +135,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				29DC679C1A02FCD2008391DD /* MessageUI.framework in Frameworks */,
-				29DC67CA1A0313BD008391DD /* Refresher.framework in Frameworks */,
 				5295D5935243B54D79F089CE /* libPods-hackyto.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -185,24 +146,17 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		29DC67AF1A0313BC008391DD /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		29DC67BA1A0313BC008391DD /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				29DC67BE1A0313BD008391DD /* Refresher.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		16C214EA1C28E4D600CF2C90 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				16C214EE1C28E52300CF2C90 /* ColorFactory.swift */,
+			);
+			name = Helpers;
+			sourceTree = "<group>";
+		};
 		29171CE31B2BB26100239162 /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
@@ -316,8 +270,6 @@
 			children = (
 				29D1E5FE19F8253F00B3E237 /* hackyto.app */,
 				29D1E61319F8254000B3E237 /* HackytoTests.xctest */,
-				29DC67B31A0313BC008391DD /* Refresher.framework */,
-				29DC67BD1A0313BC008391DD /* RefresherTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -325,15 +277,14 @@
 		29D1E60019F8253F00B3E237 /* Hackyto */ = {
 			isa = PBXGroup;
 			children = (
+				16C214EA1C28E4D600CF2C90 /* Helpers */,
 				2917DA111B2BB5F900976A6F /* SVWebViewController */,
 				298045381B12984700728510 /* Application */,
 				297B5A491A680854006D5BED /* Resources */,
 				29BEDF1C1A52278C00822EB7 /* Model */,
-				29DC67D71A031FEF008391DD /* Refresher */,
 				29578F261A014EEE00601218 /* Controllers */,
 				29D37A4619FE97B400991577 /* Views */,
 				29D1E62319F8277200B3E237 /* Bridge.h */,
-				29D1E60719F8253F00B3E237 /* Main.storyboard */,
 				29D1E60A19F8253F00B3E237 /* Images.xcassets */,
 				29D1E60C19F8254000B3E237 /* LaunchScreen.xib */,
 				29D1E60119F8253F00B3E237 /* Supporting Files */,
@@ -370,6 +321,9 @@
 			isa = PBXGroup;
 			children = (
 				29D37A4719FE97E500991577 /* StoryCell.swift */,
+				16C214E81C28D08600CF2C90 /* StoryCell.xib */,
+				16F542661C349C8900A5B10E /* CircledNumberView.swift */,
+				16F542681C349C9E00A5B10E /* CircledNumberView_debug.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -408,21 +362,6 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		29DC67D71A031FEF008391DD /* Refresher */ = {
-			isa = PBXGroup;
-			children = (
-				29DC67D81A031FEF008391DD /* Animator.swift */,
-				29DC67D91A031FEF008391DD /* BeatAnimator.swift */,
-				29DC67DA1A031FEF008391DD /* Info.plist */,
-				29DC67DB1A031FEF008391DD /* PacmanAnimator.swift */,
-				29DC67DC1A031FEF008391DD /* PullToRefreshExtension.swift */,
-				29DC67DD1A031FEF008391DD /* PullToRefreshView.swift */,
-				29DC67DE1A031FEF008391DD /* README.md */,
-				29DC67DF1A031FEF008391DD /* Refresher.h */,
-			);
-			path = Refresher;
-			sourceTree = "<group>";
-		};
 		53392EAF36CED040FFAACBE5 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -446,17 +385,6 @@
 		};
 /* End PBXGroup section */
 
-/* Begin PBXHeadersBuildPhase section */
-		29DC67B01A0313BC008391DD /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				29DC67B81A0313BC008391DD /* Refresher.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXHeadersBuildPhase section */
-
 /* Begin PBXNativeTarget section */
 		29D1E5FD19F8253F00B3E237 /* hackyto */ = {
 			isa = PBXNativeTarget;
@@ -468,11 +396,11 @@
 				29D1E5FC19F8253F00B3E237 /* Resources */,
 				5FBB4918D8231C93BDBCCAC3 /* Copy Pods Resources */,
 				29DC67AD1A031389008391DD /* Embed Frameworks */,
+				66ED2729E0F80D2897EC19BD /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				29DC67C91A0313BD008391DD /* PBXTargetDependency */,
 			);
 			name = hackyto;
 			productName = Hackyto;
@@ -497,43 +425,6 @@
 			productReference = 29D1E61319F8254000B3E237 /* HackytoTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		29DC67B21A0313BC008391DD /* Refresher */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 29DC67CC1A0313BD008391DD /* Build configuration list for PBXNativeTarget "Refresher" */;
-			buildPhases = (
-				29DC67AE1A0313BC008391DD /* Sources */,
-				29DC67AF1A0313BC008391DD /* Frameworks */,
-				29DC67B01A0313BC008391DD /* Headers */,
-				29DC67B11A0313BC008391DD /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = Refresher;
-			productName = Refresher;
-			productReference = 29DC67B31A0313BC008391DD /* Refresher.framework */;
-			productType = "com.apple.product-type.framework";
-		};
-		29DC67BC1A0313BC008391DD /* RefresherTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 29DC67CF1A0313BD008391DD /* Build configuration list for PBXNativeTarget "RefresherTests" */;
-			buildPhases = (
-				29DC67B91A0313BC008391DD /* Sources */,
-				29DC67BA1A0313BC008391DD /* Frameworks */,
-				29DC67BB1A0313BC008391DD /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				29DC67C01A0313BD008391DD /* PBXTargetDependency */,
-				29DC67C21A0313BD008391DD /* PBXTargetDependency */,
-			);
-			name = RefresherTests;
-			productName = RefresherTests;
-			productReference = 29DC67BD1A0313BC008391DD /* RefresherTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -551,14 +442,6 @@
 					};
 					29D1E61219F8254000B3E237 = {
 						CreatedOnToolsVersion = 6.0.1;
-						TestTargetID = 29D1E5FD19F8253F00B3E237;
-					};
-					29DC67B21A0313BC008391DD = {
-						CreatedOnToolsVersion = 6.1;
-						DevelopmentTeam = 3N93GSL974;
-					};
-					29DC67BC1A0313BC008391DD = {
-						CreatedOnToolsVersion = 6.1;
 						TestTargetID = 29D1E5FD19F8253F00B3E237;
 					};
 				};
@@ -587,8 +470,6 @@
 			targets = (
 				29D1E5FD19F8253F00B3E237 /* hackyto */,
 				29D1E61219F8254000B3E237 /* HackytoTests */,
-				29DC67B21A0313BC008391DD /* Refresher */,
-				29DC67BC1A0313BC008391DD /* RefresherTests */,
 			);
 		};
 /* End PBXProject section */
@@ -598,12 +479,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				29DC67E21A031FEF008391DD /* Info.plist in Resources */,
 				2917DA311B2BB5F900976A6F /* SVWebViewController.strings in Resources */,
 				2917DA3A1B2BB5F900976A6F /* SVWebViewControllerActivitySafari-iPad@2x.png in Resources */,
 				2917DA331B2BB5F900976A6F /* SVWebViewController.bundle in Resources */,
 				297B5A4F1A680C68006D5BED /* dialog@1x.png in Resources */,
-				29D1E60919F8253F00B3E237 /* Main.storyboard in Resources */,
 				29D1E60E19F8254000B3E237 /* LaunchScreen.xib in Resources */,
 				2917DA361B2BB5F900976A6F /* SVWebViewControllerActivityChrome-iPad@2x.png in Resources */,
 				297B5A4D1A680854006D5BED /* dialog@3x.png in Resources */,
@@ -611,26 +490,14 @@
 				297B5A4C1A680854006D5BED /* dialog@2x.png in Resources */,
 				2917DA381B2BB5F900976A6F /* SVWebViewControllerActivityChrome@2x.png in Resources */,
 				2917DA351B2BB5F900976A6F /* SVWebViewControllerActivityChrome-iPad.png in Resources */,
+				16F542691C349C9E00A5B10E /* CircledNumberView_debug.xib in Resources */,
 				2917DA391B2BB5F900976A6F /* SVWebViewControllerActivitySafari-iPad.png in Resources */,
 				2917DA3C1B2BB5F900976A6F /* SVWebViewControllerActivitySafari@2x.png in Resources */,
+				16C214E91C28D08600CF2C90 /* StoryCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		29D1E61119F8254000B3E237 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		29DC67B11A0313BC008391DD /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		29DC67BB1A0313BC008391DD /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -655,6 +522,21 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-hackyto/Pods-hackyto-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		66ED2729E0F80D2897EC19BD /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-hackyto/Pods-hackyto-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		896FE39328B2A4C5CE7BD08E /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -677,24 +559,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				29DC67E01A031FEF008391DD /* Animator.swift in Sources */,
-				29DC67E31A031FEF008391DD /* PacmanAnimator.swift in Sources */,
+				16C214EF1C28E52300CF2C90 /* ColorFactory.swift in Sources */,
 				2980453A1B12987A00728510 /* ObjectsFactory.swift in Sources */,
 				2917DA371B2BB5F900976A6F /* SVWebViewControllerActivityChrome.m in Sources */,
 				29D1E60419F8253F00B3E237 /* AppDelegate.swift in Sources */,
-				29DC67E51A031FEF008391DD /* PullToRefreshView.swift in Sources */,
 				29EF21981B1277B00093EE8D /* RetrieverManager.swift in Sources */,
 				2917DA3D1B2BB5F900976A6F /* SVWebViewControllerActivity.m in Sources */,
+				16F542671C349C8900A5B10E /* CircledNumberView.swift in Sources */,
 				2917DA341B2BB5F900976A6F /* SVWebViewController.m in Sources */,
-				29DC67E11A031FEF008391DD /* BeatAnimator.swift in Sources */,
 				29578F281A014F1400601218 /* WebViewController.swift in Sources */,
 				29DC679E1A03129C008391DD /* TableController.swift in Sources */,
 				29D37A4819FE97E500991577 /* StoryCell.swift in Sources */,
 				29BEDF1E1A52278C00822EB7 /* ShareInfo.swift in Sources */,
 				2980453C1B129C6000728510 /* Constants.swift in Sources */,
-				29DC67E61A031FEF008391DD /* README.md in Sources */,
 				2917DA321B2BB5F900976A6F /* SVModalWebViewController.m in Sources */,
-				29DC67E41A031FEF008391DD /* PullToRefreshExtension.swift in Sources */,
 				2917DA3B1B2BB5F900976A6F /* SVWebViewControllerActivitySafari.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -707,21 +585,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		29DC67AE1A0313BC008391DD /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		29DC67B91A0313BC008391DD /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				29DC67C71A0313BD008391DD /* RefresherTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -729,21 +592,6 @@
 			isa = PBXTargetDependency;
 			target = 29D1E5FD19F8253F00B3E237 /* hackyto */;
 			targetProxy = 29D1E61419F8254000B3E237 /* PBXContainerItemProxy */;
-		};
-		29DC67C01A0313BD008391DD /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 29DC67B21A0313BC008391DD /* Refresher */;
-			targetProxy = 29DC67BF1A0313BD008391DD /* PBXContainerItemProxy */;
-		};
-		29DC67C21A0313BD008391DD /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 29D1E5FD19F8253F00B3E237 /* hackyto */;
-			targetProxy = 29DC67C11A0313BD008391DD /* PBXContainerItemProxy */;
-		};
-		29DC67C91A0313BD008391DD /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 29DC67B21A0313BC008391DD /* Refresher */;
-			targetProxy = 29DC67C81A0313BD008391DD /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -763,14 +611,6 @@
 				2917DA301B2BB5F900976A6F /* zh-Hant */,
 			);
 			name = SVWebViewController.strings;
-			sourceTree = "<group>";
-		};
-		29D1E60719F8253F00B3E237 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				29D1E60819F8253F00B3E237 /* Base */,
-			);
-			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 		29D1E60C19F8254000B3E237 /* LaunchScreen.xib */ = {
@@ -939,84 +779,6 @@
 			};
 			name = Release;
 		};
-		29DC67CD1A0313BD008391DD /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = Refresher/Info.plist;
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		29DC67CE1A0313BD008391DD /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = Refresher/Info.plist;
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		29DC67D01A0313BD008391DD /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = RefresherTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Hackyto.app/Hackyto";
-			};
-			name = Debug;
-		};
-		29DC67D11A0313BD008391DD /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = RefresherTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Hackyto.app/Hackyto";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1043,24 +805,6 @@
 			buildConfigurations = (
 				29D1E62119F8254000B3E237 /* Debug */,
 				29D1E62219F8254000B3E237 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		29DC67CC1A0313BD008391DD /* Build configuration list for PBXNativeTarget "Refresher" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				29DC67CD1A0313BD008391DD /* Debug */,
-				29DC67CE1A0313BD008391DD /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		29DC67CF1A0313BD008391DD /* Build configuration list for PBXNativeTarget "RefresherTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				29DC67D01A0313BD008391DD /* Debug */,
-				29DC67D11A0313BD008391DD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

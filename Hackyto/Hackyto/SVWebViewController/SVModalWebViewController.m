@@ -47,6 +47,7 @@
         else
             self.webViewController.navigationItem.rightBarButtonItem = doneButton;
     }
+
     return self;
 }
 
@@ -65,6 +66,11 @@
 
 - (id<UIWebViewDelegate>)webViewDelegate {
     return self.webViewController.delegate;
+}
+
+// Added: Dec 31 for view controller status bar change
+- (UIStatusBarStyle)preferredStatusBarStyle {
+    return UIStatusBarStyleDefault;
 }
 
 @end

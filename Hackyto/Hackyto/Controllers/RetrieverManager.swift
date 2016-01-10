@@ -9,14 +9,23 @@
 import Foundation
 
 class RetrieverManager {
+
+    enum NewsType: Int {
+        case Top = 0, News, Ask, Show, Jobs
+    }
+
+    let MaximumStoriesToDownload = 200
     
+    static let supportedNewsType: Int = 5
+
     var topStories: NSMutableArray? = nil
-    var detailedStories = [String: NSDictionary]()
+    var detailedStories = [Int: NSDictionary]()
     
-    let firebaseAPIString = "https://hacker-news.firebaseio.com/v0/topstories"
+    var firebaseAPIString: String?
+
     let retrieveItemAPIString = "https://hacker-news.firebaseio.com/v0/item/"
     
-    var didFinishLoadingTopStories: ((storyIDs: NSMutableArray?, stories: [String: NSDictionary]) ->())?
+    var didFinishLoadingTopStories: ((storyIDs: NSMutableArray?, stories: [Int: NSDictionary]) ->())?
     var didFailedLoadingTopStories: (() ->())?
     
     var pendingDownloads: Int = 0 {
@@ -30,7 +39,29 @@ class RetrieverManager {
             }
         }
     }
-    
+
+    // MARK: Init
+
+    init(type: NewsType)
+    {
+        switch type {
+        case .Top:
+            firebaseAPIString = "https://hacker-news.firebaseio.com/v0/topstories"
+
+        case .News:
+            firebaseAPIString = "https://hacker-news.firebaseio.com/v0/newstories"
+
+        case .Ask:
+            firebaseAPIString = "https://hacker-news.firebaseio.com/v0/askstories"
+
+        case .Show:
+            firebaseAPIString = "https://hacker-news.firebaseio.com/v0/showstories"
+
+        case .Jobs:
+            firebaseAPIString = "https://hacker-news.firebaseio.com/v0/jobstories"
+        }
+    }
+
     // MARK: Retrieve Top Stories Methods
     
     func retrieveTopStories()
@@ -39,12 +70,13 @@ class RetrieverManager {
         topStoriesRef.observeSingleEventOfType(.Value, withBlock: { snapshot in
             
             self.topStories = snapshot.value as? NSMutableArray
-            self.detailedStories = [String: NSDictionary]()
-            
-            if (self.topStories != nil && self.topStories?.count > 0){
-                self.retrieveStories(startingIndex: 0, endingIndex: (self.topStories?.count)!)
+            self.detailedStories = [Int: NSDictionary]()
+
+            if let topStories = self.topStories {
+                let storiesToDownload = min(self.MaximumStoriesToDownload, topStories.count)
+                self.retrieveStories(startingIndex: 0, endingIndex: storiesToDownload)
             }
-            
+
             }, withCancelBlock: { error in
                 NSOperationQueue.mainQueue().addOperationWithBlock {
                     self.didFailedLoadingTopStories
@@ -56,15 +88,13 @@ class RetrieverManager {
     func retrieveStories(startingIndex from:Int, endingIndex to:Int)
     {
         assert(from <= to, "From should be less than To")
+        guard let topStories = self.topStories else { return }
+
         self.pendingDownloads = to-from
-        if (self.topStories == nil)
-        {
-            return;
-        }
         
         for (var i = from; i < to; i++)
         {
-            let item: Int = self.topStories!.objectAtIndex(i) as! Int
+            let item = topStories.objectAtIndex(i) as! Int
             self.retrieveStoryWithId(item)
         }
     }
@@ -74,27 +104,25 @@ class RetrieverManager {
     func retrieveStoryWithId(storyId: Int)
     {
         // 10483024
-        let itemURL = retrieveItemAPIString + "\(storyId)"
+        let itemURL = retrieveItemAPIString + String(storyId)
         let storyRef = Firebase(url:itemURL)
         
         storyRef.observeSingleEventOfType(.Value,
             withBlock: { snapshot in
                 if snapshot.exists() == true {
-                    var details = snapshot.value as! [NSString: AnyObject]
-                    let key: AnyObject? = details["id"]
-                    if key != nil {
-                        let url = details["url"] as? String
-                        
-                        if (url == nil) // Ask HN does not provide base URL, use id to generate URL
-                        {
-                            details["url"] = Constants.hackerNewsBaseURLString+"\(key!)"
-                        }
 
-                        self.detailedStories[("\(key!)")] = details
-                        self.pendingDownloads--
+                    let details = snapshot.value as? [NSString: AnyObject]
+
+                    if let details = details {
+                        let keyNumber = details["id"] as? NSNumber
+
+                        if let key = keyNumber?.integerValue {
+                            self.pendingDownloads--
+                            self.detailedStories[key] = details
+                        }
                     }
                 } else {
-                    print("FIREBASE FAILED TO RETRIEVE SNAPSHOT", terminator: "")
+                    print("FIREBASE FAILED TO RETRIEVE SNAPSHOT")
                     self.cleanStoryIdFromPendingDownloads(storyId)
                 }
             },
