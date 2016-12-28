@@ -16,7 +16,7 @@ class StoryCell: UITableViewCell {
     @IBOutlet weak var pillView: UIView!
     @IBOutlet weak var circledNumberView: CircledNumberView!
     
-    var launchComments: ((key: Int) -> ())?
+    var launchComments: ((_ key: Int) -> ())?
     
     var key: Int?
 
@@ -29,13 +29,13 @@ class StoryCell: UITableViewCell {
         self.backgroundColor = ColorFactory.darkGrayColor()
         self.backgroundView?.backgroundColor = ColorFactory.darkGrayColor()
         self.contentView.backgroundColor = ColorFactory.darkGrayColor()
-        self.numberLabel.textAlignment = .Center
+        self.numberLabel.textAlignment = .center
         self.pillView.backgroundColor = ColorFactory.lightColor()
     }
 
-    func configureCell(title title:String, author:String, storyKey: Int, number: Int) {
-        let headlineFontDescriptor = UIFontDescriptor.preferredFontDescriptorWithTextStyle(UIFontTextStyleHeadline)
-        let captionFontDescriptor = UIFontDescriptor.preferredFontDescriptorWithTextStyle(UIFontTextStyleCaption1)
+    func configureCell(title:String, author:String, storyKey: Int, number: Int) {
+        let headlineFontDescriptor = UIFontDescriptor.preferredFontDescriptor(withTextStyle: UIFontTextStyle.headline)
+        let captionFontDescriptor = UIFontDescriptor.preferredFontDescriptor(withTextStyle: UIFontTextStyle.caption1)
 
         self.titleLabel.font = UIFont(name: "HelveticaNeue-Thin", size: headlineFontDescriptor.pointSize)
         self.authorLabel.font = UIFont(name: "HelveticaNeue", size: captionFontDescriptor.pointSize)
@@ -50,14 +50,14 @@ class StoryCell: UITableViewCell {
 
         self.circledNumberView.colorNumber = number
 
-        let tapGesture = UITapGestureRecognizer(target: self, action: "openComments")
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(StoryCell.openComments))
         self.circledNumberView.addGestureRecognizer(tapGesture)
 
         self.number = number
         self.key = storyKey
     }
 
-    func configureComments(comments comments:NSArray){
+    func configureComments(comments:NSArray){
         self.circledNumberView.number = String(comments.count)
     }
 
@@ -78,6 +78,6 @@ class StoryCell: UITableViewCell {
     
     @IBAction func openComments() {
         guard let key = key else { return }
-        launchComments?(key: key)
+        launchComments?(key)
     }
 }

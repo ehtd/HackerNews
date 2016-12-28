@@ -16,11 +16,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var globalMailComposer: MFMailComposeViewController? = nil
 
-    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
-        UIApplication.sharedApplication().statusBarStyle = UIStatusBarStyle.LightContent
+        UIApplication.shared.statusBarStyle = UIStatusBarStyle.lightContent
 
-        self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
+        self.window = UIWindow(frame: UIScreen.main.bounds)
         self.window?.backgroundColor = ColorFactory.darkGrayColor()
 
         let tabBarController: UITabBarController = UITabBarController()
@@ -38,7 +38,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         tabBarController.viewControllers = viewControllers
 
         let tabBarImageNames = ["top", "news", "ask", "show", "jobs"]
-        let tabBarTitles = tabBarImageNames.map { $0.capitalizedString }
+        let tabBarTitles = tabBarImageNames.map { $0.capitalized }
         
         for i in 0..<viewControllers.count {
             if let tab = tabBarController.tabBar.items?[i] {
@@ -71,11 +71,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func configureAppearance() {
         UINavigationBar.appearance().barTintColor = ColorFactory.lightColor()
         UINavigationBar.appearance().tintColor = ColorFactory.darkGrayColor()
-        UINavigationBar.appearance().translucent = false
+        UINavigationBar.appearance().isTranslucent = false
 
         UITabBar.appearance().tintColor = ColorFactory.darkGrayColor()
         UITabBar.appearance().barTintColor = ColorFactory.lightColor()
-        UITabBar.appearance().translucent = false
+        UITabBar.appearance().isTranslucent = false
 
         UIToolbar.appearance().barTintColor = ColorFactory.lightColor()
         UIToolbar.appearance().tintColor = ColorFactory.darkGrayColor()

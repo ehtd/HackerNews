@@ -11,7 +11,7 @@ import Foundation
 class RetrieverManager {
 
     enum NewsType: Int {
-        case Top = 0, News, Ask, Show, Jobs
+        case top = 0, news, ask, show, jobs
     }
 
     let MaximumStoriesToDownload = 200
@@ -25,15 +25,15 @@ class RetrieverManager {
 
     let retrieveItemAPIString = "https://hacker-news.firebaseio.com/v0/item/"
     
-    var didFinishLoadingTopStories: ((storyIDs: NSMutableArray?, stories: [Int: NSDictionary]) ->())?
+    var didFinishLoadingTopStories: ((_ storyIDs: NSMutableArray?, _ stories: [Int: NSDictionary]) ->())?
     var didFailedLoadingTopStories: (() ->())?
     
     var pendingDownloads: Int = 0 {
         didSet {
 //            println(pendingDownloads)
             if (pendingDownloads == 0){
-                NSOperationQueue.mainQueue().addOperationWithBlock {
-                    self.didFinishLoadingTopStories?(storyIDs: self.topStories, stories: self.detailedStories)
+                OperationQueue.main.addOperation {
+                    self.didFinishLoadingTopStories?(self.topStories, self.detailedStories)
                 }
                 
             }
@@ -45,19 +45,19 @@ class RetrieverManager {
     init(type: NewsType)
     {
         switch type {
-        case .Top:
+        case .top:
             firebaseAPIString = "https://hacker-news.firebaseio.com/v0/topstories"
 
-        case .News:
+        case .news:
             firebaseAPIString = "https://hacker-news.firebaseio.com/v0/newstories"
 
-        case .Ask:
+        case .ask:
             firebaseAPIString = "https://hacker-news.firebaseio.com/v0/askstories"
 
-        case .Show:
+        case .show:
             firebaseAPIString = "https://hacker-news.firebaseio.com/v0/showstories"
 
-        case .Jobs:
+        case .jobs:
             firebaseAPIString = "https://hacker-news.firebaseio.com/v0/jobstories"
         }
     }
@@ -67,9 +67,9 @@ class RetrieverManager {
     func retrieveTopStories()
     {
         let topStoriesRef = Firebase(url:firebaseAPIString)
-        topStoriesRef.observeSingleEventOfType(.Value, withBlock: { snapshot in
+        topStoriesRef?.observeSingleEvent(of: .value, with: { snapshot in
             
-            self.topStories = snapshot.value as? NSMutableArray
+            self.topStories = snapshot?.value as? NSMutableArray
             self.detailedStories = [Int: NSDictionary]()
 
             if let topStories = self.topStories {
@@ -77,11 +77,13 @@ class RetrieverManager {
                 self.retrieveStories(startingIndex: 0, endingIndex: storiesToDownload)
             }
 
-            }, withCancelBlock: { error in
-                NSOperationQueue.mainQueue().addOperationWithBlock {
-                    self.didFailedLoadingTopStories
+            }, withCancel: { error in
+                OperationQueue.main.addOperation {
+                    if let closure = self.didFailedLoadingTopStories {
+                        closure()
+                    }
                 }
-                print(error.description, terminator: "")
+                print(String(describing: error))
         })
     }
     
@@ -92,33 +94,32 @@ class RetrieverManager {
 
         self.pendingDownloads = to-from
         
-        for (var i = from; i < to; i++)
-        {
-            let item = topStories.objectAtIndex(i) as! Int
+        for i in from...to {
+            let item = topStories.object(at: i) as! Int
             self.retrieveStoryWithId(item)
         }
     }
     
     // MARK: Retrieve single story methods
     
-    func retrieveStoryWithId(storyId: Int)
+    func retrieveStoryWithId(_ storyId: Int)
     {
         // 10483024
         let itemURL = retrieveItemAPIString + String(storyId)
         let storyRef = Firebase(url:itemURL)
         
-        storyRef.observeSingleEventOfType(.Value,
-            withBlock: { snapshot in
-                if snapshot.exists() == true {
+        storyRef?.observeSingleEvent(of: .value,
+            with: { snapshot in
+                if snapshot?.exists() == true {
 
-                    let details = snapshot.value as? [NSString: AnyObject]
+                    let details = snapshot?.value as? [NSString: AnyObject]
 
                     if let details = details {
                         let keyNumber = details["id"] as? NSNumber
 
-                        if let key = keyNumber?.integerValue {
-                            self.pendingDownloads--
-                            self.detailedStories[key] = details
+                        if let key = keyNumber?.intValue {
+                            self.pendingDownloads -= 1
+                            self.detailedStories[key] = details as NSDictionary?
                         }
                     }
                 } else {
@@ -126,15 +127,15 @@ class RetrieverManager {
                     self.cleanStoryIdFromPendingDownloads(storyId)
                 }
             },
-            withCancelBlock: { error in
-                print(error.description, terminator: "")
+            withCancel: { error in
+                print(String(describing: error))
                 self.cleanStoryIdFromPendingDownloads(storyId)
         })
     }
     
-    func cleanStoryIdFromPendingDownloads(storyId: Int) {
-        self.topStories!.removeObject(storyId)
-        self.pendingDownloads--
+    func cleanStoryIdFromPendingDownloads(_ storyId: Int) {
+        self.topStories!.remove(storyId)
+        self.pendingDownloads -= 1
     }
 }
 

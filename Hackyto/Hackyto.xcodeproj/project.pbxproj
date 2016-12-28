@@ -34,23 +34,12 @@
 		29D1E60419F8253F00B3E237 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29D1E60319F8253F00B3E237 /* AppDelegate.swift */; };
 		29D1E60B19F8253F00B3E237 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 29D1E60A19F8253F00B3E237 /* Images.xcassets */; };
 		29D1E60E19F8254000B3E237 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 29D1E60C19F8254000B3E237 /* LaunchScreen.xib */; };
-		29D1E61A19F8254000B3E237 /* HackytoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29D1E61919F8254000B3E237 /* HackytoTests.swift */; };
 		29D37A4819FE97E500991577 /* StoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29D37A4719FE97E500991577 /* StoryCell.swift */; };
 		29DC679C1A02FCD2008391DD /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29DC679B1A02FCD2008391DD /* MessageUI.framework */; };
 		29DC679E1A03129C008391DD /* TableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29DC679D1A03129C008391DD /* TableController.swift */; };
 		29EF21981B1277B00093EE8D /* RetrieverManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29EF21971B1277B00093EE8D /* RetrieverManager.swift */; };
 		5295D5935243B54D79F089CE /* libPods-hackyto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D5765A447B8D79E53088F02 /* libPods-hackyto.a */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		29D1E61419F8254000B3E237 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 29D1E5F619F8253F00B3E237 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 29D1E5FD19F8253F00B3E237;
-			remoteInfo = Hackyto;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		29DC67AD1A031389008391DD /* Embed Frameworks */ = {
@@ -111,9 +100,6 @@
 		29D1E60319F8253F00B3E237 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		29D1E60A19F8253F00B3E237 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		29D1E60D19F8254000B3E237 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		29D1E61319F8254000B3E237 /* HackytoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HackytoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		29D1E61819F8254000B3E237 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		29D1E61919F8254000B3E237 /* HackytoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HackytoTests.swift; sourceTree = "<group>"; };
 		29D1E62319F8277200B3E237 /* Bridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bridge.h; sourceTree = "<group>"; };
 		29D37A4719FE97E500991577 /* StoryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StoryCell.swift; path = Views/StoryCell.swift; sourceTree = "<group>"; };
 		29DC679B1A02FCD2008391DD /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
@@ -136,13 +122,6 @@
 			files = (
 				29DC679C1A02FCD2008391DD /* MessageUI.framework in Frameworks */,
 				5295D5935243B54D79F089CE /* libPods-hackyto.a in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		29D1E61019F8254000B3E237 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -256,7 +235,6 @@
 			children = (
 				870B885F33B54FC509EE9D67 /* Frameworks */,
 				29D1E60019F8253F00B3E237 /* Hackyto */,
-				29D1E61619F8254000B3E237 /* HackytoTests */,
 				53392EAF36CED040FFAACBE5 /* Pods */,
 				29D1E5FF19F8253F00B3E237 /* Products */,
 				29DC67B41A0313BC008391DD /* Refresher */,
@@ -269,7 +247,6 @@
 			isa = PBXGroup;
 			children = (
 				29D1E5FE19F8253F00B3E237 /* hackyto.app */,
-				29D1E61319F8254000B3E237 /* HackytoTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -296,23 +273,6 @@
 			isa = PBXGroup;
 			children = (
 				29D1E60219F8253F00B3E237 /* Info.plist */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		29D1E61619F8254000B3E237 /* HackytoTests */ = {
-			isa = PBXGroup;
-			children = (
-				29D1E61919F8254000B3E237 /* HackytoTests.swift */,
-				29D1E61719F8254000B3E237 /* Supporting Files */,
-			);
-			path = HackytoTests;
-			sourceTree = "<group>";
-		};
-		29D1E61719F8254000B3E237 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				29D1E61819F8254000B3E237 /* Info.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -407,24 +367,6 @@
 			productReference = 29D1E5FE19F8253F00B3E237 /* hackyto.app */;
 			productType = "com.apple.product-type.application";
 		};
-		29D1E61219F8254000B3E237 /* HackytoTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 29D1E62019F8254000B3E237 /* Build configuration list for PBXNativeTarget "HackytoTests" */;
-			buildPhases = (
-				29D1E60F19F8254000B3E237 /* Sources */,
-				29D1E61019F8254000B3E237 /* Frameworks */,
-				29D1E61119F8254000B3E237 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				29D1E61519F8254000B3E237 /* PBXTargetDependency */,
-			);
-			name = HackytoTests;
-			productName = HackytoTests;
-			productReference = 29D1E61319F8254000B3E237 /* HackytoTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -439,10 +381,7 @@
 					29D1E5FD19F8253F00B3E237 = {
 						CreatedOnToolsVersion = 6.0.1;
 						DevelopmentTeam = 3N93GSL974;
-					};
-					29D1E61219F8254000B3E237 = {
-						CreatedOnToolsVersion = 6.0.1;
-						TestTargetID = 29D1E5FD19F8253F00B3E237;
+						LastSwiftMigration = 0820;
 					};
 				};
 			};
@@ -469,7 +408,6 @@
 			projectRoot = "";
 			targets = (
 				29D1E5FD19F8253F00B3E237 /* hackyto */,
-				29D1E61219F8254000B3E237 /* HackytoTests */,
 			);
 		};
 /* End PBXProject section */
@@ -494,13 +432,6 @@
 				2917DA391B2BB5F900976A6F /* SVWebViewControllerActivitySafari-iPad.png in Resources */,
 				2917DA3C1B2BB5F900976A6F /* SVWebViewControllerActivitySafari@2x.png in Resources */,
 				16C214E91C28D08600CF2C90 /* StoryCell.xib in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		29D1E61119F8254000B3E237 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -577,23 +508,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		29D1E60F19F8254000B3E237 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				29D1E61A19F8254000B3E237 /* HackytoTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		29D1E61519F8254000B3E237 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 29D1E5FD19F8253F00B3E237 /* hackyto */;
-			targetProxy = 29D1E61419F8254000B3E237 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		2917DA121B2BB5F900976A6F /* SVWebViewController.strings */ = {
@@ -721,6 +636,7 @@
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = Hackyto/Bridge.h;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -741,41 +657,8 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = Hackyto/Bridge.h;
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
-		29D1E62119F8254000B3E237 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = HackytoTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Hackyto.app/Hackyto";
-			};
-			name = Debug;
-		};
-		29D1E62219F8254000B3E237 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = HackytoTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Hackyto.app/Hackyto";
 			};
 			name = Release;
 		};
@@ -796,15 +679,6 @@
 			buildConfigurations = (
 				29D1E61E19F8254000B3E237 /* Debug */,
 				29D1E61F19F8254000B3E237 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		29D1E62019F8254000B3E237 /* Build configuration list for PBXNativeTarget "HackytoTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				29D1E62119F8254000B3E237 /* Debug */,
-				29D1E62219F8254000B3E237 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

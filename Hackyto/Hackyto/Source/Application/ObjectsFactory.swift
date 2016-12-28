@@ -14,7 +14,7 @@ class ObjectsFactory {
     
     var webViewController: WebViewController {
         get {
-            return storyboard.instantiateViewControllerWithIdentifier("WebViewController") as! WebViewController
+            return storyboard.instantiateViewController(withIdentifier: "WebViewController") as! WebViewController
         }
     }
 }
