@@ -28,7 +28,6 @@
 		297B5A4C1A680854006D5BED /* dialog@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 297B5A4A1A680854006D5BED /* dialog@2x.png */; };
 		297B5A4D1A680854006D5BED /* dialog@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 297B5A4B1A680854006D5BED /* dialog@3x.png */; };
 		297B5A4F1A680C68006D5BED /* dialog@1x.png in Resources */ = {isa = PBXBuildFile; fileRef = 297B5A4E1A680C68006D5BED /* dialog@1x.png */; };
-		2980453A1B12987A00728510 /* ObjectsFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298045391B12987A00728510 /* ObjectsFactory.swift */; };
 		2980453C1B129C6000728510 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2980453B1B129C6000728510 /* Constants.swift */; };
 		29BEDF1E1A52278C00822EB7 /* ShareInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29BEDF1D1A52278C00822EB7 /* ShareInfo.swift */; };
 		29D1E60419F8253F00B3E237 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29D1E60319F8253F00B3E237 /* AppDelegate.swift */; };
@@ -91,7 +90,6 @@
 		297B5A4A1A680854006D5BED /* dialog@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dialog@2x.png"; sourceTree = "<group>"; };
 		297B5A4B1A680854006D5BED /* dialog@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dialog@3x.png"; sourceTree = "<group>"; };
 		297B5A4E1A680C68006D5BED /* dialog@1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dialog@1x.png"; sourceTree = "<group>"; };
-		298045391B12987A00728510 /* ObjectsFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ObjectsFactory.swift; path = Source/Application/ObjectsFactory.swift; sourceTree = "<group>"; };
 		2980453B1B129C6000728510 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = Source/Application/Constants.swift; sourceTree = "<group>"; };
 		29BEDF1D1A52278C00822EB7 /* ShareInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareInfo.swift; sourceTree = "<group>"; };
 		29D1E5FE19F8253F00B3E237 /* hackyto.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = hackyto.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -136,13 +134,6 @@
 				14FC9824FE17B500110413D6 /* Pods-hackyto.release.xcconfig */,
 			);
 			name = Pods;
-			sourceTree = "<group>";
-		};
-		29171CE31B2BB26100239162 /* Vendor */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Vendor;
 			sourceTree = "<group>";
 		};
 		2917DA111B2BB5F900976A6F /* SVWebViewController */ = {
@@ -218,7 +209,6 @@
 			isa = PBXGroup;
 			children = (
 				29D1E60319F8253F00B3E237 /* AppDelegate.swift */,
-				298045391B12987A00728510 /* ObjectsFactory.swift */,
 				2980453B1B129C6000728510 /* Constants.swift */,
 			);
 			name = Application;
@@ -238,7 +228,6 @@
 				870B885F33B54FC509EE9D67 /* Frameworks */,
 				29D1E60019F8253F00B3E237 /* Hackyto */,
 				29D1E5FF19F8253F00B3E237 /* Products */,
-				29171CE31B2BB26100239162 /* Vendor */,
 				22EBC713472662323E3526A4 /* Pods */,
 			);
 			sourceTree = "<group>";
@@ -445,7 +434,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				16C214EF1C28E52300CF2C90 /* ColorFactory.swift in Sources */,
-				2980453A1B12987A00728510 /* ObjectsFactory.swift in Sources */,
 				2917DA371B2BB5F900976A6F /* SVWebViewControllerActivityChrome.m in Sources */,
 				29D1E60419F8253F00B3E237 /* AppDelegate.swift in Sources */,
 				29EF21981B1277B00093EE8D /* RetrieverManager.swift in Sources */,
