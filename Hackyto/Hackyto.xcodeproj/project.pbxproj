@@ -38,7 +38,7 @@
 		29DC679C1A02FCD2008391DD /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29DC679B1A02FCD2008391DD /* MessageUI.framework */; };
 		29DC679E1A03129C008391DD /* TableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29DC679D1A03129C008391DD /* TableController.swift */; };
 		29EF21981B1277B00093EE8D /* RetrieverManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29EF21971B1277B00093EE8D /* RetrieverManager.swift */; };
-		5295D5935243B54D79F089CE /* libPods-hackyto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D5765A447B8D79E53088F02 /* libPods-hackyto.a */; };
+		567CDEB792245716E59A7F0A /* libPods-hackyto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C595D8232A15C945773FCB3 /* libPods-hackyto.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -55,8 +55,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		00F6DA9EFDF55FF76BA41EB6 /* Pods-Hackyto.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hackyto.release.xcconfig"; path = "Pods/Target Support Files/Pods-Hackyto/Pods-Hackyto.release.xcconfig"; sourceTree = "<group>"; };
-		037D422834E69B146E3B85E3 /* Pods-Hackyto.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hackyto.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Hackyto/Pods-Hackyto.debug.xcconfig"; sourceTree = "<group>"; };
+		14FC9824FE17B500110413D6 /* Pods-hackyto.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-hackyto.release.xcconfig"; path = "Pods/Target Support Files/Pods-hackyto/Pods-hackyto.release.xcconfig"; sourceTree = "<group>"; };
 		16C214E81C28D08600CF2C90 /* StoryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = StoryCell.xib; path = Views/StoryCell.xib; sourceTree = "<group>"; };
 		16C214EE1C28E52300CF2C90 /* ColorFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ColorFactory.swift; path = Helpers/ColorFactory.swift; sourceTree = "<group>"; };
 		16F542661C349C8900A5B10E /* CircledNumberView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CircledNumberView.swift; path = Views/CircledNumberView.swift; sourceTree = "<group>"; };
@@ -104,15 +103,9 @@
 		29D37A4719FE97E500991577 /* StoryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StoryCell.swift; path = Views/StoryCell.swift; sourceTree = "<group>"; };
 		29DC679B1A02FCD2008391DD /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		29DC679D1A03129C008391DD /* TableController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TableController.swift; path = Controllers/TableController.swift; sourceTree = "<group>"; };
-		29DC67B61A0313BC008391DD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		29DC67B71A0313BC008391DD /* Refresher.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Refresher.h; sourceTree = "<group>"; };
-		29DC67C51A0313BD008391DD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		29DC67C61A0313BD008391DD /* RefresherTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefresherTests.swift; sourceTree = "<group>"; };
 		29EF21971B1277B00093EE8D /* RetrieverManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RetrieverManager.swift; path = Controllers/RetrieverManager.swift; sourceTree = "<group>"; };
-		41D6D381611A115B3CF617EF /* Pods-hackyto.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-hackyto.debug.xcconfig"; path = "Pods/Target Support Files/Pods-hackyto/Pods-hackyto.debug.xcconfig"; sourceTree = "<group>"; };
-		611A28E69BEEAF7B66E26090 /* Pods-hackyto.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-hackyto.release.xcconfig"; path = "Pods/Target Support Files/Pods-hackyto/Pods-hackyto.release.xcconfig"; sourceTree = "<group>"; };
-		6FAF6BDD14A66A1730DE9096 /* libPods-Hackyto.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Hackyto.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		9D5765A447B8D79E53088F02 /* libPods-hackyto.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-hackyto.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		67B24776F4DDE4EDBB679CC5 /* Pods-hackyto.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-hackyto.debug.xcconfig"; path = "Pods/Target Support Files/Pods-hackyto/Pods-hackyto.debug.xcconfig"; sourceTree = "<group>"; };
+		7C595D8232A15C945773FCB3 /* libPods-hackyto.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-hackyto.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,7 +114,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				29DC679C1A02FCD2008391DD /* MessageUI.framework in Frameworks */,
-				5295D5935243B54D79F089CE /* libPods-hackyto.a in Frameworks */,
+				567CDEB792245716E59A7F0A /* libPods-hackyto.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -134,6 +127,15 @@
 				16C214EE1C28E52300CF2C90 /* ColorFactory.swift */,
 			);
 			name = Helpers;
+			sourceTree = "<group>";
+		};
+		22EBC713472662323E3526A4 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				67B24776F4DDE4EDBB679CC5 /* Pods-hackyto.debug.xcconfig */,
+				14FC9824FE17B500110413D6 /* Pods-hackyto.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 		29171CE31B2BB26100239162 /* Vendor */ = {
@@ -235,11 +237,9 @@
 			children = (
 				870B885F33B54FC509EE9D67 /* Frameworks */,
 				29D1E60019F8253F00B3E237 /* Hackyto */,
-				53392EAF36CED040FFAACBE5 /* Pods */,
 				29D1E5FF19F8253F00B3E237 /* Products */,
-				29DC67B41A0313BC008391DD /* Refresher */,
-				29DC67C31A0313BD008391DD /* RefresherTests */,
 				29171CE31B2BB26100239162 /* Vendor */,
+				22EBC713472662323E3526A4 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -288,57 +288,11 @@
 			name = Views;
 			sourceTree = "<group>";
 		};
-		29DC67B41A0313BC008391DD /* Refresher */ = {
-			isa = PBXGroup;
-			children = (
-				29DC67B71A0313BC008391DD /* Refresher.h */,
-				29DC67B51A0313BC008391DD /* Supporting Files */,
-			);
-			path = Refresher;
-			sourceTree = "<group>";
-		};
-		29DC67B51A0313BC008391DD /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				29DC67B61A0313BC008391DD /* Info.plist */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		29DC67C31A0313BD008391DD /* RefresherTests */ = {
-			isa = PBXGroup;
-			children = (
-				29DC67C61A0313BD008391DD /* RefresherTests.swift */,
-				29DC67C41A0313BD008391DD /* Supporting Files */,
-			);
-			path = RefresherTests;
-			sourceTree = "<group>";
-		};
-		29DC67C41A0313BD008391DD /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				29DC67C51A0313BD008391DD /* Info.plist */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		53392EAF36CED040FFAACBE5 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				037D422834E69B146E3B85E3 /* Pods-Hackyto.debug.xcconfig */,
-				00F6DA9EFDF55FF76BA41EB6 /* Pods-Hackyto.release.xcconfig */,
-				41D6D381611A115B3CF617EF /* Pods-hackyto.debug.xcconfig */,
-				611A28E69BEEAF7B66E26090 /* Pods-hackyto.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 		870B885F33B54FC509EE9D67 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				29DC679B1A02FCD2008391DD /* MessageUI.framework */,
-				6FAF6BDD14A66A1730DE9096 /* libPods-Hackyto.a */,
-				9D5765A447B8D79E53088F02 /* libPods-hackyto.a */,
+				7C595D8232A15C945773FCB3 /* libPods-hackyto.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -350,13 +304,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 29D1E61D19F8254000B3E237 /* Build configuration list for PBXNativeTarget "hackyto" */;
 			buildPhases = (
-				896FE39328B2A4C5CE7BD08E /* Check Pods Manifest.lock */,
+				6E4BB845E9F8641BD37FD2E7 /* [CP] Check Pods Manifest.lock */,
 				29D1E5FA19F8253F00B3E237 /* Sources */,
 				29D1E5FB19F8253F00B3E237 /* Frameworks */,
 				29D1E5FC19F8253F00B3E237 /* Resources */,
-				5FBB4918D8231C93BDBCCAC3 /* Copy Pods Resources */,
 				29DC67AD1A031389008391DD /* Embed Frameworks */,
-				66ED2729E0F80D2897EC19BD /* Embed Pods Frameworks */,
+				31C522991E847384B409622C /* [CP] Embed Pods Frameworks */,
+				342EAD30C18C49703D0B85CF /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -438,29 +392,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		5FBB4918D8231C93BDBCCAC3 /* Copy Pods Resources */ = {
+		31C522991E847384B409622C /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-hackyto/Pods-hackyto-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		66ED2729E0F80D2897EC19BD /* Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Embed Pods Frameworks";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -468,19 +407,34 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-hackyto/Pods-hackyto-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		896FE39328B2A4C5CE7BD08E /* Check Pods Manifest.lock */ = {
+		342EAD30C18C49703D0B85CF /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-hackyto/Pods-hackyto-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6E4BB845E9F8641BD37FD2E7 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -620,7 +574,7 @@
 		};
 		29D1E61E19F8254000B3E237 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 41D6D381611A115B3CF617EF /* Pods-hackyto.debug.xcconfig */;
+			baseConfigurationReference = 67B24776F4DDE4EDBB679CC5 /* Pods-hackyto.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -643,7 +597,7 @@
 		};
 		29D1E61F19F8254000B3E237 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 611A28E69BEEAF7B66E26090 /* Pods-hackyto.release.xcconfig */;
+			baseConfigurationReference = 14FC9824FE17B500110413D6 /* Pods-hackyto.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
