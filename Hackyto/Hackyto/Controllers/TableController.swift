@@ -11,7 +11,7 @@ import UIKit
 class TableController: UITableViewController {
 
     let retriever: RetrieverManager
-    var topStories: NSMutableArray?
+    var topStories: Array<Int>?
     var detailedStories = [Int: NSDictionary]()
 
     let pullToRefresh = UIRefreshControl()
@@ -54,7 +54,7 @@ class TableController: UITableViewController {
         addStylesToTableView()
         addPullToRefresh()
 
-        self.retrieveStories()
+        retrieveStories()
     }
     
     // MARK: Styles Configuration
@@ -104,7 +104,7 @@ class TableController: UITableViewController {
     }
 
     func retrieveStories() {
-        self.retriever.retrieveTopStories()
+        self.retriever.retrieve()
     }
 
     // MARK: TableView Controller data source
@@ -124,26 +124,23 @@ class TableController: UITableViewController {
         return cell
     }
 
-    func configureBasicCell(_ cell: StoryCell, indexPath: IndexPath){
+    func configureBasicCell(_ cell: StoryCell, indexPath: IndexPath) {
         guard let topStories = topStories else { return }
 
-        let storyId = topStories[indexPath.row] as? Int
+        let storyId = topStories[indexPath.row]
+        let story = detailedStories[storyId]
 
-        if let storyId = storyId {
-            let story = detailedStories[storyId]
-
-            if let titleObject: AnyObject = story?.object(forKey: "title") as AnyObject? {
-                if let authorObject: AnyObject = story?.object(forKey: "by") as AnyObject? {
-                    cell.configureCell(title: String(describing: titleObject), author: String(describing: authorObject), storyKey: storyId, number: indexPath.row + 1)
-                }
-                else {
-                    cell.configureCell(title: String(describing: titleObject), author: "", storyKey: storyId, number: indexPath.row + 1)
-                }
+        if let titleObject: AnyObject = story?.object(forKey: "title") as AnyObject? {
+            if let authorObject: AnyObject = story?.object(forKey: "by") as AnyObject? {
+                cell.configureCell(title: String(describing: titleObject), author: String(describing: authorObject), storyKey: storyId, number: indexPath.row + 1)
             }
-
-            if let kids = story?.object(forKey: "kids") as? NSArray {
-                cell.configureComments(comments: kids)
+            else {
+                cell.configureCell(title: String(describing: titleObject), author: "", storyKey: storyId, number: indexPath.row + 1)
             }
+        }
+
+        if let kids = story?.object(forKey: "kids") as? NSArray {
+            cell.configureComments(comments: kids)
         }
 
         cell.launchComments = openStoryComments
@@ -154,23 +151,22 @@ class TableController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let topStories = topStories else { return }
 
-        let storyId = topStories[indexPath.row] as? Int
+        let storyId = topStories[indexPath.row]
 
-        if let storyId = storyId {
-            let story = detailedStories[storyId]
+        let story = detailedStories[storyId]
 
-            var url = story?.object(forKey: "url") as? String
-            let title = story?.object(forKey: "title") as? String
-            let keyNumber = story?.object(forKey: "id") as? NSNumber
+        var url = story?.object(forKey: "url") as? String
+        let title = story?.object(forKey: "title") as? String
+        let keyNumber = story?.object(forKey: "id") as? NSNumber
 
-            if url == nil { // Ask HN stories have this field empty
-                if let key = keyNumber?.intValue {
-                    url = Constants.hackerNewsBaseURLString + String(key)
-                }
+        if url == nil { // Ask HN stories have this field empty
+            if let key = keyNumber?.intValue {
+                url = Constants.hackerNewsBaseURLString + String(key)
             }
-
-            self.openWebBrowser(title: title, urlString: url)
         }
+
+        self.openWebBrowser(title: title, urlString: url)
+        
     }
 
     // MARK: Open Comments Closure
@@ -198,9 +194,9 @@ class TableController: UITableViewController {
     
     // MARK: Retrieved data Closures
     
-    var didFinishLoadingTopStories: ((_ storyIDs: NSMutableArray?, _ stories: [Int: NSDictionary]) ->()) {
+    var didFinishLoadingTopStories: ((_ storyIDs: Array<Int>?, _ stories: [Int: NSDictionary]) ->()) {
         get {
-            return { [weak self] (storyIDs: NSMutableArray?, stories: [Int: NSDictionary]) ->() in
+            return { [weak self] (storyIDs: Array<Int>?, stories: [Int: NSDictionary]) ->() in
                 if let strongSelf = self {
                     strongSelf.topStories = storyIDs
                     strongSelf.detailedStories = stories
