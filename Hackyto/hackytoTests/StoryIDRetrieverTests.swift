@@ -13,7 +13,7 @@ class StoryIDRetrieverTests: XCTestCase {
     func testRetrieveTopIDs() {
         let retriever = StoryIDRetriever(type: .top)
         
-        let exp = expectation(description: "retriveComplete")
+        let exp = expectation(description: "retrieveComplete")
         
         retriever.retrievedStoryIDsCompleted = { (stories) in
             print(stories)
@@ -37,7 +37,7 @@ class StoryIDRetrieverTests: XCTestCase {
     func testRetrieveNewsIDs() {
         let retriever = StoryIDRetriever(type: .news)
         
-        let exp = expectation(description: "retriveComplete")
+        let exp = expectation(description: "retrieveComplete")
         
         retriever.retrievedStoryIDsCompleted = { (stories) in
             print(stories)
@@ -61,7 +61,7 @@ class StoryIDRetrieverTests: XCTestCase {
     func testRetrieveAskIDs() {
         let retriever = StoryIDRetriever(type: .ask)
         
-        let exp = expectation(description: "retriveComplete")
+        let exp = expectation(description: "retrieveComplete")
         
         retriever.retrievedStoryIDsCompleted = { (stories) in
             print(stories)
@@ -85,7 +85,7 @@ class StoryIDRetrieverTests: XCTestCase {
     func testRetrieveShowIDs() {
         let retriever = StoryIDRetriever(type: .show)
         
-        let exp = expectation(description: "retriveComplete")
+        let exp = expectation(description: "retrieveComplete")
         
         retriever.retrievedStoryIDsCompleted = { (stories) in
             print(stories)
@@ -109,7 +109,7 @@ class StoryIDRetrieverTests: XCTestCase {
     func testRetrieveJobsIDs() {
         let retriever = StoryIDRetriever(type: .jobs)
         
-        let exp = expectation(description: "retriveComplete")
+        let exp = expectation(description: "retrieveComplete")
         
         retriever.retrievedStoryIDsCompleted = { (stories) in
             print(stories)

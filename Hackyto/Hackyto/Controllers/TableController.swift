@@ -12,7 +12,7 @@ class TableController: UITableViewController {
 
     let retriever: RetrieverManager
     var topStories: Array<Int>?
-    var detailedStories = [Int: NSDictionary]()
+    var detailedStories = [Int: Story]()
 
     let pullToRefresh = UIRefreshControl()
 
@@ -48,8 +48,28 @@ class TableController: UITableViewController {
 
         self.tableView.register(UINib(nibName: "StoryCell", bundle: nil), forCellReuseIdentifier: cellIdentifier)
 
-        self.retriever.didFinishLoadingTopStories = didFinishLoadingTopStories
-        self.retriever.didFailedLoadingTopStories = didFailedLoading
+        self.retriever.didFinishLoadingTopStories = { [weak self] (storyIDs: Array<Int>?, stories: [Int: Story]) ->() in
+            if let strongSelf = self {
+                strongSelf.topStories = storyIDs
+                strongSelf.detailedStories = stories
+                strongSelf.stopPullToRefresh()
+                
+                print("All data is ready")
+                print("Total stories: \(strongSelf.detailedStories.count)")
+                strongSelf.tableView.reloadData()
+                
+                // For some reason, the first displayed rows may not have
+                // the correct sizing. Reload them.
+                strongSelf.tableView.reloadSections(IndexSet(integersIn: NSMakeRange(0, strongSelf.tableView.numberOfSections).toRange()!), with: .none)
+            }
+        }
+        
+        self.retriever.didFailedLoadingTopStories = { [weak self] in
+            if let strongSelf = self {
+                strongSelf.stopPullToRefresh()
+                print("Failed to download data", terminator: "")
+            }
+        }
 
         addStylesToTableView()
         addPullToRefresh()
@@ -128,22 +148,23 @@ class TableController: UITableViewController {
         guard let topStories = topStories else { return }
 
         let storyId = topStories[indexPath.row]
-        let story = detailedStories[storyId]
-
-        if let titleObject: AnyObject = story?.object(forKey: "title") as AnyObject? {
-            if let authorObject: AnyObject = story?.object(forKey: "by") as AnyObject? {
-                cell.configureCell(title: String(describing: titleObject), author: String(describing: authorObject), storyKey: storyId, number: indexPath.row + 1)
-            }
-            else {
-                cell.configureCell(title: String(describing: titleObject), author: "", storyKey: storyId, number: indexPath.row + 1)
-            }
+        if let story = detailedStories[storyId] {
+            cell.configureCell(title: story.title,
+                               author: story.author,
+                               storyKey: story.storyId,
+                               number: indexPath.row + 1)
+            
+            cell.configureComments(comments: story.comments)
         }
 
-        if let kids = story?.object(forKey: "kids") as? NSArray {
-            cell.configureComments(comments: kids)
+        cell.launchComments = { [weak self] (key) in
+            if let strongSelf = self {
+                if let story = strongSelf.detailedStories[key] {
+                    strongSelf.openWebBrowser(title: "HN comments",
+                                              urlString: Constants.hackerNewsBaseURLString + String(describing: story.storyId))
+                }
+            }
         }
-
-        cell.launchComments = openStoryComments
     }
     
     // MARK: TableView Delegate
@@ -153,78 +174,17 @@ class TableController: UITableViewController {
 
         let storyId = topStories[indexPath.row]
 
-        let story = detailedStories[storyId]
-
-        var url = story?.object(forKey: "url") as? String
-        let title = story?.object(forKey: "title") as? String
-        let keyNumber = story?.object(forKey: "id") as? NSNumber
-
-        if url == nil { // Ask HN stories have this field empty
-            if let key = keyNumber?.intValue {
-                url = Constants.hackerNewsBaseURLString + String(key)
+        if let story = detailedStories[storyId] {
+            if let urlString = story.urlString { // Ask HN stories have this field empty
+                openWebBrowser(title: story.title, urlString: urlString)
             }
-        }
-
-        self.openWebBrowser(title: title, urlString: url)
-        
-    }
-
-    // MARK: Open Comments Closure
-    
-    var openStoryComments: ((_ key: Int) -> ()) {
-        get {
-            return { [weak self] (key: Int) ->() in
-                if let strongSelf = self {
-                    
-                    let story = strongSelf.detailedStories[key]
-
-                    let url = Constants.hackerNewsBaseURLString + String(key)
-                    let title = story?.object(forKey: "title") as? String
-                    let hnComments = "HN comments"
-                    
-                    if let title = title {
-                        strongSelf.openWebBrowser(title: title + " - " + hnComments, urlString: url)
-                    } else {
-                        strongSelf.openWebBrowser(title: hnComments, urlString: url)
-                    }
-                }
+            else {
+                openWebBrowser(title: story.title,
+                               urlString: Constants.hackerNewsBaseURLString + String(describing: story.storyId))
             }
         }
     }
-    
-    // MARK: Retrieved data Closures
-    
-    var didFinishLoadingTopStories: ((_ storyIDs: Array<Int>?, _ stories: [Int: NSDictionary]) ->()) {
-        get {
-            return { [weak self] (storyIDs: Array<Int>?, stories: [Int: NSDictionary]) ->() in
-                if let strongSelf = self {
-                    strongSelf.topStories = storyIDs
-                    strongSelf.detailedStories = stories
-                    strongSelf.stopPullToRefresh()
 
-                    print("All data is ready")
-                    print("Total stories: \(strongSelf.detailedStories.count)")
-                    strongSelf.tableView.reloadData()
-                    
-                    // For some reason, the first displayed rows may not have
-                    // the correct sizing. Reload them.
-                    strongSelf.tableView.reloadSections(IndexSet(integersIn: NSMakeRange(0, strongSelf.tableView.numberOfSections).toRange()!), with: .none)
-                }
-            }
-        }
-    }
-    
-    var didFailedLoading: (() ->()) {
-        get {
-            return { [weak self] in
-                if let strongSelf = self {
-                    strongSelf.stopPullToRefresh()
-                    print("Failed to download data", terminator: "")
-                }
-            }
-        }
-    }
-    
     // MARK: Helper Methods
     
     func openWebBrowser(title: String?, urlString: String?) {

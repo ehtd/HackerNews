@@ -10,20 +10,15 @@ import Foundation
 
 class RetrieverManager {
 
-    let retriever: StoryIDRetriever
-    var stories = Array<Int>()
+    let idRetriever: StoryIDRetriever
+    let storyDetailsRetriever: StoryDetailsRetriever
     
-    let defaultSession = URLSession(configuration: URLSessionConfiguration.default)
-    var dataTask: URLSessionDataTask?
+    var storiesIds = Array<Int>()
+    var detailedStories = [Int: Story]()
 
     let MaximumStoriesToDownload = 200
     
-    
-    var detailedStories = [Int: NSDictionary]()
-
-    let retrieveItemAPIString = "https://hacker-news.firebaseio.com/v0/item/"
-    
-    var didFinishLoadingTopStories: ((_ storyIDs: Array<Int>?, _ stories: [Int: NSDictionary]) ->())?
+    var didFinishLoadingTopStories: ((_ storyIDs: Array<Int>?, _ stories: [Int: Story]) ->())?
     var didFailedLoadingTopStories: (() ->())?
     
     var retrievedStoryIDsCompleted: ((Array<Int>) -> ())?
@@ -32,7 +27,7 @@ class RetrieverManager {
         didSet {
             if (pendingDownloads == 0){
                 OperationQueue.main.addOperation {
-                    self.didFinishLoadingTopStories?(self.stories, self.detailedStories)
+                    self.didFinishLoadingTopStories?(self.storiesIds, self.detailedStories)
                 }
             }
         }
@@ -42,24 +37,26 @@ class RetrieverManager {
 
     init(type: NewsType)
     {
-        retriever = StoryIDRetriever(type: type)
+        idRetriever = StoryIDRetriever(type: type)
+        storyDetailsRetriever = StoryDetailsRetriever()
     }
 
     // MARK: Internal
     
     internal func retrieve() {
-        retriever.retrievedStoryIDsFailed = { [weak self] (error) in
+        idRetriever.retrievedStoryIDsFailed = { [weak self] (error) in
             if let strongSelf = self {
                 strongSelf.completionWithError(error: error)
             }
         }
         
-        retriever.retrievedStoryIDsCompleted = { [weak self] (ids) in
+        idRetriever.retrievedStoryIDsCompleted = { [weak self] (ids) in
             if let strongSelf = self {
-                strongSelf.stories = ids
-                
-                if strongSelf.stories.count > 0 {
-                    let storiesToDownload = min(strongSelf.MaximumStoriesToDownload, strongSelf.stories.count)
+                strongSelf.storiesIds = ids
+                strongSelf.detailedStories = [Int: Story]()
+
+                if strongSelf.storiesIds.count > 0 {
+                    let storiesToDownload = min(strongSelf.MaximumStoriesToDownload, strongSelf.storiesIds.count)
                     strongSelf.retrieveStories(startingIndex: 0, endingIndex: storiesToDownload)
                 }
                 else {
@@ -68,7 +65,7 @@ class RetrieverManager {
             }
         }
         
-        retriever.retrieve()
+        idRetriever.retrieve()
     }
     
     // MARK: Private
@@ -82,55 +79,39 @@ class RetrieverManager {
         }
     }
     
-    // TODO: Refactor to remove Firebase
-    
     // MARK: Retrieve Stories Methods
     
     private func retrieveStories(startingIndex from:Int, endingIndex to:Int) {
         assert(from <= to, "From should be less than To")
         
-        self.pendingDownloads = to-from
+        pendingDownloads = to-from
         
         for i in from..<to {
-            self.retrieveStoryWithId(stories[i])
+            retrieveStoryDetails(storiesIds[i])
         }
     }
     
-    // MARK: Retrieve single story methods
-    
-    private func retrieveStoryWithId(_ storyId: Int) {
-        // 10483024
-        let itemURL = retrieveItemAPIString + String(storyId)
-        let storyRef = Firebase(url:itemURL)
+    private func retrieveStoryDetails(_ storyId: Int) {
+        storyDetailsRetriever.retrievedStoryDetailsCompleted = { [weak self] (story) in
+            if let strongSelf = self {
+                strongSelf.pendingDownloads -= 1
+                strongSelf.detailedStories[story.storyId] = story
+            }
+        }
         
-        storyRef?.observeSingleEvent(of: .value,
-            with: { snapshot in
-                if snapshot?.exists() == true {
-
-                    let details = snapshot?.value as? [NSString: AnyObject]
-
-                    if let details = details {
-                        let keyNumber = details["id"] as? NSNumber
-
-                        if let key = keyNumber?.intValue {
-                            self.pendingDownloads -= 1
-                            self.detailedStories[key] = details as NSDictionary?
-                        }
-                    }
-                } else {
-                    print("FIREBASE FAILED TO RETRIEVE SNAPSHOT")
-                    self.cleanStoryIdFromPendingDownloads(storyId)
-                }
-            },
-            withCancel: { error in
-                print(String(describing: error))
-                self.cleanStoryIdFromPendingDownloads(storyId)
-        })
+        storyDetailsRetriever.retrievedStoryDetailsFailed = { [weak self] (error) in
+            if let strongSelf = self {
+                print("Failed to retrieve story details")
+                strongSelf.cleanStoryIdFromPendingDownloads(storyId)
+            }
+        }
+        
+        storyDetailsRetriever.retrieve(storyId: String(describing:storyId))
     }
     
     private func cleanStoryIdFromPendingDownloads(_ storyId: Int) {
-        if let index = stories.index(of: storyId) {
-            stories.remove(at: index)
+        if let index = storiesIds.index(of: storyId) {
+            storiesIds.remove(at: index)
             pendingDownloads -= 1
         }
     }

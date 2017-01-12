@@ -43,6 +43,11 @@
 		47D5E1D41E271E7C005B58F5 /* StoryIDRetriever.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47D5E1D21E27197D005B58F5 /* StoryIDRetriever.swift */; };
 		47D5E1D71E2727C9005B58F5 /* NewsType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47D5E1D61E2727C9005B58F5 /* NewsType.swift */; };
 		47D5E1D81E272EDF005B58F5 /* NewsType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47D5E1D61E2727C9005B58F5 /* NewsType.swift */; };
+		47D5E1DA1E272FB1005B58F5 /* StoryDetailsRetriever.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47D5E1D91E272FB1005B58F5 /* StoryDetailsRetriever.swift */; };
+		47D5E1DC1E27315A005B58F5 /* StoryDetailsRetrieverTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47D5E1DB1E27315A005B58F5 /* StoryDetailsRetrieverTests.swift */; };
+		47D5E1DD1E2731EB005B58F5 /* StoryDetailsRetriever.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47D5E1D91E272FB1005B58F5 /* StoryDetailsRetriever.swift */; };
+		47D5E1DF1E27389F005B58F5 /* Story.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47D5E1DE1E27389F005B58F5 /* Story.swift */; };
+		47D5E1E01E273C30005B58F5 /* Story.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47D5E1DE1E27389F005B58F5 /* Story.swift */; };
 		567CDEB792245716E59A7F0A /* libPods-hackyto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C595D8232A15C945773FCB3 /* libPods-hackyto.a */; };
 /* End PBXBuildFile section */
 
@@ -123,6 +128,9 @@
 		47D5E1CA1E270B2D005B58F5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		47D5E1D21E27197D005B58F5 /* StoryIDRetriever.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StoryIDRetriever.swift; path = Retrievers/StoryIDRetriever.swift; sourceTree = "<group>"; };
 		47D5E1D61E2727C9005B58F5 /* NewsType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NewsType.swift; path = Enums/NewsType.swift; sourceTree = "<group>"; };
+		47D5E1D91E272FB1005B58F5 /* StoryDetailsRetriever.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StoryDetailsRetriever.swift; path = Retrievers/StoryDetailsRetriever.swift; sourceTree = "<group>"; };
+		47D5E1DB1E27315A005B58F5 /* StoryDetailsRetrieverTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryDetailsRetrieverTests.swift; sourceTree = "<group>"; };
+		47D5E1DE1E27389F005B58F5 /* Story.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Story.swift; sourceTree = "<group>"; };
 		67B24776F4DDE4EDBB679CC5 /* Pods-hackyto.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-hackyto.debug.xcconfig"; path = "Pods/Target Support Files/Pods-hackyto/Pods-hackyto.debug.xcconfig"; sourceTree = "<group>"; };
 		7C595D8232A15C945773FCB3 /* libPods-hackyto.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-hackyto.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8C7A52E8BF60D616DCE9BDC /* libPods-hackytoTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-hackytoTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -247,6 +255,7 @@
 			isa = PBXGroup;
 			children = (
 				29BEDF1D1A52278C00822EB7 /* ShareInfo.swift */,
+				47D5E1DE1E27389F005B58F5 /* Story.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -314,6 +323,7 @@
 			isa = PBXGroup;
 			children = (
 				47D5E1C81E270B2D005B58F5 /* StoryIDRetrieverTests.swift */,
+				47D5E1DB1E27315A005B58F5 /* StoryDetailsRetrieverTests.swift */,
 				47D5E1CA1E270B2D005B58F5 /* Info.plist */,
 			);
 			path = hackytoTests;
@@ -323,6 +333,7 @@
 			isa = PBXGroup;
 			children = (
 				47D5E1D21E27197D005B58F5 /* StoryIDRetriever.swift */,
+				47D5E1D91E272FB1005B58F5 /* StoryDetailsRetriever.swift */,
 			);
 			name = Retrievers;
 			sourceTree = "<group>";
@@ -537,8 +548,10 @@
 				29D37A4819FE97E500991577 /* StoryCell.swift in Sources */,
 				29BEDF1E1A52278C00822EB7 /* ShareInfo.swift in Sources */,
 				2980453C1B129C6000728510 /* Constants.swift in Sources */,
+				47D5E1DA1E272FB1005B58F5 /* StoryDetailsRetriever.swift in Sources */,
 				2917DA321B2BB5F900976A6F /* SVModalWebViewController.m in Sources */,
 				2917DA3B1B2BB5F900976A6F /* SVWebViewControllerActivitySafari.m in Sources */,
+				47D5E1E01E273C30005B58F5 /* Story.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -546,7 +559,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				47D5E1DF1E27389F005B58F5 /* Story.swift in Sources */,
 				47D5E1D81E272EDF005B58F5 /* NewsType.swift in Sources */,
+				47D5E1DD1E2731EB005B58F5 /* StoryDetailsRetriever.swift in Sources */,
+				47D5E1DC1E27315A005B58F5 /* StoryDetailsRetrieverTests.swift in Sources */,
 				47D5E1D41E271E7C005B58F5 /* StoryIDRetriever.swift in Sources */,
 				47D5E1D01E270B51005B58F5 /* RetrieverManager.swift in Sources */,
 				47D5E1C91E270B2D005B58F5 /* StoryIDRetrieverTests.swift in Sources */,

@@ -57,7 +57,7 @@ class StoryCell: UITableViewCell {
         self.key = storyKey
     }
 
-    func configureComments(comments:NSArray){
+    func configureComments(comments:[Int]) {
         self.circledNumberView.number = String(comments.count)
     }
 
