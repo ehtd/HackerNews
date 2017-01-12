@@ -1,10 +1,6 @@
 # Acknowledgements
 This application makes use of the following third party libraries:
 
-## Firebase
-
-https://www.firebase.com/terms/terms-of-service.html
-
 ## MBProgressHUD
 
 Copyright (c) 2013 Matej Bukovinski
