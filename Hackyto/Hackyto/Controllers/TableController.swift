@@ -20,19 +20,19 @@ class TableController: UITableViewController {
 
     static var colorIndex = 0
 
-    let contentType: RetrieverManager.NewsType
+    let contentType: NewsType
     
     // MARK: Init
 
-    init(type: RetrieverManager.NewsType) {
+    init(type: NewsType) {
         self.retriever = RetrieverManager(type: type)
         self.contentType = type
         super.init(nibName: nil, bundle: nil)
     }
 
     required init?(coder aDecoder: NSCoder) {
-        self.retriever = RetrieverManager(type: RetrieverManager.NewsType.top)
-        self.contentType = RetrieverManager.NewsType.top
+        self.retriever = RetrieverManager(type: NewsType.top)
+        self.contentType = NewsType.top
         super.init(coder: aDecoder)
     }
     

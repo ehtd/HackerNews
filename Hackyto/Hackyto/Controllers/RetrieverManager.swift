@@ -10,35 +10,30 @@ import Foundation
 
 class RetrieverManager {
 
+    let retriever: StoryIDRetriever
+    var stories = Array<Int>()
+    
     let defaultSession = URLSession(configuration: URLSessionConfiguration.default)
     var dataTask: URLSessionDataTask?
-    
-    enum NewsType: Int {
-        case top = 0, news, ask, show, jobs
-    }
 
     let MaximumStoriesToDownload = 200
     
-    static let supportedNewsType: Int = 5
-
-    var topStories: Array<Int>? = nil
-    var detailedStories = [Int: NSDictionary]()
     
-    var firebaseAPIString: String?
+    var detailedStories = [Int: NSDictionary]()
 
     let retrieveItemAPIString = "https://hacker-news.firebaseio.com/v0/item/"
     
     var didFinishLoadingTopStories: ((_ storyIDs: Array<Int>?, _ stories: [Int: NSDictionary]) ->())?
     var didFailedLoadingTopStories: (() ->())?
     
+    var retrievedStoryIDsCompleted: ((Array<Int>) -> ())?
+    
     var pendingDownloads: Int = 0 {
         didSet {
-//            println(pendingDownloads)
             if (pendingDownloads == 0){
                 OperationQueue.main.addOperation {
-                    self.didFinishLoadingTopStories?(self.topStories, self.detailedStories)
+                    self.didFinishLoadingTopStories?(self.stories, self.detailedStories)
                 }
-                
             }
         }
     }
@@ -47,84 +42,36 @@ class RetrieverManager {
 
     init(type: NewsType)
     {
-        switch type {
-        case .top:
-            firebaseAPIString = "https://hacker-news.firebaseio.com/v0/topstories.json"
-
-        case .news:
-            firebaseAPIString = "https://hacker-news.firebaseio.com/v0/newstories.json"
-
-        case .ask:
-            firebaseAPIString = "https://hacker-news.firebaseio.com/v0/askstories.json"
-
-        case .show:
-            firebaseAPIString = "https://hacker-news.firebaseio.com/v0/showstories.json"
-
-        case .jobs:
-            firebaseAPIString = "https://hacker-news.firebaseio.com/v0/jobstories.json"
-        }
+        retriever = StoryIDRetriever(type: type)
     }
 
     // MARK: Internal
     
     internal func retrieve() {
-        if let firebaseAPIString = firebaseAPIString {
-            self.retrieveFromURLString(URLString: firebaseAPIString)
+        retriever.retrievedStoryIDsFailed = { [weak self] (error) in
+            if let strongSelf = self {
+                strongSelf.completionWithError(error: error)
+            }
         }
+        
+        retriever.retrievedStoryIDsCompleted = { [weak self] (ids) in
+            if let strongSelf = self {
+                strongSelf.stories = ids
+                
+                if strongSelf.stories.count > 0 {
+                    let storiesToDownload = min(strongSelf.MaximumStoriesToDownload, strongSelf.stories.count)
+                    strongSelf.retrieveStories(startingIndex: 0, endingIndex: storiesToDownload)
+                }
+                else {
+                    strongSelf.completionWithError(error: nil)
+                }
+            }
+        }
+        
+        retriever.retrieve()
     }
     
     // MARK: Private
-    
-    private func retrieveFromURLString(URLString: String) {
-        if let url = URL(string: URLString) {
-            dataTask = defaultSession.dataTask(with: url, completionHandler: { [weak self] (data, response, error) in
-                if let strongSelf = self {
-                    strongSelf.dataTask = nil
-                    
-                    if let error = error {
-                        strongSelf.completionWithError(error: error)
-                    }
-                    else {
-                        strongSelf.topStories = strongSelf.itemsFromData(data: data)
-                        strongSelf.detailedStories = [Int: NSDictionary]()
-                        
-                        if let topStories = strongSelf.topStories, topStories.count > 0 {
-                            let storiesToDownload = min(strongSelf.MaximumStoriesToDownload, topStories.count)
-                            strongSelf.retrieveStories(startingIndex: 0, endingIndex: storiesToDownload)
-                        }
-                        else {
-                            strongSelf.completionWithError(error: nil)
-                        }
-                    }
-                }
-            })
-            
-            dataTask?.resume()
-        }
-    }
-    
-    private func itemsFromData(data: Data?) -> Array<Int> {
-        var items: Array<Int>?
-        
-        if let data = data {
-            do {
-                items = try JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions()) as? Array<Int>
-            }
-            catch {
-                print(String(describing: error))
-            }
-            
-            if let items = items {
-                return items
-            }
-            else {
-                return Array<Int>()
-            }
-        }
-        else {
-            return Array<Int>()
-        }
-    }
     
     private func completionWithError(error: Error?) {
         print(String(describing: error))
@@ -139,14 +86,13 @@ class RetrieverManager {
     
     // MARK: Retrieve Stories Methods
     
-    func retrieveStories(startingIndex from:Int, endingIndex to:Int) {
+    private func retrieveStories(startingIndex from:Int, endingIndex to:Int) {
         assert(from <= to, "From should be less than To")
-        guard let topStories = self.topStories else { return }
         
         self.pendingDownloads = to-from
         
         for i in from..<to {
-            self.retrieveStoryWithId(topStories[i])
+            self.retrieveStoryWithId(stories[i])
         }
     }
     
@@ -183,8 +129,8 @@ class RetrieverManager {
     }
     
     private func cleanStoryIdFromPendingDownloads(_ storyId: Int) {
-        if let index = topStories?.index(of: storyId) {
-            topStories?.remove(at: index)
+        if let index = stories.index(of: storyId) {
+            stories.remove(at: index)
             pendingDownloads -= 1
         }
     }

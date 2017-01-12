@@ -37,8 +37,24 @@
 		29DC679C1A02FCD2008391DD /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29DC679B1A02FCD2008391DD /* MessageUI.framework */; };
 		29DC679E1A03129C008391DD /* TableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29DC679D1A03129C008391DD /* TableController.swift */; };
 		29EF21981B1277B00093EE8D /* RetrieverManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29EF21971B1277B00093EE8D /* RetrieverManager.swift */; };
+		47D5E1C91E270B2D005B58F5 /* StoryIDRetrieverTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47D5E1C81E270B2D005B58F5 /* StoryIDRetrieverTests.swift */; };
+		47D5E1D01E270B51005B58F5 /* RetrieverManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29EF21971B1277B00093EE8D /* RetrieverManager.swift */; };
+		47D5E1D31E27197D005B58F5 /* StoryIDRetriever.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47D5E1D21E27197D005B58F5 /* StoryIDRetriever.swift */; };
+		47D5E1D41E271E7C005B58F5 /* StoryIDRetriever.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47D5E1D21E27197D005B58F5 /* StoryIDRetriever.swift */; };
+		47D5E1D71E2727C9005B58F5 /* NewsType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47D5E1D61E2727C9005B58F5 /* NewsType.swift */; };
+		47D5E1D81E272EDF005B58F5 /* NewsType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47D5E1D61E2727C9005B58F5 /* NewsType.swift */; };
 		567CDEB792245716E59A7F0A /* libPods-hackyto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C595D8232A15C945773FCB3 /* libPods-hackyto.a */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		47D5E1CB1E270B2D005B58F5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 29D1E5F619F8253F00B3E237 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 29D1E5FD19F8253F00B3E237;
+			remoteInfo = hackyto;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		29DC67AD1A031389008391DD /* Embed Frameworks */ = {
@@ -102,8 +118,14 @@
 		29DC679B1A02FCD2008391DD /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		29DC679D1A03129C008391DD /* TableController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TableController.swift; path = Controllers/TableController.swift; sourceTree = "<group>"; };
 		29EF21971B1277B00093EE8D /* RetrieverManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RetrieverManager.swift; path = Controllers/RetrieverManager.swift; sourceTree = "<group>"; };
+		47D5E1C61E270B2D005B58F5 /* hackytoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = hackytoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		47D5E1C81E270B2D005B58F5 /* StoryIDRetrieverTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryIDRetrieverTests.swift; sourceTree = "<group>"; };
+		47D5E1CA1E270B2D005B58F5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		47D5E1D21E27197D005B58F5 /* StoryIDRetriever.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StoryIDRetriever.swift; path = Retrievers/StoryIDRetriever.swift; sourceTree = "<group>"; };
+		47D5E1D61E2727C9005B58F5 /* NewsType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NewsType.swift; path = Enums/NewsType.swift; sourceTree = "<group>"; };
 		67B24776F4DDE4EDBB679CC5 /* Pods-hackyto.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-hackyto.debug.xcconfig"; path = "Pods/Target Support Files/Pods-hackyto/Pods-hackyto.debug.xcconfig"; sourceTree = "<group>"; };
 		7C595D8232A15C945773FCB3 /* libPods-hackyto.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-hackyto.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F8C7A52E8BF60D616DCE9BDC /* libPods-hackytoTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-hackytoTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +135,13 @@
 			files = (
 				29DC679C1A02FCD2008391DD /* MessageUI.framework in Frameworks */,
 				567CDEB792245716E59A7F0A /* libPods-hackyto.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		47D5E1C31E270B2D005B58F5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -225,6 +254,7 @@
 		29D1E5F519F8253F00B3E237 = {
 			isa = PBXGroup;
 			children = (
+				47D5E1C71E270B2D005B58F5 /* hackytoTests */,
 				870B885F33B54FC509EE9D67 /* Frameworks */,
 				29D1E60019F8253F00B3E237 /* Hackyto */,
 				29D1E5FF19F8253F00B3E237 /* Products */,
@@ -236,6 +266,7 @@
 			isa = PBXGroup;
 			children = (
 				29D1E5FE19F8253F00B3E237 /* hackyto.app */,
+				47D5E1C61E270B2D005B58F5 /* hackytoTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -243,6 +274,8 @@
 		29D1E60019F8253F00B3E237 /* Hackyto */ = {
 			isa = PBXGroup;
 			children = (
+				47D5E1D51E27274C005B58F5 /* Enums */,
+				47D5E1D11E271935005B58F5 /* Retrievers */,
 				16C214EA1C28E4D600CF2C90 /* Helpers */,
 				2917DA111B2BB5F900976A6F /* SVWebViewController */,
 				298045381B12984700728510 /* Application */,
@@ -277,11 +310,37 @@
 			name = Views;
 			sourceTree = "<group>";
 		};
+		47D5E1C71E270B2D005B58F5 /* hackytoTests */ = {
+			isa = PBXGroup;
+			children = (
+				47D5E1C81E270B2D005B58F5 /* StoryIDRetrieverTests.swift */,
+				47D5E1CA1E270B2D005B58F5 /* Info.plist */,
+			);
+			path = hackytoTests;
+			sourceTree = "<group>";
+		};
+		47D5E1D11E271935005B58F5 /* Retrievers */ = {
+			isa = PBXGroup;
+			children = (
+				47D5E1D21E27197D005B58F5 /* StoryIDRetriever.swift */,
+			);
+			name = Retrievers;
+			sourceTree = "<group>";
+		};
+		47D5E1D51E27274C005B58F5 /* Enums */ = {
+			isa = PBXGroup;
+			children = (
+				47D5E1D61E2727C9005B58F5 /* NewsType.swift */,
+			);
+			name = Enums;
+			sourceTree = "<group>";
+		};
 		870B885F33B54FC509EE9D67 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				29DC679B1A02FCD2008391DD /* MessageUI.framework */,
 				7C595D8232A15C945773FCB3 /* libPods-hackyto.a */,
+				F8C7A52E8BF60D616DCE9BDC /* libPods-hackytoTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -310,6 +369,24 @@
 			productReference = 29D1E5FE19F8253F00B3E237 /* hackyto.app */;
 			productType = "com.apple.product-type.application";
 		};
+		47D5E1C51E270B2D005B58F5 /* hackytoTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 47D5E1CF1E270B2D005B58F5 /* Build configuration list for PBXNativeTarget "hackytoTests" */;
+			buildPhases = (
+				47D5E1C21E270B2D005B58F5 /* Sources */,
+				47D5E1C31E270B2D005B58F5 /* Frameworks */,
+				47D5E1C41E270B2D005B58F5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				47D5E1CC1E270B2D005B58F5 /* PBXTargetDependency */,
+			);
+			name = hackytoTests;
+			productName = hackytoTests;
+			productReference = 47D5E1C61E270B2D005B58F5 /* hackytoTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -317,7 +394,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftMigration = 0710;
-				LastSwiftUpdateCheck = 0710;
+				LastSwiftUpdateCheck = 0820;
 				LastUpgradeCheck = 0600;
 				ORGANIZATIONNAME = ehtd;
 				TargetAttributes = {
@@ -325,6 +402,11 @@
 						CreatedOnToolsVersion = 6.0.1;
 						DevelopmentTeam = 3N93GSL974;
 						LastSwiftMigration = 0820;
+					};
+					47D5E1C51E270B2D005B58F5 = {
+						CreatedOnToolsVersion = 8.2.1;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 29D1E5FD19F8253F00B3E237;
 					};
 				};
 			};
@@ -351,6 +433,7 @@
 			projectRoot = "";
 			targets = (
 				29D1E5FD19F8253F00B3E237 /* hackyto */,
+				47D5E1C51E270B2D005B58F5 /* hackytoTests */,
 			);
 		};
 /* End PBXProject section */
@@ -375,6 +458,13 @@
 				2917DA391B2BB5F900976A6F /* SVWebViewControllerActivitySafari-iPad.png in Resources */,
 				2917DA3C1B2BB5F900976A6F /* SVWebViewControllerActivitySafari@2x.png in Resources */,
 				16C214E91C28D08600CF2C90 /* StoryCell.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		47D5E1C41E270B2D005B58F5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -436,10 +526,12 @@
 				16C214EF1C28E52300CF2C90 /* ColorFactory.swift in Sources */,
 				2917DA371B2BB5F900976A6F /* SVWebViewControllerActivityChrome.m in Sources */,
 				29D1E60419F8253F00B3E237 /* AppDelegate.swift in Sources */,
+				47D5E1D31E27197D005B58F5 /* StoryIDRetriever.swift in Sources */,
 				29EF21981B1277B00093EE8D /* RetrieverManager.swift in Sources */,
 				2917DA3D1B2BB5F900976A6F /* SVWebViewControllerActivity.m in Sources */,
 				16F542671C349C8900A5B10E /* CircledNumberView.swift in Sources */,
 				2917DA341B2BB5F900976A6F /* SVWebViewController.m in Sources */,
+				47D5E1D71E2727C9005B58F5 /* NewsType.swift in Sources */,
 				29578F281A014F1400601218 /* WebViewController.swift in Sources */,
 				29DC679E1A03129C008391DD /* TableController.swift in Sources */,
 				29D37A4819FE97E500991577 /* StoryCell.swift in Sources */,
@@ -450,7 +542,26 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		47D5E1C21E270B2D005B58F5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				47D5E1D81E272EDF005B58F5 /* NewsType.swift in Sources */,
+				47D5E1D41E271E7C005B58F5 /* StoryIDRetriever.swift in Sources */,
+				47D5E1D01E270B51005B58F5 /* RetrieverManager.swift in Sources */,
+				47D5E1C91E270B2D005B58F5 /* StoryIDRetrieverTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		47D5E1CC1E270B2D005B58F5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 29D1E5FD19F8253F00B3E237 /* hackyto */;
+			targetProxy = 47D5E1CB1E270B2D005B58F5 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		2917DA121B2BB5F900976A6F /* SVWebViewController.strings */ = {
@@ -604,6 +715,50 @@
 			};
 			name = Release;
 		};
+		47D5E1CD1E270B2D005B58F5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_TESTABILITY = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = hackytoTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = io.ernesto.hackytoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/hackyto.app/hackyto";
+			};
+			name = Debug;
+		};
+		47D5E1CE1E270B2D005B58F5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = hackytoTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = io.ernesto.hackytoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/hackyto.app/hackyto";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -621,6 +776,15 @@
 			buildConfigurations = (
 				29D1E61E19F8254000B3E237 /* Debug */,
 				29D1E61F19F8254000B3E237 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		47D5E1CF1E270B2D005B58F5 /* Build configuration list for PBXNativeTarget "hackytoTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				47D5E1CD1E270B2D005B58F5 /* Debug */,
+				47D5E1CE1E270B2D005B58F5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
