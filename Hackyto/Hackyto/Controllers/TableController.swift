@@ -10,6 +10,8 @@ import UIKit
 
 class TableController: UITableViewController {
 
+    let contentResolver = ContentResolver()
+
     let retriever: RetrieverManager
     var topStories: Array<Int>?
     var detailedStories = [Int: Story]()
@@ -45,6 +47,16 @@ class TableController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        contentResolver.start()
+        contentResolver
+            .onSuccess { (response) in
+                print(response)
+            }
+            .onError { (error) in
+                print(error)
+            }
+            .get(TopContent.SEGMENT)
 
         self.tableView.register(UINib(nibName: "StoryCell", bundle: nil), forCellReuseIdentifier: cellIdentifier)
 
