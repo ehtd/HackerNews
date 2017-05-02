@@ -46,6 +46,7 @@
 		4737A1E01EB6F45F001ADA96 /* AsyncHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4737A1DF1EB6F45F001ADA96 /* AsyncHandler.swift */; };
 		4737A1E21EB6F987001ADA96 /* RequestBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4737A1E11EB6F987001ADA96 /* RequestBuilder.swift */; };
 		4737A1E41EB7059E001ADA96 /* ContentProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4737A1E31EB7059E001ADA96 /* ContentProvider.swift */; };
+		4737A1E61EB83530001ADA96 /* Schema.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4737A1E51EB83530001ADA96 /* Schema.swift */; };
 		47D5E1C91E270B2D005B58F5 /* StoryIDRetrieverTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47D5E1C81E270B2D005B58F5 /* StoryIDRetrieverTests.swift */; };
 		47D5E1D01E270B51005B58F5 /* RetrieverManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29EF21971B1277B00093EE8D /* RetrieverManager.swift */; };
 		47D5E1D31E27197D005B58F5 /* StoryIDRetriever.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47D5E1D21E27197D005B58F5 /* StoryIDRetriever.swift */; };
@@ -141,6 +142,7 @@
 		4737A1DF1EB6F45F001ADA96 /* AsyncHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AsyncHandler.swift; path = Network/AsyncHandler.swift; sourceTree = "<group>"; };
 		4737A1E11EB6F987001ADA96 /* RequestBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RequestBuilder.swift; path = Network/RequestBuilder.swift; sourceTree = "<group>"; };
 		4737A1E31EB7059E001ADA96 /* ContentProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ContentProvider.swift; path = Content/ContentProvider.swift; sourceTree = "<group>"; };
+		4737A1E51EB83530001ADA96 /* Schema.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Schema.swift; path = Content/Schema.swift; sourceTree = "<group>"; };
 		47D5E1C61E270B2D005B58F5 /* hackytoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = hackytoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		47D5E1C81E270B2D005B58F5 /* StoryIDRetrieverTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryIDRetrieverTests.swift; sourceTree = "<group>"; };
 		47D5E1CA1E270B2D005B58F5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -347,6 +349,7 @@
 				4737A1D01EB6CE35001ADA96 /* HackerNewsAPI.swift */,
 				4737A1D41EB6D564001ADA96 /* Providable.swift */,
 				4737A1E31EB7059E001ADA96 /* ContentProvider.swift */,
+				4737A1E51EB83530001ADA96 /* Schema.swift */,
 			);
 			name = Content;
 			sourceTree = "<group>";
@@ -589,6 +592,7 @@
 				2917DA3D1B2BB5F900976A6F /* SVWebViewControllerActivity.m in Sources */,
 				16F542671C349C8900A5B10E /* CircledNumberView.swift in Sources */,
 				2917DA341B2BB5F900976A6F /* SVWebViewController.m in Sources */,
+				4737A1E61EB83530001ADA96 /* Schema.swift in Sources */,
 				4737A1DE1EB6F1D9001ADA96 /* HttpDriver.swift in Sources */,
 				47D5E1D71E2727C9005B58F5 /* NewsType.swift in Sources */,
 				4737A1B11EB5701F001ADA96 /* ContentResolver.swift in Sources */,
