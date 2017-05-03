@@ -10,6 +10,9 @@ import UIKit
 
 class TableController: UITableViewController {
 
+    let graphString = GraphString()
+    let queryResolver = QueryResolver()
+
     let contentResolver = ContentResolver()
 
     let retriever: RetrieverManager
@@ -48,15 +51,24 @@ class TableController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        contentResolver.start()
-        contentResolver
-            .onSuccess { (response) in
-                print(response)
-            }
-            .onError { (error) in
-                print(error)
-            }
-            .get(TopContent.SEGMENT)
+        queryResolver.add(type: StoryType())
+
+        let queryDictionary = ["Story": ["url", "title", "weirdThing"]]
+
+        queryResolver.onSuccess(success: { (result) in
+            print(result)
+        })
+        .query(queryDictionary)
+
+//        contentResolver.start()
+//        contentResolver
+//            .onSuccess { (response) in
+//                print(response)
+//            }
+//            .onError { (error) in
+//                print(error)
+//            }
+//            .get(TopContent.SEGMENT)
 
         self.tableView.register(UINib(nibName: "StoryCell", bundle: nil), forCellReuseIdentifier: cellIdentifier)
 
@@ -86,7 +98,7 @@ class TableController: UITableViewController {
         addStylesToTableView()
         addPullToRefresh()
 
-        retrieveStories()
+//        retrieveStories()
     }
     
     // MARK: Styles Configuration

@@ -6,95 +6,112 @@
 //  Copyright © 2017 ehtd. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
-protocol Graphable {
+protocol Identifiable {
+    var globalId: String { get }
+}
+
+protocol Resolvable {
     associatedtype type
-    func resolve() -> type
+
+    var successHandler: ((type) -> ()) { get }
+    func onSuccess(success: @escaping (type) -> ()) -> Self
+
+    func resolve()
 }
 
-class GraphArray: Graphable {
+class GraphableType: Resolvable, Identifiable {
+    let globalId: String
+    typealias type = Any
 
-    func resolve() -> [Any] {
-        return [Any]()
+    private(set) var successHandler: ((type) -> ()) = { _ in }
+
+    init(withId id: String) {
+        globalId = id
+    }
+
+    func resolve() {
+        successHandler([type]())
+    }
+
+    func onSuccess(success: @escaping (type) -> ()) -> Self {
+        successHandler = success
+        return self
     }
 }
 
-class GraphString: Graphable {
-//    let object: [String: Any]
+class GraphString: GraphableType {
+    typealias type = String
 
-    func resolve() -> String {
-        return ""
+    init() {
+        super.init(withId: "GraphString")
+    }
+
+    override func resolve() {
+        successHandler("")
     }
 }
 
-class GraphInt: Graphable {
-    func resolve() -> Int {
-        return 0
+class GraphInt: GraphableType {
+    typealias type = Int
+
+    init() {
+        super.init(withId: "GraphInt")
+    }
+
+    override func resolve() {
+        successHandler(0)
     }
 }
 
-class StoryType {
-    let name = "Story"
-    let description = ""
-    let fields = ["id": idField, "title": titleField]
-//        "by", "score", "url"]
+class QueryResolver {
+    typealias resultSet = [String: Any]
+    typealias queryDictionary = [String: [String]]
 
-    func resolve(_ key: String) -> String {
-        return ""
+    private(set) var supportedTypes = [String: GraphableType]()
+
+    private(set) var successHandler: (([String: Any]) -> ()) = { _ in }
+
+    func add(type: GraphableType) {
+        supportedTypes[type.globalId] = type
     }
 
-    func idField() {
+    func query(_ queryDictionary: queryDictionary) {
+        for (key, array) in queryDictionary {
+            let type = supportedTypes[key]
+            type?.onSuccess(success: { (result) in
 
-    }
-
-    func titleField() {
-
-    }
-
-    private func landingAction() -> (() -> (Void)) {
-        return { [weak self] in
-            if let strongSelf = self {
-
-            }
+                if let r = result as? resultSet {
+                    var generatedResultSet = resultSet()
+                    for item in array {
+                        generatedResultSet[item] = r[item]
+                    }
+                    self.successHandler(generatedResultSet)
+                }
+            })
+            .resolve()
         }
     }
-}
 
-class Schema {
-//    var object {
-//
-//    }
-
-    typealias idType = (() -> String)
-
-    func fields() {
-        let def = ["key":""
-            ]
-    }
-
-    func id(type: idType) {
-
+    func onSuccess(success: @escaping ([String: Any]) -> ()) -> Self {
+        successHandler = success
+        return self
     }
 }
 
-let schema = ["id": Int.self,
-              "title": String.self,
-              "by": String.self,
-              "score": Int.self,
-              "url": String.self
-                ] as [String : Any]
+class StoryType: GraphableType {
+    typealias type = [String: Any]
 
-//title = stringFromKey(dictionary, key: "title")
-//author = stringFromKey(dictionary, key: "by")
-//urlString = dictionary["url"] as? String
-//score = intFromKey(dictionary, key: "score")
-//storyId = intFromKey(dictionary, key: "id")
-//comments = intArrayFromKey(dictionary, key: "kids")
-//
-//var title: String = ""
-//var author: String = ""
-//var score: Int = 0
-//var storyId: Int = 0
-//var urlString: String?
-//var comments = [Int]()
+    init() {
+        super.init(withId: "Story")
+    }
+
+//    var fields: [String: GraphableType] = ["id": GraphString(),
+//                                           "title": GraphString()]
+
+
+    override func resolve() {
+        successHandler(["id": 100, "title": "test", "by": "Some author", "score": 10, "url": "http://"])
+    }
+}
