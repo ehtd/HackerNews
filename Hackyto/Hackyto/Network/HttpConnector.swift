@@ -1,5 +1,5 @@
 //
-//  HttpDriver.swift
+//  HttpConnector.swift
 //  Hackyto
 //
 //  Created by Ernesto Torres on 4/30/17.
@@ -8,23 +8,35 @@
 
 import Foundation
 
-class HttpDriver: AsyncHandler, Http {
-    fileprivate let session = URLSession(configuration: URLSessionConfiguration.default)
+class HttpConnector: AsyncHandler, Http {
+    fileprivate let session: URLSession
+
+    init(with session: URLSession) {
+        self.session = session
+    }
 
     func get(withUrlPath urlPath: String, headers: [String: String]?, body: String?) {
-        let request = RequestBuilder()
-            .set(type: .GET)
-            .set(urlString: urlPath)
-            .set(headers: headers)
-            .set(httpBodyFromString: body)
-            .build()
+        let builder = requestBuilder(withUrlPath: urlPath, headers: headers, body: body)
+        let request = builder.set(type: .GET).build()
 
         send(request)
     }
 }
 
-extension HttpDriver {
-    func send(_ request: URLRequest) {
+extension HttpConnector {
+    func requestBuilder(withUrlPath urlPath: String, headers: [String: String]?, body: String?) -> RequestBuilder {
+        let builder = RequestBuilder()
+            .set(type: .GET)
+            .set(urlString: urlPath)
+            .set(headers: headers)
+            .set(httpBodyFromString: body)
+
+        return builder
+    }
+}
+
+fileprivate extension HttpConnector {
+    private func asyncSend(_ request: URLRequest) {
         var apiResponse : Any?
         var apiError : Error?
         let semaphore = DispatchSemaphore.init(value: 0)
@@ -49,10 +61,18 @@ extension HttpDriver {
 
         let _ = semaphore.wait(timeout: DispatchTime.distantFuture)
 
-        if let response = apiResponse {
-            successHandler(response)
-        } else if let error = apiError {
-            errorHandler(error)
+        DispatchQueue.main.async { [weak self] in
+            if let response = apiResponse {
+                self?.successHandler(response)
+            } else if let error = apiError {
+                self?.errorHandler(error)
+            }
+        }
+    }
+
+    func send(_ request: URLRequest) {
+        DispatchQueue.global().async { [weak self] in
+            self?.asyncSend(request)
         }
     }
 }

@@ -10,7 +10,7 @@ import UIKit
 
 class TableController: UITableViewController {
 
-    let contentResolver = ContentResolver()
+    let api = HackerNewsAPI()
 
     let retriever: RetrieverManager
     var topStories: Array<Int>?
@@ -48,16 +48,12 @@ class TableController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        contentResolver.start()
-        contentResolver
-            .onSuccess { (response) in
-                print(response)
-            }
-            .onError { (error) in
-                print(error)
-            }
-            .get(TopContent.SEGMENT)
+        api.getTopStoryIDList(success: { (topStories) in
+            print(topStories)
+        }) { (_) in
 
+        }
+        
         self.tableView.register(UINib(nibName: "StoryCell", bundle: nil), forCellReuseIdentifier: cellIdentifier)
 
         self.retriever.didFinishLoadingTopStories = { [weak self] (storyIDs: Array<Int>?, stories: [Int: Story]) ->() in

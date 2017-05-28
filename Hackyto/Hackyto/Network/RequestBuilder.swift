@@ -6,8 +6,6 @@
 //  Copyright © 2017 ehtd. All rights reserved.
 //
 
-import Foundation
-
 class RequestBuilder {
     enum MethodType: String {
         case POST, GET, DELETE
@@ -58,11 +56,11 @@ class RequestBuilder {
         }
 
         if let headers = headers {
-            for (K, V) in headers {
-                request.addValue(V, forHTTPHeaderField: K)
+            for (key, value) in headers {
+                request.addValue(value, forHTTPHeaderField: key)
             }
         }
-
+        
         return request
     }
 }

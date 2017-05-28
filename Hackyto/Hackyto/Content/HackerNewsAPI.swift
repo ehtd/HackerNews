@@ -8,30 +8,27 @@
 
 import Foundation
 
-class HackerNewsAPI: AsyncHandler {
-    fileprivate let apiEndPoint: String
-    fileprivate var routes = [String: ContentProvider]()
+class HackerNewsAPI {
+    fileprivate let apiEndPoint = "https://hacker-news.firebaseio.com/v0/"
+    fileprivate let session = URLSession(configuration: URLSessionConfiguration.default)
 
-    init(withEndpoint endPoint: String) {
-        self.apiEndPoint = endPoint
-    }
+    fileprivate let topListFetcher: ListFetcher
+    fileprivate let newsListFetcher: ListFetcher
+    fileprivate let askListFetcher: ListFetcher
+    fileprivate let showListFetcher: ListFetcher
+    fileprivate let jobListFetcher: ListFetcher
 
-    func start() {
-        self.routes = [TopContent.SEGMENT: TopContent(withEndpoint: apiEndPoint)]
+    init() {
+        self.topListFetcher = ListFetcher(with: session, apiEndPoint: apiEndPoint)
+        self.newsListFetcher = ListFetcher(with: session, apiEndPoint: apiEndPoint)
+        self.askListFetcher = ListFetcher(with: session, apiEndPoint: apiEndPoint)
+        self.showListFetcher = ListFetcher(with: session, apiEndPoint: apiEndPoint)
+        self.jobListFetcher = ListFetcher(with: session, apiEndPoint: apiEndPoint)
     }
 }
 
-// MARK: - Routes
-
 extension HackerNewsAPI {
-    func resolve(_ URI: String) {
-        if let route = self.routes[URI] {
-            route
-                .onSuccess(success: successHandler)
-                .onError(error: errorHandler)
-                .get()
-        } else {
-            // TODO: route missing
-        }
+    func getTopStoryIDList(success: @escaping (([Int]) -> Void), error: @escaping ((Error) -> Void)) {
+        topListFetcher.getStoryList(for: "topstories.json", success: success, error: error)
     }
 }
