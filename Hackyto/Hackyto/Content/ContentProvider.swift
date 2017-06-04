@@ -1,5 +1,5 @@
 //
-//  Content.swift
+//  ContentProvider.swift
 //  Hackyto
 //
 //  Created by Ernesto Torres on 6/3/17.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Content {
+class ContentProvider {
     fileprivate let topListFetcher: ListFetcher
     fileprivate let itemFetcher: ItemFetcher
 
@@ -27,7 +27,7 @@ class Content {
     }
 }
 
-fileprivate extension Content {
+fileprivate extension ContentProvider {
     func getStoryList(success: @escaping (([Int]) -> Void),
                            error: @escaping ((Error) -> Void)) {
         stories = StoryList()
@@ -67,7 +67,7 @@ fileprivate extension Content {
     }
 }
 
-extension Content {
+extension ContentProvider {
     @discardableResult
     func onError(error: @escaping ((Error) -> Void)) -> Self {
         self.errorHandler = error
@@ -83,7 +83,7 @@ extension Content {
     }
 }
 
-extension Content {
+extension ContentProvider {
     func getStories(_ number: Int) {
         getStoryList(success: { [weak self] (list) in
             if number < list.count {

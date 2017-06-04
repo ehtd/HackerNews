@@ -10,7 +10,7 @@ import UIKit
 
 class TableController: UITableViewController {
 
-    fileprivate let api = HackerNewsAPI()
+    fileprivate let hackerNewsAPI: HackerNewsAPI
 
     fileprivate var stories = [Story]() {
         didSet {
@@ -24,17 +24,15 @@ class TableController: UITableViewController {
 
     static var colorIndex = 0
 
-    fileprivate let contentType: NewsType
-    
     // MARK: Init
 
-    init(type: NewsType) {
-        self.contentType = type
+    init(type: ContentType) {
+        hackerNewsAPI = HackerNewsAPI(for: type)
         super.init(nibName: nil, bundle: nil)
     }
 
     required init?(coder aDecoder: NSCoder) {
-        self.contentType = NewsType.top
+        hackerNewsAPI = HackerNewsAPI(for: .top)
         super.init(coder: aDecoder)
     }
     
@@ -103,7 +101,7 @@ class TableController: UITableViewController {
     }
 
     func retrieveStories() {
-        api.topStories(success: { [weak self] (stories) in
+        hackerNewsAPI.topStories(success: { [weak self] (stories) in
             if let strongSelf = self {
                 strongSelf.stories = stories
                 strongSelf.stopPullToRefresh()

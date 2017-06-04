@@ -36,7 +36,7 @@ class RetrieverManager {
 
     // MARK: Init
 
-    init(type: NewsType)
+    init(type: ContentType)
     {
         idRetriever = StoryIDRetriever(type: type)
         storyDetailsRetriever = StoryDetailsRetriever()

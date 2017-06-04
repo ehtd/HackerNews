@@ -17,7 +17,7 @@ class StoryIDRetriever {
     var retrievedStoryIDsCompleted: ((Array<Int>) -> ())?
     var retrievedStoryIDsFailed: ((Error) -> ())?
     
-    init(type: NewsType)
+    init(type: ContentType)
     {
         switch type {
         case .top:
