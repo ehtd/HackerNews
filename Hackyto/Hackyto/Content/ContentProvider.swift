@@ -14,11 +14,14 @@ class ContentProvider {
 
     typealias StoryList = [Story]
     fileprivate var stories = StoryList()
+    fileprivate var availableStoryIds = [Int]()
 
     fileprivate(set) var errorHandler: ((Error) -> Void) = { _ in }
     fileprivate(set) var successHandler: ((StoryList) -> Void) = { _ in }
 
     fileprivate let contentPath: String
+    fileprivate var fetching = false
+    fileprivate let pageSize = 20
 
     init(with session: URLSession, apiEndPoint: String, contentPath: String) {
         self.contentPath = contentPath
@@ -52,7 +55,9 @@ fileprivate extension ContentProvider {
 
     func fetchItems(in list: [Int]) {
         if list.isEmpty {
+            fetching = false
             successHandler(stories)
+            stories.removeAll()
         }
         else {
             var listToProcess = list
@@ -60,9 +65,23 @@ fileprivate extension ContentProvider {
             getItem("\(item)", success: { [weak self] (story) in
                 self?.stories.append(story)
                 self?.fetchItems(in: listToProcess)
-            }, error: { (error) in
+            }, error: { [weak self] (error) in
                 print(error)
+                self?.fetchItems(in: listToProcess)
             })
+        }
+    }
+
+    func fetchNextBatch(size: Int) {
+        if size < availableStoryIds.count {
+            let truncatedList = Array(availableStoryIds[0..<size])
+            availableStoryIds = Array(availableStoryIds[size..<availableStoryIds.count])
+
+            fetchItems(in: truncatedList)
+        }
+        else {
+            fetchItems(in: availableStoryIds)
+            availableStoryIds.removeAll()
         }
     }
 }
@@ -85,16 +104,26 @@ extension ContentProvider {
 
 extension ContentProvider {
     func getStories(_ number: Int) {
+        guard fetching == false else { return }
+
+        fetching = true
+
         getStoryList(success: { [weak self] (list) in
-            if number < list.count {
-                let truncatedList = Array(list[0..<number])
-                self?.fetchItems(in: truncatedList)
-            }
-            else {
-                self?.fetchItems(in: list)
+            if let strongSelf = self {
+                strongSelf.availableStoryIds = list
+                strongSelf.fetchNextBatch(size: number)
             }
         }) { [weak self] (error) in
+            self?.fetching = false
             self?.errorHandler(error)
         }
+    }
+
+    func next() {
+        guard fetching == false, availableStoryIds.count > 0 else { return }
+
+        fetching = true
+
+        fetchNextBatch(size: pageSize)
     }
 }

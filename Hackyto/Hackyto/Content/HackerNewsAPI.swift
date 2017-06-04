@@ -20,6 +20,9 @@ class HackerNewsAPI {
     fileprivate let session = URLSession(configuration: URLSessionConfiguration.default)
     fileprivate let contentProvider: ContentProvider
 
+    fileprivate(set) var errorHandler: ((Error) -> Void) = { _ in }
+    fileprivate(set) var successHandler: (([Story]) -> Void) = { _ in }
+
     // Add pagination
     init(for type: ContentType) {
         let contentPath: String
@@ -45,11 +48,41 @@ class HackerNewsAPI {
 }
 
 extension HackerNewsAPI {
-    func topStories(success: @escaping (([Story]) -> Void),
-                      error: @escaping ((Error) -> Void)) {
+    func fetch() {
         contentProvider
-            .onError(error: error)
-            .onSuccess(success: success)
-            .getStories(100)
+            .onError { [weak self] (error) in
+                self?.errorHandler(error)
+            }
+            .onSuccess{ [weak self] (stories) in
+                self?.successHandler(stories)
+            }
+            .getStories(20)
+    }
+
+    func next() {
+        contentProvider
+            .onError { [weak self] (error) in
+                self?.errorHandler(error)
+            }
+            .onSuccess{ [weak self] (stories) in
+                self?.successHandler(stories)
+            }
+            .next()
+    }
+}
+
+extension HackerNewsAPI {
+    @discardableResult
+    func onError(error: @escaping ((Error) -> Void)) -> Self {
+        self.errorHandler = error
+
+        return self
+    }
+
+    @discardableResult
+    func onSuccess(success: @escaping ([Story]) -> Void) -> Self {
+        self.successHandler = success
+
+        return self
     }
 }

@@ -12,12 +12,7 @@ class TableController: UITableViewController {
 
     fileprivate let hackerNewsAPI: HackerNewsAPI
 
-    fileprivate var stories = [Story]() {
-        didSet {
-            tableView.reloadData()
-            print("Total stories: \(stories.count)")
-        }
-    }
+    fileprivate var stories = [Story]()
 
     fileprivate let pullToRefresh = UIRefreshControl()
     fileprivate let cellIdentifier = "StoryCell"
@@ -101,15 +96,22 @@ class TableController: UITableViewController {
     }
 
     func retrieveStories() {
-        hackerNewsAPI.topStories(success: { [weak self] (stories) in
-            if let strongSelf = self {
-                strongSelf.stories = stories
-                strongSelf.stopPullToRefresh()
+        stories = [Story]()
+        tableView.reloadData()
+        
+        hackerNewsAPI
+            .onSuccess { [weak self] (stories) in
+                if let strongSelf = self {
+                    strongSelf.stories.append(contentsOf: stories)
+                    strongSelf.tableView.reloadData()
+                    strongSelf.stopPullToRefresh()
+                }
             }
-        }) { [weak self] (error) in
-            print(error)
-            self?.stopPullToRefresh()
-        }
+            .onError { [weak self] (error) in
+                print(error)
+                self?.stopPullToRefresh()
+            }
+            .fetch()
     }
 
     // MARK: TableView Controller data source
@@ -183,3 +185,11 @@ class TableController: UITableViewController {
     }
 }
 
+
+extension TableController {
+    override func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        if scrollView.contentOffset.y > 0 {
+            hackerNewsAPI.next()
+        }
+    }
+}
