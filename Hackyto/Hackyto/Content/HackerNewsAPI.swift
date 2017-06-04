@@ -50,6 +50,6 @@ extension HackerNewsAPI {
         contentProvider
             .onError(error: error)
             .onSuccess(success: success)
-            .getStories(10)
+            .getStories(100)
     }
 }
