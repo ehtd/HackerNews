@@ -18,17 +18,27 @@ class HackerNewsAPI {
     fileprivate let showListFetcher: ListFetcher
     fileprivate let jobListFetcher: ListFetcher
 
+    fileprivate let itemFetcher: ItemFetcher
+
     init() {
-        self.topListFetcher = ListFetcher(with: session, apiEndPoint: apiEndPoint)
-        self.newsListFetcher = ListFetcher(with: session, apiEndPoint: apiEndPoint)
-        self.askListFetcher = ListFetcher(with: session, apiEndPoint: apiEndPoint)
-        self.showListFetcher = ListFetcher(with: session, apiEndPoint: apiEndPoint)
-        self.jobListFetcher = ListFetcher(with: session, apiEndPoint: apiEndPoint)
+        topListFetcher = ListFetcher(with: session, apiEndPoint: apiEndPoint)
+        newsListFetcher = ListFetcher(with: session, apiEndPoint: apiEndPoint)
+        askListFetcher = ListFetcher(with: session, apiEndPoint: apiEndPoint)
+        showListFetcher = ListFetcher(with: session, apiEndPoint: apiEndPoint)
+        jobListFetcher = ListFetcher(with: session, apiEndPoint: apiEndPoint)
+        itemFetcher = ItemFetcher(with: session, apiEndPoint: apiEndPoint)
     }
 }
 
 extension HackerNewsAPI {
-    func getTopStoryIDList(success: @escaping (([Int]) -> Void), error: @escaping ((Error) -> Void)) {
+    func getTopStoryIDList(success: @escaping (([Int]) -> Void),
+                           error: @escaping ((Error) -> Void)) {
         topListFetcher.getStoryList(for: "topstories.json", success: success, error: error)
+    }
+
+    func getItem(_ id: String,
+                 success: @escaping (([String: Any]) -> Void),
+                 error: @escaping ((Error) -> Void)) {
+        itemFetcher.getItem(for: "item/\(id).json", success: success, error: error)
     }
 }
