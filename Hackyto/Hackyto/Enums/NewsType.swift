@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum NewsType: Int {
+enum ContentType: Int {
     case top = 0, news, ask, show, jobs
     
     static let count: Int = 5

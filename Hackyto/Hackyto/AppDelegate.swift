@@ -27,8 +27,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         var viewControllers: [UIViewController] = []
         
-        for i in 0..<NewsType.count {
-            let type: NewsType = NewsType(rawValue: i)!
+        for i in 0..<ContentType.count {
+            let type: ContentType = ContentType(rawValue: i)!
             let navigationController = UINavigationController(rootViewController: TableController(type: type))
             let textAttributes = [NSForegroundColorAttributeName: ColorFactory.lightColor()]
             navigationController.navigationBar.titleTextAttributes = textAttributes

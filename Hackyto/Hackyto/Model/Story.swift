@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Story {
+class Story: CustomStringConvertible {
     
     var title: String = ""
     var author: String = ""
@@ -16,7 +16,11 @@ class Story {
     var storyId: Int = 0
     var urlString: String?
     var comments = [Int]()
-    
+
+    var description: String {
+        return "\(storyId) -> \(title)"
+    }
+
     convenience init(_ dictionary: NSDictionary) {
         self.init()
         title = stringFromKey(dictionary, key: "title")
