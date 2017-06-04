@@ -48,12 +48,12 @@ class TableController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        api.getTopStoryIDList(success: { (topStories) in
-            print(topStories)
-        }) { (_) in
+//        api.getTopStoryIDList(success: { (topStories) in
+//            print(topStories)
+//        }) { (_) in
+//
+//        }
 
-        }
-        
         self.tableView.register(UINib(nibName: "StoryCell", bundle: nil), forCellReuseIdentifier: cellIdentifier)
 
         self.retriever.didFinishLoadingTopStories = { [weak self] (storyIDs: Array<Int>?, stories: [Int: Story]) ->() in
