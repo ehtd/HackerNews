@@ -6,7 +6,6 @@
 //  Copyright (c) 2014 ehtd. All rights reserved.
 //
 
-#import <Firebase/Firebase.h>
 #import <MBProgressHUD.h>
 #import "SVWebViewController.h"
 #import "SVModalWebViewController.h"

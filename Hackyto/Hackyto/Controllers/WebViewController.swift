@@ -24,19 +24,19 @@ class WebViewController: UIViewController, UIWebViewDelegate, MFMailComposeViewC
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.hud = MBProgressHUD.showHUDAddedTo(self.view, animated: true)
+        self.hud = MBProgressHUD.showAdded(to: self.view, animated: true)
         self.hud?.mode = MBProgressHUDModeIndeterminate
         
         var url: String? = nil
         if hnCommentsURL != nil {
             url = hnCommentsURL
         } else {
-            url = story?.objectForKey("url") as? String
+            url = story?.object(forKey: "url") as? String
         }
 //        println(story)
 
         if let urlToLoad = url {
-            let request = NSURLRequest(URL: NSURL(string: urlToLoad)!)
+            let request = URLRequest(url: URL(string: urlToLoad)!)
             webView.loadRequest(request)
             webView.delegate = self
             
@@ -49,30 +49,30 @@ class WebViewController: UIViewController, UIWebViewDelegate, MFMailComposeViewC
         // Dispose of any resources that can be recreated.
     }
     
-    func webView(webView: UIWebView, didFailLoadWithError error: NSError?) {
+    func webView(_ webView: UIWebView, didFailLoadWithError error: Error) {
         self.hud?.hide(true)
     }
     
-    func webViewDidFinishLoad(webView: UIWebView) {
+    func webViewDidFinishLoad(_ webView: UIWebView) {
         self.hud?.hide(true)
     }
     
     @IBAction func openComposer(){
 
-        let storyTitle: String? = story?.objectForKey("title") as? String
+        let storyTitle: String? = story?.object(forKey: "title") as? String
         if let title = storyTitle {
-            let storyURL: String? = story?.objectForKey("url") as? String
+            let storyURL: String? = story?.object(forKey: "url") as? String
             if let url = storyURL {
                 let info = ShareInfo(news: title, url: url)
                 let vc = UIActivityViewController(activityItems: [info], applicationActivities: nil)
                 
-                if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiom.Pad) {
+                if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiom.pad) {
                     popOverController = UIPopoverController(contentViewController: vc)
                     popOverController!.delegate = self
-                    popOverController?.presentPopoverFromBarButtonItem(shareButton, permittedArrowDirections: UIPopoverArrowDirection.Any, animated: true)
+                    popOverController?.present(from: shareButton, permittedArrowDirections: UIPopoverArrowDirection.any, animated: true)
                     
                 } else {
-                    self.presentViewController(vc, animated: true, completion: nil)
+                    self.present(vc, animated: true, completion: nil)
                 }
                 
             }
@@ -80,17 +80,17 @@ class WebViewController: UIViewController, UIWebViewDelegate, MFMailComposeViewC
 
     }
 
-    func alertView(alertView: UIAlertView, clickedButtonAtIndex buttonIndex: Int) {
+    func alertView(_ alertView: UIAlertView, clickedButtonAt buttonIndex: Int) {
         
     }
     
-    func mailComposeController(controller: MFMailComposeViewController, didFinishWithResult result: MFMailComposeResult, error: NSError?) {
-        self.dismissViewControllerAnimated(true, completion: nil)
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        self.dismiss(animated: true, completion: nil)
     }
     
     // MARK: PopOverViewController Delegate Methods
     
-    func popoverControllerDidDismissPopover(popoverController: UIPopoverController) {
+    func popoverControllerDidDismissPopover(_ popoverController: UIPopoverController) {
         popOverController = nil
     }
 }

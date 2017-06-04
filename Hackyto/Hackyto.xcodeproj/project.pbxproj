@@ -28,27 +28,50 @@
 		297B5A4C1A680854006D5BED /* dialog@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 297B5A4A1A680854006D5BED /* dialog@2x.png */; };
 		297B5A4D1A680854006D5BED /* dialog@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 297B5A4B1A680854006D5BED /* dialog@3x.png */; };
 		297B5A4F1A680C68006D5BED /* dialog@1x.png in Resources */ = {isa = PBXBuildFile; fileRef = 297B5A4E1A680C68006D5BED /* dialog@1x.png */; };
-		2980453A1B12987A00728510 /* ObjectsFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298045391B12987A00728510 /* ObjectsFactory.swift */; };
 		2980453C1B129C6000728510 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2980453B1B129C6000728510 /* Constants.swift */; };
 		29BEDF1E1A52278C00822EB7 /* ShareInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29BEDF1D1A52278C00822EB7 /* ShareInfo.swift */; };
 		29D1E60419F8253F00B3E237 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29D1E60319F8253F00B3E237 /* AppDelegate.swift */; };
 		29D1E60B19F8253F00B3E237 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 29D1E60A19F8253F00B3E237 /* Images.xcassets */; };
 		29D1E60E19F8254000B3E237 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 29D1E60C19F8254000B3E237 /* LaunchScreen.xib */; };
-		29D1E61A19F8254000B3E237 /* HackytoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29D1E61919F8254000B3E237 /* HackytoTests.swift */; };
 		29D37A4819FE97E500991577 /* StoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29D37A4719FE97E500991577 /* StoryCell.swift */; };
 		29DC679C1A02FCD2008391DD /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29DC679B1A02FCD2008391DD /* MessageUI.framework */; };
 		29DC679E1A03129C008391DD /* TableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29DC679D1A03129C008391DD /* TableController.swift */; };
-		29EF21981B1277B00093EE8D /* RetrieverManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29EF21971B1277B00093EE8D /* RetrieverManager.swift */; };
-		5295D5935243B54D79F089CE /* libPods-hackyto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D5765A447B8D79E53088F02 /* libPods-hackyto.a */; };
+		4737A1D11EB6CE35001ADA96 /* HackerNewsAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4737A1D01EB6CE35001ADA96 /* HackerNewsAPI.swift */; };
+		4737A1DD1EB6F1D9001ADA96 /* Http.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4737A1DB1EB6F1D9001ADA96 /* Http.swift */; };
+		4737A1DE1EB6F1D9001ADA96 /* HttpConnector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4737A1DC1EB6F1D9001ADA96 /* HttpConnector.swift */; };
+		4737A1E01EB6F45F001ADA96 /* AsyncHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4737A1DF1EB6F45F001ADA96 /* AsyncHandler.swift */; };
+		4737A1E21EB6F987001ADA96 /* RequestBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4737A1E11EB6F987001ADA96 /* RequestBuilder.swift */; };
+		474B41BE1EE3A17800A88AEF /* ContentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 474B41BD1EE3A17800A88AEF /* ContentTests.swift */; };
+		478AAED11EDA776400EEA2F0 /* ListFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 478AAED01EDA776400EEA2F0 /* ListFetcher.swift */; };
+		478AAED31EDB387400EEA2F0 /* FetcherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 478AAED21EDB387400EEA2F0 /* FetcherTests.swift */; };
+		478AAED41EDB388F00EEA2F0 /* HackerNewsAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4737A1D01EB6CE35001ADA96 /* HackerNewsAPI.swift */; };
+		478AAED51EDB38A600EEA2F0 /* ListFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 478AAED01EDA776400EEA2F0 /* ListFetcher.swift */; };
+		478AAED61EDB38AF00EEA2F0 /* HttpConnector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4737A1DC1EB6F1D9001ADA96 /* HttpConnector.swift */; };
+		478AAED71EDB38B900EEA2F0 /* AsyncHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4737A1DF1EB6F45F001ADA96 /* AsyncHandler.swift */; };
+		478AAED81EDB38BE00EEA2F0 /* Http.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4737A1DB1EB6F1D9001ADA96 /* Http.swift */; };
+		478AAED91EDB38C700EEA2F0 /* RequestBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4737A1E11EB6F987001ADA96 /* RequestBuilder.swift */; };
+		47D5E1D71E2727C9005B58F5 /* NewsType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47D5E1D61E2727C9005B58F5 /* NewsType.swift */; };
+		47D5E1D81E272EDF005B58F5 /* NewsType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47D5E1D61E2727C9005B58F5 /* NewsType.swift */; };
+		47D5E1DF1E27389F005B58F5 /* Story.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47D5E1DE1E27389F005B58F5 /* Story.swift */; };
+		47D5E1E01E273C30005B58F5 /* Story.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47D5E1DE1E27389F005B58F5 /* Story.swift */; };
+		47E0F9BA1EE38D540083FB92 /* ItemFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47E0F9B91EE38D540083FB92 /* ItemFetcher.swift */; };
+		47E0F9BB1EE38D540083FB92 /* ItemFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47E0F9B91EE38D540083FB92 /* ItemFetcher.swift */; };
+		47E0F9C21EE398AA0083FB92 /* ContentProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47E0F9C11EE398AA0083FB92 /* ContentProvider.swift */; };
+		47E0F9C31EE398AA0083FB92 /* ContentProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47E0F9C11EE398AA0083FB92 /* ContentProvider.swift */; };
+		47E0F9C51EE39A960083FB92 /* Fetchable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47E0F9C41EE39A960083FB92 /* Fetchable.swift */; };
+		47E0F9C61EE39A960083FB92 /* Fetchable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47E0F9C41EE39A960083FB92 /* Fetchable.swift */; };
+		47E0F9C81EE39B950083FB92 /* Fetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47E0F9C71EE39B950083FB92 /* Fetcher.swift */; };
+		47E0F9C91EE39B950083FB92 /* Fetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47E0F9C71EE39B950083FB92 /* Fetcher.swift */; };
+		567CDEB792245716E59A7F0A /* libPods-hackyto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C595D8232A15C945773FCB3 /* libPods-hackyto.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		29D1E61419F8254000B3E237 /* PBXContainerItemProxy */ = {
+		47D5E1CB1E270B2D005B58F5 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 29D1E5F619F8253F00B3E237 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 29D1E5FD19F8253F00B3E237;
-			remoteInfo = Hackyto;
+			remoteInfo = hackyto;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -66,8 +89,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		00F6DA9EFDF55FF76BA41EB6 /* Pods-Hackyto.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hackyto.release.xcconfig"; path = "Pods/Target Support Files/Pods-Hackyto/Pods-Hackyto.release.xcconfig"; sourceTree = "<group>"; };
-		037D422834E69B146E3B85E3 /* Pods-Hackyto.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hackyto.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Hackyto/Pods-Hackyto.debug.xcconfig"; sourceTree = "<group>"; };
+		14FC9824FE17B500110413D6 /* Pods-hackyto.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-hackyto.release.xcconfig"; path = "Pods/Target Support Files/Pods-hackyto/Pods-hackyto.release.xcconfig"; sourceTree = "<group>"; };
 		16C214E81C28D08600CF2C90 /* StoryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = StoryCell.xib; path = Views/StoryCell.xib; sourceTree = "<group>"; };
 		16C214EE1C28E52300CF2C90 /* ColorFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ColorFactory.swift; path = Helpers/ColorFactory.swift; sourceTree = "<group>"; };
 		16F542661C349C8900A5B10E /* CircledNumberView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CircledNumberView.swift; path = Views/CircledNumberView.swift; sourceTree = "<group>"; };
@@ -103,7 +125,6 @@
 		297B5A4A1A680854006D5BED /* dialog@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dialog@2x.png"; sourceTree = "<group>"; };
 		297B5A4B1A680854006D5BED /* dialog@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dialog@3x.png"; sourceTree = "<group>"; };
 		297B5A4E1A680C68006D5BED /* dialog@1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dialog@1x.png"; sourceTree = "<group>"; };
-		298045391B12987A00728510 /* ObjectsFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ObjectsFactory.swift; path = Source/Application/ObjectsFactory.swift; sourceTree = "<group>"; };
 		2980453B1B129C6000728510 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = Source/Application/Constants.swift; sourceTree = "<group>"; };
 		29BEDF1D1A52278C00822EB7 /* ShareInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareInfo.swift; sourceTree = "<group>"; };
 		29D1E5FE19F8253F00B3E237 /* hackyto.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = hackyto.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -111,22 +132,29 @@
 		29D1E60319F8253F00B3E237 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		29D1E60A19F8253F00B3E237 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		29D1E60D19F8254000B3E237 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		29D1E61319F8254000B3E237 /* HackytoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HackytoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		29D1E61819F8254000B3E237 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		29D1E61919F8254000B3E237 /* HackytoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HackytoTests.swift; sourceTree = "<group>"; };
 		29D1E62319F8277200B3E237 /* Bridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bridge.h; sourceTree = "<group>"; };
 		29D37A4719FE97E500991577 /* StoryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StoryCell.swift; path = Views/StoryCell.swift; sourceTree = "<group>"; };
 		29DC679B1A02FCD2008391DD /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		29DC679D1A03129C008391DD /* TableController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TableController.swift; path = Controllers/TableController.swift; sourceTree = "<group>"; };
-		29DC67B61A0313BC008391DD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		29DC67B71A0313BC008391DD /* Refresher.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Refresher.h; sourceTree = "<group>"; };
-		29DC67C51A0313BD008391DD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		29DC67C61A0313BD008391DD /* RefresherTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefresherTests.swift; sourceTree = "<group>"; };
-		29EF21971B1277B00093EE8D /* RetrieverManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RetrieverManager.swift; path = Controllers/RetrieverManager.swift; sourceTree = "<group>"; };
-		41D6D381611A115B3CF617EF /* Pods-hackyto.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-hackyto.debug.xcconfig"; path = "Pods/Target Support Files/Pods-hackyto/Pods-hackyto.debug.xcconfig"; sourceTree = "<group>"; };
-		611A28E69BEEAF7B66E26090 /* Pods-hackyto.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-hackyto.release.xcconfig"; path = "Pods/Target Support Files/Pods-hackyto/Pods-hackyto.release.xcconfig"; sourceTree = "<group>"; };
-		6FAF6BDD14A66A1730DE9096 /* libPods-Hackyto.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Hackyto.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		9D5765A447B8D79E53088F02 /* libPods-hackyto.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-hackyto.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4737A1D01EB6CE35001ADA96 /* HackerNewsAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HackerNewsAPI.swift; path = Content/HackerNewsAPI.swift; sourceTree = "<group>"; };
+		4737A1DB1EB6F1D9001ADA96 /* Http.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Http.swift; path = Network/Http.swift; sourceTree = "<group>"; };
+		4737A1DC1EB6F1D9001ADA96 /* HttpConnector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HttpConnector.swift; path = Network/HttpConnector.swift; sourceTree = "<group>"; };
+		4737A1DF1EB6F45F001ADA96 /* AsyncHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AsyncHandler.swift; path = Network/AsyncHandler.swift; sourceTree = "<group>"; };
+		4737A1E11EB6F987001ADA96 /* RequestBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RequestBuilder.swift; path = Network/RequestBuilder.swift; sourceTree = "<group>"; };
+		474B41BD1EE3A17800A88AEF /* ContentTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentTests.swift; sourceTree = "<group>"; };
+		478AAED01EDA776400EEA2F0 /* ListFetcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ListFetcher.swift; path = Network/ListFetcher.swift; sourceTree = "<group>"; };
+		478AAED21EDB387400EEA2F0 /* FetcherTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FetcherTests.swift; sourceTree = "<group>"; };
+		47D5E1C61E270B2D005B58F5 /* hackytoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = hackytoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		47D5E1CA1E270B2D005B58F5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		47D5E1D61E2727C9005B58F5 /* NewsType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NewsType.swift; path = Enums/NewsType.swift; sourceTree = "<group>"; };
+		47D5E1DE1E27389F005B58F5 /* Story.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Story.swift; sourceTree = "<group>"; };
+		47E0F9B91EE38D540083FB92 /* ItemFetcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ItemFetcher.swift; path = Network/ItemFetcher.swift; sourceTree = "<group>"; };
+		47E0F9C11EE398AA0083FB92 /* ContentProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ContentProvider.swift; path = Content/ContentProvider.swift; sourceTree = "<group>"; };
+		47E0F9C41EE39A960083FB92 /* Fetchable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Fetchable.swift; path = Network/Fetchable.swift; sourceTree = "<group>"; };
+		47E0F9C71EE39B950083FB92 /* Fetcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Fetcher.swift; path = Network/Fetcher.swift; sourceTree = "<group>"; };
+		67B24776F4DDE4EDBB679CC5 /* Pods-hackyto.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-hackyto.debug.xcconfig"; path = "Pods/Target Support Files/Pods-hackyto/Pods-hackyto.debug.xcconfig"; sourceTree = "<group>"; };
+		7C595D8232A15C945773FCB3 /* libPods-hackyto.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-hackyto.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F8C7A52E8BF60D616DCE9BDC /* libPods-hackytoTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-hackytoTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,11 +163,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				29DC679C1A02FCD2008391DD /* MessageUI.framework in Frameworks */,
-				5295D5935243B54D79F089CE /* libPods-hackyto.a in Frameworks */,
+				567CDEB792245716E59A7F0A /* libPods-hackyto.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		29D1E61019F8254000B3E237 /* Frameworks */ = {
+		47D5E1C31E270B2D005B58F5 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -157,11 +185,13 @@
 			name = Helpers;
 			sourceTree = "<group>";
 		};
-		29171CE31B2BB26100239162 /* Vendor */ = {
+		22EBC713472662323E3526A4 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
+				67B24776F4DDE4EDBB679CC5 /* Pods-hackyto.debug.xcconfig */,
+				14FC9824FE17B500110413D6 /* Pods-hackyto.release.xcconfig */,
 			);
-			name = Vendor;
+			name = Pods;
 			sourceTree = "<group>";
 		};
 		2917DA111B2BB5F900976A6F /* SVWebViewController */ = {
@@ -218,7 +248,6 @@
 			children = (
 				29578F271A014F1400601218 /* WebViewController.swift */,
 				29DC679D1A03129C008391DD /* TableController.swift */,
-				29EF21971B1277B00093EE8D /* RetrieverManager.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -237,7 +266,6 @@
 			isa = PBXGroup;
 			children = (
 				29D1E60319F8253F00B3E237 /* AppDelegate.swift */,
-				298045391B12987A00728510 /* ObjectsFactory.swift */,
 				2980453B1B129C6000728510 /* Constants.swift */,
 			);
 			name = Application;
@@ -247,6 +275,7 @@
 			isa = PBXGroup;
 			children = (
 				29BEDF1D1A52278C00822EB7 /* ShareInfo.swift */,
+				47D5E1DE1E27389F005B58F5 /* Story.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -254,14 +283,11 @@
 		29D1E5F519F8253F00B3E237 = {
 			isa = PBXGroup;
 			children = (
+				47D5E1C71E270B2D005B58F5 /* hackytoTests */,
 				870B885F33B54FC509EE9D67 /* Frameworks */,
 				29D1E60019F8253F00B3E237 /* Hackyto */,
-				29D1E61619F8254000B3E237 /* HackytoTests */,
-				53392EAF36CED040FFAACBE5 /* Pods */,
 				29D1E5FF19F8253F00B3E237 /* Products */,
-				29DC67B41A0313BC008391DD /* Refresher */,
-				29DC67C31A0313BD008391DD /* RefresherTests */,
-				29171CE31B2BB26100239162 /* Vendor */,
+				22EBC713472662323E3526A4 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -269,7 +295,7 @@
 			isa = PBXGroup;
 			children = (
 				29D1E5FE19F8253F00B3E237 /* hackyto.app */,
-				29D1E61319F8254000B3E237 /* HackytoTests.xctest */,
+				47D5E1C61E270B2D005B58F5 /* hackytoTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -277,6 +303,9 @@
 		29D1E60019F8253F00B3E237 /* Hackyto */ = {
 			isa = PBXGroup;
 			children = (
+				4737A1D61EB6F043001ADA96 /* Network */,
+				4737A1AD1EB56FE5001ADA96 /* Content */,
+				47D5E1D51E27274C005B58F5 /* Enums */,
 				16C214EA1C28E4D600CF2C90 /* Helpers */,
 				2917DA111B2BB5F900976A6F /* SVWebViewController */,
 				298045381B12984700728510 /* Application */,
@@ -300,23 +329,6 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		29D1E61619F8254000B3E237 /* HackytoTests */ = {
-			isa = PBXGroup;
-			children = (
-				29D1E61919F8254000B3E237 /* HackytoTests.swift */,
-				29D1E61719F8254000B3E237 /* Supporting Files */,
-			);
-			path = HackytoTests;
-			sourceTree = "<group>";
-		};
-		29D1E61719F8254000B3E237 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				29D1E61819F8254000B3E237 /* Info.plist */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
 		29D37A4619FE97B400991577 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -328,57 +340,54 @@
 			name = Views;
 			sourceTree = "<group>";
 		};
-		29DC67B41A0313BC008391DD /* Refresher */ = {
+		4737A1AD1EB56FE5001ADA96 /* Content */ = {
 			isa = PBXGroup;
 			children = (
-				29DC67B71A0313BC008391DD /* Refresher.h */,
-				29DC67B51A0313BC008391DD /* Supporting Files */,
+				4737A1D01EB6CE35001ADA96 /* HackerNewsAPI.swift */,
+				47E0F9C11EE398AA0083FB92 /* ContentProvider.swift */,
 			);
-			path = Refresher;
+			name = Content;
 			sourceTree = "<group>";
 		};
-		29DC67B51A0313BC008391DD /* Supporting Files */ = {
+		4737A1D61EB6F043001ADA96 /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				29DC67B61A0313BC008391DD /* Info.plist */,
+				4737A1DB1EB6F1D9001ADA96 /* Http.swift */,
+				4737A1DC1EB6F1D9001ADA96 /* HttpConnector.swift */,
+				4737A1DF1EB6F45F001ADA96 /* AsyncHandler.swift */,
+				4737A1E11EB6F987001ADA96 /* RequestBuilder.swift */,
+				478AAED01EDA776400EEA2F0 /* ListFetcher.swift */,
+				47E0F9B91EE38D540083FB92 /* ItemFetcher.swift */,
+				47E0F9C41EE39A960083FB92 /* Fetchable.swift */,
+				47E0F9C71EE39B950083FB92 /* Fetcher.swift */,
 			);
-			name = "Supporting Files";
+			name = Network;
 			sourceTree = "<group>";
 		};
-		29DC67C31A0313BD008391DD /* RefresherTests */ = {
+		47D5E1C71E270B2D005B58F5 /* hackytoTests */ = {
 			isa = PBXGroup;
 			children = (
-				29DC67C61A0313BD008391DD /* RefresherTests.swift */,
-				29DC67C41A0313BD008391DD /* Supporting Files */,
+				47D5E1CA1E270B2D005B58F5 /* Info.plist */,
+				478AAED21EDB387400EEA2F0 /* FetcherTests.swift */,
+				474B41BD1EE3A17800A88AEF /* ContentTests.swift */,
 			);
-			path = RefresherTests;
+			path = hackytoTests;
 			sourceTree = "<group>";
 		};
-		29DC67C41A0313BD008391DD /* Supporting Files */ = {
+		47D5E1D51E27274C005B58F5 /* Enums */ = {
 			isa = PBXGroup;
 			children = (
-				29DC67C51A0313BD008391DD /* Info.plist */,
+				47D5E1D61E2727C9005B58F5 /* NewsType.swift */,
 			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		53392EAF36CED040FFAACBE5 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				037D422834E69B146E3B85E3 /* Pods-Hackyto.debug.xcconfig */,
-				00F6DA9EFDF55FF76BA41EB6 /* Pods-Hackyto.release.xcconfig */,
-				41D6D381611A115B3CF617EF /* Pods-hackyto.debug.xcconfig */,
-				611A28E69BEEAF7B66E26090 /* Pods-hackyto.release.xcconfig */,
-			);
-			name = Pods;
+			name = Enums;
 			sourceTree = "<group>";
 		};
 		870B885F33B54FC509EE9D67 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				29DC679B1A02FCD2008391DD /* MessageUI.framework */,
-				6FAF6BDD14A66A1730DE9096 /* libPods-Hackyto.a */,
-				9D5765A447B8D79E53088F02 /* libPods-hackyto.a */,
+				7C595D8232A15C945773FCB3 /* libPods-hackyto.a */,
+				F8C7A52E8BF60D616DCE9BDC /* libPods-hackytoTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -390,13 +399,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 29D1E61D19F8254000B3E237 /* Build configuration list for PBXNativeTarget "hackyto" */;
 			buildPhases = (
-				896FE39328B2A4C5CE7BD08E /* Check Pods Manifest.lock */,
+				6E4BB845E9F8641BD37FD2E7 /* [CP] Check Pods Manifest.lock */,
 				29D1E5FA19F8253F00B3E237 /* Sources */,
 				29D1E5FB19F8253F00B3E237 /* Frameworks */,
 				29D1E5FC19F8253F00B3E237 /* Resources */,
-				5FBB4918D8231C93BDBCCAC3 /* Copy Pods Resources */,
 				29DC67AD1A031389008391DD /* Embed Frameworks */,
-				66ED2729E0F80D2897EC19BD /* Embed Pods Frameworks */,
+				31C522991E847384B409622C /* [CP] Embed Pods Frameworks */,
+				342EAD30C18C49703D0B85CF /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -407,22 +416,22 @@
 			productReference = 29D1E5FE19F8253F00B3E237 /* hackyto.app */;
 			productType = "com.apple.product-type.application";
 		};
-		29D1E61219F8254000B3E237 /* HackytoTests */ = {
+		47D5E1C51E270B2D005B58F5 /* hackytoTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 29D1E62019F8254000B3E237 /* Build configuration list for PBXNativeTarget "HackytoTests" */;
+			buildConfigurationList = 47D5E1CF1E270B2D005B58F5 /* Build configuration list for PBXNativeTarget "hackytoTests" */;
 			buildPhases = (
-				29D1E60F19F8254000B3E237 /* Sources */,
-				29D1E61019F8254000B3E237 /* Frameworks */,
-				29D1E61119F8254000B3E237 /* Resources */,
+				47D5E1C21E270B2D005B58F5 /* Sources */,
+				47D5E1C31E270B2D005B58F5 /* Frameworks */,
+				47D5E1C41E270B2D005B58F5 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				29D1E61519F8254000B3E237 /* PBXTargetDependency */,
+				47D5E1CC1E270B2D005B58F5 /* PBXTargetDependency */,
 			);
-			name = HackytoTests;
-			productName = HackytoTests;
-			productReference = 29D1E61319F8254000B3E237 /* HackytoTests.xctest */;
+			name = hackytoTests;
+			productName = hackytoTests;
+			productReference = 47D5E1C61E270B2D005B58F5 /* hackytoTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -432,16 +441,18 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftMigration = 0710;
-				LastSwiftUpdateCheck = 0710;
+				LastSwiftUpdateCheck = 0820;
 				LastUpgradeCheck = 0600;
 				ORGANIZATIONNAME = ehtd;
 				TargetAttributes = {
 					29D1E5FD19F8253F00B3E237 = {
 						CreatedOnToolsVersion = 6.0.1;
 						DevelopmentTeam = 3N93GSL974;
+						LastSwiftMigration = 0820;
 					};
-					29D1E61219F8254000B3E237 = {
-						CreatedOnToolsVersion = 6.0.1;
+					47D5E1C51E270B2D005B58F5 = {
+						CreatedOnToolsVersion = 8.2.1;
+						ProvisioningStyle = Automatic;
 						TestTargetID = 29D1E5FD19F8253F00B3E237;
 					};
 				};
@@ -469,7 +480,7 @@
 			projectRoot = "";
 			targets = (
 				29D1E5FD19F8253F00B3E237 /* hackyto */,
-				29D1E61219F8254000B3E237 /* HackytoTests */,
+				47D5E1C51E270B2D005B58F5 /* hackytoTests */,
 			);
 		};
 /* End PBXProject section */
@@ -497,7 +508,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		29D1E61119F8254000B3E237 /* Resources */ = {
+		47D5E1C41E270B2D005B58F5 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -507,29 +518,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		5FBB4918D8231C93BDBCCAC3 /* Copy Pods Resources */ = {
+		31C522991E847384B409622C /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-hackyto/Pods-hackyto-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		66ED2729E0F80D2897EC19BD /* Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Embed Pods Frameworks";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -537,19 +533,34 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-hackyto/Pods-hackyto-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		896FE39328B2A4C5CE7BD08E /* Check Pods Manifest.lock */ = {
+		342EAD30C18C49703D0B85CF /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-hackyto/Pods-hackyto-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6E4BB845E9F8641BD37FD2E7 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -560,38 +571,61 @@
 			buildActionMask = 2147483647;
 			files = (
 				16C214EF1C28E52300CF2C90 /* ColorFactory.swift in Sources */,
-				2980453A1B12987A00728510 /* ObjectsFactory.swift in Sources */,
+				478AAED11EDA776400EEA2F0 /* ListFetcher.swift in Sources */,
 				2917DA371B2BB5F900976A6F /* SVWebViewControllerActivityChrome.m in Sources */,
 				29D1E60419F8253F00B3E237 /* AppDelegate.swift in Sources */,
-				29EF21981B1277B00093EE8D /* RetrieverManager.swift in Sources */,
+				4737A1E21EB6F987001ADA96 /* RequestBuilder.swift in Sources */,
+				4737A1DD1EB6F1D9001ADA96 /* Http.swift in Sources */,
 				2917DA3D1B2BB5F900976A6F /* SVWebViewControllerActivity.m in Sources */,
 				16F542671C349C8900A5B10E /* CircledNumberView.swift in Sources */,
 				2917DA341B2BB5F900976A6F /* SVWebViewController.m in Sources */,
+				4737A1DE1EB6F1D9001ADA96 /* HttpConnector.swift in Sources */,
+				47D5E1D71E2727C9005B58F5 /* NewsType.swift in Sources */,
 				29578F281A014F1400601218 /* WebViewController.swift in Sources */,
 				29DC679E1A03129C008391DD /* TableController.swift in Sources */,
+				47E0F9C51EE39A960083FB92 /* Fetchable.swift in Sources */,
 				29D37A4819FE97E500991577 /* StoryCell.swift in Sources */,
+				4737A1D11EB6CE35001ADA96 /* HackerNewsAPI.swift in Sources */,
+				47E0F9C21EE398AA0083FB92 /* ContentProvider.swift in Sources */,
 				29BEDF1E1A52278C00822EB7 /* ShareInfo.swift in Sources */,
+				47E0F9BA1EE38D540083FB92 /* ItemFetcher.swift in Sources */,
+				47E0F9C81EE39B950083FB92 /* Fetcher.swift in Sources */,
+				4737A1E01EB6F45F001ADA96 /* AsyncHandler.swift in Sources */,
 				2980453C1B129C6000728510 /* Constants.swift in Sources */,
 				2917DA321B2BB5F900976A6F /* SVModalWebViewController.m in Sources */,
 				2917DA3B1B2BB5F900976A6F /* SVWebViewControllerActivitySafari.m in Sources */,
+				47D5E1E01E273C30005B58F5 /* Story.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		29D1E60F19F8254000B3E237 /* Sources */ = {
+		47D5E1C21E270B2D005B58F5 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				29D1E61A19F8254000B3E237 /* HackytoTests.swift in Sources */,
+				474B41BE1EE3A17800A88AEF /* ContentTests.swift in Sources */,
+				47D5E1DF1E27389F005B58F5 /* Story.swift in Sources */,
+				478AAED81EDB38BE00EEA2F0 /* Http.swift in Sources */,
+				47D5E1D81E272EDF005B58F5 /* NewsType.swift in Sources */,
+				47E0F9BB1EE38D540083FB92 /* ItemFetcher.swift in Sources */,
+				478AAED61EDB38AF00EEA2F0 /* HttpConnector.swift in Sources */,
+				47E0F9C61EE39A960083FB92 /* Fetchable.swift in Sources */,
+				47E0F9C91EE39B950083FB92 /* Fetcher.swift in Sources */,
+				478AAED31EDB387400EEA2F0 /* FetcherTests.swift in Sources */,
+				47E0F9C31EE398AA0083FB92 /* ContentProvider.swift in Sources */,
+				478AAED71EDB38B900EEA2F0 /* AsyncHandler.swift in Sources */,
+				478AAED91EDB38C700EEA2F0 /* RequestBuilder.swift in Sources */,
+				478AAED41EDB388F00EEA2F0 /* HackerNewsAPI.swift in Sources */,
+				478AAED51EDB38A600EEA2F0 /* ListFetcher.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		29D1E61519F8254000B3E237 /* PBXTargetDependency */ = {
+		47D5E1CC1E270B2D005B58F5 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 29D1E5FD19F8253F00B3E237 /* hackyto */;
-			targetProxy = 29D1E61419F8254000B3E237 /* PBXContainerItemProxy */;
+			targetProxy = 47D5E1CB1E270B2D005B58F5 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -705,7 +739,7 @@
 		};
 		29D1E61E19F8254000B3E237 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 41D6D381611A115B3CF617EF /* Pods-hackyto.debug.xcconfig */;
+			baseConfigurationReference = 67B24776F4DDE4EDBB679CC5 /* Pods-hackyto.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -721,13 +755,14 @@
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = Hackyto/Bridge.h;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
 		29D1E61F19F8254000B3E237 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 611A28E69BEEAF7B66E26090 /* Pods-hackyto.release.xcconfig */;
+			baseConfigurationReference = 14FC9824FE17B500110413D6 /* Pods-hackyto.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -741,41 +776,52 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = Hackyto/Bridge.h;
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
-		29D1E62119F8254000B3E237 /* Debug */ = {
+		47D5E1CD1E270B2D005B58F5 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = HackytoTests/Info.plist;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_TESTABILITY = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = hackytoTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = io.ernesto.hackytoTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Hackyto.app/Hackyto";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/hackyto.app/hackyto";
 			};
 			name = Debug;
 		};
-		29D1E62219F8254000B3E237 /* Release */ = {
+		47D5E1CE1E270B2D005B58F5 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = HackytoTests/Info.plist;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = hackytoTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = io.ernesto.hackytoTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Hackyto.app/Hackyto";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/hackyto.app/hackyto";
 			};
 			name = Release;
 		};
@@ -800,11 +846,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		29D1E62019F8254000B3E237 /* Build configuration list for PBXNativeTarget "HackytoTests" */ = {
+		47D5E1CF1E270B2D005B58F5 /* Build configuration list for PBXNativeTarget "hackytoTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				29D1E62119F8254000B3E237 /* Debug */,
-				29D1E62219F8254000B3E237 /* Release */,
+				47D5E1CD1E270B2D005B58F5 /* Debug */,
+				47D5E1CE1E270B2D005B58F5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

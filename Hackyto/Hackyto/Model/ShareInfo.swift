@@ -18,13 +18,13 @@ import UIKit
         self.url = url
     }
     
-    func activityViewControllerPlaceholderItem(activityViewController: UIActivityViewController) -> AnyObject {
+    func activityViewControllerPlaceholderItem(_ activityViewController: UIActivityViewController) -> Any {
         return news;
     }
     
-    func activityViewController(activityViewController: UIActivityViewController, itemForActivityType activityType: String) -> AnyObject? {
+    func activityViewController(_ activityViewController: UIActivityViewController, itemForActivityType activityType: UIActivityType) -> Any? {
         
-        if(activityType == UIActivityTypeCopyToPasteboard){
+        if(activityType == UIActivityType.copyToPasteboard){
             return url
         } else {
             return news + " " + url + " via Hackyto"
@@ -32,7 +32,7 @@ import UIKit
 
     }
     
-    func activityViewController(activityViewController: UIActivityViewController, subjectForActivityType activityType: String?) -> String {
+    func activityViewController(_ activityViewController: UIActivityViewController, subjectForActivityType activityType: UIActivityType?) -> String {
         return news
     }
 }

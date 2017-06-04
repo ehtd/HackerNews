@@ -19,7 +19,7 @@ class ColorFactory: NSObject {
     }
 
     class func lightColor() -> UIColor {
-        return UIColor.whiteColor()
+        return UIColor.white
     }
 
     class func blueColor() -> UIColor {
@@ -66,7 +66,7 @@ class ColorFactory: NSObject {
         return UIColor(red: 41/255, green: 128/255, blue: 185/255, alpha: 1.0)
     }
 
-    class func colorFromNumber(number: Int) -> UIColor {
+    class func colorFromNumber(_ number: Int) -> UIColor {
         let colors = [
             belizeHoleColor(),
             turquoiseColor(),

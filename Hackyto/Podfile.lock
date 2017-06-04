@@ -1,13 +1,12 @@
 PODS:
-  - Firebase (2.3.2)
   - MBProgressHUD (0.9)
 
 DEPENDENCIES:
-  - Firebase (>= 2.3.2)
   - MBProgressHUD (~> 0.9)
 
 SPEC CHECKSUMS:
-  Firebase: 02fbeacfe19970856c872321788194524f21ffed
   MBProgressHUD: d8e7ea388dc1549a42e0d219067cf5f2c898fb66
 
-COCOAPODS: 0.39.0
+PODFILE CHECKSUM: 98745d3a995f298c21bedab3e857598791c3fa73
+
+COCOAPODS: 1.1.1
