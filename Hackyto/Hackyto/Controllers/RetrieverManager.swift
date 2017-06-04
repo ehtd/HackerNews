@@ -16,6 +16,7 @@ class RetrieverManager {
     var storiesIds = Array<Int>()
     var detailedStories = [Int: Story]()
 
+
     let MaximumStoriesToDownload = 200
     
     var didFinishLoadingTopStories: ((_ storyIDs: Array<Int>?, _ stories: [Int: Story]) ->())?

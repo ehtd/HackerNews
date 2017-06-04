@@ -10,12 +10,14 @@ import XCTest
 
 class ContentTests: XCTestCase {
     fileprivate let apiEndPoint = "https://hacker-news.firebaseio.com/v0/"
+    fileprivate let topStoriesPath = "topstories.json"
+
     fileprivate let session = URLSession(configuration: URLSessionConfiguration.default)
-    fileprivate var topContent: TopContent?
+    fileprivate var topContent: Content?
 
     override func setUp() {
         super.setUp()
-        topContent = TopContent(with: session, apiEndPoint: apiEndPoint)
+        topContent = Content(with: session, apiEndPoint: apiEndPoint, contentPath: topStoriesPath)
     }
 
     func testFetchingTopStories() {
@@ -29,9 +31,9 @@ class ContentTests: XCTestCase {
                 print(stories)
                 exp.fulfill()
             })
-            .getStories(100)
+            .getStories(10)
 
-        waitForExpectations(timeout: 50.0) { (error) in
+        waitForExpectations(timeout: 10.0) { (error) in
             XCTAssertNil(error)
         }
     }

@@ -1,5 +1,5 @@
 //
-//  TopContent.swift
+//  Content.swift
 //  Hackyto
 //
 //  Created by Ernesto Torres on 6/3/17.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-class TopContent {
+class Content {
     fileprivate let topListFetcher: ListFetcher
     fileprivate let itemFetcher: ItemFetcher
 
@@ -18,18 +18,21 @@ class TopContent {
     fileprivate(set) var errorHandler: ((Error) -> Void) = { _ in }
     fileprivate(set) var successHandler: ((StoryList) -> Void) = { _ in }
 
-    init(with session: URLSession, apiEndPoint: String) {
+    fileprivate let contentPath: String
+
+    init(with session: URLSession, apiEndPoint: String, contentPath: String) {
+        self.contentPath = contentPath
         topListFetcher = ListFetcher(with: session, apiEndPoint: apiEndPoint)
         itemFetcher = ItemFetcher(with: session, apiEndPoint: apiEndPoint)
     }
 }
 
-fileprivate extension TopContent {
+fileprivate extension Content {
     func getStoryList(success: @escaping (([Int]) -> Void),
                            error: @escaping ((Error) -> Void)) {
         stories = StoryList()
 
-        topListFetcher.fetch("topstories.json", success: { (response) in
+        topListFetcher.fetch(contentPath, success: { (response) in
             if let response = response as? [Int] {
                 success(response)
             }
@@ -64,7 +67,7 @@ fileprivate extension TopContent {
     }
 }
 
-extension TopContent {
+extension Content {
     @discardableResult
     func onError(error: @escaping ((Error) -> Void)) -> Self {
         self.errorHandler = error
@@ -80,10 +83,10 @@ extension TopContent {
     }
 }
 
-extension TopContent {
+extension Content {
     func getStories(_ number: Int) {
         getStoryList(success: { [weak self] (list) in
-            if number > list.count {
+            if number < list.count {
                 let truncatedList = Array(list[0..<number])
                 self?.fetchItems(in: truncatedList)
             }

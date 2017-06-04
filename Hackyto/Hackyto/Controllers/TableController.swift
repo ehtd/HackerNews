@@ -10,30 +10,30 @@ import UIKit
 
 class TableController: UITableViewController {
 
-    let api = HackerNewsAPI()
+    fileprivate let api = HackerNewsAPI()
 
-    let retriever: RetrieverManager
-    var topStories: Array<Int>?
-    var detailedStories = [Int: Story]()
+    fileprivate var stories = [Story]() {
+        didSet {
+            tableView.reloadData()
+            print("Total stories: \(stories.count)")
+        }
+    }
 
-    let pullToRefresh = UIRefreshControl()
-
-    let cellIdentifier = "StoryCell"
+    fileprivate let pullToRefresh = UIRefreshControl()
+    fileprivate let cellIdentifier = "StoryCell"
 
     static var colorIndex = 0
 
-    let contentType: NewsType
+    fileprivate let contentType: NewsType
     
     // MARK: Init
 
     init(type: NewsType) {
-        self.retriever = RetrieverManager(type: type)
         self.contentType = type
         super.init(nibName: nil, bundle: nil)
     }
 
     required init?(coder aDecoder: NSCoder) {
-        self.retriever = RetrieverManager(type: NewsType.top)
         self.contentType = NewsType.top
         super.init(coder: aDecoder)
     }
@@ -48,36 +48,7 @@ class TableController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-//        api.getTopStoryIDList(success: { (topStories) in
-//            print(topStories)
-//        }) { (_) in
-//
-//        }
-
         self.tableView.register(UINib(nibName: "StoryCell", bundle: nil), forCellReuseIdentifier: cellIdentifier)
-
-        self.retriever.didFinishLoadingTopStories = { [weak self] (storyIDs: Array<Int>?, stories: [Int: Story]) ->() in
-            if let strongSelf = self {
-                strongSelf.topStories = storyIDs
-                strongSelf.detailedStories = stories
-                strongSelf.stopPullToRefresh()
-                
-                print("All data is ready")
-                print("Total stories: \(strongSelf.detailedStories.count)")
-                strongSelf.tableView.reloadData()
-                
-                // For some reason, the first displayed rows may not have
-                // the correct sizing. Reload them.
-                strongSelf.tableView.reloadSections(IndexSet(integersIn: NSMakeRange(0, strongSelf.tableView.numberOfSections).toRange()!), with: .none)
-            }
-        }
-        
-        self.retriever.didFailedLoadingTopStories = { [weak self] in
-            if let strongSelf = self {
-                strongSelf.stopPullToRefresh()
-                print("Failed to download data", terminator: "")
-            }
-        }
 
         addStylesToTableView()
         addPullToRefresh()
@@ -132,13 +103,21 @@ class TableController: UITableViewController {
     }
 
     func retrieveStories() {
-        self.retriever.retrieve()
+        api.topStories(success: { [weak self] (stories) in
+            if let strongSelf = self {
+                strongSelf.stories = stories
+                strongSelf.stopPullToRefresh()
+            }
+        }) { [weak self] (error) in
+            print(error)
+            self?.stopPullToRefresh()
+        }
     }
 
     // MARK: TableView Controller data source
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return detailedStories.count
+        return stories.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -153,43 +132,30 @@ class TableController: UITableViewController {
     }
 
     func configureBasicCell(_ cell: StoryCell, indexPath: IndexPath) {
-        guard let topStories = topStories else { return }
-
-        let storyId = topStories[indexPath.row]
-        if let story = detailedStories[storyId] {
-            cell.configureCell(title: story.title,
-                               author: story.author,
-                               storyKey: story.storyId,
-                               number: indexPath.row + 1)
-            
-            cell.configureComments(comments: story.comments)
-        }
+        let story = stories[indexPath.row]
+        cell.configureCell(title: story.title,
+                           author: story.author,
+                           storyKey: story.storyId,
+                           number: indexPath.row + 1)
+        
+        cell.configureComments(comments: story.comments)
 
         cell.launchComments = { [weak self] (key) in
-            if let strongSelf = self {
-                if let story = strongSelf.detailedStories[key] {
-                    strongSelf.openWebBrowser(title: "HN comments",
-                                              urlString: Constants.hackerNewsBaseURLString + String(describing: story.storyId))
-                }
-            }
+            self?.openWebBrowser(title: "HN comments",
+                                 urlString: Constants.hackerNewsBaseURLString + String(describing: story.storyId))
         }
     }
     
     // MARK: TableView Delegate
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let topStories = topStories else { return }
-
-        let storyId = topStories[indexPath.row]
-
-        if let story = detailedStories[storyId] {
-            if let urlString = story.urlString { // Ask HN stories have this field empty
-                openWebBrowser(title: story.title, urlString: urlString)
-            }
-            else {
-                openWebBrowser(title: story.title,
-                               urlString: Constants.hackerNewsBaseURLString + String(describing: story.storyId))
-            }
+        let story = stories[indexPath.row]
+        if let urlString = story.urlString { // Ask HN stories have this field empty
+            openWebBrowser(title: story.title, urlString: urlString)
+        }
+        else {
+            openWebBrowser(title: story.title,
+                           urlString: Constants.hackerNewsBaseURLString + String(describing: story.storyId))
         }
     }
 
