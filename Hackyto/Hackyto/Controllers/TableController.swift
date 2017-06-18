@@ -187,9 +187,20 @@ class TableController: UITableViewController {
 
 
 extension TableController {
-    override func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        if scrollView.contentOffset.y > 0 {
+    func updateContent(_ scrollView: UIScrollView) {
+        let maxY = scrollView.contentSize.height - view.frame.height
+        if scrollView.contentOffset.y >= maxY {
             hackerNewsAPI.next()
         }
+    }
+
+    override func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        if decelerate == false {
+            updateContent(scrollView)
+        }
+    }
+
+    override func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        updateContent(scrollView)
     }
 }
