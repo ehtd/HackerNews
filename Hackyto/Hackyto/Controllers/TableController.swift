@@ -12,12 +12,7 @@ class TableController: UITableViewController {
 
     fileprivate let hackerNewsAPI: HackerNewsAPI
 
-    fileprivate var stories = [Story]() {
-        didSet {
-            tableView.reloadData()
-            print("Total stories: \(stories.count)")
-        }
-    }
+    fileprivate var stories = [Story]()
 
     fileprivate let pullToRefresh = UIRefreshControl()
     fileprivate let cellIdentifier = "StoryCell"
@@ -101,15 +96,22 @@ class TableController: UITableViewController {
     }
 
     func retrieveStories() {
-        hackerNewsAPI.topStories(success: { [weak self] (stories) in
-            if let strongSelf = self {
-                strongSelf.stories = stories
-                strongSelf.stopPullToRefresh()
+        stories = [Story]()
+        tableView.reloadData()
+        
+        hackerNewsAPI
+            .onSuccess { [weak self] (stories) in
+                if let strongSelf = self {
+                    strongSelf.stories.append(contentsOf: stories)
+                    strongSelf.tableView.reloadData()
+                    strongSelf.stopPullToRefresh()
+                }
             }
-        }) { [weak self] (error) in
-            print(error)
-            self?.stopPullToRefresh()
-        }
+            .onError { [weak self] (error) in
+                print(error)
+                self?.stopPullToRefresh()
+            }
+            .fetch()
     }
 
     // MARK: TableView Controller data source
@@ -183,3 +185,22 @@ class TableController: UITableViewController {
     }
 }
 
+
+extension TableController {
+    func updateContent(_ scrollView: UIScrollView) {
+        let maxY = scrollView.contentSize.height - view.frame.height
+        if scrollView.contentOffset.y >= maxY {
+            hackerNewsAPI.next()
+        }
+    }
+
+    override func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        if decelerate == false {
+            updateContent(scrollView)
+        }
+    }
+
+    override func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        updateContent(scrollView)
+    }
+}
