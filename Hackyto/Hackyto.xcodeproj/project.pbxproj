@@ -21,7 +21,6 @@
 		29D1E60B19F8253F00B3E237 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 29D1E60A19F8253F00B3E237 /* Images.xcassets */; };
 		29D1E60E19F8254000B3E237 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 29D1E60C19F8254000B3E237 /* LaunchScreen.xib */; };
 		29D37A4819FE97E500991577 /* StoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29D37A4719FE97E500991577 /* StoryCell.swift */; };
-		29DC679C1A02FCD2008391DD /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29DC679B1A02FCD2008391DD /* MessageUI.framework */; };
 		29DC679E1A03129C008391DD /* TableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29DC679D1A03129C008391DD /* TableController.swift */; };
 		4737A1D11EB6CE35001ADA96 /* HackerNewsAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4737A1D01EB6CE35001ADA96 /* HackerNewsAPI.swift */; };
 		4737A1DD1EB6F1D9001ADA96 /* Http.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4737A1DB1EB6F1D9001ADA96 /* Http.swift */; };
@@ -49,7 +48,6 @@
 		47E0F9C61EE39A960083FB92 /* Fetchable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47E0F9C41EE39A960083FB92 /* Fetchable.swift */; };
 		47E0F9C81EE39B950083FB92 /* Fetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47E0F9C71EE39B950083FB92 /* Fetcher.swift */; };
 		47E0F9C91EE39B950083FB92 /* Fetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47E0F9C71EE39B950083FB92 /* Fetcher.swift */; };
-		567CDEB792245716E59A7F0A /* libPods-hackyto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C595D8232A15C945773FCB3 /* libPods-hackyto.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -122,8 +120,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				29DC679C1A02FCD2008391DD /* MessageUI.framework in Frameworks */,
-				567CDEB792245716E59A7F0A /* libPods-hackyto.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -309,13 +305,10 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 29D1E61D19F8254000B3E237 /* Build configuration list for PBXNativeTarget "hackyto" */;
 			buildPhases = (
-				6E4BB845E9F8641BD37FD2E7 /* [CP] Check Pods Manifest.lock */,
 				29D1E5FA19F8253F00B3E237 /* Sources */,
 				29D1E5FB19F8253F00B3E237 /* Frameworks */,
 				29D1E5FC19F8253F00B3E237 /* Resources */,
 				29DC67AD1A031389008391DD /* Embed Frameworks */,
-				31C522991E847384B409622C /* [CP] Embed Pods Frameworks */,
-				342EAD30C18C49703D0B85CF /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -418,54 +411,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		31C522991E847384B409622C /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-hackyto/Pods-hackyto-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		342EAD30C18C49703D0B85CF /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-hackyto/Pods-hackyto-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		6E4BB845E9F8641BD37FD2E7 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		29D1E5FA19F8253F00B3E237 /* Sources */ = {
