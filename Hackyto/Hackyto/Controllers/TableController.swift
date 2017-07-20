@@ -189,7 +189,8 @@ class TableController: UITableViewController {
 extension TableController {
     func updateContent(_ scrollView: UIScrollView) {
         let maxY = scrollView.contentSize.height - view.frame.height
-        if scrollView.contentOffset.y >= maxY {
+        let tableOffsetForRefresh = view.frame.height
+        if scrollView.contentOffset.y >= maxY - tableOffsetForRefresh {
             hackerNewsAPI.next()
         }
     }
