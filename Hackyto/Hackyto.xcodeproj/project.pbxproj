@@ -338,7 +338,7 @@
 				TargetAttributes = {
 					29D1E5FD19F8253F00B3E237 = {
 						CreatedOnToolsVersion = 6.0.1;
-						DevelopmentTeam = 3N93GSL974;
+						DevelopmentTeam = WUZALV7LJS;
 						LastSwiftMigration = 0820;
 					};
 					47D5E1C51E270B2D005B58F5 = {
@@ -355,15 +355,6 @@
 			knownRegions = (
 				en,
 				Base,
-				da,
-				de,
-				"es-ES",
-				es,
-				fr,
-				ja,
-				pt,
-				"zh-Hans",
-				"zh-Hant",
 			);
 			mainGroup = 29D1E5F519F8253F00B3E237;
 			productRefGroup = 29D1E5FF19F8253F00B3E237 /* Products */;
@@ -568,6 +559,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = WUZALV7LJS;
 				ENABLE_BITCODE = NO;
 				GCC_OPTIMIZATION_LEVEL = s;
 				INFOPLIST_FILE = Hackyto/Info.plist;
@@ -591,6 +583,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = WUZALV7LJS;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = Hackyto/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
