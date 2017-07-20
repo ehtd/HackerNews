@@ -74,7 +74,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		14FC9824FE17B500110413D6 /* Pods-hackyto.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-hackyto.release.xcconfig"; path = "Pods/Target Support Files/Pods-hackyto/Pods-hackyto.release.xcconfig"; sourceTree = "<group>"; };
 		16C214E81C28D08600CF2C90 /* StoryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = StoryCell.xib; path = Views/StoryCell.xib; sourceTree = "<group>"; };
 		16C214EE1C28E52300CF2C90 /* ColorFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ColorFactory.swift; path = Helpers/ColorFactory.swift; sourceTree = "<group>"; };
 		16F542661C349C8900A5B10E /* CircledNumberView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CircledNumberView.swift; path = Views/CircledNumberView.swift; sourceTree = "<group>"; };
@@ -110,7 +109,6 @@
 		47E0F9C11EE398AA0083FB92 /* ContentProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ContentProvider.swift; path = Content/ContentProvider.swift; sourceTree = "<group>"; };
 		47E0F9C41EE39A960083FB92 /* Fetchable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Fetchable.swift; path = Network/Fetchable.swift; sourceTree = "<group>"; };
 		47E0F9C71EE39B950083FB92 /* Fetcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Fetcher.swift; path = Network/Fetcher.swift; sourceTree = "<group>"; };
-		67B24776F4DDE4EDBB679CC5 /* Pods-hackyto.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-hackyto.debug.xcconfig"; path = "Pods/Target Support Files/Pods-hackyto/Pods-hackyto.debug.xcconfig"; sourceTree = "<group>"; };
 		7C595D8232A15C945773FCB3 /* libPods-hackyto.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-hackyto.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8C7A52E8BF60D616DCE9BDC /* libPods-hackytoTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-hackytoTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -139,15 +137,6 @@
 				16C214EE1C28E52300CF2C90 /* ColorFactory.swift */,
 			);
 			name = Helpers;
-			sourceTree = "<group>";
-		};
-		22EBC713472662323E3526A4 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				67B24776F4DDE4EDBB679CC5 /* Pods-hackyto.debug.xcconfig */,
-				14FC9824FE17B500110413D6 /* Pods-hackyto.release.xcconfig */,
-			);
-			name = Pods;
 			sourceTree = "<group>";
 		};
 		29578F261A014EEE00601218 /* Controllers */ = {
@@ -194,7 +183,6 @@
 				870B885F33B54FC509EE9D67 /* Frameworks */,
 				29D1E60019F8253F00B3E237 /* Hackyto */,
 				29D1E5FF19F8253F00B3E237 /* Products */,
-				22EBC713472662323E3526A4 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -574,7 +562,6 @@
 		};
 		29D1E61E19F8254000B3E237 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 67B24776F4DDE4EDBB679CC5 /* Pods-hackyto.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -598,7 +585,6 @@
 		};
 		29D1E61F19F8254000B3E237 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 14FC9824FE17B500110413D6 /* Pods-hackyto.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
