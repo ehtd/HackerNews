@@ -166,14 +166,11 @@ class TableController: UITableViewController {
             let url = URL(string: urlString)
 
             if let url = url {
-                let request:URLRequest = URLRequest(url: url)
+                let webViewController = WebViewController(url: url)
 
-                let webViewController = SVModalWebViewController(urlRequest: request)
-                webViewController?.barsTintColor = ColorFactory.darkGrayColor()
-                
                 DispatchQueue.main.async(execute: { [weak self] in
                     if let strongSelf = self {
-                        strongSelf.present(webViewController!, animated: true, completion: nil)
+                        strongSelf.present(webViewController, animated: true, completion: nil)
                     }
                 })
             }

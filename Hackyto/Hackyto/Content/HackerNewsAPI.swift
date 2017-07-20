@@ -23,7 +23,6 @@ class HackerNewsAPI {
     fileprivate(set) var errorHandler: ((Error) -> Void) = { _ in }
     fileprivate(set) var successHandler: (([Story]) -> Void) = { _ in }
 
-    // Add pagination
     init(for type: ContentType) {
         let contentPath: String
         switch type {
