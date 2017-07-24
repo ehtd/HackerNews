@@ -98,7 +98,7 @@ class TableController: UITableViewController {
     func retrieveStories() {
         stories = [Story]()
         tableView.reloadData()
-        
+
         hackerNewsAPI
             .onSuccess { [weak self] (stories) in
                 if let strongSelf = self {

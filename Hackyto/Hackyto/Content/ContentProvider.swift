@@ -10,7 +10,10 @@ import Foundation
 
 class ContentProvider {
     fileprivate let topListFetcher: ListFetcher
-    fileprivate let itemFetcher: ItemFetcher
+    fileprivate var itemFetchers = [ItemFetcher]()
+
+    fileprivate let session: URLSession
+    fileprivate let apiEndPoint: String
 
     typealias StoryList = [Story]
     fileprivate var stories = StoryList()
@@ -25,8 +28,10 @@ class ContentProvider {
 
     init(with session: URLSession, apiEndPoint: String, contentPath: String) {
         self.contentPath = contentPath
+        self.session = session
+        self.apiEndPoint = apiEndPoint
+
         topListFetcher = ListFetcher(with: session, apiEndPoint: apiEndPoint)
-        itemFetcher = ItemFetcher(with: session, apiEndPoint: apiEndPoint)
     }
 }
 
@@ -42,33 +47,39 @@ fileprivate extension ContentProvider {
         }, error: error)
     }
 
-    func getItem(_ id: String,
-                 success: @escaping ((Story) -> Void),
-                 error: @escaping ((Error) -> Void)) {
-        itemFetcher.fetch("item/\(id).json", success: {(response) in
-            if let response = response as? [String: Any] {
-                let story = Story(response as NSDictionary)
-                success(story)
-            }
-        }, error: error)
-    }
-
     func fetchItems(in list: [Int]) {
-        if list.isEmpty {
-            fetching = false
-            successHandler(stories)
-            stories.removeAll()
+        itemFetchers = [ItemFetcher]()
+
+        var stories = Array<Story?>(repeatElement(nil, count: list.count))
+
+        var pendingItems = list.count
+        let fetchCompleted: ((Void) -> Void) = { [weak self] in
+            pendingItems -= 1
+            if pendingItems <= 0 {
+                let fullStories = stories.filter { $0 != nil }.map { $0! }
+                self?.fetching = false
+                self?.successHandler(fullStories)
+            }
         }
-        else {
-            var listToProcess = list
-            let item = listToProcess.removeFirst()
-            getItem("\(item)", success: { [weak self] (story) in
-                self?.stories.append(story)
-                self?.fetchItems(in: listToProcess)
-            }, error: { [weak self] (error) in
-                print(error)
-                self?.fetchItems(in: listToProcess)
+
+        var storyIndex = 0
+        for item in list {
+            let segment = "item/\(item).json"
+
+            let fetcher = ItemFetcher(with: session, apiEndPoint: apiEndPoint)
+            itemFetchers.append(fetcher)
+
+            fetcher.fetch(segment, success: { [constIndex = storyIndex](response) in
+                if let response = response as? [String: Any] {
+                    let story = Story(response as NSDictionary)
+                    stories[constIndex] = story
+                    fetchCompleted()
+                }
+            }, error: { (error) in
+                fetchCompleted()
             })
+
+            storyIndex += 1
         }
     }
 
