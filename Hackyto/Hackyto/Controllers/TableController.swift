@@ -98,10 +98,15 @@ class TableController: UITableViewController {
     func retrieveStories() {
         stories = [Story]()
         tableView.reloadData()
-        
+        let start = Date()
+
         hackerNewsAPI
             .onSuccess { [weak self] (stories) in
                 if let strongSelf = self {
+                    let end = Date()
+                    let total = end.timeIntervalSince(start)
+                    print("Spent: \(total)")
+
                     strongSelf.stories.append(contentsOf: stories)
                     strongSelf.tableView.reloadData()
                     strongSelf.stopPullToRefresh()
