@@ -10,8 +10,6 @@ import Foundation
 
 class ContentProvider {
     fileprivate let topListFetcher: ListFetcher
-    fileprivate let itemFetcher: ItemFetcher
-
     fileprivate var itemFetchers = [ItemFetcher]()
 
     fileprivate let session: URLSession
@@ -32,8 +30,8 @@ class ContentProvider {
         self.contentPath = contentPath
         self.session = session
         self.apiEndPoint = apiEndPoint
+
         topListFetcher = ListFetcher(with: session, apiEndPoint: apiEndPoint)
-        itemFetcher = ItemFetcher(with: session, apiEndPoint: apiEndPoint)
     }
 }
 
@@ -49,24 +47,13 @@ fileprivate extension ContentProvider {
         }, error: error)
     }
 
-    func getItem(_ id: String,
-                 success: @escaping ((Story) -> Void),
-                 error: @escaping ((Error) -> Void)) {
-        itemFetcher.fetch("item/\(id).json", success: {(response) in
-            if let response = response as? [String: Any] {
-                let story = Story(response as NSDictionary)
-                success(story)
-            }
-        }, error: error)
-    }
-
-    func fetchItems2(in list: [Int]) {
+    func fetchItems(in list: [Int]) {
         itemFetchers = [ItemFetcher]()
 
         var stories = Array<Story?>(repeatElement(nil, count: list.count))
 
         var pendingItems = list.count
-        let fetchCompleted: ((Void) -> Void ) = { [weak self] in
+        let fetchCompleted: ((Void) -> Void) = { [weak self] in
             pendingItems -= 1
             if pendingItems <= 0 {
                 let fullStories = stories.filter { $0 != nil }.map { $0! }
@@ -80,6 +67,8 @@ fileprivate extension ContentProvider {
             let segment = "item/\(item).json"
 
             let fetcher = ItemFetcher(with: session, apiEndPoint: apiEndPoint)
+            itemFetchers.append(fetcher)
+
             fetcher.fetch(segment, success: { [constIndex = storyIndex](response) in
                 if let response = response as? [String: Any] {
                     let story = Story(response as NSDictionary)
@@ -90,27 +79,7 @@ fileprivate extension ContentProvider {
                 fetchCompleted()
             })
 
-            itemFetchers.append(fetcher)
             storyIndex += 1
-        }
-    }
-
-    func fetchItems(in list: [Int]) {
-        if list.isEmpty {
-            fetching = false
-            successHandler(stories)
-            stories.removeAll()
-        }
-        else {
-            var listToProcess = list
-            let item = listToProcess.removeFirst()
-            getItem("\(item)", success: { [weak self] (story) in
-                self?.stories.append(story)
-                self?.fetchItems(in: listToProcess)
-            }, error: { [weak self] (error) in
-                print(error)
-                self?.fetchItems(in: listToProcess)
-            })
         }
     }
 
@@ -119,10 +88,10 @@ fileprivate extension ContentProvider {
             let truncatedList = Array(availableStoryIds[0..<size])
             availableStoryIds = Array(availableStoryIds[size..<availableStoryIds.count])
 
-            fetchItems2(in: truncatedList)
+            fetchItems(in: truncatedList)
         }
         else {
-            fetchItems2(in: availableStoryIds)
+            fetchItems(in: availableStoryIds)
             availableStoryIds.removeAll()
         }
     }
