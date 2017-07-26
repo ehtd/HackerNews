@@ -19,8 +19,6 @@ class TableController: UITableViewController {
 
     static var colorIndex = 0
 
-    // MARK: Init
-
     init(type: ContentType) {
         hackerNewsAPI = HackerNewsAPI(for: type)
         super.init(nibName: nil, bundle: nil)
@@ -30,49 +28,50 @@ class TableController: UITableViewController {
         hackerNewsAPI = HackerNewsAPI(for: .top)
         super.init(coder: aDecoder)
     }
-    
-    // MARK: View Controller Life Cycle
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.navigationController?.isNavigationBarHidden = true
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.tableView.register(UINib(nibName: "StoryCell", bundle: nil), forCellReuseIdentifier: cellIdentifier)
+        tableView.register(UINib(nibName: cellIdentifier, bundle: nil), forCellReuseIdentifier: cellIdentifier)
+
+        navigationController?.isNavigationBarHidden = true
 
         addStylesToTableView()
         addPullToRefresh()
 
         retrieveStories()
     }
-    
-    // MARK: Styles Configuration
+}
 
+// MARK: - Styles
+
+extension TableController {
     func addStylesToTableView() {
-        self.view.backgroundColor = ColorFactory.darkGrayColor()
-        self.tableView.backgroundView = nil
-        self.tableView.backgroundColor = ColorFactory.darkGrayColor()
+        view.backgroundColor = ColorFactory.darkGrayColor()
+        tableView.backgroundColor = ColorFactory.darkGrayColor()
 
-        self.setNeedsStatusBarAppearanceUpdate()
-        self.tableView.separatorColor = UIColor.clear
-        self.tableView.separatorStyle = UITableViewCellSeparatorStyle.none
-        self.tableView.estimatedRowHeight = 130.0
-        self.tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.separatorColor = UIColor.clear
+        tableView.separatorStyle = UITableViewCellSeparatorStyle.none
+        tableView.estimatedRowHeight = 130.0
+        tableView.rowHeight = UITableViewAutomaticDimension
     }
+}
 
-    // MARK: Pull to Refresh
+// MARK: - Pull to Refresh
 
+extension TableController {
     func addPullToRefresh() {
-        self.pullToRefresh.backgroundColor = ColorFactory.colorFromNumber(TableController.colorIndex)
-        self.pullToRefresh.tintColor = UIColor.white
-        self.pullToRefresh.addTarget(self, action: #selector(TableController.retrieveStories), for: UIControlEvents.valueChanged)
+        pullToRefresh.backgroundColor = ColorFactory.colorFromNumber(TableController.colorIndex)
+        pullToRefresh.tintColor = UIColor.white
+        pullToRefresh.addTarget(self, action: #selector(TableController.retrieveStories), for: UIControlEvents.valueChanged)
 
-        self.tableView.addSubview(pullToRefresh)
-        self.tableView.contentOffset = CGPoint(x: 0, y: -self.pullToRefresh.frame.size.height)
-        self.pullToRefresh.beginRefreshing()
+        tableView.addSubview(pullToRefresh)
+        tableView.contentOffset = CGPoint(x: 0, y: -self.pullToRefresh.frame.size.height)
+        pullToRefresh.beginRefreshing()
     }
 
     func stopPullToRefresh() {
@@ -94,7 +93,11 @@ class TableController: UITableViewController {
             }
         }
     }
+}
 
+// MARK: - Content
+
+extension TableController {
     func retrieveStories() {
         stories = [Story]()
         tableView.reloadData()
@@ -113,9 +116,11 @@ class TableController: UITableViewController {
             }
             .fetch()
     }
+}
 
-    // MARK: TableView Controller data source
-    
+// MARK: - UITableViewController delegate / data source
+
+extension TableController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return stories.count
     }
@@ -145,8 +150,6 @@ class TableController: UITableViewController {
                                  urlString: Constants.hackerNewsBaseURLString + String(describing: story.storyId))
         }
     }
-    
-    // MARK: TableView Delegate
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let story = stories[indexPath.row]
@@ -158,9 +161,11 @@ class TableController: UITableViewController {
                            urlString: Constants.hackerNewsBaseURLString + String(describing: story.storyId))
         }
     }
+}
 
-    // MARK: Helper Methods
-    
+// MARK: - Browser
+
+extension TableController {
     func openWebBrowser(title: String?, urlString: String?) {
         if let urlString = urlString {
             let url = URL(string: urlString)
@@ -176,17 +181,26 @@ class TableController: UITableViewController {
             }
         }
     }
+}
 
+// MARK: - Status bar
+
+extension TableController {
     override var preferredStatusBarStyle : UIStatusBarStyle {
         return UIStatusBarStyle.lightContent
     }
+
+    override var prefersStatusBarHidden: Bool {
+        return true
+    }
 }
 
+// MARK: Pagination
 
 extension TableController {
     func updateContent(_ scrollView: UIScrollView) {
         let maxY = scrollView.contentSize.height - view.frame.height
-        let tableOffsetForRefresh = view.frame.height
+        let tableOffsetForRefresh = 2 * view.frame.height
         if scrollView.contentOffset.y >= maxY - tableOffsetForRefresh {
             hackerNewsAPI.next()
         }

@@ -20,8 +20,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         UIApplication.shared.statusBarStyle = UIStatusBarStyle.lightContent
 
-        self.window = UIWindow(frame: UIScreen.main.bounds)
-        self.window?.backgroundColor = ColorFactory.darkGrayColor()
+        window = UIWindow(frame: UIScreen.main.bounds)
+        window?.backgroundColor = ColorFactory.darkGrayColor()
 
         let tabBarController: UITabBarController = UITabBarController()
 
@@ -37,7 +37,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         tabBarController.viewControllers = viewControllers
 
-        let tabBarImageNames = ["top", "news", "ask", "show", "jobs"]
+        let tabBarImageNames = ["top", "new", "ask", "show", "jobs"]
         let tabBarTitles = tabBarImageNames.map { $0.capitalized }
         
         for i in 0..<viewControllers.count {
@@ -49,8 +49,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         configureAppearance()
 
-        self.window?.rootViewController = tabBarController
-        self.window?.makeKeyAndVisible()
+        window?.rootViewController = tabBarController
+        window?.makeKeyAndVisible()
 
         return true
     }
