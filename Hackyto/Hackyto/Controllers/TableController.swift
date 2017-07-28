@@ -10,82 +10,73 @@ import UIKit
 
 class TableController: UITableViewController {
 
-    let retriever: RetrieverManager
-    var topStories: NSMutableArray?
-    var detailedStories = [Int: NSDictionary]()
+    fileprivate let hackerNewsAPI: HackerNewsAPI
 
-    let pullToRefresh = UIRefreshControl()
+    fileprivate var stories = [Story]()
 
-    let cellIdentifier = "StoryCell"
+    fileprivate let pullToRefresh = UIRefreshControl()
+    fileprivate let cellIdentifier = "StoryCell"
 
     static var colorIndex = 0
 
-    let contentType: RetrieverManager.NewsType
-    
-    // MARK: Init
-
-    init(type: RetrieverManager.NewsType) {
-        self.retriever = RetrieverManager(type: type)
-        self.contentType = type
+    init(type: ContentType) {
+        hackerNewsAPI = HackerNewsAPI(for: type)
         super.init(nibName: nil, bundle: nil)
     }
 
     required init?(coder aDecoder: NSCoder) {
-        self.retriever = RetrieverManager(type: RetrieverManager.NewsType.Top)
-        self.contentType = RetrieverManager.NewsType.Top
+        hackerNewsAPI = HackerNewsAPI(for: .top)
         super.init(coder: aDecoder)
     }
-    
-    // MARK: View Controller Life Cycle
 
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.navigationController?.navigationBarHidden = true
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.tableView.registerNib(UINib(nibName: "StoryCell", bundle: nil), forCellReuseIdentifier: cellIdentifier)
+        tableView.register(UINib(nibName: cellIdentifier, bundle: nil), forCellReuseIdentifier: cellIdentifier)
 
-        self.retriever.didFinishLoadingTopStories = didFinishLoadingTopStories
-        self.retriever.didFailedLoadingTopStories = didFailedLoading
+        navigationController?.isNavigationBarHidden = true
 
         addStylesToTableView()
         addPullToRefresh()
 
-        self.retrieveStories()
+        retrieveStories()
     }
-    
-    // MARK: Styles Configuration
+}
 
+// MARK: - Styles
+
+extension TableController {
     func addStylesToTableView() {
-        self.view.backgroundColor = ColorFactory.darkGrayColor()
-        self.tableView.backgroundView = nil
-        self.tableView.backgroundColor = ColorFactory.darkGrayColor()
+        view.backgroundColor = ColorFactory.darkGrayColor()
+        tableView.backgroundColor = ColorFactory.darkGrayColor()
 
-        self.setNeedsStatusBarAppearanceUpdate()
-        self.tableView.separatorColor = UIColor.clearColor()
-        self.tableView.separatorStyle = UITableViewCellSeparatorStyle.None
-        self.tableView.estimatedRowHeight = 130.0
-        self.tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.separatorColor = UIColor.clear
+        tableView.separatorStyle = UITableViewCellSeparatorStyle.none
+        tableView.estimatedRowHeight = 130.0
+        tableView.rowHeight = UITableViewAutomaticDimension
     }
+}
 
-    // MARK: Pull to Refresh
+// MARK: - Pull to Refresh
 
+extension TableController {
     func addPullToRefresh() {
-        self.pullToRefresh.backgroundColor = ColorFactory.colorFromNumber(TableController.colorIndex)
-        self.pullToRefresh.tintColor = UIColor.whiteColor()
-        self.pullToRefresh.addTarget(self, action: "retrieveStories", forControlEvents: UIControlEvents.ValueChanged)
+        pullToRefresh.backgroundColor = ColorFactory.colorFromNumber(TableController.colorIndex)
+        pullToRefresh.tintColor = UIColor.white
+        pullToRefresh.addTarget(self, action: #selector(TableController.retrieveStories), for: UIControlEvents.valueChanged)
 
-        self.tableView.addSubview(pullToRefresh)
-        self.tableView.contentOffset = CGPointMake(0, -self.pullToRefresh.frame.size.height)
-        self.pullToRefresh.beginRefreshing()
+        tableView.addSubview(pullToRefresh)
+        tableView.contentOffset = CGPoint(x: 0, y: -self.pullToRefresh.frame.size.height)
+        pullToRefresh.beginRefreshing()
     }
 
     func stopPullToRefresh() {
-        let delayTime = dispatch_time(DISPATCH_TIME_NOW, Int64(0.05 * Double(NSEC_PER_SEC)))
-        dispatch_after(delayTime, dispatch_get_main_queue()) { [weak self] in
+        let delayTime = DispatchTime.now() + Double(Int64(0.05 * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC)
+        DispatchQueue.main.asyncAfter(deadline: delayTime) { [weak self] in
             if let strongSelf = self {
                 strongSelf.pullToRefresh.endRefreshing()
                 strongSelf.updatePullToRefreshColor()
@@ -94,27 +85,48 @@ class TableController: UITableViewController {
     }
 
     func updatePullToRefreshColor() {
-        let delayTime = dispatch_time(DISPATCH_TIME_NOW, Int64(0.5 * Double(NSEC_PER_SEC)))
-        dispatch_after(delayTime, dispatch_get_main_queue()) { [weak self] in
+        let delayTime = DispatchTime.now() + Double(Int64(0.5 * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC)
+        DispatchQueue.main.asyncAfter(deadline: delayTime) { [weak self] in
             if let strongSelf = self {
-                TableController.colorIndex++
+                TableController.colorIndex += 1
                 strongSelf.pullToRefresh.backgroundColor = ColorFactory.colorFromNumber(TableController.colorIndex)
             }
         }
     }
+}
 
+// MARK: - Content
+
+extension TableController {
     func retrieveStories() {
-        self.retriever.retrieveTopStories()
+        stories = [Story]()
+        tableView.reloadData()
+
+        hackerNewsAPI
+            .onSuccess { [weak self] (stories) in
+                if let strongSelf = self {
+                    strongSelf.stories.append(contentsOf: stories)
+                    strongSelf.tableView.reloadData()
+                    strongSelf.stopPullToRefresh()
+                }
+            }
+            .onError { [weak self] (error) in
+                print(error)
+                self?.stopPullToRefresh()
+            }
+            .fetch()
+    }
+}
+
+// MARK: - UITableViewController delegate / data source
+
+extension TableController {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return stories.count
     }
 
-    // MARK: TableView Controller data source
-    
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return detailedStories.count
-    }
-
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell: StoryCell = self.tableView.dequeueReusableCellWithIdentifier(cellIdentifier) as! StoryCell
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell: StoryCell = self.tableView.dequeueReusableCell(withIdentifier: cellIdentifier) as! StoryCell
 
         self.configureBasicCell(cell, indexPath: indexPath)
 
@@ -124,134 +136,83 @@ class TableController: UITableViewController {
         return cell
     }
 
-    func configureBasicCell(cell: StoryCell, indexPath: NSIndexPath){
-        guard let topStories = topStories else { return }
+    func configureBasicCell(_ cell: StoryCell, indexPath: IndexPath) {
+        let story = stories[indexPath.row]
+        cell.configureCell(title: story.title,
+                           author: story.author,
+                           storyKey: story.storyId,
+                           number: indexPath.row + 1)
+        
+        cell.configureComments(comments: story.comments)
 
-        let storyId = topStories[indexPath.row] as? Int
-
-        if let storyId = storyId {
-            let story = detailedStories[storyId]
-
-            if let titleObject: AnyObject = story?.objectForKey("title") {
-                if let authorObject: AnyObject = story?.objectForKey("by") {
-                    cell.configureCell(title: String(titleObject), author: String(authorObject), storyKey: storyId, number: indexPath.row + 1)
-                }
-                else {
-                    cell.configureCell(title: String(titleObject), author: "", storyKey: storyId, number: indexPath.row + 1)
-                }
-            }
-
-            if let kids = story?.objectForKey("kids") as? NSArray {
-                cell.configureComments(comments: kids)
-            }
-        }
-
-        cell.launchComments = openStoryComments
-    }
-    
-    // MARK: TableView Delegate
-
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        guard let topStories = topStories else { return }
-
-        let storyId = topStories[indexPath.row] as? Int
-
-        if let storyId = storyId {
-            let story = detailedStories[storyId]
-
-            var url = story?.objectForKey("url") as? String
-            let title = story?.objectForKey("title") as? String
-            let keyNumber = story?.objectForKey("id") as? NSNumber
-
-            if url == nil { // Ask HN stories have this field empty
-                if let key = keyNumber?.integerValue {
-                    url = Constants.hackerNewsBaseURLString + String(key)
-                }
-            }
-
-            self.openWebBrowser(title: title, urlString: url)
+        cell.launchComments = { [weak self] (key) in
+            self?.openWebBrowser(title: "HN comments",
+                                 urlString: Constants.hackerNewsBaseURLString + String(describing: story.storyId))
         }
     }
 
-    // MARK: Open Comments Closure
-    
-    var openStoryComments: ((key: Int) -> ()) {
-        get {
-            return { [weak self] (key: Int) ->() in
-                if let strongSelf = self {
-                    
-                    let story = strongSelf.detailedStories[key]
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let story = stories[indexPath.row]
+        if let urlString = story.urlString { // Ask HN stories have this field empty
+            openWebBrowser(title: story.title, urlString: urlString)
+        }
+        else {
+            openWebBrowser(title: story.title,
+                           urlString: Constants.hackerNewsBaseURLString + String(describing: story.storyId))
+        }
+    }
+}
 
-                    let url = Constants.hackerNewsBaseURLString + String(key)
-                    let title = story?.objectForKey("title") as? String
-                    let hnComments = "HN comments"
-                    
-                    if let title = title {
-                        strongSelf.openWebBrowser(title: title + " - " + hnComments, urlString: url)
-                    } else {
-                        strongSelf.openWebBrowser(title: hnComments, urlString: url)
-                    }
-                }
-            }
-        }
-    }
-    
-    // MARK: Retrieved data Closures
-    
-    var didFinishLoadingTopStories: ((storyIDs: NSMutableArray?, stories: [Int: NSDictionary]) ->()) {
-        get {
-            return { [weak self] (storyIDs: NSMutableArray?, stories: [Int: NSDictionary]) ->() in
-                if let strongSelf = self {
-                    strongSelf.topStories = storyIDs
-                    strongSelf.detailedStories = stories
-                    strongSelf.stopPullToRefresh()
+// MARK: - Browser
 
-                    print("All data is ready")
-                    print("Total stories: \(strongSelf.detailedStories.count)")
-                    strongSelf.tableView.reloadData()
-                    
-                    // For some reason, the first displayed rows may not have
-                    // the correct sizing. Reload them.
-                    strongSelf.tableView.reloadSections(NSIndexSet(indexesInRange: NSMakeRange(0, strongSelf.tableView.numberOfSections)), withRowAnimation: .None)
-                }
-            }
-        }
-    }
-    
-    var didFailedLoading: (() ->()) {
-        get {
-            return { [weak self] in
-                if let strongSelf = self {
-                    strongSelf.stopPullToRefresh()
-                    print("Failed to download data", terminator: "")
-                }
-            }
-        }
-    }
-    
-    // MARK: Helper Methods
-    
-    func openWebBrowser(title title: String?, urlString: String?) {
+extension TableController {
+    func openWebBrowser(title: String?, urlString: String?) {
         if let urlString = urlString {
-            let url = NSURL(string: urlString)
+            let url = URL(string: urlString)
 
             if let url = url {
-                let request:NSURLRequest = NSURLRequest(URL: url)
+                let webViewController = WebViewController(url: url)
 
-                let webViewController = SVModalWebViewController(URLRequest: request)
-                webViewController.barsTintColor = ColorFactory.darkGrayColor()
-                
-                dispatch_async(dispatch_get_main_queue(), { [weak self] in
+                DispatchQueue.main.async(execute: { [weak self] in
                     if let strongSelf = self {
-                        strongSelf.presentViewController(webViewController, animated: true, completion: nil)
+                        strongSelf.present(webViewController, animated: true, completion: nil)
                     }
                 })
             }
         }
     }
+}
 
-    override func preferredStatusBarStyle() -> UIStatusBarStyle {
-        return UIStatusBarStyle.LightContent
+// MARK: - Status bar
+
+extension TableController {
+    override var preferredStatusBarStyle : UIStatusBarStyle {
+        return UIStatusBarStyle.lightContent
+    }
+
+    override var prefersStatusBarHidden: Bool {
+        return true
     }
 }
 
+// MARK: Pagination
+
+extension TableController {
+    func updateContent(_ scrollView: UIScrollView) {
+        let maxY = scrollView.contentSize.height - view.frame.height
+        let tableOffsetForRefresh = 2 * view.frame.height
+        if scrollView.contentOffset.y >= maxY - tableOffsetForRefresh {
+            hackerNewsAPI.next()
+        }
+    }
+
+    override func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        if decelerate == false {
+            updateContent(scrollView)
+        }
+    }
+
+    override func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        updateContent(scrollView)
+    }
+}

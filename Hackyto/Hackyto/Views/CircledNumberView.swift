@@ -53,97 +53,97 @@ class CircledNumberView: UIView {
 
     func configureNumberLabel() {
         self.numberLabel?.textColor = ColorFactory.colorFromNumber(colorNumber)
-        self.numberLabel?.textColor = UIColor.whiteColor()
+        self.numberLabel?.textColor = UIColor.white
         self.numberLabel?.adjustsFontSizeToFitWidth = true
         self.numberLabel?.font = UIFont(name: "HelveticaNeue-CondensedBlack", size: 300)
         self.numberLabel?.text = self.number
-        self.numberLabel?.textAlignment = NSTextAlignment.Center
+        self.numberLabel?.textAlignment = NSTextAlignment.center
         self.numberLabel?.numberOfLines = 0
     }
 
     func attachSubviews() {
-        guard let circleView = self.circleView, numberLabel = self.numberLabel else { return }
+        guard let circleView = self.circleView, let numberLabel = self.numberLabel else { return }
         self.addSubview(circleView)
         self.addSubview(numberLabel)
     }
 
     func configureLayout() {
-        guard let circleView = self.circleView, numberLabel = self.numberLabel else { return }
+        guard let circleView = self.circleView, let numberLabel = self.numberLabel else { return }
 
         circleView.translatesAutoresizingMaskIntoConstraints = false
         numberLabel.translatesAutoresizingMaskIntoConstraints = false
 
         // Circle constraints
         self.addConstraint(NSLayoutConstraint(item: circleView,
-            attribute: NSLayoutAttribute.Top,
-            relatedBy: NSLayoutRelation.Equal,
+            attribute: NSLayoutAttribute.top,
+            relatedBy: NSLayoutRelation.equal,
             toItem: self,
-            attribute: NSLayoutAttribute.Top,
+            attribute: NSLayoutAttribute.top,
             multiplier: 1.0,
             constant: 0.0))
 
         self.addConstraint(NSLayoutConstraint(item: circleView,
-            attribute: NSLayoutAttribute.Bottom,
-            relatedBy: NSLayoutRelation.Equal,
+            attribute: NSLayoutAttribute.bottom,
+            relatedBy: NSLayoutRelation.equal,
             toItem: self,
-            attribute: NSLayoutAttribute.Bottom,
+            attribute: NSLayoutAttribute.bottom,
             multiplier: 1.0,
             constant: 0.0))
 
         self.addConstraint(NSLayoutConstraint(item: circleView,
-            attribute: NSLayoutAttribute.Leading,
-            relatedBy: NSLayoutRelation.Equal,
+            attribute: NSLayoutAttribute.leading,
+            relatedBy: NSLayoutRelation.equal,
             toItem: self,
-            attribute: NSLayoutAttribute.Leading,
+            attribute: NSLayoutAttribute.leading,
             multiplier: 1.0,
             constant: 0.0))
 
         self.addConstraint(NSLayoutConstraint(item: circleView,
-            attribute: NSLayoutAttribute.Width,
-            relatedBy: NSLayoutRelation.Equal,
+            attribute: NSLayoutAttribute.width,
+            relatedBy: NSLayoutRelation.equal,
             toItem: self,
-            attribute: NSLayoutAttribute.Height,
+            attribute: NSLayoutAttribute.height,
             multiplier: 1.0,
             constant: 0.0))
 
         self.addConstraint(NSLayoutConstraint(item: circleView,
-            attribute: NSLayoutAttribute.Height,
-            relatedBy: NSLayoutRelation.Equal,
+            attribute: NSLayoutAttribute.height,
+            relatedBy: NSLayoutRelation.equal,
             toItem: self,
-            attribute: NSLayoutAttribute.Height,
+            attribute: NSLayoutAttribute.height,
             multiplier: 1.0,
             constant: 0.0))
 
         // Label constraints
         self.addConstraint(NSLayoutConstraint(item: numberLabel,
-            attribute: NSLayoutAttribute.Height,
-            relatedBy: NSLayoutRelation.Equal,
+            attribute: NSLayoutAttribute.height,
+            relatedBy: NSLayoutRelation.equal,
             toItem: circleView,
-            attribute: NSLayoutAttribute.Height,
+            attribute: NSLayoutAttribute.height,
             multiplier: 0.7,
             constant: 0.0))
 
         self.addConstraint(NSLayoutConstraint(item: numberLabel,
-            attribute: NSLayoutAttribute.Width,
-            relatedBy: NSLayoutRelation.Equal,
+            attribute: NSLayoutAttribute.width,
+            relatedBy: NSLayoutRelation.equal,
             toItem: circleView,
-            attribute: NSLayoutAttribute.Width,
+            attribute: NSLayoutAttribute.width,
             multiplier: 0.7,
             constant: 0.0))
 
         self.addConstraint(NSLayoutConstraint(item: numberLabel,
-            attribute: NSLayoutAttribute.CenterY,
-            relatedBy: NSLayoutRelation.Equal,
+            attribute: NSLayoutAttribute.centerY,
+            relatedBy: NSLayoutRelation.equal,
             toItem: circleView,
-            attribute: NSLayoutAttribute.CenterY,
+            attribute: NSLayoutAttribute.centerY,
             multiplier: 1.0,
             constant: 0.0))
 
         self.addConstraint(NSLayoutConstraint(item: numberLabel,
-            attribute: NSLayoutAttribute.CenterX,
-            relatedBy: NSLayoutRelation.Equal,
+            attribute: NSLayoutAttribute.centerX,
+            relatedBy: NSLayoutRelation.equal,
             toItem: circleView,
-            attribute: NSLayoutAttribute.CenterX,
+            attribute: NSLayoutAttribute.centerX,
             multiplier: 1.0,
             constant: 0.0))
     }

@@ -16,19 +16,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var globalMailComposer: MFMailComposeViewController? = nil
 
-    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
-        UIApplication.sharedApplication().statusBarStyle = UIStatusBarStyle.LightContent
+        UIApplication.shared.statusBarStyle = UIStatusBarStyle.lightContent
 
-        self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
-        self.window?.backgroundColor = ColorFactory.darkGrayColor()
+        window = UIWindow(frame: UIScreen.main.bounds)
+        window?.backgroundColor = ColorFactory.darkGrayColor()
 
         let tabBarController: UITabBarController = UITabBarController()
 
         var viewControllers: [UIViewController] = []
         
-        for i in 0..<RetrieverManager.supportedNewsType {
-            let type: RetrieverManager.NewsType = RetrieverManager.NewsType(rawValue: i)!
+        for i in 0..<ContentType.count {
+            let type: ContentType = ContentType(rawValue: i)!
             let navigationController = UINavigationController(rootViewController: TableController(type: type))
             let textAttributes = [NSForegroundColorAttributeName: ColorFactory.lightColor()]
             navigationController.navigationBar.titleTextAttributes = textAttributes
@@ -37,8 +37,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         tabBarController.viewControllers = viewControllers
 
-        let tabBarImageNames = ["top", "news", "ask", "show", "jobs"]
-        let tabBarTitles = tabBarImageNames.map { $0.capitalizedString }
+        let tabBarImageNames = ["top", "new", "ask", "show", "jobs"]
+        let tabBarTitles = tabBarImageNames.map { $0.capitalized }
         
         for i in 0..<viewControllers.count {
             if let tab = tabBarController.tabBar.items?[i] {
@@ -49,8 +49,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         configureAppearance()
 
-        self.window?.rootViewController = tabBarController
-        self.window?.makeKeyAndVisible()
+        window?.rootViewController = tabBarController
+        window?.makeKeyAndVisible()
 
         return true
     }
@@ -71,11 +71,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func configureAppearance() {
         UINavigationBar.appearance().barTintColor = ColorFactory.lightColor()
         UINavigationBar.appearance().tintColor = ColorFactory.darkGrayColor()
-        UINavigationBar.appearance().translucent = false
+        UINavigationBar.appearance().isTranslucent = false
 
         UITabBar.appearance().tintColor = ColorFactory.darkGrayColor()
         UITabBar.appearance().barTintColor = ColorFactory.lightColor()
-        UITabBar.appearance().translucent = false
+        UITabBar.appearance().isTranslucent = false
 
         UIToolbar.appearance().barTintColor = ColorFactory.lightColor()
         UIToolbar.appearance().tintColor = ColorFactory.darkGrayColor()
