@@ -7,6 +7,7 @@
 //
 
 import XCTest
+import Hermes
 
 class ContentTests: XCTestCase {
     fileprivate let apiEndPoint = "https://hacker-news.firebaseio.com/v0/"

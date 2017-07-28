@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Hermes
 
 class ListFetcher: Fetcher {
     typealias responseType = [Int]
