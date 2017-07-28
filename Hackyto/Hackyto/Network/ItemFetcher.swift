@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Hermes
 
 class ItemFetcher: Fetcher {
     typealias responseType = [String: Any]
