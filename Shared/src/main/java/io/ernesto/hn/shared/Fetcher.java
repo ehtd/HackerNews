@@ -30,7 +30,7 @@ public class Fetcher {
             reader = new BufferedReader(new InputStreamReader(in));
 
             StringBuffer buffer = new StringBuffer();
-            String line = "";
+            String line;
 
             while ((line = reader.readLine()) != null) {
                 buffer.append(line);

@@ -4,6 +4,7 @@ import org.junit.Test;
 
 import java.util.concurrent.*;
 
+import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 
 public class FetcherTests {
@@ -11,7 +12,7 @@ public class FetcherTests {
     private String baseUrl = "https://hacker-news.firebaseio.com/v0/";
 
     @Test
-    public void testFetchingIDList() {
+    public void testHttpFetchingIDList() {
         Fetcher fetcher = new Fetcher(baseUrl);
 
         ExecutorService executor = Executors.newSingleThreadExecutor();
@@ -34,12 +35,10 @@ public class FetcherTests {
         catch (Exception e) {
             e.printStackTrace();
         }
-
-        assertTrue(true);
     }
 
     @Test
-    public void testFetchItem() {
+    public void testHttpFetchItem() {
         Fetcher fetcher = new Fetcher(baseUrl);
 
         ExecutorService executor = Executors.newSingleThreadExecutor();
@@ -62,7 +61,31 @@ public class FetcherTests {
         catch (Exception e) {
             e.printStackTrace();
         }
+    }
 
-        assertTrue(true);
+    @Test
+    public void testFetchWithMalformedURL() {
+        Fetcher fetcher = new Fetcher("bad");
+
+        ExecutorService executor = Executors.newSingleThreadExecutor();
+
+        FutureTask<String> future =
+                new FutureTask<String>(new Callable<String>() {
+                    @Override
+                    public String call() throws Exception {
+                        return fetcher.fetchURLSegment("item/10483024.json");
+                    }
+                });
+
+        executor.submit(future);
+
+        try {
+            String fetchedResult = future.get(maxTimeout, TimeUnit.MILLISECONDS);
+            System.out.print(fetchedResult);
+            assertNull(fetchedResult);
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }
