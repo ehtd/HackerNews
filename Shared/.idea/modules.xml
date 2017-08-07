@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/HackytoShared.iml" filepath="$PROJECT_DIR$/.idea/modules/HackytoShared.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/HackytoShared_main.iml" filepath="$PROJECT_DIR$/.idea/modules/HackytoShared_main.iml" group="HackytoShared" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/HackytoShared_test.iml" filepath="$PROJECT_DIR$/.idea/modules/HackytoShared_test.iml" group="HackytoShared" />
+    </modules>
+  </component>
+</project>
