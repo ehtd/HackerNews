@@ -8,7 +8,7 @@
 
 J2OBJC_HOME = /Users/ernesto.torres/Documents/j2objc-2.0.1
 J2OBJC_NULLABILITY = ${J2OBJC_HOME}/lib/jsr305-3.0.0.jar
-J2OBJC_SOURCES = ${PROJECT_DIR}/../Android/Hackyto/sharedLib
+J2OBJC_SOURCES = ${PROJECT_DIR}/../Android/Hackyto/sharedLib/src/main/java
 
 HEADER_SEARCH_PATHS = "${J2OBJC_HOME}/include";
 FRAMEWORK_SEARCH_PATHS = "${J2OBJC_HOME}/frameworks";
