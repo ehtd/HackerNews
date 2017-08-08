@@ -1,4 +1,4 @@
-package ernesto.io.hackyto;
+package io.ernesto.hackyto;
 
 import org.junit.Test;
 

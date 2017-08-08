@@ -1,4 +1,4 @@
-package ernesto.io.hackyto;
+package io.ernesto.hackyto;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
