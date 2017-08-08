@@ -28,7 +28,7 @@
 				"${DERIVED_FILES_DIR}/${INPUT_FILE_BASE}.h",
 				"${DERIVED_FILES_DIR}/${INPUT_FILE_BASE}.m",
 			);
-			script = "if [ ! -f \"${J2OBJC_HOME}/j2objc\" ]; then echo \"J2OBJC_HOME is not correctly defined, currently set to '${J2OBJC_HOME}'\"; exit 1; fi;\n\"${J2OBJC_HOME}/j2objc\" -d ${DERIVED_FILES_DIR} -sourcepath \"${J2OBJC_SOURCES}\" --prefix io.ernesto.hn.shared=IOE --no-package-directories -use-arc --swift-friendly -g -v -classpath \"${J2OBJC_NULLABILITY}\" ${INPUT_FILE_PATH};";
+			script = "if [ ! -f \"${J2OBJC_HOME}/j2objc\" ]; then echo \"J2OBJC_HOME is not correctly defined, currently set to '${J2OBJC_HOME}'\"; exit 1; fi;\n\"${J2OBJC_HOME}/j2objc\" -d ${DERIVED_FILES_DIR} -sourcepath \"${J2OBJC_SOURCES}\" --prefix io.ernesto.hn=IOE --no-package-directories -use-arc --swift-friendly -g -v -classpath \"${J2OBJC_NULLABILITY}\" ${INPUT_FILE_PATH};";
 		};
 /* End PBXBuildRule section */
 
