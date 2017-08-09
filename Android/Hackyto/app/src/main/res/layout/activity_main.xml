@@ -18,7 +18,11 @@
 
     <ListView
         android:id = "@+id/listView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_width="138dp"
+        android:layout_height="wrap_content"
+        android:dividerHeight="0dp"
+        android:divider="@null"
+        tools:layout_editor_absoluteY="0dp"
+        tools:layout_editor_absoluteX="8dp" />
 
 </android.support.constraint.ConstraintLayout>
