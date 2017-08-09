@@ -3,6 +3,7 @@ package io.ernesto.hackyto;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import java.util.concurrent.Callable;
@@ -16,16 +17,27 @@ public class MainActivity extends AppCompatActivity {
 
     private Fetcher fetcher;
     private TextView textView;
+    private ListView listView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        initialize();
+        loadView();
+        fetchContent();
+    }
+
+    private void loadView() {
         setContentView(R.layout.activity_main);
-
         textView = (TextView) findViewById(R.id.textView);
+        listView = (ListView) findViewById(R.id.listView);
+    }
 
+    private void initialize() {
         fetcher = new Fetcher("https://hacker-news.firebaseio.com/v0/");
+    }
 
+    private void fetchContent() {
         ExecutorService executor = Executors.newSingleThreadExecutor();
 
         FutureTask<String> future =

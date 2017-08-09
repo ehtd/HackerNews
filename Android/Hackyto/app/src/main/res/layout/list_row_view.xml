@@ -1,0 +1,56 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="horizontal"
+    android:background="#000000"
+    android:paddingTop="2dp"
+    android:paddingBottom="2dp">
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="horizontal"
+        android:background="@drawable/rounded_row">
+
+        <TextView
+            android:id="@+id/NumberTextView"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:text="000"
+            android:textAlignment="center"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:background="#FFFFFF"
+            android:textColor="#000000"
+            android:textSize="20dp"/>
+
+        <TextView
+            android:id="@+id/TitleTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="This is a title that should span for multiple lines. This should overflow."
+            android:layout_gravity="center"
+            android:textSize="16dp"/>
+
+        <TextView
+            android:id="@+id/CommentsTextView"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:text="111"
+            android:textAlignment="center"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:background="@drawable/circle"
+            android:textColor="#FFFFFF"
+            android:textSize="20dp"/>
+
+    </LinearLayout>
+</LinearLayout>
+
