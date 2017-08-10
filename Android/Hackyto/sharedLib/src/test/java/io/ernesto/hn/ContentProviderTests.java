@@ -22,4 +22,15 @@ public class ContentProviderTests {
         assertTrue(storyList != null);
         System.out.print(storyList);
     }
+
+    @Test
+    public void testFetchingStories() {
+        String contentPath = "topstories.json";
+        ContentProvider provider = new ContentProvider(baseUrl,contentPath);
+        Story[] stories = provider.getStories();
+
+        assertTrue(stories != null);
+        // TODO: Improve
+        System.out.print(stories[0].toString());
+    }
 }

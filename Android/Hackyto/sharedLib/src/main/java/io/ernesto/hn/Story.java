@@ -16,4 +16,13 @@ public class Story {
         this.comments = comments;
         this.url = url;
     }
+
+    @Override
+    public String toString() {
+        return title;
+    }
+
+    public String getTitle() {
+        return title;
+    }
 }

@@ -3,3 +3,5 @@
 //
 
 #import "Fetcher.h"
+#import "HackerNewsAPI.h"
+#import "Story.h"

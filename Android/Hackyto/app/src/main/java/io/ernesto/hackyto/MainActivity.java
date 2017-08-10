@@ -4,20 +4,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.ListView;
 
-import org.json.JSONArray;
-
-import java.util.ArrayList;
-import java.util.concurrent.Callable;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.FutureTask;
-
-import io.ernesto.hn.Fetcher;
 import io.ernesto.hn.HackerNewsAPI;
+import io.ernesto.hn.Story;
 
 public class MainActivity extends AppCompatActivity {
 
-    private Fetcher fetcher;
     private ListView listView;
     private ListAdapter adapter;
     private HackerNewsAPI api;
@@ -38,17 +29,16 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void initialize() {
-        fetcher = new Fetcher("https://hacker-news.firebaseio.com/v0/");
-        adapter = new ListAdapter(this, new JSONArray());
+        adapter = new ListAdapter(this, new Story[0]);
         listView.setAdapter(adapter);
 
         api = new HackerNewsAPI();
     }
 
     private void fetchContent() {
-        JSONArray storyIdList = api.fetch();
-        if (storyIdList != null) {
-            adapter.updateDataSource(storyIdList);
+        Story[] stories = api.fetch();
+        if (stories != null) {
+            adapter.updateDataSource(stories);
         }
     }
 }

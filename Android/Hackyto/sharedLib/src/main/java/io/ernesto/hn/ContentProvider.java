@@ -7,6 +7,7 @@ import java.util.concurrent.FutureTask;
 import java.util.concurrent.TimeUnit;
 
 import org.json.JSONArray;
+import org.json.JSONException;
 
 /**
  * Created by ernesto.torres on 8/10/17.
@@ -49,5 +50,23 @@ public class ContentProvider {
         }
 
         return null;
+    }
+
+    public @javax.annotation.Nullable Story[] getStories() {
+        JSONArray storyIdList = getStoryList();
+        Story[] stories = new Story[storyIdList.length()];
+        for(int i = 0; i < storyIdList.length(); i++) {
+            String title = "invalid";
+            try {
+                title = new Integer(storyIdList.getInt(i)).toString();
+            }
+            catch (JSONException e) {
+                e.printStackTrace();
+            }
+
+            Story story = new Story(title, "", "", "");
+            stories[i] = story;
+        }
+        return stories;
     }
 }

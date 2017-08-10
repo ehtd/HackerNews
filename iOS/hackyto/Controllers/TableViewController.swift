@@ -11,9 +11,13 @@ import SafariServices
 
 class TableViewController: UITableViewController {
 
-    fileprivate let fetcher = IOEFetcher(nsString: "https://hacker-news.firebaseio.com/v0/")
+    fileprivate let api = IOEHackerNewsAPI();
 
-    fileprivate var stories = [String]()
+    fileprivate var stories = [IOEStory]() {
+        didSet {
+            tableView.reloadData()
+        }
+    }
 
     fileprivate let pullToRefresh = UIRefreshControl()
     fileprivate let cellIdentifier = "StoryCell"
@@ -84,12 +88,18 @@ extension TableViewController {
 
 extension TableViewController {
     func retrieveStories() {
-        stories = ["Story 1", "Story 2", "Story 3", "Story 4", "Story 5",
-                   "Story 6", "Story 7", "Story 8", "Story 9", "Story 10"]
-        tableView.reloadData()
+        if let dataSource: IOSObjectArray = api?.fetch() {
+            var items: [IOEStory] = [IOEStory]()
+            for i in 0..<dataSource.length() {
+                if let story = dataSource.object(at: UInt(i)) as? IOEStory {
+                    items.append(story)
+                }
+            }
 
-        stopPullToRefresh()
-        // TODO: fetch content
+            stories = items
+
+            stopPullToRefresh()
+        }
     }
 }
 
@@ -113,7 +123,7 @@ extension TableViewController {
 
     func configureBasicCell(_ cell: StoryCell, indexPath: IndexPath) {
         let story = stories[indexPath.row]
-        cell.configureCell(title: story,
+        cell.configureCell(title: story.getTitle(),
                            author: "author",
                            storyKey: indexPath.row + 1,
                            number: indexPath.row + 1)

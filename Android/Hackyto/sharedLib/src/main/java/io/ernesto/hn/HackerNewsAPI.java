@@ -1,6 +1,7 @@
 package io.ernesto.hn;
 
 import org.json.JSONArray;
+import org.json.JSONException;
 
 import java.util.ArrayList;
 
@@ -24,8 +25,8 @@ public class HackerNewsAPI {
         this.provider = new ContentProvider(this.baseURL, this.topStoriesPath);
     }
 
-    public JSONArray fetch() {
-        return provider.getStoryList();
+    public Story[] fetch() {
+        return provider.getStories();
     }
 
     public void next() {

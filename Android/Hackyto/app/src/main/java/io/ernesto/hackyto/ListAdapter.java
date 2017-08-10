@@ -7,10 +7,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-
-import java.util.ArrayList;
+import io.ernesto.hn.Story;
 
 /**
  * Created by ernesto.torres on 8/10/17.
@@ -20,7 +17,7 @@ public class ListAdapter extends BaseAdapter {
 
     private Context context;
     private LayoutInflater inflater;
-    private JSONArray dataSource;
+    private Story[] dataSource;
 
     private static class ViewHolder {
         public TextView titleTextView;
@@ -29,32 +26,25 @@ public class ListAdapter extends BaseAdapter {
         public TextView authorTextView;
     }
 
-    public ListAdapter(Context context, JSONArray items) {
+    public ListAdapter(Context context, Story[] items) {
         this.context = context;
         this.dataSource = items;
         this.inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
     }
 
-    public void updateDataSource(JSONArray dataSource) {
+    public void updateDataSource(Story[] dataSource) {
         this.dataSource = dataSource;
         this.notifyDataSetChanged();
     }
 
     @Override
     public int getCount() {
-        return dataSource.length();
+        return dataSource.length;
     }
 
     @Override
     public Object getItem(int i) {
-        try {
-            return dataSource.getInt(i);
-        }
-        catch (JSONException e) {
-            e.printStackTrace();
-        }
-
-        return null;
+        return dataSource[i];
     }
 
     @Override
@@ -80,16 +70,10 @@ public class ListAdapter extends BaseAdapter {
             holder = (ViewHolder) view.getTag();
         }
 
-        String title = "";
-        try {
-            title = (new Integer(dataSource.getInt(i))).toString();
-        }
-        catch (JSONException e) {
-            e.printStackTrace();
-        }
+        Story story = dataSource[i];
 
         holder.numberTextView.setText((new Integer(i)).toString());
-        holder.titleTextView.setText(title);
+        holder.titleTextView.setText(story.getTitle());
         holder.commentsTextView.setText("0");
         holder.authorTextView.setText("Author");
 
