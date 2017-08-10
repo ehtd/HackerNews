@@ -3,7 +3,6 @@ package io.ernesto.hackyto;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.ListView;
-import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.concurrent.Callable;
@@ -30,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void loadView() {
         setContentView(R.layout.activity_main);
+
         listView = (ListView) findViewById(R.id.listView);
     }
 

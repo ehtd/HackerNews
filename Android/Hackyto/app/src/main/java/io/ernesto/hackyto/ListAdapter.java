@@ -23,6 +23,7 @@ public class ListAdapter extends BaseAdapter {
         public TextView titleTextView;
         public TextView numberTextView;
         public TextView commentsTextView;
+        public TextView authorTextView;
     }
 
     public ListAdapter(Context context, ArrayList<String> items) {
@@ -57,6 +58,7 @@ public class ListAdapter extends BaseAdapter {
             holder.commentsTextView = view.findViewById(R.id.CommentsTextView);
             holder.numberTextView = view.findViewById(R.id.NumberTextView);
             holder.titleTextView = view.findViewById(R.id.TitleTextView);
+            holder.authorTextView = view.findViewById(R.id.AuthorTextView);
             view.setTag(holder);
         }
         else {
@@ -66,6 +68,7 @@ public class ListAdapter extends BaseAdapter {
         holder.numberTextView.setText((new Integer(i)).toString());
         holder.titleTextView.setText(dataSource.get(i));
         holder.commentsTextView.setText("0");
+        holder.authorTextView.setText("Author");
 
         return view;
     }
