@@ -42,12 +42,12 @@
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:text="111"
+            android:background="@drawable/circle"
             android:textAlignment="center"
             android:gravity="center"
             android:layout_gravity="center"
             android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
-            android:background="@drawable/circle"
             android:textColor="#FFFFFF"
             android:textSize="20dp"/>
 

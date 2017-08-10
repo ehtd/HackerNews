@@ -2,14 +2,10 @@ package io.ernesto.hackyto;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import java.util.ArrayList;
 import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -20,50 +16,33 @@ import io.ernesto.hn.Fetcher;
 public class MainActivity extends AppCompatActivity {
 
     private Fetcher fetcher;
-    private TextView textView;
     private ListView listView;
+    private ListAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        initialize();
+
         loadView();
-
-        listView.setAdapter(new BaseAdapter() {
-            @Override
-            public int getCount() {
-                return 10;
-            }
-
-            @Override
-            public Object getItem(int i) {
-                return null;
-            }
-
-            @Override
-            public long getItemId(int i) {
-                return 0;
-            }
-
-            @Override
-            public View getView(int i, View view, ViewGroup viewGroup) {
-                LayoutInflater inflater = (LayoutInflater) getSystemService(LAYOUT_INFLATER_SERVICE);
-                View v = inflater.inflate(R.layout.list_row_view, null);
-
-                return v;
-            }
-        });
+        initialize();
         fetchContent();
     }
 
     private void loadView() {
         setContentView(R.layout.activity_main);
-        textView = (TextView) findViewById(R.id.textView);
         listView = (ListView) findViewById(R.id.listView);
     }
 
     private void initialize() {
         fetcher = new Fetcher("https://hacker-news.firebaseio.com/v0/");
+
+        ArrayList<String> dataSource = new ArrayList<>();
+        for(int i = 0; i < 10; i++){
+            dataSource.add("Title"+ (new Integer(i)).toString());
+        }
+
+        adapter = new ListAdapter(this, dataSource);
+        listView.setAdapter(adapter);
     }
 
     private void fetchContent() {
@@ -81,8 +60,8 @@ public class MainActivity extends AppCompatActivity {
 
         try {
             String fetchedResult = future.get();
-            textView.setText(fetchedResult);
             System.out.print(fetchedResult);
+            // TODO:
         }
         catch (Exception e) {
             e.printStackTrace();
