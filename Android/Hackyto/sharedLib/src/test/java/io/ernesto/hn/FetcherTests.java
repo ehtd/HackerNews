@@ -13,7 +13,7 @@ public class FetcherTests {
 
     @Test
     public void testHttpFetchingIDList() {
-        Fetcher fetcher = new Fetcher(baseUrl);
+        final Fetcher fetcher = new Fetcher(baseUrl);
 
         ExecutorService executor = Executors.newSingleThreadExecutor();
 
@@ -39,7 +39,7 @@ public class FetcherTests {
 
     @Test
     public void testHttpFetchItem() {
-        Fetcher fetcher = new Fetcher(baseUrl);
+        final Fetcher fetcher = new Fetcher(baseUrl);
 
         ExecutorService executor = Executors.newSingleThreadExecutor();
 
@@ -65,7 +65,7 @@ public class FetcherTests {
 
     @Test
     public void testFetchWithMalformedURL() {
-        Fetcher fetcher = new Fetcher("bad");
+        final Fetcher fetcher = new Fetcher("bad");
 
         ExecutorService executor = Executors.newSingleThreadExecutor();
 
