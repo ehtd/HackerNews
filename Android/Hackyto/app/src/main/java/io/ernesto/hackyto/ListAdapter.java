@@ -1,12 +1,15 @@
 package io.ernesto.hackyto;
 
 import android.content.Context;
+import android.graphics.Color;
+import android.graphics.drawable.GradientDrawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
+import io.ernesto.hn.ColorFactory;
 import io.ernesto.hn.Story;
 
 /**
@@ -77,6 +80,12 @@ public class ListAdapter extends BaseAdapter {
         holder.commentsTextView.setText("0");
         holder.authorTextView.setText("Author");
 
+        int color = ColorFactory.prefixAlpha(ColorFactory.colorFromNumber(i), 0xFF);
+        GradientDrawable bgShape = (GradientDrawable)holder.commentsTextView.getBackground();
+        bgShape.setColor(color);
+
+        holder.authorTextView.setTextColor(color);
+        holder.numberTextView.setTextColor(color);
         return view;
     }
 }

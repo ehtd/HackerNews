@@ -2,7 +2,7 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:orientation="horizontal"
-    android:background="#000000"
+    android:background="@color/darkGrayColor"
     android:paddingTop="2dp"
     android:paddingBottom="2dp">
 
@@ -10,7 +10,9 @@
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:orientation="horizontal"
-        android:background="@drawable/rounded_row">
+        android:background="@drawable/rounded_row"
+        android:layout_marginStart="4dp"
+        android:layout_marginEnd="4dp">
 
         <TextView
             android:id="@+id/NumberTextView"

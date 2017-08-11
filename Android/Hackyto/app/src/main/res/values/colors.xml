@@ -3,4 +3,18 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+    <color name="darkColor">#161617FF</color>
+    <color name="darkGrayColor">#3C3C3C</color>
+    <color name="lightColor">#FFFFFF</color>
+    <color name="blueColor">#2980B9</color>
+    <color name="turquoiseColor">#1ABC9C</color>
+    <color name="emeraldColor">#2ECC71</color>
+    <color name="amethystColor">#9B59B6</color>
+    <color name="sunFlowerColor">#F1C40F</color>
+    <color name="carrotColor">#E67E22</color>
+    <color name="alizarinColor">#E74C3C</color>
+    <color name="wisteriaColor">#8E44AE</color>
+    <color name="orangeColor">#F39C12</color>
+    <color name="pumpkinColor">#D35400</color>
+    <color name="belizeHoleColor">#2980B9</color>
 </resources>
