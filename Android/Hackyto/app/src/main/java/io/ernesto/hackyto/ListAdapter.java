@@ -75,7 +75,7 @@ public class ListAdapter extends BaseAdapter {
 
         Story story = dataSource[i];
 
-        holder.numberTextView.setText((new Integer(i)).toString());
+        holder.numberTextView.setText((new Integer(i + 1)).toString());
         holder.titleTextView.setText(story.getTitle());
         holder.commentsTextView.setText("0");
         holder.authorTextView.setText("Author");
@@ -86,6 +86,7 @@ public class ListAdapter extends BaseAdapter {
 
         holder.authorTextView.setTextColor(color);
         holder.numberTextView.setTextColor(color);
+        
         return view;
     }
 }
