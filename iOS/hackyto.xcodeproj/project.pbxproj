@@ -14,6 +14,7 @@
 		1646ABAA1F3CE07A00F92979 /* HackerNewsAPI.java in Sources */ = {isa = PBXBuildFile; fileRef = 1646ABA71F3CE07A00F92979 /* HackerNewsAPI.java */; };
 		1646ABAB1F3CE07A00F92979 /* Story.java in Sources */ = {isa = PBXBuildFile; fileRef = 1646ABA81F3CE07A00F92979 /* Story.java */; };
 		165016F31F3A79C5008A374B /* Fetcher.java in Sources */ = {isa = PBXBuildFile; fileRef = 165016F21F3A79C5008A374B /* Fetcher.java */; };
+		166795B81F3E301800A65E0F /* ColorFactory.java in Sources */ = {isa = PBXBuildFile; fileRef = 166795B71F3E301800A65E0F /* ColorFactory.java */; };
 		16CFD98C1F3A15C900B8A2C4 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16CFD98B1F3A15C900B8A2C4 /* TableViewController.swift */; };
 		16CFD98F1F3A175C00B8A2C4 /* CircledNumberView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16CFD98E1F3A175C00B8A2C4 /* CircledNumberView.swift */; };
 		16CFD9921F3A17ED00B8A2C4 /* StoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16CFD9901F3A17ED00B8A2C4 /* StoryCell.swift */; };
@@ -46,6 +47,7 @@
 		1646ABA71F3CE07A00F92979 /* HackerNewsAPI.java */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.java; name = HackerNewsAPI.java; path = ../../Android/Hackyto/sharedLib/src/main/java/io/ernesto/hn/HackerNewsAPI.java; sourceTree = "<group>"; };
 		1646ABA81F3CE07A00F92979 /* Story.java */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.java; name = Story.java; path = ../../Android/Hackyto/sharedLib/src/main/java/io/ernesto/hn/Story.java; sourceTree = "<group>"; };
 		165016F21F3A79C5008A374B /* Fetcher.java */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.java; name = Fetcher.java; path = ../../Android/Hackyto/sharedLib/src/main/java/io/ernesto/hn/Fetcher.java; sourceTree = "<group>"; };
+		166795B71F3E301800A65E0F /* ColorFactory.java */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.java; name = ColorFactory.java; path = ../../Android/Hackyto/sharedLib/src/main/java/io/ernesto/hn/ColorFactory.java; sourceTree = "<group>"; };
 		16CFD98B1F3A15C900B8A2C4 /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TableViewController.swift; path = Controllers/TableViewController.swift; sourceTree = "<group>"; };
 		16CFD98E1F3A175C00B8A2C4 /* CircledNumberView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CircledNumberView.swift; path = Views/CircledNumberView.swift; sourceTree = "<group>"; };
 		16CFD9901F3A17ED00B8A2C4 /* StoryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StoryCell.swift; path = Views/StoryCell.swift; sourceTree = "<group>"; };
@@ -101,6 +103,7 @@
 		161ECC911F3A084200699E77 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				166795B71F3E301800A65E0F /* ColorFactory.java */,
 				1646ABA61F3CE07A00F92979 /* ContentProvider.java */,
 				1646ABA71F3CE07A00F92979 /* HackerNewsAPI.java */,
 				1646ABA81F3CE07A00F92979 /* Story.java */,
@@ -214,6 +217,7 @@
 				1646ABA91F3CE07A00F92979 /* ContentProvider.java in Sources */,
 				1646ABAB1F3CE07A00F92979 /* Story.java in Sources */,
 				165016F31F3A79C5008A374B /* Fetcher.java in Sources */,
+				166795B81F3E301800A65E0F /* ColorFactory.java in Sources */,
 				16CFD98F1F3A175C00B8A2C4 /* CircledNumberView.swift in Sources */,
 				161ECC801F39009600699E77 /* AppDelegate.swift in Sources */,
 				16CFD98C1F3A15C900B8A2C4 /* TableViewController.swift in Sources */,
