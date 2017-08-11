@@ -80,7 +80,7 @@ public class ListAdapter extends BaseAdapter {
         holder.commentsTextView.setText("0");
         holder.authorTextView.setText("Author");
 
-        int color = ColorFactory.prefixAlpha(ColorFactory.colorFromNumber(i), 0xFF);
+        int color = ColorFactory.prefixAlpha(0xFF, ColorFactory.colorFromNumber(i));
         GradientDrawable bgShape = (GradientDrawable)holder.commentsTextView.getBackground();
         bgShape.setColor(color);
 

@@ -2,6 +2,7 @@ package io.ernesto.hn;
 
 import org.junit.Test;
 
+import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertTrue;
 
 /**
@@ -64,9 +65,46 @@ public class ColorFactoryTests {
     public void testColorWithFFPrefixAlpha() {
         int color = ColorFactory.belizeHoleColor; // 0x2980B9
         System.out.println(String.format("0x%06X", color));
-        int colorWithAlpha = ColorFactory.prefixAlpha(color, 0xFF);
+        int colorWithAlpha = ColorFactory.prefixAlpha(0xFF, color);
         System.out.println(String.format("0x%08X", colorWithAlpha));
 
         assertTrue(colorWithAlpha == 0xFF2980B9);
+    }
+
+    @Test
+    public void testReturnAndroidColors() {
+        int[] rgb = ColorFactory.rgbColors();
+        int[] argb = ColorFactory.argbColors();
+
+        assertTrue(rgb.length == argb.length);
+
+        int[] generatedArray = new int[rgb.length];
+
+        for(int i = 0; i < rgb.length; i++) {
+            int color = rgb[i];
+            int argbColor = ColorFactory.prefixAlpha(0xFF, color);
+            generatedArray[i] = argbColor;
+            System.out.println(String.format("0x%08X", argbColor));
+            System.out.println(String.format("0x%08X", argb[i]));
+        }
+
+        assertArrayEquals(generatedArray, argb);
+    }
+
+    @Test
+    public void testArgbColorsAreShuffled() {
+        int[] shuffled = ColorFactory.shuffledArgbColors();
+        int[] argb = ColorFactory.argbColors();
+
+        int duplicates = 0;
+        for(int i = 0; i < argb.length; i++) {
+            if (shuffled[i] == argb[i]) {
+                duplicates++;
+            }
+            System.out.println(String.format("0x%08X", shuffled[i]));
+            System.out.println(String.format("0x%08X", argb[i]));
+        }
+        System.out.println(String.format("%d", duplicates));
+        assertTrue(duplicates < argb.length);
     }
 }
