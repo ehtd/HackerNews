@@ -5,6 +5,8 @@ import org.json.JSONException;
 
 import java.util.ArrayList;
 
+import javax.annotation.Nullable;
+
 /**
  * Created by ernesto.torres on 8/10/17.
  */
@@ -25,7 +27,8 @@ public class HackerNewsAPI {
         this.provider = new ContentProvider(this.baseURL, this.topStoriesPath);
     }
 
-    public Story[] fetch() {
+    public @Nullable
+    Story[] fetch() {
         return provider.getStories();
     }
 

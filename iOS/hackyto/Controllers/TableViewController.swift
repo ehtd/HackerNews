@@ -97,9 +97,12 @@ extension TableViewController {
             }
 
             stories = items
-
-            stopPullToRefresh()
         }
+        else {
+            // TODO: Empty
+        }
+
+        stopPullToRefresh()
     }
 }
 

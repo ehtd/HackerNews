@@ -38,12 +38,10 @@ public class ContentProvider {
 
         try {
             String response = future.get(5000, TimeUnit.MILLISECONDS);
-            JSONArray storyIdList = null;
             if (response != null) {
-                storyIdList = new JSONArray(response);
+                JSONArray storyIdList = new JSONArray(response);
+                return storyIdList;
             }
-
-            return storyIdList;
         }
         catch (Exception e) {
             e.printStackTrace();
@@ -54,6 +52,9 @@ public class ContentProvider {
 
     public @javax.annotation.Nullable Story[] getStories() {
         JSONArray storyIdList = getStoryList();
+
+        if (storyIdList == null) { return null; }
+
         Story[] stories = new Story[storyIdList.length()];
         for(int i = 0; i < storyIdList.length(); i++) {
             String title = "invalid";
