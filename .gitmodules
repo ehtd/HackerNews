@@ -1,0 +1,4 @@
+[submodule "HNCore"]
+	path = HNCore
+	url = https://github.com/ehtd/HNCore
+	branch = 339ee0f405585b37c67992971d6721df63c47272
