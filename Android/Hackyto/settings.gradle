@@ -1,1 +1,4 @@
-include ':app', ':sharedLib'
+include ':app'
+include ':Java-core'
+
+project(':Java-core').projectDir = new File(settingsDir, '../../HNCore/Java-core')

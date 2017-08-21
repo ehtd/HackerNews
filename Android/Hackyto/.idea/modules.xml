@@ -3,8 +3,8 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Hackyto.iml" filepath="$PROJECT_DIR$/Hackyto.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../HNCore/Java-core/Java-core.iml" filepath="$PROJECT_DIR$/../../HNCore/Java-core/Java-core.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/sharedLib/sharedLib.iml" filepath="$PROJECT_DIR$/sharedLib/sharedLib.iml" />
     </modules>
   </component>
 </project>
