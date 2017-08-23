@@ -40,8 +40,8 @@ class TableViewController: UITableViewController {
 
 extension TableViewController {
     func addStylesToTableView() {
-        view.backgroundColor = ColorFactory.darkGrayColor()
-        tableView.backgroundColor = ColorFactory.darkGrayColor()
+        view.backgroundColor = UIColor.backgroundColor()
+        tableView.backgroundColor = UIColor.backgroundColor()
 
         tableView.separatorColor = UIColor.clear
         tableView.separatorStyle = UITableViewCellSeparatorStyle.none
@@ -54,7 +54,7 @@ extension TableViewController {
 
 extension TableViewController {
     func addPullToRefresh() {
-        pullToRefresh.backgroundColor = ColorFactory.colorFromNumber(TableViewController.colorIndex)
+        pullToRefresh.backgroundColor = UIColor.fromNumber(TableViewController.colorIndex)
         pullToRefresh.tintColor = UIColor.white
         pullToRefresh.addTarget(self, action: #selector(TableViewController.retrieveStories), for: UIControlEvents.valueChanged)
 
@@ -78,7 +78,7 @@ extension TableViewController {
         DispatchQueue.main.asyncAfter(deadline: delayTime) { [weak self] in
             if let strongSelf = self {
                 TableViewController.colorIndex += 1
-                strongSelf.pullToRefresh.backgroundColor = ColorFactory.colorFromNumber(TableViewController.colorIndex)
+                strongSelf.pullToRefresh.backgroundColor = UIColor.fromNumber(TableViewController.colorIndex)
             }
         }
     }

@@ -18,7 +18,7 @@ class CircledNumberView: UIView {
 
     @IBInspectable var colorNumber: Int = 0 {
         didSet {
-            self.circleView?.backgroundColor = ColorFactory.colorFromNumber(colorNumber)
+            self.circleView?.backgroundColor = UIColor.fromNumber(colorNumber)
         }
     }
 
@@ -47,11 +47,11 @@ class CircledNumberView: UIView {
     }
 
     func configureCircleView() {
-        self.circleView?.backgroundColor = ColorFactory.colorFromNumber(colorNumber)
+        self.circleView?.backgroundColor = UIColor.fromNumber(colorNumber)
     }
 
     func configureNumberLabel() {
-        self.numberLabel?.textColor = ColorFactory.colorFromNumber(colorNumber)
+        self.numberLabel?.textColor = UIColor.fromNumber(colorNumber)
         self.numberLabel?.textColor = UIColor.white
         self.numberLabel?.adjustsFontSizeToFitWidth = true
         self.numberLabel?.font = UIFont(name: "HelveticaNeue-CondensedBlack", size: 300)

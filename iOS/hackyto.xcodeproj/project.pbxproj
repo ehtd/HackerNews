@@ -18,7 +18,6 @@
 		16CFD98F1F3A175C00B8A2C4 /* CircledNumberView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16CFD98E1F3A175C00B8A2C4 /* CircledNumberView.swift */; };
 		16CFD9921F3A17ED00B8A2C4 /* StoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16CFD9901F3A17ED00B8A2C4 /* StoryCell.swift */; };
 		16CFD9931F3A17ED00B8A2C4 /* StoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 16CFD9911F3A17ED00B8A2C4 /* StoryCell.xib */; };
-		16CFD9961F3A183900B8A2C4 /* ColorFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16CFD9951F3A183900B8A2C4 /* ColorFactory.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,11 +44,11 @@
 		163883841F4DF787003FE942 /* hackytoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = hackytoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		163883881F4DF787003FE942 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1638838E1F4DF797003FE942 /* UIColorUtilitiesTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorUtilitiesTests.swift; sourceTree = "<group>"; };
+		163883911F4DFE14003FE942 /* hackytoTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "hackytoTests-Bridging-Header.h"; sourceTree = "<group>"; };
 		16CFD98B1F3A15C900B8A2C4 /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TableViewController.swift; path = Controllers/TableViewController.swift; sourceTree = "<group>"; };
 		16CFD98E1F3A175C00B8A2C4 /* CircledNumberView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CircledNumberView.swift; path = Views/CircledNumberView.swift; sourceTree = "<group>"; };
 		16CFD9901F3A17ED00B8A2C4 /* StoryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StoryCell.swift; path = Views/StoryCell.swift; sourceTree = "<group>"; };
 		16CFD9911F3A17ED00B8A2C4 /* StoryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = StoryCell.xib; path = Views/StoryCell.xib; sourceTree = "<group>"; };
-		16CFD9951F3A183900B8A2C4 /* ColorFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ColorFactory.swift; path = Temp/ColorFactory.swift; sourceTree = "<group>"; };
 		16CFD9971F3A19B500B8A2C4 /* hackyto-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "hackyto-Bridging-Header.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -96,7 +95,6 @@
 			isa = PBXGroup;
 			children = (
 				1638837D1F4DF75C003FE942 /* Utilities */,
-				16CFD9941F3A180100B8A2C4 /* Temp */,
 				16CFD98D1F3A161600B8A2C4 /* Views */,
 				16CFD98A1F3A147600B8A2C4 /* Controllers */,
 				161ECC7F1F39009600699E77 /* AppDelegate.swift */,
@@ -131,6 +129,7 @@
 			children = (
 				1638838E1F4DF797003FE942 /* UIColorUtilitiesTests.swift */,
 				163883881F4DF787003FE942 /* Info.plist */,
+				163883911F4DFE14003FE942 /* hackytoTests-Bridging-Header.h */,
 			);
 			path = hackytoTests;
 			sourceTree = "<group>";
@@ -151,14 +150,6 @@
 				16CFD98E1F3A175C00B8A2C4 /* CircledNumberView.swift */,
 			);
 			name = Views;
-			sourceTree = "<group>";
-		};
-		16CFD9941F3A180100B8A2C4 /* Temp */ = {
-			isa = PBXGroup;
-			children = (
-				16CFD9951F3A183900B8A2C4 /* ColorFactory.swift */,
-			);
-			name = Temp;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -218,6 +209,7 @@
 					163883831F4DF787003FE942 = {
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = WUZALV7LJS;
+						LastSwiftMigration = 0830;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 161ECC7B1F39009500699E77;
 					};
@@ -267,7 +259,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				16CFD9961F3A183900B8A2C4 /* ColorFactory.swift in Sources */,
 				16CFD98F1F3A175C00B8A2C4 /* CircledNumberView.swift in Sources */,
 				1638837F1F4DF76C003FE942 /* UIColorUtilities.swift in Sources */,
 				161ECC801F39009600699E77 /* AppDelegate.swift in Sources */,
@@ -443,11 +434,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = WUZALV7LJS;
 				INFOPLIST_FILE = hackytoTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = io.ernesto.hackytoTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "hackytoTests/hackytoTests-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/hackyto.app/hackyto";
 			};
@@ -457,11 +451,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = WUZALV7LJS;
 				INFOPLIST_FILE = hackytoTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = io.ernesto.hackytoTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "hackytoTests/hackytoTests-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/hackyto.app/hackyto";
 			};

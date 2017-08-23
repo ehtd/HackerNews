@@ -26,11 +26,11 @@ class StoryCell: UITableViewCell {
         super.awakeFromNib()
         self.pillView.layer.cornerRadius = 30.0
 
-        self.backgroundColor = ColorFactory.darkGrayColor()
-        self.backgroundView?.backgroundColor = ColorFactory.darkGrayColor()
-        self.contentView.backgroundColor = ColorFactory.darkGrayColor()
+        self.backgroundColor = UIColor.backgroundColor()
+        self.backgroundView?.backgroundColor = UIColor.backgroundColor()
+        self.contentView.backgroundColor = UIColor.backgroundColor()
         self.numberLabel.textAlignment = .center
-        self.pillView.backgroundColor = ColorFactory.lightColor()
+        self.pillView.backgroundColor = UIColor.pillColor()
     }
 
     func configureCell(title:String, author:String, storyKey: Int, number: Int) {
@@ -42,10 +42,10 @@ class StoryCell: UITableViewCell {
         
         self.titleLabel.text = title
         
-        self.authorLabel.textColor = ColorFactory.colorFromNumber(number)
+        self.authorLabel.textColor = UIColor.fromNumber(number)
         self.authorLabel.text = author
 
-        self.numberLabel.textColor = ColorFactory.colorFromNumber(number)
+        self.numberLabel.textColor = UIColor.fromNumber(number)
         self.numberLabel.text = String(number)
 
         self.circledNumberView.colorNumber = number

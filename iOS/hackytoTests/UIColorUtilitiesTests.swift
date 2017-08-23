@@ -11,7 +11,7 @@ import XCTest
 class UIColorUtilitiesTests: XCTestCase {
     
     func testUIColorGeneratedFromHexHasCorrectComponents() {
-        let color = UIColor.fromInt(intColor: 0x112233)
+        let color = UIColor.fromInt(0x112233)
 
         var red: CGFloat = 0.0
         var green: CGFloat = 0.0
