@@ -10,11 +10,7 @@
 		161ECC801F39009600699E77 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 161ECC7F1F39009600699E77 /* AppDelegate.swift */; };
 		161ECC871F39009600699E77 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 161ECC861F39009600699E77 /* Assets.xcassets */; };
 		161ECC8A1F39009600699E77 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 161ECC881F39009600699E77 /* LaunchScreen.storyboard */; };
-		16A8200E1F4B4ECE00516666 /* ColorFactory.java in Sources */ = {isa = PBXBuildFile; fileRef = 16A820091F4B4ECE00516666 /* ColorFactory.java */; };
-		16A8200F1F4B4ECE00516666 /* ContentProvider.java in Sources */ = {isa = PBXBuildFile; fileRef = 16A8200A1F4B4ECE00516666 /* ContentProvider.java */; };
-		16A820101F4B4ECE00516666 /* Fetcher.java in Sources */ = {isa = PBXBuildFile; fileRef = 16A8200B1F4B4ECE00516666 /* Fetcher.java */; };
-		16A820111F4B4ECE00516666 /* HackerNewsAPI.java in Sources */ = {isa = PBXBuildFile; fileRef = 16A8200C1F4B4ECE00516666 /* HackerNewsAPI.java */; };
-		16A820121F4B4ECE00516666 /* Story.java in Sources */ = {isa = PBXBuildFile; fileRef = 16A8200D1F4B4ECE00516666 /* Story.java */; };
+		163883731F4DF0B4003FE942 /* HNCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1638833F1F4CA91F003FE942 /* HNCore.framework */; };
 		16CFD98C1F3A15C900B8A2C4 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16CFD98B1F3A15C900B8A2C4 /* TableViewController.swift */; };
 		16CFD98F1F3A175C00B8A2C4 /* CircledNumberView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16CFD98E1F3A175C00B8A2C4 /* CircledNumberView.swift */; };
 		16CFD9921F3A17ED00B8A2C4 /* StoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16CFD9901F3A17ED00B8A2C4 /* StoryCell.swift */; };
@@ -22,32 +18,16 @@
 		16CFD9961F3A183900B8A2C4 /* ColorFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16CFD9951F3A183900B8A2C4 /* ColorFactory.swift */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXBuildRule section */
-		161ECC961F3A10A500699E77 /* PBXBuildRule */ = {
-			isa = PBXBuildRule;
-			compilerSpec = com.apple.compilers.proxy.script;
-			fileType = sourcecode.java;
-			isEditable = 1;
-			outputFiles = (
-				"${DERIVED_FILES_DIR}/${INPUT_FILE_BASE}.h",
-				"${DERIVED_FILES_DIR}/${INPUT_FILE_BASE}.m",
-			);
-			script = "if [ ! -f \"${J2OBJC_HOME}/j2objc\" ]; then echo \"J2OBJC_HOME is not correctly defined, currently set to '${J2OBJC_HOME}'\"; exit 1; fi;\n\"${J2OBJC_HOME}/j2objc\" -d ${DERIVED_FILES_DIR} -sourcepath \"${J2OBJC_SOURCES}\" --prefix io.ernesto.hn=IOE --no-package-directories -use-arc --swift-friendly -g -v -classpath \"${J2OBJC_NULLABILITY}\" ${INPUT_FILE_PATH};";
-		};
-/* End PBXBuildRule section */
-
 /* Begin PBXFileReference section */
 		161ECC7C1F39009500699E77 /* hackyto.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = hackyto.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		161ECC7F1F39009600699E77 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		161ECC861F39009600699E77 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		161ECC891F39009600699E77 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		161ECC8B1F39009600699E77 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		161ECC931F3A0C9B00699E77 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = Config.xcconfig; path = hackyto/Config.xcconfig; sourceTree = "<group>"; };
-		16A820091F4B4ECE00516666 /* ColorFactory.java */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.java; path = ColorFactory.java; sourceTree = "<group>"; };
-		16A8200A1F4B4ECE00516666 /* ContentProvider.java */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.java; path = ContentProvider.java; sourceTree = "<group>"; };
-		16A8200B1F4B4ECE00516666 /* Fetcher.java */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.java; path = Fetcher.java; sourceTree = "<group>"; };
-		16A8200C1F4B4ECE00516666 /* HackerNewsAPI.java */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.java; path = HackerNewsAPI.java; sourceTree = "<group>"; };
-		16A8200D1F4B4ECE00516666 /* Story.java */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.java; path = Story.java; sourceTree = "<group>"; };
+		1638833F1F4CA91F003FE942 /* HNCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HNCore.framework; path = "../../../../../Library/Developer/Xcode/DerivedData/Hackyto-fppwzyofzcpofichzuzlhygpduxq/Build/Products/Debug-iphonesimulator/HNCore.framework"; sourceTree = "<group>"; };
+		163883651F4CEA17003FE942 /* libHNCoreLib.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libHNCoreLib.a; path = "../../../../../Library/Developer/Xcode/DerivedData/Hackyto-fppwzyofzcpofichzuzlhygpduxq/Build/Products/Debug-iphonesimulator/libHNCoreLib.a"; sourceTree = "<group>"; };
+		163883671F4CEAB9003FE942 /* libHN.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libHN.a; path = "../../../../../Library/Developer/Xcode/DerivedData/Hackyto-fppwzyofzcpofichzuzlhygpduxq/Build/Products/Debug-iphonesimulator/libHN.a"; sourceTree = "<group>"; };
+		163883741F4DF0EF003FE942 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 		16CFD98B1F3A15C900B8A2C4 /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TableViewController.swift; path = Controllers/TableViewController.swift; sourceTree = "<group>"; };
 		16CFD98E1F3A175C00B8A2C4 /* CircledNumberView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CircledNumberView.swift; path = Views/CircledNumberView.swift; sourceTree = "<group>"; };
 		16CFD9901F3A17ED00B8A2C4 /* StoryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StoryCell.swift; path = Views/StoryCell.swift; sourceTree = "<group>"; };
@@ -61,6 +41,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				163883731F4DF0B4003FE942 /* HNCore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -70,9 +51,10 @@
 		161ECC731F39009500699E77 = {
 			isa = PBXGroup;
 			children = (
-				161ECC931F3A0C9B00699E77 /* Config.xcconfig */,
+				163883741F4DF0EF003FE942 /* Config.xcconfig */,
 				161ECC7E1F39009500699E77 /* hackyto */,
 				161ECC7D1F39009500699E77 /* Products */,
+				1638833E1F4CA91F003FE942 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -90,7 +72,6 @@
 				16CFD9941F3A180100B8A2C4 /* Temp */,
 				16CFD98D1F3A161600B8A2C4 /* Views */,
 				16CFD98A1F3A147600B8A2C4 /* Controllers */,
-				161ECC911F3A084200699E77 /* Shared */,
 				161ECC7F1F39009600699E77 /* AppDelegate.swift */,
 				16CFD9971F3A19B500B8A2C4 /* hackyto-Bridging-Header.h */,
 				161ECC861F39009600699E77 /* Assets.xcassets */,
@@ -100,41 +81,14 @@
 			path = hackyto;
 			sourceTree = "<group>";
 		};
-		161ECC911F3A084200699E77 /* Shared */ = {
+		1638833E1F4CA91F003FE942 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				16A820061F4B4ECE00516666 /* io */,
+				163883671F4CEAB9003FE942 /* libHN.a */,
+				163883651F4CEA17003FE942 /* libHNCoreLib.a */,
+				1638833F1F4CA91F003FE942 /* HNCore.framework */,
 			);
-			name = Shared;
-			sourceTree = "<group>";
-		};
-		16A820061F4B4ECE00516666 /* io */ = {
-			isa = PBXGroup;
-			children = (
-				16A820071F4B4ECE00516666 /* ernesto */,
-			);
-			name = io;
-			path = "../../HNCore/Java-core/src/main/java/io";
-			sourceTree = "<group>";
-		};
-		16A820071F4B4ECE00516666 /* ernesto */ = {
-			isa = PBXGroup;
-			children = (
-				16A820081F4B4ECE00516666 /* hn */,
-			);
-			path = ernesto;
-			sourceTree = "<group>";
-		};
-		16A820081F4B4ECE00516666 /* hn */ = {
-			isa = PBXGroup;
-			children = (
-				16A820091F4B4ECE00516666 /* ColorFactory.java */,
-				16A8200A1F4B4ECE00516666 /* ContentProvider.java */,
-				16A8200B1F4B4ECE00516666 /* Fetcher.java */,
-				16A8200C1F4B4ECE00516666 /* HackerNewsAPI.java */,
-				16A8200D1F4B4ECE00516666 /* Story.java */,
-			);
-			path = hn;
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		16CFD98A1F3A147600B8A2C4 /* Controllers */ = {
@@ -175,7 +129,6 @@
 				161ECC7A1F39009500699E77 /* Resources */,
 			);
 			buildRules = (
-				161ECC961F3A10A500699E77 /* PBXBuildRule */,
 			);
 			dependencies = (
 			);
@@ -239,14 +192,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				16CFD9961F3A183900B8A2C4 /* ColorFactory.swift in Sources */,
-				16A820121F4B4ECE00516666 /* Story.java in Sources */,
-				16A8200F1F4B4ECE00516666 /* ContentProvider.java in Sources */,
-				16A820101F4B4ECE00516666 /* Fetcher.java in Sources */,
-				16A8200E1F4B4ECE00516666 /* ColorFactory.java in Sources */,
 				16CFD98F1F3A175C00B8A2C4 /* CircledNumberView.swift in Sources */,
 				161ECC801F39009600699E77 /* AppDelegate.swift in Sources */,
 				16CFD98C1F3A15C900B8A2C4 /* TableViewController.swift in Sources */,
-				16A820111F4B4ECE00516666 /* HackerNewsAPI.java in Sources */,
 				16CFD9921F3A17ED00B8A2C4 /* StoryCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -267,7 +215,7 @@
 /* Begin XCBuildConfiguration section */
 		161ECC8C1F39009600699E77 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 161ECC931F3A0C9B00699E77 /* Config.xcconfig */;
+			baseConfigurationReference = 163883741F4DF0EF003FE942 /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -318,7 +266,7 @@
 		};
 		161ECC8D1F39009600699E77 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 161ECC931F3A0C9B00699E77 /* Config.xcconfig */;
+			baseConfigurationReference = 163883741F4DF0EF003FE942 /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -369,6 +317,7 @@
 				INFOPLIST_FILE = hackyto/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ehtd.hackyto;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "hackyto/hackyto-Bridging-Header.h";
@@ -387,6 +336,7 @@
 				INFOPLIST_FILE = hackyto/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ehtd.hackyto;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "hackyto/hackyto-Bridging-Header.h";

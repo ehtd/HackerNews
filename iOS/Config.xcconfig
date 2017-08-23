@@ -1,0 +1,12 @@
+//
+//  Config.xcconfig
+//  hackyto
+//
+//  Created by Ernesto Torres on 8/23/17.
+//  Copyright © 2017 Ernesto Torres. All rights reserved.
+//
+
+J2OBJC_HOME = /Users/ernesto.torres/Documents/j2objc-2.0.1
+
+HEADER_SEARCH_PATHS = "${J2OBJC_HOME}/frameworks/JRE.framework/Headers";
+

@@ -2,6 +2,5 @@
 //  Use this file to import your target's public headers that you would like to expose to Swift.
 //
 
-#import "Fetcher.h"
-#import "HackerNewsAPI.h"
-#import "Story.h"
+@import HNCore;
+

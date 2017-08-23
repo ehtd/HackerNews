@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "3E77FC1FE334875A451C506317FB27F3D692C252",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "F8424CACE03ACA7A566DA0E6D5EE10D585330384" : 9223372036854775807,
+    "3E77FC1FE334875A451C506317FB27F3D692C252" : 9223372036854775807
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "BCF9C99D-C387-4631-AEA5-AF382C1555C3",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "F8424CACE03ACA7A566DA0E6D5EE10D585330384" : "HackerNews\/HNCore\/",
+    "3E77FC1FE334875A451C506317FB27F3D692C252" : "HackerNews\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "Hackyto",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "iOS\/Hackyto.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/ehtd\/HackerNews.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "3E77FC1FE334875A451C506317FB27F3D692C252"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/ehtd\/HNCore",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "F8424CACE03ACA7A566DA0E6D5EE10D585330384"
+    }
+  ]
+}
