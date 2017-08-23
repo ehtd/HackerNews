@@ -11,12 +11,25 @@
 		161ECC871F39009600699E77 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 161ECC861F39009600699E77 /* Assets.xcassets */; };
 		161ECC8A1F39009600699E77 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 161ECC881F39009600699E77 /* LaunchScreen.storyboard */; };
 		163883731F4DF0B4003FE942 /* HNCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1638833F1F4CA91F003FE942 /* HNCore.framework */; };
+		1638837F1F4DF76C003FE942 /* UIColorUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1638837E1F4DF76C003FE942 /* UIColorUtilities.swift */; };
+		1638838F1F4DF797003FE942 /* UIColorUtilitiesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1638838E1F4DF797003FE942 /* UIColorUtilitiesTests.swift */; };
+		163883901F4DF7B0003FE942 /* UIColorUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1638837E1F4DF76C003FE942 /* UIColorUtilities.swift */; };
 		16CFD98C1F3A15C900B8A2C4 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16CFD98B1F3A15C900B8A2C4 /* TableViewController.swift */; };
 		16CFD98F1F3A175C00B8A2C4 /* CircledNumberView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16CFD98E1F3A175C00B8A2C4 /* CircledNumberView.swift */; };
 		16CFD9921F3A17ED00B8A2C4 /* StoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16CFD9901F3A17ED00B8A2C4 /* StoryCell.swift */; };
 		16CFD9931F3A17ED00B8A2C4 /* StoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 16CFD9911F3A17ED00B8A2C4 /* StoryCell.xib */; };
 		16CFD9961F3A183900B8A2C4 /* ColorFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16CFD9951F3A183900B8A2C4 /* ColorFactory.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		163883891F4DF787003FE942 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 161ECC741F39009500699E77 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 161ECC7B1F39009500699E77;
+			remoteInfo = hackyto;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		161ECC7C1F39009500699E77 /* hackyto.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = hackyto.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -28,6 +41,10 @@
 		163883651F4CEA17003FE942 /* libHNCoreLib.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libHNCoreLib.a; path = "../../../../../Library/Developer/Xcode/DerivedData/Hackyto-fppwzyofzcpofichzuzlhygpduxq/Build/Products/Debug-iphonesimulator/libHNCoreLib.a"; sourceTree = "<group>"; };
 		163883671F4CEAB9003FE942 /* libHN.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libHN.a; path = "../../../../../Library/Developer/Xcode/DerivedData/Hackyto-fppwzyofzcpofichzuzlhygpduxq/Build/Products/Debug-iphonesimulator/libHN.a"; sourceTree = "<group>"; };
 		163883741F4DF0EF003FE942 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
+		1638837E1F4DF76C003FE942 /* UIColorUtilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIColorUtilities.swift; path = Utilities/UIColorUtilities.swift; sourceTree = "<group>"; };
+		163883841F4DF787003FE942 /* hackytoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = hackytoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		163883881F4DF787003FE942 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1638838E1F4DF797003FE942 /* UIColorUtilitiesTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorUtilitiesTests.swift; sourceTree = "<group>"; };
 		16CFD98B1F3A15C900B8A2C4 /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TableViewController.swift; path = Controllers/TableViewController.swift; sourceTree = "<group>"; };
 		16CFD98E1F3A175C00B8A2C4 /* CircledNumberView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CircledNumberView.swift; path = Views/CircledNumberView.swift; sourceTree = "<group>"; };
 		16CFD9901F3A17ED00B8A2C4 /* StoryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StoryCell.swift; path = Views/StoryCell.swift; sourceTree = "<group>"; };
@@ -45,6 +62,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		163883811F4DF787003FE942 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -53,6 +77,7 @@
 			children = (
 				163883741F4DF0EF003FE942 /* Config.xcconfig */,
 				161ECC7E1F39009500699E77 /* hackyto */,
+				163883851F4DF787003FE942 /* hackytoTests */,
 				161ECC7D1F39009500699E77 /* Products */,
 				1638833E1F4CA91F003FE942 /* Frameworks */,
 			);
@@ -62,6 +87,7 @@
 			isa = PBXGroup;
 			children = (
 				161ECC7C1F39009500699E77 /* hackyto.app */,
+				163883841F4DF787003FE942 /* hackytoTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -69,6 +95,7 @@
 		161ECC7E1F39009500699E77 /* hackyto */ = {
 			isa = PBXGroup;
 			children = (
+				1638837D1F4DF75C003FE942 /* Utilities */,
 				16CFD9941F3A180100B8A2C4 /* Temp */,
 				16CFD98D1F3A161600B8A2C4 /* Views */,
 				16CFD98A1F3A147600B8A2C4 /* Controllers */,
@@ -89,6 +116,23 @@
 				1638833F1F4CA91F003FE942 /* HNCore.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		1638837D1F4DF75C003FE942 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				1638837E1F4DF76C003FE942 /* UIColorUtilities.swift */,
+			);
+			name = Utilities;
+			sourceTree = "<group>";
+		};
+		163883851F4DF787003FE942 /* hackytoTests */ = {
+			isa = PBXGroup;
+			children = (
+				1638838E1F4DF797003FE942 /* UIColorUtilitiesTests.swift */,
+				163883881F4DF787003FE942 /* Info.plist */,
+			);
+			path = hackytoTests;
 			sourceTree = "<group>";
 		};
 		16CFD98A1F3A147600B8A2C4 /* Controllers */ = {
@@ -137,6 +181,24 @@
 			productReference = 161ECC7C1F39009500699E77 /* hackyto.app */;
 			productType = "com.apple.product-type.application";
 		};
+		163883831F4DF787003FE942 /* hackytoTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1638838B1F4DF787003FE942 /* Build configuration list for PBXNativeTarget "hackytoTests" */;
+			buildPhases = (
+				163883801F4DF787003FE942 /* Sources */,
+				163883811F4DF787003FE942 /* Frameworks */,
+				163883821F4DF787003FE942 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1638838A1F4DF787003FE942 /* PBXTargetDependency */,
+			);
+			name = hackytoTests;
+			productName = hackytoTests;
+			productReference = 163883841F4DF787003FE942 /* hackytoTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -152,6 +214,12 @@
 						DevelopmentTeam = WUZALV7LJS;
 						LastSwiftMigration = 0830;
 						ProvisioningStyle = Automatic;
+					};
+					163883831F4DF787003FE942 = {
+						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = WUZALV7LJS;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 161ECC7B1F39009500699E77;
 					};
 				};
 			};
@@ -169,6 +237,7 @@
 			projectRoot = "";
 			targets = (
 				161ECC7B1F39009500699E77 /* hackyto */,
+				163883831F4DF787003FE942 /* hackytoTests */,
 			);
 		};
 /* End PBXProject section */
@@ -184,6 +253,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		163883821F4DF787003FE942 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -193,13 +269,31 @@
 			files = (
 				16CFD9961F3A183900B8A2C4 /* ColorFactory.swift in Sources */,
 				16CFD98F1F3A175C00B8A2C4 /* CircledNumberView.swift in Sources */,
+				1638837F1F4DF76C003FE942 /* UIColorUtilities.swift in Sources */,
 				161ECC801F39009600699E77 /* AppDelegate.swift in Sources */,
 				16CFD98C1F3A15C900B8A2C4 /* TableViewController.swift in Sources */,
 				16CFD9921F3A17ED00B8A2C4 /* StoryCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		163883801F4DF787003FE942 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				163883901F4DF7B0003FE942 /* UIColorUtilities.swift in Sources */,
+				1638838F1F4DF797003FE942 /* UIColorUtilitiesTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		1638838A1F4DF787003FE942 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 161ECC7B1F39009500699E77 /* hackyto */;
+			targetProxy = 163883891F4DF787003FE942 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		161ECC881F39009600699E77 /* LaunchScreen.storyboard */ = {
@@ -345,6 +439,34 @@
 			};
 			name = Release;
 		};
+		1638838C1F4DF787003FE942 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = WUZALV7LJS;
+				INFOPLIST_FILE = hackytoTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = io.ernesto.hackytoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/hackyto.app/hackyto";
+			};
+			name = Debug;
+		};
+		1638838D1F4DF787003FE942 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = WUZALV7LJS;
+				INFOPLIST_FILE = hackytoTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = io.ernesto.hackytoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/hackyto.app/hackyto";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -365,6 +487,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		1638838B1F4DF787003FE942 /* Build configuration list for PBXNativeTarget "hackytoTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1638838C1F4DF787003FE942 /* Debug */,
+				1638838D1F4DF787003FE942 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};
