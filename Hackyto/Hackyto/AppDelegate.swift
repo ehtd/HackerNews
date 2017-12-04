@@ -10,11 +10,10 @@ import UIKit
 import MessageUI
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate, UITabBarControllerDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
-    var previousController: UINavigationController? = nil;
+    let tabbarControllerDelegate = TabbarControllerDelegate()
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
@@ -24,7 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITabBarControllerDelegat
         window?.backgroundColor = ColorFactory.darkGrayColor()
 
         let tabBarController: UITabBarController = UITabBarController()
-        tabBarController.delegate = self
+        tabBarController.delegate = tabbarControllerDelegate
 
         var viewControllers: [UIViewController] = []
         
@@ -54,19 +53,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITabBarControllerDelegat
         window?.makeKeyAndVisible()
 
         return true
-    }
-
-    func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
-        guard let navigationController = tabBarController.viewControllers?[tabBarController.selectedIndex] as? UINavigationController else {
-            return
-        }
-        
-        let canScrollToTop = navigationController == previousController
-        if let tableViewController = navigationController.topViewController as? UITableViewController, canScrollToTop {
-            tableViewController.tableView.setContentOffset(.zero, animated: true)
-        }
-        
-        previousController = navigationController
     }
 
     // MARK: Apperance configuration
