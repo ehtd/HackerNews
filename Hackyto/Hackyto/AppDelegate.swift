@@ -14,8 +14,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITabBarControllerDelegat
 
     var window: UIWindow?
 
-    var globalMailComposer: MFMailComposeViewController? = nil
-
     var previousController: UINavigationController? = nil;
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
@@ -69,17 +67,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITabBarControllerDelegat
         }
         
         previousController = navigationController
-    }
-    
-    func composer() -> MFMailComposeViewController?{
-        
-        if MFMailComposeViewController.canSendMail() {
-            globalMailComposer = nil
-            globalMailComposer = MFMailComposeViewController()
-            return globalMailComposer
-        }
-        
-        return nil
     }
 
     // MARK: Apperance configuration
