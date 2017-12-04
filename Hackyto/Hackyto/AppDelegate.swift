@@ -10,12 +10,14 @@ import UIKit
 import MessageUI
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, UITabBarControllerDelegate {
 
     var window: UIWindow?
 
     var globalMailComposer: MFMailComposeViewController? = nil
 
+    var previousController: UINavigationController? = nil;
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
         UIApplication.shared.statusBarStyle = UIStatusBarStyle.lightContent
@@ -24,6 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.backgroundColor = ColorFactory.darkGrayColor()
 
         let tabBarController: UITabBarController = UITabBarController()
+        tabBarController.delegate = self
 
         var viewControllers: [UIViewController] = []
         
@@ -55,6 +58,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
 
+    func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
+        guard let navigationController = tabBarController.viewControllers?[tabBarController.selectedIndex] as? UINavigationController else {
+            return
+        }
+        
+        let canScrollToTop = navigationController == previousController
+        if let tableViewController = navigationController.topViewController as? UITableViewController, canScrollToTop {
+            tableViewController.tableView.setContentOffset(.zero, animated: true)
+        }
+        
+        previousController = navigationController
+    }
+    
     func composer() -> MFMailComposeViewController?{
         
         if MFMailComposeViewController.canSendMail() {
