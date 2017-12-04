@@ -23,4 +23,8 @@ class TabbarControllerDelegate: NSObject, UITabBarControllerDelegate {
         
         previousController = navigationController
     }
+    
+    func setStartingController(_ controller: UINavigationController?) {
+        previousController = controller
+    }
 }

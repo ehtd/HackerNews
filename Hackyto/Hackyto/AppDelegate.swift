@@ -36,7 +36,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
 
         tabBarController.viewControllers = viewControllers
-
+        if let startingController = viewControllers[0] as? UINavigationController {
+            tabbarControllerDelegate.setStartingController(startingController)
+        }
+        
         let tabBarImageNames = ["top", "new", "ask", "show", "jobs"]
         let tabBarTitles = tabBarImageNames.map { $0.capitalized }
         
