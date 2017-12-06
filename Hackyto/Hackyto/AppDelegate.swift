@@ -13,9 +13,8 @@ import MessageUI
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
-    var globalMailComposer: MFMailComposeViewController? = nil
-
+    let tabbarControllerDelegate = TabbarControllerDelegate()
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
         UIApplication.shared.statusBarStyle = UIStatusBarStyle.lightContent
@@ -24,6 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.backgroundColor = ColorFactory.darkGrayColor()
 
         let tabBarController: UITabBarController = UITabBarController()
+        tabBarController.delegate = tabbarControllerDelegate
 
         var viewControllers: [UIViewController] = []
         
@@ -36,7 +36,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
 
         tabBarController.viewControllers = viewControllers
-
+        if let startingController = viewControllers[0] as? UINavigationController {
+            tabbarControllerDelegate.setStartingController(startingController)
+        }
+        
         let tabBarImageNames = ["top", "new", "ask", "show", "jobs"]
         let tabBarTitles = tabBarImageNames.map { $0.capitalized }
         
@@ -53,17 +56,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.makeKeyAndVisible()
 
         return true
-    }
-
-    func composer() -> MFMailComposeViewController?{
-        
-        if MFMailComposeViewController.canSendMail() {
-            globalMailComposer = nil
-            globalMailComposer = MFMailComposeViewController()
-            return globalMailComposer
-        }
-        
-        return nil
     }
 
     // MARK: Apperance configuration

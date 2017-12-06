@@ -191,7 +191,7 @@ extension TableController {
     }
 
     override var prefersStatusBarHidden: Bool {
-        return true
+        return false
     }
 }
 

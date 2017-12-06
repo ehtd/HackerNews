@@ -10,6 +10,7 @@
 		1651E2781F292863001F5FAF /* Hermes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1651E2771F292863001F5FAF /* Hermes.framework */; };
 		1651E2F61F2B97A8001F5FAF /* cartfile in Resources */ = {isa = PBXBuildFile; fileRef = 1651E2F51F2B97A8001F5FAF /* cartfile */; };
 		1651E2F91F2B9B0C001F5FAF /* Hermes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1651E2771F292863001F5FAF /* Hermes.framework */; };
+		16B3C37C1FD5CBF10047F1AA /* TabbarControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16B3C37B1FD5CBF10047F1AA /* TabbarControllerDelegate.swift */; };
 		16C214E91C28D08600CF2C90 /* StoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 16C214E81C28D08600CF2C90 /* StoryCell.xib */; };
 		16C214EF1C28E52300CF2C90 /* ColorFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C214EE1C28E52300CF2C90 /* ColorFactory.swift */; };
 		16F542671C349C8900A5B10E /* CircledNumberView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16F542661C349C8900A5B10E /* CircledNumberView.swift */; };
@@ -67,6 +68,7 @@
 /* Begin PBXFileReference section */
 		1651E2771F292863001F5FAF /* Hermes.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Hermes.framework; path = Carthage/Build/iOS/Hermes.framework; sourceTree = "<group>"; };
 		1651E2F51F2B97A8001F5FAF /* cartfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = cartfile; sourceTree = "<group>"; };
+		16B3C37B1FD5CBF10047F1AA /* TabbarControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TabbarControllerDelegate.swift; path = Controllers/TabbarControllerDelegate.swift; sourceTree = "<group>"; };
 		16C214E81C28D08600CF2C90 /* StoryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = StoryCell.xib; path = Views/StoryCell.xib; sourceTree = "<group>"; };
 		16C214EE1C28E52300CF2C90 /* ColorFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ColorFactory.swift; path = Helpers/ColorFactory.swift; sourceTree = "<group>"; };
 		16F542661C349C8900A5B10E /* CircledNumberView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CircledNumberView.swift; path = Views/CircledNumberView.swift; sourceTree = "<group>"; };
@@ -130,6 +132,7 @@
 			children = (
 				29578F271A014F1400601218 /* WebViewController.swift */,
 				29DC679D1A03129C008391DD /* TableController.swift */,
+				16B3C37B1FD5CBF10047F1AA /* TabbarControllerDelegate.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -408,6 +411,7 @@
 				47E0F9C21EE398AA0083FB92 /* ContentProvider.swift in Sources */,
 				29BEDF1E1A52278C00822EB7 /* ShareInfo.swift in Sources */,
 				47E0F9BA1EE38D540083FB92 /* ItemFetcher.swift in Sources */,
+				16B3C37C1FD5CBF10047F1AA /* TabbarControllerDelegate.swift in Sources */,
 				2980453C1B129C6000728510 /* Constants.swift in Sources */,
 				47D5E1E01E273C30005B58F5 /* Story.swift in Sources */,
 			);

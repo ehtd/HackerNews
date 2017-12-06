@@ -53,7 +53,7 @@ fileprivate extension ContentProvider {
         var stories = Array<Story?>(repeatElement(nil, count: list.count))
 
         var pendingItems = list.count
-        let fetchCompleted: ((Void) -> Void) = { [weak self] in
+        let fetchCompleted: (() -> Void) = { [weak self] in
             pendingItems -= 1
             if pendingItems <= 0 {
                 let fullStories = stories.filter { $0 != nil }.map { $0! }
